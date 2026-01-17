@@ -3,17 +3,15 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Checking for built files..."
-        - if [ -d "public" ]; then echo "Using static HTML from public/"; fi
-        - if [ -d "out" ]; then echo "Using Next.js build from out/"; fi
-        - if [ ! -d "public" ] && [ ! -d "out" ]; then echo "No build found, attempting Next.js build..."; npm ci; npm run build; fi
+        - echo "Static HTML deployment"
     build:
       commands:
-        - echo "Build phase complete"
+        - echo "Serving static files"
   artifacts:
-    baseDirectory: public
+    baseDirectory: .
     files:
       - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+      - '!.git/**'
+      - '!node_modules/**'
+      - '!.next/**'
+      - '!out/**'
