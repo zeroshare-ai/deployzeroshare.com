@@ -3,10 +3,8 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Deploying static HTML"
-        - ls -la
-        - pwd
+        - echo "Static site deployment"
   artifacts:
-    baseDirectory: /
+    baseDirectory: .
     files:
       - '**/*'
