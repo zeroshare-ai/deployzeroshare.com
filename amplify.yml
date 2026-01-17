@@ -7,11 +7,12 @@ frontend:
     build:
       commands:
         - echo "Serving static files"
+        - ls -la
+        - if [ -f "index.html" ]; then echo "Found index.html in root"; fi
+        - if [ -d "public" ]; then echo "Found public directory"; fi
   artifacts:
     baseDirectory: .
     files:
-      - '**/*'
-      - '!.git/**'
-      - '!node_modules/**'
-      - '!.next/**'
-      - '!out/**'
+      - 'index.html'
+      - 'public/**/*'
+      - '.gitignore'
