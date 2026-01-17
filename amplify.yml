@@ -3,16 +3,18 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Static HTML deployment"
+        - echo "Pre-build phase"
     build:
       commands:
-        - echo "Serving static files"
+        - echo "Build phase - static HTML"
         - ls -la
-        - if [ -f "index.html" ]; then echo "Found index.html in root"; fi
-        - if [ -d "public" ]; then echo "Found public directory"; fi
+        - pwd
+        - if [ -f "index.html" ]; then echo "✅ index.html found"; cat index.html | head -5; else echo "❌ index.html not found"; fi
   artifacts:
-    baseDirectory: .
+    baseDirectory: /
     files:
       - 'index.html'
       - 'public/**/*'
-      - '.gitignore'
+      - '*.html'
+  cache:
+    paths: []
