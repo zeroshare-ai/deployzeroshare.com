@@ -1,20 +1,12 @@
 version: 1
 frontend:
   phases:
-    preBuild:
-      commands:
-        - echo "Pre-build phase"
     build:
       commands:
-        - echo "Build phase - static HTML"
+        - echo "Deploying static HTML"
         - ls -la
         - pwd
-        - if [ -f "index.html" ]; then echo "✅ index.html found"; cat index.html | head -5; else echo "❌ index.html not found"; fi
   artifacts:
     baseDirectory: /
     files:
-      - 'index.html'
-      - 'public/**/*'
-      - '*.html'
-  cache:
-    paths: []
+      - '**/*'
