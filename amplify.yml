@@ -1,17 +1,20 @@
 version: 1
 frontend:
   phases:
+    preBuild:
+      commands:
+        - echo "No deps needed for static site"
     build:
       commands:
-        - ls -la
-        - echo "Files to deploy:"
-        - find . -name "*.html" -o -name "*.css" -o -name "*.js" | grep -v node_modules | head -20
+        - echo "Preparing static site"
+        - rm -rf dist
+        - mkdir -p dist
+        - cp index.html dist/index.html
+        - if [ -d public ]; then cp -r public dist/public; fi
+        - find dist -maxdepth 3 -type f | head -20
   artifacts:
-    baseDirectory: .
+    baseDirectory: dist
     files:
-      - '**/*.html'
-      - '**/*.css'
-      - '**/*.js'
-      - '**/*.png'
-      - '**/*.svg'
-      - '**/*.jpg'
+      - '**/*'
+  cache:
+    paths: []
