@@ -1,0 +1,29 @@
+# Cursor Rules for DeployZeroShare.com
+
+## Project Overview
+This is a high-conversion landing page for **ZeroShare Gateway**, an on-premise AI security solution.
+The project is built with **Next.js 14 (App Router)** and **TypeScript**, deployed on **AWS Amplify**.
+
+## Core Business Requirements ("The 1-1-1 Strategy")
+- **1 Offer:** ZeroShare Gateway (On-premise AI Security).
+- **1 Problem:** Data leakage to public cloud AI models (PII & Secrets).
+- **1 Audience:** Security-conscious enterprises and developers.
+- **1 Goal:** Drive traffic to the **AWS Marketplace listing**.
+
+## Tech Stack & Conventions
+- **Framework:** Next.js 14 (App Router).
+- **Language:** TypeScript.
+- **Styling:** Inline CSS (`style={{ ... }}`) or CSS Modules. **Do NOT use Tailwind CSS** as it is not configured.
+- **Fonts:** Google Fonts 'Inter' (configured in `layout.tsx`).
+- **Deployment:** AWS Amplify (Static Export via `output: 'export'`).
+
+## Behavioral Rules for AI
+1.  **Focus on Conversion:** When modifying UI, prioritize clear CTAs and trust signals.
+2.  **Maintain Simplicity:** The site is a static export. Avoid features that require a Node.js runtime (e.g., API routes, server actions) unless sure they work with Amplify's build settings.
+3.  **Strict Typing:** Always use proper TypeScript interfaces.
+4.  **No "Lorem Ipsum":** Use realistic, benefit-driven copy related to AI security.
+
+## Key Files
+- `app/page.tsx`: Main landing page.
+- `app/layout.tsx`: Root layout (fonts, metadata).
+- `amplify.yml`: Build configuration for AWS Amplify.
