@@ -35,26 +35,7 @@ export default function Home() {
             href={awsMarketplaceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              background: 'white',
-              color: '#667eea',
-              padding: '18px 40px',
-              borderRadius: '10px',
-              fontWeight: 'bold',
-              fontSize: '1.2rem',
-              display: 'inline-block',
-              textDecoration: 'none',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.25)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-            }}
+            className="cta-button cta-primary"
           >
             View on AWS Marketplace
           </a>
@@ -81,13 +62,16 @@ export default function Home() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '2.5rem'
           }}>
-            <div style={{
-              background: 'white',
-              padding: '2.5rem',
-              borderRadius: '15px',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
-              border: '1px solid #e9ecef'
-            }}>
+            <div 
+              className="feature-card"
+              style={{
+                background: 'white',
+                padding: '2.5rem',
+                borderRadius: '15px',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+                border: '1px solid #e9ecef'
+              }}
+            >
               <h3 style={{
                 fontSize: '1.8rem',
                 marginBottom: '1rem',
@@ -107,13 +91,16 @@ export default function Home() {
                 AI models.
               </p>
             </div>
-            <div style={{
-              background: 'white',
-              padding: '2.5rem',
-              borderRadius: '15px',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
-              border: '1px solid #e9ecef'
-            }}>
+            <div 
+              className="feature-card"
+              style={{
+                background: 'white',
+                padding: '2.5rem',
+                borderRadius: '15px',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+                border: '1px solid #e9ecef'
+              }}
+            >
               <h3 style={{
                 fontSize: '1.8rem',
                 marginBottom: '1rem',
@@ -166,26 +153,7 @@ export default function Home() {
             href={awsMarketplaceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              color: 'white',
-              padding: '20px 45px',
-              borderRadius: '12px',
-              fontWeight: 'bold',
-              fontSize: '1.3rem',
-              display: 'inline-block',
-              textDecoration: 'none',
-              boxShadow: '0 6px 20px rgba(102, 126, 234, 0.5)',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            }}
-             onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.6)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.5)';
-            }}
+            className="cta-button cta-gradient"
           >
             Get It On AWS Marketplace
           </a>
