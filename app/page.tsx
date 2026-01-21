@@ -1,284 +1,193 @@
 export default function Home() {
+  const awsMarketplaceUrl = "https://aws.amazon.com/marketplace/pp/prodview-0123456789"; // Replace with your actual listing URL
+
   return (
-    <main style={{ minHeight: '100vh' }}>
+    <main style={{ minHeight: '100vh', background: '#ffffff', color: '#1a1a1a', fontFamily: "'Inter', sans-serif" }}>
       {/* Hero Section */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         color: 'white',
-        padding: '80px 20px',
+        padding: '100px 20px',
         textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h1 style={{
-            fontSize: '3.5rem',
-            fontWeight: 'bold',
+            fontSize: '4rem',
+            fontWeight: 900,
             marginBottom: '1.5rem',
             lineHeight: '1.2'
           }}>
-            Deploy ZeroShare Gateway
+            Secure Your AI, Unleash Your Innovation
           </h1>
           <p style={{
             fontSize: '1.5rem',
-            marginBottom: '2rem',
+            marginBottom: '2.5rem',
             opacity: 0.95,
-            maxWidth: '800px',
-            margin: '0 auto 2rem'
+            maxWidth: '700px',
+            margin: '0 auto 2.5rem',
+            fontWeight: 400
           }}>
-            On-premise AI security gateway with PII redaction and secrets blocking.
-            Keep your sensitive data protected while using cloud AI services.
+            ZeroShare Gateway is your on-premise security solution to prevent data
+            leaks to cloud AI services. Protect sensitive user data and developer
+            secrets with confidence.
           </p>
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
-            <a href="#deploy" style={{
+          <a
+            href={awsMarketplaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
               background: 'white',
               color: '#667eea',
-              padding: '16px 32px',
-              borderRadius: '8px',
-              fontWeight: '600',
-              fontSize: '1.1rem',
+              padding: '18px 40px',
+              borderRadius: '10px',
+              fontWeight: 'bold',
+              fontSize: '1.2rem',
               display: 'inline-block',
-              transition: 'transform 0.2s'
-            }}>
-              Get Started
-            </a>
-            <a href="#features" style={{
-              background: 'transparent',
-              color: 'white',
-              padding: '16px 32px',
-              borderRadius: '8px',
-              fontWeight: '600',
-              fontSize: '1.1rem',
-              display: 'inline-block',
-              border: '2px solid white',
-              transition: 'transform 0.2s'
-            }}>
-              Learn More
-            </a>
-          </div>
+              textDecoration: 'none',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.25)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            }}
+          >
+            View on AWS Marketplace
+          </a>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" style={{
+      {/* How It Works Section */}
+      <section id="solution" style={{
         padding: '80px 20px',
         background: '#f8f9fa'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{
-            fontSize: '2.5rem',
+            fontSize: '3rem',
             textAlign: 'center',
-            marginBottom: '3rem',
-            color: '#1a1a1a'
+            marginBottom: '4rem',
+            color: '#1a1a1a',
+            fontWeight: 700
           }}>
-            Two Protection Lanes
+            A Simple, Powerful Security Layer
           </h2>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '2.5rem'
           }}>
             <div style={{
               background: 'white',
-              padding: '2rem',
-              borderRadius: '12px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              padding: '2.5rem',
+              borderRadius: '15px',
+              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+              border: '1px solid #e9ecef'
             }}>
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 marginBottom: '1rem',
-                color: '#667eea'
+                color: '#667eea',
+                fontWeight: 700
               }}>
-                PII Redaction
+                PII Redaction for Users
               </h3>
               <p style={{
                 fontSize: '1.1rem',
-                lineHeight: '1.6',
-                color: '#666'
+                lineHeight: '1.7',
+                color: '#555',
+                fontWeight: 400
               }}>
-                For standard users: Automatically redact emails, phone numbers, SSNs, 
-                credit cards, and other personally identifiable information before 
-                sending requests to AI models.
+                Automatically finds and redacts sensitive user information like emails,
+                phone numbers, and credit card details before they reach third-party
+                AI models.
               </p>
             </div>
             <div style={{
               background: 'white',
-              padding: '2rem',
-              borderRadius: '12px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              padding: '2.5rem',
+              borderRadius: '15px',
+              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+              border: '1px solid #e9ecef'
             }}>
               <h3 style={{
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 marginBottom: '1rem',
-                color: '#764ba2'
+                color: '#764ba2',
+                fontWeight: 700
               }}>
-                Secrets Blocking
+                Secret Blocking for Developers
               </h3>
               <p style={{
                 fontSize: '1.1rem',
-                lineHeight: '1.6',
-                color: '#666'
+                lineHeight: '1.7',
+                color: '#555',
+                fontWeight: 400
               }}>
-                For developers: Hard block AWS keys, API keys, private keys, and 
-                other secrets from leaking into code assistants. Prevent accidental 
-                exposure of credentials.
+                Prevents accidental leaks of developer secrets such as API keys,
+                AWS credentials, and private tokens to AI coding assistants.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Architecture Section */}
+      {/* Final CTA Section */}
       <section style={{
-        padding: '80px 20px',
-        background: 'white'
+        padding: '100px 20px',
+        background: 'white',
+        textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{
-            fontSize: '2.5rem',
-            textAlign: 'center',
-            marginBottom: '3rem',
-            color: '#1a1a1a'
-          }}>
-            Architecture
-          </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                background: '#667eea',
-                color: 'white',
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem',
-                fontWeight: 'bold'
-              }}>API</div>
-              <h3 style={{ marginBottom: '0.5rem' }}>FastAPI Backend</h3>
-              <p style={{ color: '#666' }}>Async PostgreSQL, security engine, and AI routing</p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                background: '#764ba2',
-                color: 'white',
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem',
-                fontWeight: 'bold'
-              }}>🔒</div>
-              <h3 style={{ marginBottom: '0.5rem' }}>Security Engine</h3>
-              <p style={{ color: '#666' }}>Presidio for PII, regex for secrets detection</p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                background: '#667eea',
-                color: 'white',
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem',
-                fontWeight: 'bold'
-              }}>📊</div>
-              <h3 style={{ marginBottom: '0.5rem' }}>Dashboard</h3>
-              <p style={{ color: '#666' }}>Streamlit monitoring and audit logs</p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                background: '#764ba2',
-                color: 'white',
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem',
-                fontSize: '2rem',
-                fontWeight: 'bold'
-              }}>☁️</div>
-              <h3 style={{ marginBottom: '0.5rem' }}>AI Routing</h3>
-              <p style={{ color: '#666' }}>LiteLLM with Azure OpenAI / AWS Bedrock</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Deploy Section */}
-      <section id="deploy" style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white'
-      }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            marginBottom: '2rem'
-          }}>
-            Quick Deploy with Docker
-          </h2>
-          <div style={{
-            background: '#1a1a1a',
-            padding: '2rem',
-            borderRadius: '12px',
+            fontSize: '3rem',
             marginBottom: '2rem',
-            textAlign: 'left',
-            overflowX: 'auto'
+            color: '#1a1a1a',
+            fontWeight: 700
           }}>
-            <pre style={{
-              color: '#00ff00',
-              fontFamily: 'monospace',
-              fontSize: '0.9rem',
-              lineHeight: '1.6'
-            }}>{`# Clone the repository
-git clone https://github.com/zeroshare/zeroshare-gateway
-cd zeroshare-gateway
-
-# Configure environment
-cp ENV_TEMPLATE.txt .env
-# Edit .env with your credentials
-
-# Start services
-docker-compose up -d
-
-# Initialize database
-docker-compose exec backend python -m backend.init_db`}</pre>
-          </div>
+            Ready to Secure Your AI?
+          </h2>
           <p style={{
-            fontSize: '1.2rem',
-            marginBottom: '2rem',
-            opacity: 0.95
+            fontSize: '1.3rem',
+            marginBottom: '3rem',
+            color: '#555',
+            lineHeight: '1.7',
+            fontWeight: 400
           }}>
-            Standard Docker Compose deployment. No cloud dependencies required.
+            Deploy ZeroShare Gateway from the AWS Marketplace today. It’s the
+            fastest way to add a critical layer of data security and gain peace
+            of mind.
           </p>
-          <a href="https://github.com/zeroshare/zeroshare-gateway" style={{
-            background: 'white',
-            color: '#667eea',
-            padding: '16px 32px',
-            borderRadius: '8px',
-            fontWeight: '600',
-            fontSize: '1.1rem',
-            display: 'inline-block'
-          }}>
-            View on GitHub
+          <a
+            href={awsMarketplaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              padding: '20px 45px',
+              borderRadius: '12px',
+              fontWeight: 'bold',
+              fontSize: '1.3rem',
+              display: 'inline-block',
+              textDecoration: 'none',
+              boxShadow: '0 6px 20px rgba(102, 126, 234, 0.5)',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            }}
+             onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.6)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.5)';
+            }}
+          >
+            Get It On AWS Marketplace
           </a>
         </div>
       </section>
@@ -291,14 +200,14 @@ docker-compose exec backend python -m backend.init_db`}</pre>
         textAlign: 'center'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p style={{ marginBottom: '1rem' }}>
-            ZeroShare Gateway - On-Premise AI Security Gateway
+          <p style={{ marginBottom: '1rem', color: '#ccc', fontSize: '0.9rem', fontWeight: 400 }}>
+            ZeroShare Gateway - On-Premise AI Security
           </p>
-          <p style={{ color: '#999', fontSize: '0.9rem' }}>
+          <p style={{ color: '#888', fontSize: '0.8rem', fontWeight: 400 }}>
             © {new Date().getFullYear()} ZeroShare. All rights reserved.
           </p>
         </div>
       </footer>
     </main>
-  )
+  );
 }
