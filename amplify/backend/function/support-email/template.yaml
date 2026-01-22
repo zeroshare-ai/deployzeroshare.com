@@ -11,7 +11,7 @@ Parameters:
     Default: no-reply@deployzeroshare.com
   ToEmail:
     Type: String
-    Default: rick@beaverpaw.com
+    Default: support@deployzeroshare.com
 
 Resources:
   SupportEmailFunction:

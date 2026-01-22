@@ -138,33 +138,44 @@ for DKIM_RECORD in $(echo $RECORDS | jq -r '.Records[] | select(.Type=="CNAME" a
     --region $REGION || echo "  DKIM record may already exist"
 done
 
-# Create email aliases
+# Create email aliases (will retry if domain not yet verified)
 echo ""
 echo "📮 Creating email aliases..."
+echo "  Note: Domain verification may take 5-15 minutes after DNS records are added"
+echo ""
 
-# Create rick@deployzeroshare.com alias
-echo "  Creating rick@deployzeroshare.com..."
-aws workmail create-alias \
-  --organization-id $ORG_ID \
-  --entity-id $USER_ID \
-  --alias rick@deployzeroshare.com \
-  --region $REGION 2>&1 || echo "  Alias may already exist"
+# Function to create alias with retry
+create_alias_with_retry() {
+  local alias=$1
+  local max_attempts=3
+  local attempt=1
+  
+  while [ $attempt -le $max_attempts ]; do
+    echo "  Creating $alias (attempt $attempt/$max_attempts)..."
+    if aws workmail create-alias \
+      --organization-id $ORG_ID \
+      --entity-id $USER_ID \
+      --alias $alias \
+      --region $REGION 2>&1; then
+      echo "  ✅ Successfully created $alias"
+      return 0
+    else
+      if [ $attempt -lt $max_attempts ]; then
+        echo "  ⏳ Domain may not be verified yet. Waiting 30 seconds..."
+        sleep 30
+      fi
+      attempt=$((attempt + 1))
+    fi
+  done
+  echo "  ⚠️  Failed to create $alias. Domain may need more time to verify."
+  echo "     Run this command manually later:"
+  echo "     aws workmail create-alias --organization-id $ORG_ID --entity-id $USER_ID --alias $alias --region $REGION"
+  return 1
+}
 
-# Create rick.almeida@deployzeroshare.com alias
-echo "  Creating rick.almeida@deployzeroshare.com..."
-aws workmail create-alias \
-  --organization-id $ORG_ID \
-  --entity-id $USER_ID \
-  --alias rick.almeida@deployzeroshare.com \
-  --region $REGION 2>&1 || echo "  Alias may already exist"
-
-# Create support@deployzeroshare.com alias
-echo "  Creating support@deployzeroshare.com..."
-aws workmail create-alias \
-  --organization-id $ORG_ID \
-  --entity-id $USER_ID \
-  --alias support@deployzeroshare.com \
-  --region $REGION 2>&1 || echo "  Alias may already exist"
+create_alias_with_retry "rick@deployzeroshare.com"
+create_alias_with_retry "rick.almeida@deployzeroshare.com"
+create_alias_with_retry "support@deployzeroshare.com"
 
 echo ""
 echo "✅ Configuration complete!"

@@ -117,7 +117,7 @@ Please respond directly to ${email}.
     const params = {
       Source: process.env.FROM_EMAIL || 'no-reply@deployzeroshare.com',
       Destination: {
-        ToAddresses: [process.env.TO_EMAIL || 'rick@beaverpaw.com']
+        ToAddresses: [process.env.TO_EMAIL || 'support@deployzeroshare.com']
       },
       Message: {
         Subject: {

@@ -23,7 +23,7 @@ backend:
               --region us-east-1 \
               --parameter-overrides \
                 FromEmail=no-reply@deployzeroshare.com \
-                ToEmail=rick@beaverpaw.com \
+                ToEmail=support@deployzeroshare.com \
               || echo "Backend deployment skipped (may already exist or need manual setup)"
           )
           # Get API URL and inject as environment variable for frontend
