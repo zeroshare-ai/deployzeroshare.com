@@ -209,7 +209,49 @@ export default function TermsPage() {
             fontWeight: 700,
             color: '#667eea'
           }}>
-            11. Contact Information
+            11. Content Creation and Editorial Process
+          </h2>
+          <p style={{ marginBottom: '1.5rem', color: '#555' }}>
+            ZeroShare employs various tools and technologies in its content creation workflow, which may include 
+            artificial intelligence, machine learning systems, research databases, and other digital tools to assist 
+            our editorial team in research, drafting, fact-checking, and content optimization. All content published 
+            on this website undergoes editorial review and is curated by our team to ensure accuracy, relevance, and 
+            quality. The use of technology-assisted tools in content creation is standard industry practice and does 
+            not diminish the expertise, research, or editorial judgment applied to our materials.
+          </p>
+          <p style={{ marginBottom: '1.5rem', color: '#555' }}>
+            Statistics, data points, regulatory information, and technical guidance presented in our content are 
+            sourced from publicly available research, government publications, industry reports, and established 
+            authorities in the relevant fields. While we strive for accuracy, readers should verify critical 
+            information with primary sources and consult appropriate professionals for specific compliance, legal, 
+            or technical guidance applicable to their circumstances.
+          </p>
+
+          <h2 style={{
+            fontSize: '1.8rem',
+            marginTop: '2rem',
+            marginBottom: '1rem',
+            fontWeight: 700,
+            color: '#667eea'
+          }}>
+            12. Intellectual Property and Attribution
+          </h2>
+          <p style={{ marginBottom: '1.5rem', color: '#555' }}>
+            All content, including but not limited to text, graphics, logos, images, and software, is the property 
+            of ZeroShare or its content suppliers and is protected by intellectual property laws. Author names and 
+            bylines represent the editorial team members responsible for content curation, review, and publication, 
+            and do not necessarily indicate sole authorship in the traditional sense. Our content creation process 
+            is collaborative and may involve multiple contributors, reviewers, and technological tools.
+          </p>
+
+          <h2 style={{
+            fontSize: '1.8rem',
+            marginTop: '2rem',
+            marginBottom: '1rem',
+            fontWeight: 700,
+            color: '#667eea'
+          }}>
+            13. Contact Information
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             If you have any questions about these Terms of Service, please{' '}

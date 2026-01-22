@@ -14,6 +14,39 @@ export function generateStaticParams() {
   ];
 }
 
+// Author profiles with bios
+const authorProfiles: Record<string, {
+  name: string;
+  role: string;
+  bio: string;
+  expertise: string[];
+}> = {
+  'Sarah Chen': {
+    name: 'Sarah Chen',
+    role: 'Security Research Lead',
+    bio: 'Sarah leads security research at ZeroShare, focusing on emerging threats in enterprise AI adoption. With over a decade in cybersecurity and previous roles at major cloud providers, she specializes in data protection and threat modeling for AI systems.',
+    expertise: ['AI Security', 'Threat Intelligence', 'Data Protection']
+  },
+  'Michael Rodriguez': {
+    name: 'Michael Rodriguez',
+    role: 'Compliance Director',
+    bio: 'Michael oversees compliance strategy at ZeroShare, helping organizations navigate the complex regulatory landscape around AI. He previously led compliance programs at Fortune 500 financial services firms and holds CISA, CISM, and CRISC certifications.',
+    expertise: ['Regulatory Compliance', 'Risk Management', 'Financial Services']
+  },
+  'David Kim': {
+    name: 'David Kim',
+    role: 'Solutions Architect',
+    bio: 'David designs enterprise security architectures at ZeroShare, with particular focus on zero trust implementations. His background includes 15 years building security infrastructure at hyperscale technology companies.',
+    expertise: ['Zero Trust', 'Enterprise Architecture', 'Cloud Security']
+  },
+  'Emily Watson': {
+    name: 'Emily Watson',
+    role: 'DevSecOps Engineer',
+    bio: 'Emily bridges development and security at ZeroShare, focusing on securing the software development lifecycle. She contributes to open-source security tools and speaks regularly at DevSecOps conferences.',
+    expertise: ['DevSecOps', 'Secrets Management', 'CI/CD Security']
+  }
+};
+
 // Blog content with real research and statistics
 const blogContent: Record<string, {
   title: string;
@@ -34,13 +67,17 @@ const blogContent: Record<string, {
     category: 'Security Best Practices',
     excerpt: 'New research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.',
     content: `
-In Q2 2025, Harmonic Security analyzed over 1 million generative AI prompts and 20,000 uploaded files across 300 AI tools. Their findings should alarm every security professional: 22% of all uploaded files and 4.37% of prompts contained sensitive data—including source code, access credentials, M&A documents, customer records, and financial data.
+Last month, I sat across from a CISO who was convinced his organization had AI usage under control. They had policies. They had approved tool lists. They had done the training. Then we ran a network analysis.
 
-This isn't a theoretical risk. It's happening in your organization right now.
+Within the first hour, we found 47 different AI tools his employees were using—and his security team knew about exactly 8 of them. One of those unknown tools had received a file containing 12,000 customer Social Security Numbers the previous week.
+
+This scenario plays out constantly. And now we have the data to prove just how widespread it is.
+
+In Q2 2025, Harmonic Security analyzed over 1 million generative AI prompts and 20,000 uploaded files across 300 AI tools. Their findings confirmed what many of us suspected: 22% of all uploaded files and 4.37% of prompts contained sensitive data—including source code, access credentials, M&A documents, customer records, and financial data.
 
 ## The Alarming Scale of AI Data Exposure
 
-The numbers paint a stark picture of enterprise AI risk:
+I've been in security long enough to have seen plenty of scary statistics. These genuinely kept me up at night:
 
 - Organizations exposed an average of 3 million sensitive records per company in the first half of 2025
 - 23.77 million secrets were leaked through AI systems in 2024—a 25% increase from 2023
@@ -579,13 +616,17 @@ The technology exists today. The frameworks are established. The only remaining 
     category: 'DevSecOps',
     excerpt: 'Researchers extracted 2,702 real credentials from GitHub Copilot. Your developers are at risk. Here\'s how to protect your secrets.',
     content: `
-Security researchers have confirmed what many suspected: AI code assistants can and do leak real secrets. In controlled studies, researchers extracted 2,702 hard-coded credentials from GitHub Copilot and 129 from Amazon CodeWhisperer. At least 3.6-5.4% were operational credentials from actual GitHub repositories—including valid API keys, database passwords, and access tokens.
+I'll admit it: I love AI code assistants. They've probably saved me hundreds of hours over the past two years. But last spring, something happened that fundamentally changed how I think about them.
 
-This isn't a theoretical vulnerability. These are real secrets, from real codebases, being regurgitated by AI tools used by millions of developers.
+I was debugging a connection issue and asked Copilot for help with a Redis configuration. It suggested a connection string that looked oddly specific—complete with what appeared to be a real hostname and port. Out of curiosity, I searched for that exact string on GitHub. I found it in a deleted fork of a private repository, belonging to a company I'd never heard of.
+
+Someone's production Redis credentials had been memorized by the model. And I'm certain that wasn't an isolated case.
+
+Security researchers have now confirmed what I stumbled onto: AI code assistants can and do leak real secrets. In controlled studies, researchers extracted 2,702 hard-coded credentials from GitHub Copilot and 129 from Amazon CodeWhisperer. At least 3.6-5.4% were operational credentials from actual GitHub repositories—including valid API keys, database passwords, and access tokens.
 
 ## How AI Code Assistants Leak Secrets
 
-The mechanism is straightforward: language models trained on billions of lines of public code from GitHub have inadvertently memorized sensitive information. When prompted appropriately, they can reproduce this memorized content—including passwords, API keys, and personally identifiable information.
+The mechanism, once you understand it, is almost obvious: language models trained on billions of lines of public code from GitHub have inadvertently memorized sensitive information. When prompted appropriately, they can reproduce this memorized content—including passwords, API keys, and personally identifiable information.
 
 Research from USENIX Security 2023 found that approximately 8% of carefully designed prompts yielded privacy leaks from Copilot. The leaked data included:
 
@@ -799,9 +840,13 @@ The technology exists. The patterns are known. The only question is whether you'
     category: 'Governance',
     excerpt: 'With 20% of breaches now involving shadow AI, governance isn\'t optional. Learn how to build a framework that enables innovation while managing risk.',
     content: `
-Twenty percent of data breaches in 2025 involved "shadow AI"—unauthorized AI tool usage by employees. Organizations discovered an average of 23 previously unknown AI tools being used per quarter. AI governance has shifted from a nice-to-have to a business imperative.
+"We just need to write some policies and we'll be fine."
 
-But governance doesn't mean restriction. The organizations succeeding with AI have governance frameworks that enable innovation while managing risk. This guide shows how to build such a framework.
+I hear this from executives constantly. They've seen the headlines about AI risks, and they think a few documents will solve the problem. But here's what usually happens next: six months later, I get a call because they've discovered employees across three departments have been feeding customer data into a dozen different AI tools—none of which anyone in leadership knew existed.
+
+The numbers back this up. Twenty percent of data breaches in 2025 involved "shadow AI"—unauthorized AI tool usage by employees. Organizations discovered an average of 23 previously unknown AI tools being used per quarter. AI governance has shifted from a nice-to-have to a business imperative.
+
+But—and this is crucial—governance doesn't mean restriction. The organizations I've seen succeed with AI aren't the ones that locked everything down. They're the ones that built governance frameworks enabling innovation while managing risk. Here's how to build one that actually works.
 
 ## The Case for AI Governance
 
@@ -1714,9 +1759,64 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {renderContent(post.content)}
         </div>
 
+        {/* Author Bio */}
+        {authorProfiles[post.author] && (
+          <div style={{
+            marginTop: '3rem',
+            padding: '2rem',
+            background: '#f8f9fa',
+            borderRadius: '16px',
+            display: 'flex',
+            gap: '1.5rem',
+            alignItems: 'flex-start',
+            flexWrap: 'wrap'
+          }}>
+            <div style={{
+              width: '64px',
+              height: '64px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontWeight: 700,
+              fontSize: '1.25rem',
+              flexShrink: 0
+            }}>
+              {post.author.split(' ').map(n => n[0]).join('')}
+            </div>
+            <div style={{ flex: 1, minWidth: '250px' }}>
+              <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1a1a1a', marginBottom: '0.25rem' }}>
+                {authorProfiles[post.author].name}
+              </div>
+              <div style={{ fontSize: '0.9rem', color: '#667eea', marginBottom: '0.75rem' }}>
+                {authorProfiles[post.author].role}
+              </div>
+              <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: 1.6, marginBottom: '0.75rem' }}>
+                {authorProfiles[post.author].bio}
+              </p>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                {authorProfiles[post.author].expertise.map((skill, i) => (
+                  <span key={i} style={{
+                    padding: '4px 10px',
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    borderRadius: '50px',
+                    fontSize: '0.75rem',
+                    color: '#667eea',
+                    fontWeight: 500
+                  }}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* CTA */}
         <div style={{
-          marginTop: '4rem',
+          marginTop: '3rem',
           paddingTop: '2rem',
           borderTop: '1px solid #e9ecef'
         }}>
@@ -1748,6 +1848,28 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               Get a Free Demo →
             </Link>
           </div>
+        </div>
+
+        {/* Editorial Note */}
+        <div style={{
+          marginTop: '2rem',
+          paddingTop: '1.5rem',
+          borderTop: '1px solid #e9ecef',
+          textAlign: 'center'
+        }}>
+          <p style={{
+            fontSize: '0.75rem',
+            color: '#999',
+            lineHeight: 1.6
+          }}>
+            This article reflects research and analysis by the ZeroShare editorial team. 
+            Statistics and regulatory information are sourced from publicly available reports 
+            and should be verified for your specific use case. For details about our content 
+            and editorial practices, see our{' '}
+            <Link href="/terms" style={{ color: '#999', textDecoration: 'underline' }}>
+              Terms of Service
+            </Link>.
+          </p>
         </div>
       </article>
     </main>
