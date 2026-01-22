@@ -1,0 +1,31 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background: Rounded Rect -->
+  <rect x="10" y="10" width="130" height="130" rx="25" ry="25" fill="url(#brandGradient)" filter="url(#dropShadow)" />
+
+  <!-- Symbol: Stylized Shield/Gateway -->
+  <path d="M 75 30 L 115 45 V 75 C 115 100 75 120 75 120 C 75 120 35 100 35 75 V 45 L 75 30 Z" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Text: "0" inside -->
+  <text x="75" y="88" font-family="Arial, sans-serif" font-weight="bold" font-size="50" text-anchor="middle" fill="white">0</text>
+  
+  <!-- "ZeroShare" tiny text at bottom (optional, but requested) -->
+   <!-- Putting it on the rim might be too small, let's keep it clean with just the symbol -->
+</svg>

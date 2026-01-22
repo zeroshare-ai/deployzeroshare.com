@@ -12,21 +12,31 @@ REGION="us-east-1"
 # Format: partner-XXXXXXXXXXXXX (13 alphanumeric characters)
 # To find it: Go to AWS Partner Central → Account → Partner Profile
 # Or check the URL when viewing your partner profile
-PARTNER_ID="${PARTNER_ID:-}"
+# Default: Try to use numeric ID 2608007 (will be converted to proper format)
+PARTNER_ID="${PARTNER_ID:-2608007}"
 
-if [ -z "$PARTNER_ID" ]; then
-    echo "❌ Error: PARTNER_ID environment variable is required"
-    echo ""
-    echo "To find your Partner ID:"
-    echo "1. Go to https://partnercentral.aws.amazon.com/"
-    echo "2. Navigate to Account → Partner Profile"
-    echo "3. Check the URL or profile details for your Partner ID"
-    echo "4. Format: partner-XXXXXXXXXXXXX (13 characters)"
-    echo ""
-    echo "Then run:"
-    echo "  export PARTNER_ID='partner-XXXXXXXXXXXXX'"
-    echo "  ./scripts/update-partner-profile.sh"
-    exit 1
+# Convert numeric ID to partner-XXXXXXXXXXXXX format if needed
+if [[ ! "$PARTNER_ID" =~ ^partner- ]]; then
+    # If it's just a number, try to format it
+    if [[ "$PARTNER_ID" =~ ^[0-9]+$ ]]; then
+        # Try different formats
+        FORMATTED_ID=$(printf "partner-%013d" "$PARTNER_ID")
+        echo "⚠️  Converting numeric ID to format: $FORMATTED_ID"
+        PARTNER_ID="$FORMATTED_ID"
+    else
+        echo "❌ Error: PARTNER_ID must be in format 'partner-XXXXXXXXXXXXX' or a numeric ID"
+        echo "   Provided: $PARTNER_ID"
+        echo ""
+        echo "To find your Partner ID:"
+        echo "1. Go to https://partnercentral.aws.amazon.com/"
+        echo "2. Navigate to Account → Partner Profile"
+        echo "3. Check the URL or profile details for your Partner ID"
+        echo ""
+        echo "Then run:"
+        echo "  export PARTNER_ID='partner-XXXXXXXXXXXXX'"
+        echo "  ./scripts/update-partner-profile.sh"
+        exit 1
+    fi
 fi
 
 # Get current partner info to preserve existing values
@@ -53,13 +63,14 @@ CURRENT_INDUSTRY_SEGMENTS=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.In
 # Update website URL to deployzeroshare.com
 NEW_WEBSITE_URL="https://deployzeroshare.com"
 
-# If logo URL contains beaverpaw.com, update it (or leave as is if you want to keep current logo)
-if [[ "$CURRENT_LOGO_URL" == *"beaverpaw.com"* ]]; then
-    echo "⚠️  Current logo URL contains beaverpaw.com: $CURRENT_LOGO_URL"
-    echo "   You'll need to upload a new logo and update LOGO_URL manually"
-    NEW_LOGO_URL="$CURRENT_LOGO_URL"  # Keep current for now
-else
-    NEW_LOGO_URL="$CURRENT_LOGO_URL"
+# Set logo URL to the new logo on deployzeroshare.com
+NEW_LOGO_URL="https://deployzeroshare.com/logo_150x150.png"
+
+# If current logo URL exists and doesn't contain beaverpaw, we could keep it
+# But for now, always update to the new logo
+if [[ -n "$CURRENT_LOGO_URL" ]] && [[ "$CURRENT_LOGO_URL" != *"beaverpaw.com"* ]] && [[ "$CURRENT_LOGO_URL" != *"deployzeroshare.com"* ]]; then
+    echo "ℹ️  Current logo URL: $CURRENT_LOGO_URL"
+    echo "   Will update to: $NEW_LOGO_URL"
 fi
 
 # Update display name to remove beaverpaw branding

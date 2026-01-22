@@ -18,7 +18,7 @@ Resources:
       FunctionName: deployzeroshare-support-email
       Runtime: nodejs18.x
       Handler: index.handler
-      CodeUri: s3://PLACEHOLDER_BUCKET/PLACEHOLDER_KEY
+      CodeUri: s3://amplify-deployments-637423404906/2efcc917a36d10403090fe42769020f9
       Timeout: 30
       MemorySize: 256
       Environment:
@@ -28,9 +28,6 @@ Resources:
           TO_EMAIL:
             Ref: ToEmail
       Policies:
-      - SESCrudPolicy:
-          IdentityName:
-            Ref: FromEmail
       - Statement:
         - Effect: Allow
           Action:
