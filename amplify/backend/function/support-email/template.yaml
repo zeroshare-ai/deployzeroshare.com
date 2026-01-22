@@ -20,7 +20,7 @@ Resources:
       FunctionName: deployzeroshare-support-email
       Runtime: nodejs18.x
       Handler: index.handler
-      CodeUri: s3://PLACEHOLDER_BUCKET/PLACEHOLDER_KEY
+      CodeUri: .
       Timeout: 30
       MemorySize: 256
       Environment:
