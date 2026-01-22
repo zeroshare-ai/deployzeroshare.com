@@ -131,12 +131,6 @@ const jsonLd = {
         'Zero Latency Impact',
         'Custom Rules Engine',
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        ratingCount: '127',
-        bestRating: '5',
-      },
     },
     {
       '@type': 'FAQPage',

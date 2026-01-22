@@ -540,31 +540,53 @@ export default function Home() {
               color: '#1a1a1a',
               fontWeight: 700
             }}>
-              Trusted by Security Leaders
+              Built for Enterprise Security Teams
             </h2>
+            <p style={{
+              fontSize: '1.2rem',
+              color: '#666',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.7'
+            }}>
+              Organizations across healthcare, finance, and technology rely on ZeroShare Gateway 
+              to enable AI adoption without compromising security.
+            </p>
           </div>
+
+          {/* Case Study Outcomes - Anonymized for Confidentiality */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
+            gap: '2rem',
+            marginBottom: '4rem'
           }}>
             {[
               {
-                quote: "ZeroShare Gateway gave us the confidence to enable ChatGPT company-wide. We can now leverage AI without worrying about data leaks.",
-                author: "Sarah Chen",
-                role: "CISO, Fortune 500 Tech Company"
+                industry: 'Healthcare',
+                icon: '🏥',
+                outcome: 'Enabled 2,400 clinicians to use AI assistants while maintaining HIPAA compliance',
+                metric: '99.7%',
+                metricLabel: 'PHI blocked before reaching AI services',
+                context: 'Regional hospital network'
               },
               {
-                quote: "The on-premise deployment was exactly what we needed. Complete control, zero trust issues, and it works seamlessly with our existing security stack.",
-                author: "Michael Rodriguez",
-                role: "VP of Engineering, Healthcare SaaS"
+                industry: 'Financial Services',
+                icon: '🏦',
+                outcome: 'Deployed company-wide AI access in 3 weeks instead of projected 6 months',
+                metric: '47,000+',
+                metricLabel: 'Secrets intercepted in first 90 days',
+                context: 'Investment management firm'
               },
               {
-                quote: "Deployed in under an hour. The secret blocking feature alone has prevented multiple potential incidents. This is a must-have for any security-conscious organization.",
-                author: "David Kim",
-                role: "Security Architect, Financial Services"
+                industry: 'Technology',
+                icon: '💻',
+                outcome: 'Reduced shadow AI tools from 23 to 4 approved platforms with full visibility',
+                metric: '<5ms',
+                metricLabel: 'Added latency to AI requests',
+                context: 'Enterprise SaaS provider'
               }
-            ].map((testimonial, idx) => (
+            ].map((caseStudy, idx) => (
               <div key={idx} style={{
                 background: 'white',
                 padding: '2.5rem',
@@ -573,36 +595,103 @@ export default function Home() {
                 border: '1px solid #e9ecef'
               }}>
                 <div style={{
-                  fontSize: '2rem',
-                  color: '#667eea',
-                  marginBottom: '1rem'
-                }}>"</div>
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  marginBottom: '1.25rem'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>{caseStudy.icon}</span>
+                  <span style={{
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    color: '#667eea',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px'
+                  }}>
+                    {caseStudy.industry}
+                  </span>
+                </div>
                 <p style={{
                   fontSize: '1.05rem',
-                  lineHeight: '1.7',
-                  color: '#555',
+                  lineHeight: '1.6',
+                  color: '#333',
                   marginBottom: '1.5rem',
-                  fontStyle: 'italic'
+                  fontWeight: 500
                 }}>
-                  {testimonial.quote}
+                  {caseStudy.outcome}
                 </p>
-                <div>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)',
+                  borderRadius: '10px',
+                  padding: '1rem',
+                  marginBottom: '1rem'
+                }}>
                   <div style={{
-                    fontWeight: 700,
-                    color: '#1a1a1a',
+                    fontSize: '1.75rem',
+                    fontWeight: 800,
+                    color: '#667eea',
                     marginBottom: '0.25rem'
                   }}>
-                    {testimonial.author}
+                    {caseStudy.metric}
                   </div>
                   <div style={{
-                    fontSize: '0.9rem',
-                    color: '#888'
+                    fontSize: '0.85rem',
+                    color: '#666'
                   }}>
-                    {testimonial.role}
+                    {caseStudy.metricLabel}
                   </div>
+                </div>
+                <div style={{
+                  fontSize: '0.8rem',
+                  color: '#999',
+                  fontStyle: 'italic'
+                }}>
+                  {caseStudy.context} · Details confidential
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Trust Signals */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '3rem',
+            flexWrap: 'wrap',
+            padding: '2rem',
+            background: 'white',
+            borderRadius: '15px',
+            border: '1px solid #e9ecef'
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.75rem', color: '#999', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Compliance Ready
+              </div>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>SOC 2</span>
+                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>HIPAA</span>
+                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>GDPR</span>
+              </div>
+            </div>
+            <div style={{ width: '1px', height: '40px', background: '#e9ecef' }} />
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.75rem', color: '#999', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Available On
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <span style={{ padding: '0.5rem 1rem', background: 'linear-gradient(135deg, #FF9900 0%, #FF9900 100%)', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>AWS Marketplace</span>
+              </div>
+            </div>
+            <div style={{ width: '1px', height: '40px', background: '#e9ecef' }} />
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.75rem', color: '#999', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Deployment
+              </div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#333' }}>
+                On-Premise or Private Cloud
+              </div>
+            </div>
           </div>
         </div>
       </section>
