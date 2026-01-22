@@ -3,23 +3,34 @@
 import { useState } from 'react';
 import { Navigation } from '../components/Navigation';
 
+type Priority = 'general' | 'technical' | 'urgent';
+
+const priorities: { id: Priority; label: string; description: string; icon: string }[] = [
+  { id: 'general', label: 'General Inquiry', description: 'Questions about features or pricing', icon: '💬' },
+  { id: 'technical', label: 'Technical Support', description: 'Help with setup or configuration', icon: '🔧' },
+  { id: 'urgent', label: 'Urgent Issue', description: 'Production system affected', icon: '🚨' },
+];
+
 export default function SupportPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    subject: '',
     message: '',
-    priority: 'normal'
+    priority: 'general' as Priority
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handlePriorityChange = (priority: Priority) => {
+    setFormData({ ...formData, priority });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,8 +39,6 @@ export default function SupportPage() {
     setErrorMessage('');
 
     try {
-      // API endpoint is automatically set by Amplify build process
-      // It reads from CloudFormation stack outputs and injects as environment variable
       const apiEndpoint = process.env.NEXT_PUBLIC_SUPPORT_API_URL || 
         'https://deployzeroshare-support-api.execute-api.us-east-1.amazonaws.com/prod/support';
       
@@ -40,6 +49,7 @@ export default function SupportPage() {
         },
         body: JSON.stringify({
           ...formData,
+          subject: `[${formData.priority.toUpperCase()}] Support request from ${formData.name}`,
           timestamp: new Date().toISOString(),
         }),
       });
@@ -49,14 +59,6 @@ export default function SupportPage() {
       }
 
       setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        subject: '',
-        message: '',
-        priority: 'normal'
-      });
     } catch (error) {
       setStatus('error');
       setErrorMessage(error instanceof Error ? error.message : 'An error occurred. Please try again.');
@@ -66,6 +68,7 @@ export default function SupportPage() {
   return (
     <main style={{ minHeight: '100vh', background: '#f8f9fa', fontFamily: "'Inter', sans-serif" }}>
       <Navigation />
+      
       {/* Header */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -79,14 +82,14 @@ export default function SupportPage() {
             fontWeight: 900,
             marginBottom: '1rem'
           }}>
-            Open a Support Case
+            How Can We Help?
           </h1>
           <p style={{
             fontSize: '1.2rem',
             opacity: 0.95,
             lineHeight: '1.6'
           }}>
-            We're here to help. Submit a support request and we'll respond within 2 business days.
+            Our team responds within 24 hours. We're here to help you succeed.
           </p>
         </div>
       </section>
@@ -94,31 +97,38 @@ export default function SupportPage() {
       {/* Support Form */}
       <section style={{
         padding: '60px 20px',
-        maxWidth: '800px',
+        maxWidth: '700px',
         margin: '0 auto'
       }}>
         <div style={{
           background: 'white',
-          padding: '3rem',
-          borderRadius: '20px',
-          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)'
+          padding: 'clamp(2rem, 5vw, 3rem)',
+          borderRadius: '24px',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)'
         }}>
           {status === 'success' ? (
             <div style={{
               textAlign: 'center',
-              padding: '3rem 2rem'
+              padding: '2rem'
             }}>
               <div style={{
-                fontSize: '4rem',
-                marginBottom: '1rem'
+                width: '80px',
+                height: '80px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 1.5rem',
+                fontSize: '2.5rem'
               }}>✓</div>
               <h2 style={{
-                fontSize: '2rem',
+                fontSize: '1.8rem',
                 marginBottom: '1rem',
-                color: '#667eea',
+                color: '#1a1a1a',
                 fontWeight: 700
               }}>
-                Support Case Submitted
+                Message Sent!
               </h2>
               <p style={{
                 fontSize: '1.1rem',
@@ -126,8 +136,7 @@ export default function SupportPage() {
                 marginBottom: '2rem',
                 lineHeight: '1.7'
               }}>
-                Thank you for contacting us. We've received your support request and will respond 
-                to <strong>{formData.email}</strong> within 2 business days.
+                Thanks for reaching out. We'll get back to you at <strong>{formData.email}</strong> within 24 hours.
               </p>
               <button
                 onClick={() => {
@@ -136,9 +145,8 @@ export default function SupportPage() {
                     name: '',
                     email: '',
                     company: '',
-                    subject: '',
                     message: '',
-                    priority: 'normal'
+                    priority: 'general'
                   });
                 }}
                 style={{
@@ -146,219 +154,283 @@ export default function SupportPage() {
                   color: 'white',
                   border: 'none',
                   padding: '14px 32px',
-                  borderRadius: '10px',
+                  borderRadius: '12px',
                   fontSize: '1rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  transition: 'transform 0.2s ease'
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
                 }}
-                onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.4)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               >
-                Submit Another Request
+                Send Another Message
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
+              {/* Priority Selection - Modern Radio Cards */}
               <div style={{ marginBottom: '2rem' }}>
                 <label style={{
                   display: 'block',
-                  marginBottom: '0.5rem',
+                  marginBottom: '1rem',
                   fontWeight: 600,
                   color: '#1a1a1a',
-                  fontSize: '0.95rem'
+                  fontSize: '1rem'
                 }}>
-                  Your Name *
+                  What can we help you with?
                 </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    border: '2px solid #e9ecef',
-                    borderRadius: '10px',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
-                />
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                  gap: '1rem'
+                }}>
+                  {priorities.map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => handlePriorityChange(p.id)}
+                      style={{
+                        padding: '1.25rem',
+                        borderRadius: '16px',
+                        border: formData.priority === p.id 
+                          ? '2px solid #667eea' 
+                          : '2px solid #e9ecef',
+                        background: formData.priority === p.id 
+                          ? 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' 
+                          : 'white',
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        transition: 'all 0.2s ease',
+                        position: 'relative'
+                      }}
+                      onMouseOver={(e) => {
+                        if (formData.priority !== p.id) {
+                          e.currentTarget.style.borderColor = '#667eea50';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                        }
+                      }}
+                      onMouseOut={(e) => {
+                        if (formData.priority !== p.id) {
+                          e.currentTarget.style.borderColor = '#e9ecef';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                        }
+                      }}
+                    >
+                      {formData.priority === p.id && (
+                        <div style={{
+                          position: 'absolute',
+                          top: '10px',
+                          right: '10px',
+                          width: '20px',
+                          height: '20px',
+                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'white',
+                          fontSize: '12px'
+                        }}>✓</div>
+                      )}
+                      <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{p.icon}</div>
+                      <div style={{
+                        fontWeight: 600,
+                        color: formData.priority === p.id ? '#667eea' : '#1a1a1a',
+                        fontSize: '0.95rem',
+                        marginBottom: '0.25rem'
+                      }}>
+                        {p.label}
+                      </div>
+                      <div style={{
+                        fontSize: '0.8rem',
+                        color: '#888'
+                      }}>
+                        {p.description}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <div style={{ marginBottom: '2rem' }}>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  fontWeight: 600,
-                  color: '#1a1a1a',
-                  fontSize: '0.95rem'
-                }}>
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    border: '2px solid #e9ecef',
-                    borderRadius: '10px',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
-                />
+              {/* Name & Email Row */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '1rem',
+                marginBottom: '1.5rem'
+              }}>
+                <div>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                    fontWeight: 600,
+                    color: '#1a1a1a',
+                    fontSize: '0.9rem'
+                  }}>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="John Smith"
+                    style={{
+                      width: '100%',
+                      padding: '14px 16px',
+                      border: '2px solid #e9ecef',
+                      borderRadius: '12px',
+                      fontSize: '1rem',
+                      fontFamily: 'inherit',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#667eea';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(102, 126, 234, 0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#e9ecef';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+                <div>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                    fontWeight: 600,
+                    color: '#1a1a1a',
+                    fontSize: '0.9rem'
+                  }}>
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="john@company.com"
+                    style={{
+                      width: '100%',
+                      padding: '14px 16px',
+                      border: '2px solid #e9ecef',
+                      borderRadius: '12px',
+                      fontSize: '1rem',
+                      fontFamily: 'inherit',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#667eea';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(102, 126, 234, 0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#e9ecef';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
               </div>
 
-              <div style={{ marginBottom: '2rem' }}>
+              {/* Company (Optional) */}
+              <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{
                   display: 'block',
                   marginBottom: '0.5rem',
                   fontWeight: 600,
                   color: '#1a1a1a',
-                  fontSize: '0.95rem'
+                  fontSize: '0.9rem'
                 }}>
-                  Company (Optional)
+                  Company <span style={{ color: '#999', fontWeight: 400 }}>(optional)</span>
                 </label>
                 <input
                   type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
+                  placeholder="Acme Inc."
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
+                    padding: '14px 16px',
                     border: '2px solid #e9ecef',
-                    borderRadius: '10px',
+                    borderRadius: '12px',
                     fontSize: '1rem',
                     fontFamily: 'inherit',
-                    transition: 'border-color 0.2s ease'
+                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    outline: 'none'
                   }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#667eea';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(102, 126, 234, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#e9ecef';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                 />
               </div>
 
+              {/* Message */}
               <div style={{ marginBottom: '2rem' }}>
                 <label style={{
                   display: 'block',
                   marginBottom: '0.5rem',
                   fontWeight: 600,
                   color: '#1a1a1a',
-                  fontSize: '0.95rem'
+                  fontSize: '0.9rem'
                 }}>
-                  Priority *
-                </label>
-                <select
-                  name="priority"
-                  value={formData.priority}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    border: '2px solid #e9ecef',
-                    borderRadius: '10px',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    backgroundColor: 'white',
-                    cursor: 'pointer',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
-                >
-                  <option value="low">Low - General inquiry</option>
-                  <option value="normal">Normal - Standard support request</option>
-                  <option value="high">High - Urgent issue affecting operations</option>
-                  <option value="critical">Critical - System down or security issue</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: '2rem' }}>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  fontWeight: 600,
-                  color: '#1a1a1a',
-                  fontSize: '0.95rem'
-                }}>
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="Brief description of your issue"
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    border: '2px solid #e9ecef',
-                    borderRadius: '10px',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    transition: 'border-color 0.2s ease'
-                  }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
-                />
-              </div>
-
-              <div style={{ marginBottom: '2rem' }}>
-                <label style={{
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  fontWeight: 600,
-                  color: '#1a1a1a',
-                  fontSize: '0.95rem'
-                }}>
-                  Message *
+                  How can we help?
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={8}
-                  placeholder="Please provide details about your issue, including any error messages, steps to reproduce, and your environment details."
+                  rows={5}
+                  placeholder="Tell us what you need help with..."
                   style={{
                     width: '100%',
-                    padding: '12px 16px',
+                    padding: '14px 16px',
                     border: '2px solid #e9ecef',
-                    borderRadius: '10px',
+                    borderRadius: '12px',
                     fontSize: '1rem',
                     fontFamily: 'inherit',
                     resize: 'vertical',
-                    transition: 'border-color 0.2s ease'
+                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    outline: 'none',
+                    minHeight: '120px'
                   }}
-                  onFocus={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                  onBlur={(e) => e.currentTarget.style.borderColor = '#e9ecef'}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#667eea';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(102, 126, 234, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#e9ecef';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                 />
               </div>
 
               {status === 'error' && (
                 <div style={{
-                  background: '#fee',
-                  border: '2px solid #fcc',
-                  color: '#c33',
+                  background: '#fef2f2',
+                  border: '1px solid #fecaca',
+                  color: '#dc2626',
                   padding: '1rem',
-                  borderRadius: '10px',
+                  borderRadius: '12px',
                   marginBottom: '1.5rem',
                   fontSize: '0.95rem'
                 }}>
-                  {errorMessage || 'An error occurred. Please try again or use the form above to contact support.'}
+                  {errorMessage || 'Something went wrong. Please try again.'}
                 </div>
               )}
 
@@ -372,156 +444,59 @@ export default function SupportPage() {
                     : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '16px 32px',
-                  borderRadius: '10px',
+                  padding: '18px 32px',
+                  borderRadius: '14px',
                   fontSize: '1.1rem',
                   fontWeight: 700,
                   cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
-                  transition: 'transform 0.2s ease, opacity 0.2s ease',
-                  opacity: status === 'submitting' ? 0.7 : 1
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  boxShadow: status === 'submitting' ? 'none' : '0 4px 15px rgba(102, 126, 234, 0.3)'
                 }}
                 onMouseOver={(e) => {
                   if (status !== 'submitting') {
                     e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.4)';
                   }
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = status === 'submitting' ? 'none' : '0 4px 15px rgba(102, 126, 234, 0.3)';
                 }}
               >
-                {status === 'submitting' ? 'Submitting...' : 'Submit Support Case'}
+                {status === 'submitting' ? 'Sending...' : 'Send Message'}
               </button>
 
               <p style={{
                 marginTop: '1.5rem',
-                fontSize: '0.9rem',
-                color: '#888',
+                fontSize: '0.85rem',
+                color: '#999',
                 textAlign: 'center',
                 lineHeight: '1.6'
               }}>
-                By submitting this form, you agree to our{' '}
-                <a href="/privacy" style={{ color: '#667eea', textDecoration: 'underline' }}>
-                  Privacy Policy
-                </a>
-                {' '}and{' '}
-                <a href="/terms" style={{ color: '#667eea', textDecoration: 'underline' }}>
-                  Terms of Service
-                </a>
-                .
+                By submitting, you agree to our{' '}
+                <a href="/privacy" style={{ color: '#667eea', textDecoration: 'none' }}>Privacy Policy</a>
               </p>
             </form>
           )}
         </div>
 
-        {/* Additional Support Options */}
+        {/* Trust Indicators */}
         <div style={{
           marginTop: '3rem',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '1.5rem'
+          textAlign: 'center',
+          color: '#888',
+          fontSize: '0.9rem'
         }}>
           <div style={{
-            background: 'white',
-            padding: '2rem',
-            borderRadius: '15px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)',
-            textAlign: 'center'
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+            marginBottom: '1rem'
           }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📧</div>
-            <h3 style={{
-              fontSize: '1.2rem',
-              marginBottom: '0.5rem',
-              fontWeight: 700
-            }}>
-              Support Form
-            </h3>
-            <p style={{
-              color: '#666',
-              fontSize: '0.95rem',
-              marginBottom: '1rem'
-            }}>
-              Submit a support case
-            </p>
-            <a
-              href="/support"
-              style={{
-                color: '#667eea',
-                fontWeight: 600,
-                textDecoration: 'none'
-              }}
-            >
-              Open Support Case →
-            </a>
-          </div>
-
-          <div style={{
-            background: 'white',
-            padding: '2rem',
-            borderRadius: '15px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📚</div>
-            <h3 style={{
-              fontSize: '1.2rem',
-              marginBottom: '0.5rem',
-              fontWeight: 700
-            }}>
-              Documentation
-            </h3>
-            <p style={{
-              color: '#666',
-              fontSize: '0.95rem',
-              marginBottom: '1rem'
-            }}>
-              Self-service guides
-            </p>
-            <a
-              href="/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: '#667eea',
-                fontWeight: 600,
-                textDecoration: 'none'
-              }}
-            >
-              View Docs →
-            </a>
-          </div>
-
-          <div style={{
-            background: 'white',
-            padding: '2rem',
-            borderRadius: '15px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💬</div>
-            <h3 style={{
-              fontSize: '1.2rem',
-              marginBottom: '0.5rem',
-              fontWeight: 700
-            }}>
-              Community
-            </h3>
-            <p style={{
-              color: '#666',
-              fontSize: '0.95rem',
-              marginBottom: '1rem'
-            }}>
-              Join discussions and get community support.
-            </p>
-            <a
-              href="/support"
-              style={{
-                color: '#667eea',
-                fontWeight: 600,
-                textDecoration: 'none'
-              }}
-            >
-              Contact Support →
-            </a>
+            <span>🔒 Secure & Encrypted</span>
+            <span>⚡ 24hr Response Time</span>
+            <span>🌍 Enterprise Support</span>
           </div>
         </div>
       </section>
