@@ -3,16 +3,16 @@
 import { Navigation } from '../components/Navigation';
 import Link from 'next/link';
 
-// Sample blog posts - in production, these would come from a CMS or API
+// Blog posts with real research-backed content
 const blogPosts = [
   {
     slug: 'prevent-pii-leaks-ai-chatbots',
     title: 'How to Prevent PII Leaks When Your Team Uses AI Chatbots',
-    excerpt: 'Learn the essential strategies to protect personally identifiable information from being exposed through ChatGPT, Copilot, and other AI tools your employees use daily.',
+    excerpt: 'New research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.',
     author: 'Sarah Chen',
     authorRole: 'Security Research Lead',
     date: 'January 20, 2026',
-    readTime: '8 min read',
+    readTime: '12 min read',
     category: 'Security Best Practices',
     image: '/blog/pii-leaks.svg',
     featured: true,
@@ -20,11 +20,11 @@ const blogPosts = [
   {
     slug: 'ai-security-compliance-guide-2026',
     title: 'The Complete Guide to AI Security Compliance in 2026',
-    excerpt: 'Navigate GDPR, HIPAA, SOC 2, and emerging AI regulations with this comprehensive compliance guide for organizations using generative AI.',
+    excerpt: 'From HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.',
     author: 'Michael Rodriguez',
     authorRole: 'Compliance Director',
     date: 'January 18, 2026',
-    readTime: '12 min read',
+    readTime: '15 min read',
     category: 'Compliance',
     image: '/blog/compliance.svg',
     featured: true,
@@ -32,11 +32,11 @@ const blogPosts = [
   {
     slug: 'zero-trust-ai-architecture',
     title: 'Implementing Zero Trust Architecture for AI Applications',
-    excerpt: 'A deep dive into building zero trust security models that protect your organization while enabling productive use of AI tools.',
+    excerpt: 'Traditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.',
     author: 'David Kim',
     authorRole: 'Solutions Architect',
     date: 'January 15, 2026',
-    readTime: '10 min read',
+    readTime: '14 min read',
     category: 'Architecture',
     image: '/blog/zero-trust.svg',
     featured: false,
@@ -44,11 +44,11 @@ const blogPosts = [
   {
     slug: 'secrets-detection-ai-code-assistants',
     title: 'Stop Secrets from Leaking to AI Code Assistants',
-    excerpt: 'Developers love AI coding assistants, but they pose serious risks for API keys and credentials. Here\'s how to protect your secrets.',
+    excerpt: 'Researchers extracted 2,702 real credentials from GitHub Copilot. Your developers are at risk. Here\'s how to protect your secrets.',
     author: 'Emily Watson',
     authorRole: 'DevSecOps Engineer',
     date: 'January 12, 2026',
-    readTime: '6 min read',
+    readTime: '11 min read',
     category: 'DevSecOps',
     image: '/blog/secrets.svg',
     featured: false,
@@ -56,11 +56,11 @@ const blogPosts = [
   {
     slug: 'enterprise-ai-governance-framework',
     title: 'Building an Enterprise AI Governance Framework',
-    excerpt: 'Create a robust governance structure that enables AI innovation while maintaining security, privacy, and ethical standards.',
+    excerpt: 'With 20% of breaches now involving shadow AI, governance isn\'t optional. Learn how to build a framework that enables innovation while managing risk.',
     author: 'Sarah Chen',
     authorRole: 'Security Research Lead',
     date: 'January 8, 2026',
-    readTime: '15 min read',
+    readTime: '16 min read',
     category: 'Governance',
     image: '/blog/governance.svg',
     featured: false,
@@ -68,11 +68,11 @@ const blogPosts = [
   {
     slug: 'ai-proxy-gateway-explained',
     title: 'AI Proxy Gateways Explained: The Security Layer Your AI Stack Needs',
-    excerpt: 'Understanding how AI proxy gateways work and why they\'re becoming essential for enterprise security in the age of generative AI.',
+    excerpt: 'With 72.6% of sensitive AI prompts going to ChatGPT alone, you need a security layer that works across all AI tools. Here\'s how AI gateways work.',
     author: 'Michael Rodriguez',
     authorRole: 'Compliance Director',
     date: 'January 5, 2026',
-    readTime: '9 min read',
+    readTime: '13 min read',
     category: 'Technology',
     image: '/blog/proxy-gateway.svg',
     featured: false,
