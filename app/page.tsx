@@ -2,6 +2,7 @@
 
 import { MarketplaceButton } from './components/MarketplaceButton';
 import { Navigation } from './components/Navigation';
+import { AnimatedBackground } from './components/AnimatedBackground';
 
 export default function Home() {
   const documentationUrl = "/docs";
@@ -18,8 +19,9 @@ export default function Home() {
         position: 'relative',
         overflow: 'hidden'
       }}>
+        <AnimatedBackground />
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{
+          <div className="fade-in-up" style={{
             display: 'inline-block',
             background: 'rgba(255, 255, 255, 0.15)',
             padding: '8px 20px',
@@ -31,7 +33,7 @@ export default function Home() {
           }}>
             🛡️ Trusted by Security-Conscious Enterprises
           </div>
-          <h1 style={{
+          <h1 className="fade-in-up-delay-1" style={{
             fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
             fontWeight: 900,
             marginBottom: '1.5rem',
@@ -40,7 +42,7 @@ export default function Home() {
           }}>
             Stop Data Leaks Before They Reach AI
           </h1>
-          <p style={{
+          <p className="fade-in-up-delay-2" style={{
             fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
             marginBottom: '2.5rem',
             opacity: 0.95,
@@ -52,7 +54,7 @@ export default function Home() {
             ZeroShare Gateway protects your organization from accidental PII leaks and secret exposure 
             when using ChatGPT, Copilot, and other AI tools. Deploy on-premise, maintain full control.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="fade-in-up-delay-3" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <MarketplaceButton
               className="cta-button cta-primary"
               style={{
@@ -85,14 +87,15 @@ export default function Home() {
               Learn How It Works
             </a>
           </div>
-          <div style={{
+          <div className="fade-in" style={{
             marginTop: '3rem',
             display: 'flex',
             justifyContent: 'center',
             gap: '3rem',
             flexWrap: 'wrap',
             fontSize: '0.95rem',
-            opacity: 0.9
+            opacity: 0.9,
+            animationDelay: '0.4s'
           }}>
             <div>✓ No Code Changes Required</div>
             <div>✓ Deploy in Minutes</div>
@@ -102,12 +105,12 @@ export default function Home() {
       </section>
 
       {/* Problem Statement Section */}
-      <section style={{
+      <section className="fade-in" style={{
         padding: '80px 20px',
         background: '#f8f9fa'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div className="fade-in-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               marginBottom: '1.5rem',
@@ -131,12 +134,13 @@ export default function Home() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2rem'
           }}>
-            <div style={{
+            <div className="fade-in-up-delay-1" style={{
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
               border: '2px solid #fee',
-              boxShadow: '0 4px 15px rgba(255, 0, 0, 0.1)'
+              boxShadow: '0 4px 15px rgba(255, 0, 0, 0.1)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>⚠️</div>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '0.75rem', color: '#d32f2f', fontWeight: 700 }}>
@@ -147,12 +151,13 @@ export default function Home() {
                 This data is now stored on OpenAI's servers.
               </p>
             </div>
-            <div style={{
+            <div className="fade-in-up-delay-2" style={{
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
               border: '2px solid #ffe',
-              boxShadow: '0 4px 15px rgba(255, 193, 7, 0.1)'
+              boxShadow: '0 4px 15px rgba(255, 193, 7, 0.1)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🔑</div>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '0.75rem', color: '#f57c00', fontWeight: 700 }}>
@@ -163,12 +168,13 @@ export default function Home() {
                 Copilot or Cursor. Your infrastructure is now compromised.
               </p>
             </div>
-            <div style={{
+            <div className="fade-in-up-delay-3" style={{
               background: 'white',
               padding: '2rem',
               borderRadius: '12px',
               border: '2px solid #e3f2fd',
-              boxShadow: '0 4px 15px rgba(33, 150, 243, 0.1)'
+              boxShadow: '0 4px 15px rgba(33, 150, 243, 0.1)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📊</div>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '0.75rem', color: '#1976d2', fontWeight: 700 }}>
@@ -184,12 +190,12 @@ export default function Home() {
       </section>
 
       {/* Solution Section */}
-      <section id="solution" style={{
+      <section id="solution" className="fade-in" style={{
         padding: '100px 20px',
         background: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div className="fade-in-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               marginBottom: '1.5rem',
@@ -215,7 +221,7 @@ export default function Home() {
             gap: '2.5rem',
             marginBottom: '4rem'
           }}>
-            <div className="feature-card" style={{
+            <div className="feature-card fade-in-up-delay-1" style={{
               background: 'linear-gradient(135deg, #667eea15 0%, #764ba215 100%)',
               padding: '2.5rem',
               borderRadius: '15px',
@@ -253,7 +259,7 @@ export default function Home() {
                 before they leave your network.
               </p>
             </div>
-            <div className="feature-card" style={{
+            <div className="feature-card fade-in-up-delay-2" style={{
               background: 'linear-gradient(135deg, #764ba215 0%, #f093fb15 100%)',
               padding: '2.5rem',
               borderRadius: '15px',
@@ -291,7 +297,7 @@ export default function Home() {
                 assistants and chat tools.
               </p>
             </div>
-            <div className="feature-card" style={{
+            <div className="feature-card fade-in-up-delay-3" style={{
               background: 'linear-gradient(135deg, #4facfe15 0%, #00f2fe15 100%)',
               padding: '2.5rem',
               borderRadius: '15px',
@@ -449,12 +455,12 @@ export default function Home() {
       </section>
 
       {/* Trust & Security Section */}
-      <section style={{
+      <section className="fade-in" style={{
         padding: '100px 20px',
         background: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div className="fade-in-up" style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               marginBottom: '1.5rem',
@@ -486,14 +492,23 @@ export default function Home() {
               { icon: '🔧', title: 'Easy Integration', desc: 'Works with existing infrastructure' },
               { icon: '☁️', title: 'AWS Native', desc: 'Optimized for AWS Marketplace deployment' }
             ].map((item, idx) => (
-              <div key={idx} style={{
+              <div key={idx} className="trust-badge" style={{
                 background: '#f8f9fa',
                 padding: '2rem',
                 borderRadius: '12px',
                 textAlign: 'center',
                 border: '1px solid #e9ecef',
-                transition: 'transform 0.2s ease'
-              }}>
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              >
                 <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{item.icon}</div>
                 <h3 style={{
                   fontSize: '1.2rem',
@@ -757,10 +772,13 @@ export default function Home() {
         padding: '120px 20px',
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{
+        <AnimatedBackground />
+        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <h2 className="fade-in-up" style={{
             fontSize: 'clamp(2rem, 4vw, 3.5rem)',
             marginBottom: '1.5rem',
             fontWeight: 900,
@@ -768,7 +786,7 @@ export default function Home() {
           }}>
             Ready to Secure Your AI Infrastructure?
           </h2>
-          <p style={{
+          <p className="fade-in-up-delay-1" style={{
             fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
             marginBottom: '3rem',
             opacity: 0.95,
@@ -777,26 +795,29 @@ export default function Home() {
             Deploy ZeroShare Gateway from the AWS Marketplace today. 
             Get enterprise-grade AI security in minutes, not months.
           </p>
-          <MarketplaceButton
-            className="cta-button cta-primary"
-            style={{
-              fontSize: '1.2rem',
-              padding: '20px 50px',
-              background: 'white',
-              color: '#667eea',
-              borderRadius: '10px',
-              fontWeight: 'bold',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-              textDecoration: 'none',
-              display: 'inline-block'
-            }}
-          >
-            Deploy on AWS Marketplace →
-          </MarketplaceButton>
-          <p style={{
+          <div className="fade-in-up-delay-2">
+            <MarketplaceButton
+              className="cta-button cta-primary"
+              style={{
+                fontSize: '1.2rem',
+                padding: '20px 50px',
+                background: 'white',
+                color: '#667eea',
+                borderRadius: '10px',
+                fontWeight: 'bold',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                textDecoration: 'none',
+                display: 'inline-block'
+              }}
+            >
+              Deploy on AWS Marketplace →
+            </MarketplaceButton>
+          </div>
+          <p className="fade-in" style={{
             marginTop: '2rem',
             fontSize: '0.95rem',
-            opacity: 0.9
+            opacity: 0.9,
+            animationDelay: '0.3s'
           }}>
             ✓ 1-Click Deployment  ✓ Free Trial Available  ✓ Enterprise Support Included
           </p>
