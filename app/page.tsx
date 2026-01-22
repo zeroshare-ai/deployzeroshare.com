@@ -4,7 +4,7 @@ import { MarketplaceButton } from './components/MarketplaceButton';
 
 export default function Home() {
   const supportEmail = "support@deployzeroshare.com";
-  const documentationUrl = "https://docs.deployzeroshare.com";
+  const documentationUrl = "/docs";
 
   return (
     <main style={{ minHeight: '100vh', background: '#ffffff', color: '#1a1a1a', fontFamily: "'Inter', sans-serif" }}>

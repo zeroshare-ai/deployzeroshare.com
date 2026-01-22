@@ -475,7 +475,7 @@ export default function SupportPage() {
               Self-service guides
             </p>
             <a
-              href="https://docs.deployzeroshare.com"
+              href="/docs"
               target="_blank"
               rel="noopener noreferrer"
               style={{
