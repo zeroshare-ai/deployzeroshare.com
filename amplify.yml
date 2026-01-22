@@ -77,6 +77,7 @@ customHeaders:
         value: '1; mode=block'
 rewrites:
   # Explicit rewrites for static pages to ensure they're served correctly
+  # These must come BEFORE any catch-all rules
   - source: '/support'
     target: '/support/index.html'
     status: '200'
@@ -104,10 +105,11 @@ rewrites:
   - source: '/docs<*>'
     target: '/docs/index.html'
     status: '200'
-  # Catch-all for any other routes (shouldn't be needed but as fallback)
-  - source: '/*'
+  # Catch-all for SPA routing (homepage and client-side routes)
+  # This should come LAST and only match if no specific rule matched
+  - source: '/<*>'
     target: '/index.html'
-    status: '404'
+    status: '200'
 redirects:
   - source: 'https://docs.deployzeroshare.com'
     target: 'https://docs.deployzeroshare.com/docs'
