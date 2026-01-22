@@ -72,3 +72,10 @@ rewrites:
   - source: '/*'
     target: '/index.html'
     status: '200'
+redirects:
+  - source: 'https://docs.deployzeroshare.com'
+    target: 'https://docs.deployzeroshare.com/docs'
+    status: '301'
+  - source: 'https://docs.deployzeroshare.com/'
+    target: 'https://docs.deployzeroshare.com/docs'
+    status: '301'
