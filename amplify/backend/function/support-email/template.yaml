@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Support email Lambda function for ZeroShare Gateway
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+  FromEmail:
+    Type: String
+    Default: no-reply@deployzeroshare.com
+  ToEmail:
+    Type: String
+    Default: rick@beaverpaw.com
+
+Resources:
+  SupportEmailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: deployzeroshare-support-email
+      Runtime: nodejs18.x
+      Handler: index.handler
+      CodeUri: s3://PLACEHOLDER_BUCKET/PLACEHOLDER_KEY
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          FROM_EMAIL: !Ref FromEmail
+          TO_EMAIL: !Ref ToEmail
+          AWS_REGION: !Ref AWS::Region
+      Policies:
+        - SESCrudPolicy:
+            IdentityName: !Ref FromEmail
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+                - ses:SendRawEmail
+              Resource: '*'
+      Events:
+        ApiGateway:
+          Type: Api
+          Properties:
+            Path: /support
+            Method: post
+            RestApiId: !Ref SupportApi
+            Auth:
+              Authorizer: NONE
+
+  SupportApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: deployzeroshare-support-api
+      StageName: !Ref Environment
+      Cors:
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub 'https://${SupportApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/support'
+    Export:
+      Name: !Sub '${AWS::StackName}-ApiUrl'
+  
+  FunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt SupportEmailFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-FunctionArn'
