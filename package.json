@@ -12,8 +12,14 @@
     "test:smoke": "playwright test tests/smoke.spec.ts",
     "test:links": "playwright test tests/links.spec.ts",
     "test:form": "playwright test tests/support-form.spec.ts",
+    "test:api": "playwright test tests/api-health.spec.ts",
+    "test:pre-deploy": "playwright test tests/pre-deployment.spec.ts",
+    "test:screenshots": "playwright test tests/screenshots.spec.ts",
     "test:deployed": "BASE_URL=https://deployzeroshare.com playwright test tests/deployment.spec.ts",
-    "test:install": "playwright install --with-deps"
+    "test:all": "playwright test",
+    "test:qa": "npm run test:pre-deploy && npm run test:api && npm run test:smoke",
+    "test:install": "playwright install --with-deps",
+    "qa": "npm run build && npm run test:qa"
   },
   "dependencies": {
     "next": "^14.0.4",

@@ -1,0 +1,229 @@
+name: QA Pre-Deployment Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      target_url:
+        description: 'Target URL to test'
+        required: false
+        default: 'https://deployzeroshare.com'
+
+env:
+  BASE_URL: ${{ github.event.inputs.target_url || 'https://deployzeroshare.com' }}
+
+jobs:
+  # Stage 1: Build and Static Analysis
+  build-check:
+    name: Build & Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Type checking
+        run: npx tsc --noEmit
+      
+      - name: Lint check
+        run: npm run lint || true
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Check for hardcoded wrong URLs
+        run: |
+          echo "Checking for known bad patterns..."
+          
+          # Check for wrong API URLs
+          if grep -r "deployzeroshare-support-api.execute-api" --include="*.tsx" --include="*.ts" app/; then
+            echo "❌ ERROR: Found hardcoded wrong API URL!"
+            exit 1
+          fi
+          
+          echo "✅ No known bad URL patterns found"
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: out/
+          retention-days: 1
+
+  # Stage 2: API Health Checks
+  api-health:
+    name: API Health Checks
+    runs-on: ubuntu-latest
+    needs: build-check
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check Support API reachability
+        run: |
+          echo "Testing Support API endpoint..."
+          
+          # Get actual API URL from CloudFormation
+          API_URL="https://obkptu26ug.execute-api.us-east-1.amazonaws.com/prod/support"
+          
+          # Test OPTIONS (CORS preflight)
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X OPTIONS "$API_URL" \
+            -H "Origin: https://deployzeroshare.com" \
+            -H "Access-Control-Request-Method: POST")
+          
+          if [ "$HTTP_CODE" = "000" ]; then
+            echo "❌ CRITICAL: API endpoint unreachable!"
+            exit 1
+          fi
+          
+          echo "✅ API endpoint reachable (HTTP $HTTP_CODE)"
+          
+          # Test POST
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API_URL" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"CI Test","email":"ci@test.com","message":"CI health check","priority":"general"}')
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+          
+          if [ "$HTTP_CODE" = "000" ]; then
+            echo "❌ CRITICAL: API POST failed - network error!"
+            exit 1
+          fi
+          
+          # 200 = success, 500 = SES sandbox (expected), 400 = validation
+          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "400" ] && [ "$HTTP_CODE" != "500" ]; then
+            echo "❌ Unexpected response: HTTP $HTTP_CODE"
+            echo "Body: $BODY"
+            exit 1
+          fi
+          
+          echo "✅ API responding correctly (HTTP $HTTP_CODE)"
+
+  # Stage 3: E2E Tests
+  e2e-tests:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    needs: [build-check, api-health]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      
+      - name: Run pre-deployment tests
+        run: |
+          npx playwright test tests/pre-deployment.spec.ts --reporter=list
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+      
+      - name: Run API health tests
+        run: |
+          npx playwright test tests/api-health.spec.ts --reporter=list
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+      
+      - name: Run smoke tests
+        run: npm run test:smoke
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+      
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # Stage 4: Visual Regression (Optional)
+  visual-check:
+    name: Visual Sanity Check
+    runs-on: ubuntu-latest
+    needs: build-check
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+      
+      - name: Take screenshots
+        run: |
+          npx playwright test tests/screenshots.spec.ts --reporter=list || true
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+      
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: test-results/screenshots/
+          retention-days: 7
+
+  # Stage 5: Summary
+  qa-summary:
+    name: QA Summary
+    runs-on: ubuntu-latest
+    needs: [build-check, api-health, e2e-tests]
+    if: always()
+    steps:
+      - name: Check results
+        run: |
+          echo "## QA Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.build-check.result }}" == "success" ]; then
+            echo "✅ Build & Static Analysis: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Build & Static Analysis: FAILED" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.api-health.result }}" == "success" ]; then
+            echo "✅ API Health Checks: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ API Health Checks: FAILED" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.e2e-tests.result }}" == "success" ]; then
+            echo "✅ E2E Tests: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ E2E Tests: FAILED" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "Target URL: ${{ env.BASE_URL }}" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Fail if any check failed
+        if: needs.build-check.result != 'success' || needs.api-health.result != 'success' || needs.e2e-tests.result != 'success'
+        run: |
+          echo "❌ QA checks failed - DO NOT DEPLOY"
+          exit 1

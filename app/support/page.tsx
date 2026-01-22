@@ -40,7 +40,7 @@ export default function SupportPage() {
 
     try {
       const apiEndpoint = process.env.NEXT_PUBLIC_SUPPORT_API_URL || 
-        'https://deployzeroshare-support-api.execute-api.us-east-1.amazonaws.com/prod/support';
+        'https://obkptu26ug.execute-api.us-east-1.amazonaws.com/prod/support';
       
       const response = await fetch(apiEndpoint, {
         method: 'POST',
