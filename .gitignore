@@ -3,6 +3,11 @@
 /.pnp
 .pnp.js
 
+# Lambda function build artifacts
+amplify/backend/function/**/node_modules
+amplify/backend/function/**/function.zip
+amplify/backend/function/**/packaged-template.yaml
+
 # testing
 /coverage
 

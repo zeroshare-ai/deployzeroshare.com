@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk');
 
-const ses = new AWS.SES({ region: process.env.AWS_REGION || 'us-east-1' });
+// Get region from environment or default to us-east-1
+const region = process.env.AWS_REGION || process.env.AWS_DEFAULT_REGION || 'us-east-1';
+const ses = new AWS.SES({ region });
 
 exports.handler = async (event) => {
   // Handle CORS

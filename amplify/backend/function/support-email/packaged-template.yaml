@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Support email Lambda function for ZeroShare Gateway
-
 Parameters:
   Environment:
     Type: String
@@ -12,7 +11,6 @@ Parameters:
   ToEmail:
     Type: String
     Default: support@deployzeroshare.com
-
 Resources:
   SupportEmailFunction:
     Type: AWS::Serverless::Function
@@ -25,43 +23,53 @@ Resources:
       MemorySize: 256
       Environment:
         Variables:
-          FROM_EMAIL: !Ref FromEmail
-          TO_EMAIL: !Ref ToEmail
+          FROM_EMAIL:
+            Ref: FromEmail
+          TO_EMAIL:
+            Ref: ToEmail
       Policies:
-        - Statement:
-            - Effect: Allow
-              Action:
-                - ses:SendEmail
-                - ses:SendRawEmail
-              Resource: '*'
+      - SESCrudPolicy:
+          IdentityName:
+            Ref: FromEmail
+      - Statement:
+        - Effect: Allow
+          Action:
+          - ses:SendEmail
+          - ses:SendRawEmail
+          Resource: '*'
       Events:
         ApiGateway:
           Type: Api
           Properties:
             Path: /support
             Method: post
-            RestApiId: !Ref SupportApi
-
+            RestApiId:
+              Ref: SupportApi
   SupportApi:
     Type: AWS::Serverless::Api
     Properties:
       Name: deployzeroshare-support-api
-      StageName: !Ref Environment
+      StageName:
+        Ref: Environment
       Cors:
         AllowMethods: "'POST,OPTIONS'"
         AllowHeaders: "'Content-Type'"
         AllowOrigin: "'*'"
         MaxAge: "'600'"
-
 Outputs:
   ApiUrl:
     Description: API Gateway endpoint URL
-    Value: !Sub 'https://${SupportApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/support'
+    Value:
+      Fn::Sub: https://${SupportApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/support
     Export:
-      Name: !Sub '${AWS::StackName}-ApiUrl'
-  
+      Name:
+        Fn::Sub: ${AWS::StackName}-ApiUrl
   FunctionArn:
     Description: Lambda function ARN
-    Value: !GetAtt SupportEmailFunction.Arn
+    Value:
+      Fn::GetAtt:
+      - SupportEmailFunction
+      - Arn
     Export:
-      Name: !Sub '${AWS::StackName}-FunctionArn'
+      Name:
+        Fn::Sub: ${AWS::StackName}-FunctionArn
