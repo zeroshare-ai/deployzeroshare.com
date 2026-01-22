@@ -40,43 +40,39 @@ SOFTWARE_PRODUCTS
 ```
 
 ### **Industry Segments**
-You can select up to **3** industry segments. Recommended selections:
+You can select up to **3** industry segments.
 
-**Primary (Required):**
-```
-COMPUTER_SOFTWARE
-```
+**✅ FINAL RECOMMENDATION (Aligned with AWS Expectations):**
 
-**Recommended Additional Segments (choose 2):**
+Replace your current segments with these three:
 
-**For Government/Regulatory Security:**
-```
-GOVERNMENT_EDUCATION_PUBLIC_SERVICES
-```
-*Perfect for: Government agencies, regulatory compliance, public sector security*
+1. **`COMPUTER_SOFTWARE`** (required - you're a software product)
+2. **`GOVERNMENT_EDUCATION_PUBLIC_SERVICES`** (compliance focus - aligns with AWS GSCA program)
+3. **`FINANCIAL_SERVICES`** (regulated/compliance-heavy industries - aligns with AWS GSCA program)
 
-**For Financial Services Security:**
-```
-FINANCIAL_SERVICES
-```
-*Perfect for: Banks, financial institutions, compliance-heavy industries*
+**Why This Combination:**
+- ✅ **COMPUTER_SOFTWARE**: Required - ZeroShare Gateway is enterprise security software
+- ✅ **GOVERNMENT_EDUCATION_PUBLIC_SERVICES**: Your product helps with compliance (GDPR, SOC 2) which is critical for public sector/government customers. AWS GSCA program specifically focuses on Public Sector for security/compliance.
+- ✅ **FINANCIAL_SERVICES**: Your testimonials mention Financial Services use cases, and financial institutions are heavily regulated. AWS GSCA program focuses on Finance for security/compliance.
+
+**Current Segments (to be replaced):**
+- `COMPUTER_SOFTWARE` ✅ (keep)
+- `SOFTWARE_INTERNET` ❌ (replace with `FINANCIAL_SERVICES` - redundant with COMPUTER_SOFTWARE)
+- `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` ✅ (keep)
+
+**Alternative Options (if you want to target different industries):**
 
 **For Healthcare/Medical Security:**
 ```
 HEALTHCARE
 ```
-*Perfect for: HIPAA compliance, healthcare data protection*
+*Perfect for: HIPAA compliance, healthcare data protection (also aligns with AWS GSCA)*
 
 **For General Enterprise Security:**
 ```
 BUSINESS_SERV
 ```
-*Perfect for: Enterprise B2B security solutions*
-
-**Recommended Combination:**
-1. `COMPUTER_SOFTWARE` (required - you're a software product)
-2. `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` (for regulatory/government security focus)
-3. `FINANCIAL_SERVICES` (for compliance-heavy industries)
+*Perfect for: Enterprise B2B security solutions (broader market)*
 
 **All Available Industry Segments:**
 - AGRICULTURE_MINING
@@ -130,11 +126,13 @@ en-US
 - Display Name: "DeployZeroShare.com AI Security Gateway"
 - Website URL: "https://beaverpaw.com"
 - Logo: Current CloudFront URL (beaverpaw branding)
+- Industry Segments: `COMPUTER_SOFTWARE`, `SOFTWARE_INTERNET`, `GOVERNMENT_EDUCATION_PUBLIC_SERVICES`
 
 **After:**
 - Display Name: "ZeroShare"
 - Website URL: "https://deployzeroshare.com"
 - Logo: Upload `logo_150x150.png` from `public/logo_150x150.png`
+- Industry Segments: `COMPUTER_SOFTWARE`, `GOVERNMENT_EDUCATION_PUBLIC_SERVICES`, `FINANCIAL_SERVICES` (replace `SOFTWARE_INTERNET` with `FINANCIAL_SERVICES`)
 
 ---
 
@@ -160,10 +158,9 @@ Or access it directly from:
 - [ ] Logo: Upload `logo_150x150.png` from `public/` folder
 - [ ] Primary Solution Type: `SOFTWARE_PRODUCTS`
 - [ ] Industry Segments: 
-  - `COMPUTER_SOFTWARE` (required)
-  - `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` (recommended)
-  - `FINANCIAL_SERVICES` (recommended)
-  - *OR choose 2 others from the list above*
+  - `COMPUTER_SOFTWARE` (required - keep)
+  - `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` (keep - compliance focus)
+  - `FINANCIAL_SERVICES` (replace `SOFTWARE_INTERNET` with this)
 - [ ] Translation Source Locale: `en-US`
 
 ---
@@ -173,3 +170,4 @@ Or access it directly from:
 - The logo file is ready at: `public/logo_150x150.png`
 - All beaverpaw.com references should be replaced with deployzeroshare.com
 - The profile update will be visible on your public partner listing once saved
+- **Industry Segments**: The recommended combination (`COMPUTER_SOFTWARE`, `GOVERNMENT_EDUCATION_PUBLIC_SERVICES`, `FINANCIAL_SERVICES`) aligns with AWS's Global Security & Compliance Acceleration (GSCA) program focus areas and reflects your product's value proposition for regulated industries.

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Navigation } from '../components/Navigation';
 
 interface Doc {
   title: string;
@@ -73,6 +74,7 @@ export default function DocsPage() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#f8f9fa', fontFamily: "'Inter', sans-serif" }}>
+      <Navigation />
       {/* Header */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

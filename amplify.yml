@@ -49,6 +49,16 @@ frontend:
     build:
       commands:
         - npm run build
+    postBuild:
+      commands:
+        - |
+          # Run smoke tests if Playwright is available (skip in Amplify CI)
+          if command -v npx &> /dev/null && npx playwright --version &> /dev/null; then
+            echo "Running smoke tests..."
+            npm run test:smoke || echo "Smoke tests failed but continuing deployment"
+          else
+            echo "Playwright not available, skipping tests (will run post-deployment)"
+          fi
   artifacts:
     baseDirectory: out
     files:

@@ -1,6 +1,9 @@
+import { Navigation } from '../components/Navigation';
+
 export default function CompliancePage() {
   return (
     <main style={{ minHeight: '100vh', background: '#ffffff', color: '#1a1a1a', fontFamily: "'Inter', sans-serif" }}>
+      <Navigation />
       {/* Header */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

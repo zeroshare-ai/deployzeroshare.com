@@ -58,7 +58,10 @@ CURRENT_DISPLAY_NAME=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.Display
 CURRENT_DESCRIPTION=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.Description // "On-premise AI security gateway"')
 CURRENT_LOGO_URL=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.LogoUrl // ""')
 CURRENT_PRIMARY_SOLUTION_TYPE=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.PrimarySolutionType // "SOFTWARE_PRODUCTS"')
-CURRENT_INDUSTRY_SEGMENTS=$(echo "$CURRENT_PROFILE" | jq -r '.Partner.Profile.IndustrySegments // ["COMPUTER_SOFTWARE"] | @json')
+
+# Recommended industry segments (aligned with AWS GSCA program focus areas)
+# Replace SOFTWARE_INTERNET with FINANCIAL_SERVICES for better alignment
+NEW_INDUSTRY_SEGMENTS='["COMPUTER_SOFTWARE","GOVERNMENT_EDUCATION_PUBLIC_SERVICES","FINANCIAL_SERVICES"]'
 
 # Update website URL to deployzeroshare.com
 NEW_WEBSITE_URL="https://deployzeroshare.com"
@@ -89,6 +92,7 @@ echo "   Display Name: $NEW_DISPLAY_NAME"
 echo "   Website URL: $NEW_WEBSITE_URL"
 echo "   Logo URL: $NEW_LOGO_URL"
 echo "   Description: $NEW_DESCRIPTION"
+echo "   Industry Segments: COMPUTER_SOFTWARE, GOVERNMENT_EDUCATION_PUBLIC_SERVICES, FINANCIAL_SERVICES"
 echo ""
 
 # Create task details JSON
@@ -98,7 +102,7 @@ TASK_DETAILS=$(jq -n \
     --arg websiteUrl "$NEW_WEBSITE_URL" \
     --arg logoUrl "$NEW_LOGO_URL" \
     --arg solutionType "$CURRENT_PRIMARY_SOLUTION_TYPE" \
-    --argjson industrySegments "$CURRENT_INDUSTRY_SEGMENTS" \
+    --argjson industrySegments "$NEW_INDUSTRY_SEGMENTS" \
     --arg translationSourceLocale "en-US" \
     '{
         "DisplayName": $displayName,

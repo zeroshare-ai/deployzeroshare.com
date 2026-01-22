@@ -1,6 +1,7 @@
 'use client';
 
 import { MarketplaceButton } from './components/MarketplaceButton';
+import { Navigation } from './components/Navigation';
 
 export default function Home() {
   const supportEmail = "support@deployzeroshare.com";
@@ -8,6 +9,7 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#ffffff', color: '#1a1a1a', fontFamily: "'Inter', sans-serif" }}>
+      <Navigation />
       {/* Hero Section */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

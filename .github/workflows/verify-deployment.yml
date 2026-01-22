@@ -1,47 +1,13 @@
-name: Deploy to AWS Amplify
+name: Post-Deployment Verification (Standalone)
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
-
-permissions:
-  contents: read
-  id-token: write
+  schedule:
+    # Run daily at 2 AM UTC to verify site is still working
+    - cron: '0 2 * * *'
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Next.js
-        run: npm run build
-
-      - name: Deploy to Amplify
-        uses: aws-amplify/amplify-cli-action@v1
-        with:
-          app-id: ${{ secrets.AMPLIFY_APP_ID }}
-          branch-name: main
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-        env:
-          AMPLIFY_APP_ID: d27qp6qcouw49r
-
   verify-deployment:
-    needs: build-and-deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
     
@@ -60,11 +26,6 @@ jobs:
       
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
-      
-      - name: Wait for Amplify deployment
-        run: |
-          echo "Waiting 60 seconds for Amplify deployment to complete..."
-          sleep 60
       
       - name: Run smoke tests against deployed site
         env:

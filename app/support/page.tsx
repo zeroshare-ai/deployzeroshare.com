@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Navigation } from '../components/Navigation';
 
 export default function SupportPage() {
   const [formData, setFormData] = useState({
@@ -64,6 +65,7 @@ export default function SupportPage() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#f8f9fa', fontFamily: "'Inter', sans-serif" }}>
+      <Navigation />
       {/* Header */}
       <section style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
