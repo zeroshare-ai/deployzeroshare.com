@@ -99,13 +99,15 @@ TASK_DETAILS=$(jq -n \
     --arg logoUrl "$NEW_LOGO_URL" \
     --arg solutionType "$CURRENT_PRIMARY_SOLUTION_TYPE" \
     --argjson industrySegments "$CURRENT_INDUSTRY_SEGMENTS" \
+    --arg translationSourceLocale "en-US" \
     '{
         "DisplayName": $displayName,
         "Description": $description,
         "WebsiteUrl": $websiteUrl,
         "LogoUrl": $logoUrl,
         "PrimarySolutionType": $solutionType,
-        "IndustrySegments": $industrySegments
+        "IndustrySegments": $industrySegments,
+        "TranslationSourceLocale": $translationSourceLocale
     }')
 
 # Start profile update task
