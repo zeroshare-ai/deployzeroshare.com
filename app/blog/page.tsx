@@ -4,6 +4,7 @@ import { Navigation } from '../components/Navigation';
 import Link from 'next/link';
 
 // Blog posts with real research-backed content
+// Note: Images should be generated using prompts from IMAGE_PROMPTS.md
 const blogPosts = [
   {
     slug: 'prevent-pii-leaks-ai-chatbots',
@@ -14,7 +15,7 @@ const blogPosts = [
     date: 'January 20, 2026',
     readTime: '12 min read',
     category: 'Security Best Practices',
-    image: '/blog/pii-leaks.svg',
+    image: '/images/blog/blog-pii-leaks.png', // Generate with IMAGE_PROMPTS.md section 5A
     featured: true,
   },
   {
@@ -26,7 +27,7 @@ const blogPosts = [
     date: 'January 18, 2026',
     readTime: '15 min read',
     category: 'Compliance',
-    image: '/blog/compliance.svg',
+    image: '/images/blog/blog-compliance.png', // Generate with IMAGE_PROMPTS.md section 5B
     featured: true,
   },
   {
@@ -38,7 +39,7 @@ const blogPosts = [
     date: 'January 15, 2026',
     readTime: '14 min read',
     category: 'Architecture',
-    image: '/blog/zero-trust.svg',
+    image: '/images/blog/blog-zero-trust.png', // Generate with IMAGE_PROMPTS.md section 5C
     featured: false,
   },
   {
@@ -50,7 +51,7 @@ const blogPosts = [
     date: 'January 12, 2026',
     readTime: '11 min read',
     category: 'DevSecOps',
-    image: '/blog/secrets.svg',
+    image: '/images/blog/blog-secrets.png', // Generate with IMAGE_PROMPTS.md section 5D
     featured: false,
   },
   {
@@ -62,7 +63,7 @@ const blogPosts = [
     date: 'January 8, 2026',
     readTime: '16 min read',
     category: 'Governance',
-    image: '/blog/governance.svg',
+    image: '/images/blog/blog-governance.png', // Generate with IMAGE_PROMPTS.md section 5E
     featured: false,
   },
   {
@@ -74,7 +75,7 @@ const blogPosts = [
     date: 'January 5, 2026',
     readTime: '13 min read',
     category: 'Technology',
-    image: '/blog/proxy-gateway.svg',
+    image: '/images/blog/blog-gateway.png', // Generate with IMAGE_PROMPTS.md section 5F
     featured: false,
   },
 ];

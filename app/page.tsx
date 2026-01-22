@@ -20,6 +20,16 @@ export default function Home() {
         overflow: 'hidden'
       }}>
         <AnimatedBackground />
+        {/* Premium hero background - uncomment when image is generated */}
+        {/* <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url(/images/hero/hero-abstract-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.3,
+          mixBlendMode: 'overlay'
+        }} /> */}
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div className="fade-in-up" style={{
             display: 'inline-block',
@@ -228,16 +238,18 @@ export default function Home() {
               border: '1px solid #e9ecef'
             }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: '70px',
+                height: '70px',
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.8rem',
-                marginBottom: '1.5rem'
+                fontSize: '2rem',
+                marginBottom: '1.5rem',
+                boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)'
               }}>
+                {/* Replace with: <img src="/images/icons/icon-pii-detection.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
                 🔍
               </div>
               <h3 style={{
@@ -266,17 +278,19 @@ export default function Home() {
               border: '1px solid #e9ecef'
             }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: '70px',
+                height: '70px',
                 background: 'linear-gradient(135deg, #764ba2 0%, #f093fb 100%)',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.8rem',
-                marginBottom: '1.5rem'
+                fontSize: '2rem',
+                marginBottom: '1.5rem',
+                boxShadow: '0 8px 20px rgba(118, 75, 162, 0.3)'
               }}>
-                🚫
+                {/* Replace with: <img src="/images/icons/icon-secret-blocking.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
+                🛡️
               </div>
               <h3 style={{
                 fontSize: '1.8rem',
@@ -304,16 +318,18 @@ export default function Home() {
               border: '1px solid #e9ecef'
             }}>
               <div style={{
-                width: '60px',
-                height: '60px',
+                width: '70px',
+                height: '70px',
                 background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.8rem',
-                marginBottom: '1.5rem'
+                fontSize: '2rem',
+                marginBottom: '1.5rem',
+                boxShadow: '0 8px 20px rgba(79, 172, 254, 0.3)'
               }}>
+                {/* Replace with: <img src="/images/icons/icon-on-premise.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
                 🏢
               </div>
               <h3 style={{
