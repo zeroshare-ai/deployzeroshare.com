@@ -79,9 +79,8 @@ rewrites:
   - source: '/docs<*>'
     target: '/docs/index.html'
     status: '200'
-  - source: '/*'
-    target: '/index.html'
-    status: '200'
+  # No catch-all rewrite needed - Next.js static export serves files directly
+  # Static pages (/support, /privacy, /terms, /compliance) are served as /path/index.html
 redirects:
   - source: 'https://docs.deployzeroshare.com'
     target: 'https://docs.deployzeroshare.com/docs'
