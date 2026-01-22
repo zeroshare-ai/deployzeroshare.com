@@ -30,6 +30,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Amplify
+        id: deploy
         uses: aws-amplify/amplify-cli-action@v1
         with:
           app-id: ${{ secrets.AMPLIFY_APP_ID }}
@@ -44,6 +45,7 @@ jobs:
     needs: build-and-deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    if: always()  # Run even if deployment fails
     
     steps:
       - name: Checkout code
@@ -67,22 +69,26 @@ jobs:
           sleep 60
       
       - name: Run smoke tests against deployed site
+        id: smoke-tests
         env:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:smoke
       
       - name: Run link validation tests
+        id: link-tests
         env:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:links
       
       - name: Run support form tests
+        id: form-tests
         env:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:form
         continue-on-error: true  # Form tests may fail if API is not available
       
       - name: Run full deployment verification
+        id: deployment-tests
         env:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:deployed
@@ -94,3 +100,74 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+      
+      - name: Send email notification on failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: '❌ Deployment Tests Failed - deployzeroshare.com'
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          body: |
+            Deployment tests failed for deployzeroshare.com
+            
+            Workflow: ${{ github.workflow }}
+            Commit: ${{ github.sha }}
+            Branch: ${{ github.ref }}
+            Actor: ${{ github.actor }}
+            
+            View details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            
+            Critical tests failed. Please review the test results and fix issues before deploying again.
+          html_body: |
+            <h2>❌ Deployment Tests Failed</h2>
+            <p><strong>Site:</strong> deployzeroshare.com</p>
+            <p><strong>Workflow:</strong> ${{ github.workflow }}</p>
+            <p><strong>Commit:</strong> <code>${{ github.sha }}</code></p>
+            <p><strong>Branch:</strong> ${{ github.ref }}</p>
+            <p><strong>Actor:</strong> ${{ github.actor }}</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View test results →</a></p>
+            <p><strong>Action Required:</strong> Critical tests failed. Please review the test results and fix issues before deploying again.</p>
+      
+      - name: Send email notification on success
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: '✅ Deployment Tests Passed - deployzeroshare.com'
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          body: |
+            All deployment tests passed for deployzeroshare.com
+            
+            Workflow: ${{ github.workflow }}
+            Commit: ${{ github.sha }}
+            Branch: ${{ github.ref }}
+            Actor: ${{ github.actor }}
+            
+            View details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            
+            ✅ Smoke tests: Passed
+            ✅ Link validation: Passed
+            ✅ Deployment verification: Passed
+          html_body: |
+            <h2>✅ Deployment Tests Passed</h2>
+            <p><strong>Site:</strong> deployzeroshare.com</p>
+            <p><strong>Workflow:</strong> ${{ github.workflow }}</p>
+            <p><strong>Commit:</strong> <code>${{ github.sha }}</code></p>
+            <p><strong>Branch:</strong> ${{ github.ref }}</p>
+            <p><strong>Actor:</strong> ${{ github.actor }}</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View test results →</a></p>
+            <ul>
+              <li>✅ Smoke tests: Passed</li>
+              <li>✅ Link validation: Passed</li>
+              <li>✅ Deployment verification: Passed</li>
+            </ul>
+            <p>Deployment is healthy and all tests are passing.</p>
