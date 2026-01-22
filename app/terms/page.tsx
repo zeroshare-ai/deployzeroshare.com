@@ -210,8 +210,8 @@ export default function TermsPage() {
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             If you have any questions about these Terms of Service, please contact us at{' '}
-            <a href="mailto:support@zeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@zeroshare.com
+            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              support@deployzeroshare.com
             </a>.
           </p>
         </div>

@@ -174,8 +174,8 @@ export default function PrivacyPage() {
           </ul>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             To exercise these rights, please contact us at{' '}
-            <a href="mailto:support@zeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@zeroshare.com
+            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              support@deployzeroshare.com
             </a>.
           </p>
 
@@ -278,8 +278,8 @@ export default function PrivacyPage() {
           </p>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@zeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@zeroshare.com
+            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              support@deployzeroshare.com
             </a>
           </p>
         </div>

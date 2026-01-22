@@ -165,7 +165,7 @@ Case Details:
 Your message:
 ${message}
 
-If you have any urgent concerns, please contact us directly at support@zeroshare.com.
+If you have any urgent concerns, please contact us directly at support@deployzeroshare.com.
 
 Best regards,
 ZeroShare Gateway Support Team
@@ -191,7 +191,7 @@ ZeroShare Gateway Support Team
                   
                   <p style="margin-top: 30px;">
                     If you have any urgent concerns, please contact us directly at 
-                    <a href="mailto:support@zeroshare.com">support@zeroshare.com</a>.
+                    <a href="mailto:support@deployzeroshare.com">support@deployzeroshare.com</a>.
                   </p>
                   
                   <p>Best regards,<br>ZeroShare Gateway Support Team</p>

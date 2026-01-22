@@ -356,7 +356,7 @@ export default function SupportPage() {
                   marginBottom: '1.5rem',
                   fontSize: '0.95rem'
                 }}>
-                  {errorMessage || 'An error occurred. Please try again or contact support@zeroshare.com directly.'}
+                  {errorMessage || 'An error occurred. Please try again or contact support@deployzeroshare.com directly.'}
                 </div>
               )}
 
@@ -441,14 +441,14 @@ export default function SupportPage() {
               For direct inquiries
             </p>
             <a
-              href="mailto:support@zeroshare.com"
+              href="mailto:support@deployzeroshare.com"
               style={{
                 color: '#667eea',
                 fontWeight: 600,
                 textDecoration: 'none'
               }}
             >
-              support@zeroshare.com →
+              support@deployzeroshare.com →
             </a>
           </div>
 
@@ -475,7 +475,7 @@ export default function SupportPage() {
               Self-service guides
             </p>
             <a
-              href="https://docs.zeroshare.com"
+              href="https://docs.deployzeroshare.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{

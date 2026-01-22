@@ -232,8 +232,8 @@ export default function CompliancePage() {
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             For detailed compliance documentation, security questionnaires, or compliance certifications, please contact 
             our compliance team at{' '}
-            <a href="mailto:support@zeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@zeroshare.com
+            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              support@deployzeroshare.com
             </a>.
           </p>
 
@@ -270,8 +270,8 @@ export default function CompliancePage() {
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
             For questions about compliance, security certifications, or to request compliance documentation, please 
             contact us at{' '}
-            <a href="mailto:support@zeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@zeroshare.com
+            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              support@deployzeroshare.com
             </a>.
           </p>
         </div>
