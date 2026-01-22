@@ -55,7 +55,17 @@ export default function Home() {
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <MarketplaceButton
               className="cta-button cta-primary"
-              style={{ fontSize: '1.1rem' }}
+              style={{
+                fontSize: '1.1rem',
+                background: 'white',
+                color: '#667eea',
+                padding: '18px 40px',
+                borderRadius: '10px',
+                fontWeight: 'bold',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                textDecoration: 'none',
+                display: 'inline-block'
+              }}
             >
               Deploy on AWS Marketplace →
             </MarketplaceButton>
@@ -769,7 +779,17 @@ export default function Home() {
           </p>
           <MarketplaceButton
             className="cta-button cta-primary"
-            style={{ fontSize: '1.2rem', padding: '20px 50px' }}
+            style={{
+              fontSize: '1.2rem',
+              padding: '20px 50px',
+              background: 'white',
+              color: '#667eea',
+              borderRadius: '10px',
+              fontWeight: 'bold',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+              textDecoration: 'none',
+              display: 'inline-block'
+            }}
           >
             Deploy on AWS Marketplace →
           </MarketplaceButton>
