@@ -40,9 +40,82 @@ SOFTWARE_PRODUCTS
 ```
 
 ### **Industry Segments**
+You can select up to **3** industry segments. Recommended selections:
+
+**Primary (Required):**
 ```
 COMPUTER_SOFTWARE
 ```
+
+**Recommended Additional Segments (choose 2):**
+
+**For Government/Regulatory Security:**
+```
+GOVERNMENT_EDUCATION_PUBLIC_SERVICES
+```
+*Perfect for: Government agencies, regulatory compliance, public sector security*
+
+**For Financial Services Security:**
+```
+FINANCIAL_SERVICES
+```
+*Perfect for: Banks, financial institutions, compliance-heavy industries*
+
+**For Healthcare/Medical Security:**
+```
+HEALTHCARE
+```
+*Perfect for: HIPAA compliance, healthcare data protection*
+
+**For General Enterprise Security:**
+```
+BUSINESS_SERV
+```
+*Perfect for: Enterprise B2B security solutions*
+
+**Recommended Combination:**
+1. `COMPUTER_SOFTWARE` (required - you're a software product)
+2. `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` (for regulatory/government security focus)
+3. `FINANCIAL_SERVICES` (for compliance-heavy industries)
+
+**All Available Industry Segments:**
+- AGRICULTURE_MINING
+- BIOTECHNOLOGY
+- BUSINESS_CONSUMER_SERVICES
+- BUSINESS_SERV
+- COMMUNICATIONS
+- COMPUTER_HARDWARE
+- COMPUTERS_ELECTRONICS
+- **COMPUTER_SOFTWARE** ⭐ (your primary)
+- CONSUMER_GOODS
+- CONSUMER_RELATED
+- EDUCATION
+- ENERGY_UTILITIES
+- **FINANCIAL_SERVICES** ⭐ (recommended)
+- GAMING
+- **GOVERNMENT** ⭐ (alternative to GOVERNMENT_EDUCATION_PUBLIC_SERVICES)
+- **GOVERNMENT_EDUCATION_PUBLIC_SERVICES** ⭐ (recommended)
+- **HEALTHCARE** ⭐ (if targeting healthcare)
+- HEALTHCARE_PHARMACEUTICALS_BIOTECH
+- INDUSTRIAL_ENERGY
+- INTERNET_SPECIFIC
+- LIFE_SCIENCES
+- MANUFACTURING
+- MEDIA_ENTERTAINMENT_LEISURE
+- MEDIA_ENTERTAINMENT
+- MEDICAL_HEALTH
+- NON_PROFIT_ORGANIZATION
+- OTHER
+- PROFESSIONAL_SERVICES
+- REAL_ESTATE_CONSTRUCTION
+- RETAIL
+- RETAIL_WHOLESALE_DISTRIBUTION
+- SEMICONDUCTOR_ELECTR
+- SOFTWARE_INTERNET
+- TELECOMMUNICATIONS
+- TRANSPORTATION_LOGISTICS
+- TRAVEL_HOSPITALITY
+- WHOLESALE_DISTRIBUTION
 
 ### **Translation Source Locale**
 ```
@@ -86,7 +159,11 @@ Or access it directly from:
 - [ ] Website URL: `https://deployzeroshare.com`
 - [ ] Logo: Upload `logo_150x150.png` from `public/` folder
 - [ ] Primary Solution Type: `SOFTWARE_PRODUCTS`
-- [ ] Industry Segments: `COMPUTER_SOFTWARE`
+- [ ] Industry Segments: 
+  - `COMPUTER_SOFTWARE` (required)
+  - `GOVERNMENT_EDUCATION_PUBLIC_SERVICES` (recommended)
+  - `FINANCIAL_SERVICES` (recommended)
+  - *OR choose 2 others from the list above*
 - [ ] Translation Source Locale: `en-US`
 
 ---
