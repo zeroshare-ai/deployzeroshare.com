@@ -1,0 +1,209 @@
+# Page snapshot
+
+```yaml
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "🛡️ ZeroShare Gateway" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Features" [ref=e7] [cursor=pointer]:
+          - /url: /#solution
+        - link "Documentation" [ref=e8] [cursor=pointer]:
+          - /url: /docs/
+        - link "Support" [ref=e9] [cursor=pointer]:
+          - /url: /support/
+        - link "Deploy on AWS Marketplace" [ref=e10] [cursor=pointer]:
+          - /url: "#"
+  - generic [ref=e16]:
+    - generic [ref=e17]: 🛡️ Trusted by Security-Conscious Enterprises
+    - heading "Stop Data Leaks Before They Reach AI" [level=1] [ref=e18]
+    - paragraph [ref=e19]: ZeroShare Gateway protects your organization from accidental PII leaks and secret exposure when using ChatGPT, Copilot, and other AI tools. Deploy on-premise, maintain full control.
+    - generic [ref=e20]:
+      - link "Deploy on AWS Marketplace →" [ref=e21] [cursor=pointer]:
+        - /url: "#"
+      - link "Learn How It Works" [ref=e22] [cursor=pointer]:
+        - /url: "#solution"
+    - generic [ref=e23]:
+      - generic [ref=e24]: ✓ No Code Changes Required
+      - generic [ref=e25]: ✓ Deploy in Minutes
+      - generic [ref=e26]: ✓ Enterprise-Ready
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - heading "The Hidden Risk in Every AI Interaction" [level=2] [ref=e30]
+      - paragraph [ref=e31]: Your team uses AI tools daily. Every request could expose sensitive data.
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]: ⚠️
+        - heading "PII Leaks" [level=3] [ref=e35]
+        - paragraph [ref=e36]: Employees accidentally paste customer emails, SSNs, or credit card numbers into ChatGPT. This data is now stored on OpenAI's servers.
+      - generic [ref=e37]:
+        - generic [ref=e38]: 🔑
+        - heading "Secret Exposure" [level=3] [ref=e39]
+        - paragraph [ref=e40]: Developers paste code containing API keys, AWS credentials, or database passwords into Copilot or Cursor. Your infrastructure is now compromised.
+      - generic [ref=e41]:
+        - generic [ref=e42]: 📊
+        - heading "Compliance Risk" [level=3] [ref=e43]
+        - paragraph [ref=e44]: GDPR, HIPAA, and SOC 2 violations can result in millions in fines. One accidental leak is all it takes.
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - heading "How ZeroShare Gateway Protects You" [level=2] [ref=e48]
+      - paragraph [ref=e49]: A transparent proxy that sits between your infrastructure and public AI APIs, automatically securing every request.
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]: 🔍
+        - heading "Intelligent PII Detection" [level=3] [ref=e53]
+        - paragraph [ref=e54]: Advanced pattern recognition automatically identifies emails, phone numbers, SSNs, credit cards, and other sensitive data. Redacts or blocks requests before they leave your network.
+      - generic [ref=e55]:
+        - generic [ref=e56]: 🚫
+        - heading "Secret Pattern Blocking" [level=3] [ref=e57]
+        - paragraph [ref=e58]: Hard blocks requests containing API keys, AWS credentials, database connection strings, and other secret patterns. Prevents accidental exposure to AI coding assistants and chat tools.
+      - generic [ref=e59]:
+        - generic [ref=e60]: 🏢
+        - heading "On-Premise Deployment" [level=3] [ref=e61]
+        - paragraph [ref=e62]: Deploy entirely within your infrastructure. Zero data leaves your network until it's been verified safe. Maintain complete control and compliance with your security policies.
+  - generic [ref=e64]:
+    - generic [ref=e65]:
+      - heading "Simple Architecture, Powerful Protection" [level=2] [ref=e66]
+      - paragraph [ref=e67]: Deploy as a transparent proxy. No code changes required.
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]: Your Application
+        - generic [ref=e72]: →
+        - generic [ref=e73]: ZeroShare Gateway
+        - generic [ref=e74]: →
+        - generic [ref=e75]: AI APIs (OpenAI, etc.)
+      - paragraph [ref=e77]:
+        - strong [ref=e78]: Every request
+        - text: is automatically scanned, redacted, or blocked before reaching external AI services.
+        - strong [ref=e79]: Zero latency
+        - text: impact,
+        - strong [ref=e80]: maximum security
+        - text: .
+  - generic [ref=e82]:
+    - generic [ref=e83]:
+      - heading "Enterprise-Grade Security & Compliance" [level=2] [ref=e84]
+      - paragraph [ref=e85]: Built for organizations that take data protection seriously.
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]: 🔒
+        - heading "SOC 2 Compliant" [level=3] [ref=e89]
+        - paragraph [ref=e90]: Meets enterprise security standards
+      - generic [ref=e91]:
+        - generic [ref=e92]: 🛡️
+        - heading "GDPR Ready" [level=3] [ref=e93]
+        - paragraph [ref=e94]: Protects EU citizen data
+      - generic [ref=e95]:
+        - generic [ref=e96]: ⚡
+        - heading "High Performance" [level=3] [ref=e97]
+        - paragraph [ref=e98]: Sub-millisecond latency overhead
+      - generic [ref=e99]:
+        - generic [ref=e100]: 📈
+        - heading "Audit Logging" [level=3] [ref=e101]
+        - paragraph [ref=e102]: Complete visibility into all requests
+      - generic [ref=e103]:
+        - generic [ref=e104]: 🔧
+        - heading "Easy Integration" [level=3] [ref=e105]
+        - paragraph [ref=e106]: Works with existing infrastructure
+      - generic [ref=e107]:
+        - generic [ref=e108]: ☁️
+        - heading "AWS Native" [level=3] [ref=e109]
+        - paragraph [ref=e110]: Optimized for AWS Marketplace deployment
+  - generic [ref=e112]:
+    - heading "Trusted by Security Leaders" [level=2] [ref=e114]
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]: "\""
+        - paragraph [ref=e118]: ZeroShare Gateway gave us the confidence to enable ChatGPT company-wide. We can now leverage AI without worrying about data leaks.
+        - generic [ref=e119]:
+          - generic [ref=e120]: Sarah Chen
+          - generic [ref=e121]: CISO, Fortune 500 Tech Company
+      - generic [ref=e122]:
+        - generic [ref=e123]: "\""
+        - paragraph [ref=e124]: The on-premise deployment was exactly what we needed. Complete control, zero trust issues, and it works seamlessly with our existing security stack.
+        - generic [ref=e125]:
+          - generic [ref=e126]: Michael Rodriguez
+          - generic [ref=e127]: VP of Engineering, Healthcare SaaS
+      - generic [ref=e128]:
+        - generic [ref=e129]: "\""
+        - paragraph [ref=e130]: Deployed in under an hour. The secret blocking feature alone has prevented multiple potential incidents. This is a must-have for any security-conscious organization.
+        - generic [ref=e131]:
+          - generic [ref=e132]: David Kim
+          - generic [ref=e133]: Security Architect, Financial Services
+  - generic [ref=e135]:
+    - generic [ref=e136]:
+      - heading "We're Here to Help" [level=2] [ref=e137]
+      - paragraph [ref=e138]: Get support, documentation, and resources to deploy ZeroShare Gateway successfully.
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]: 📧
+        - heading "Support" [level=3] [ref=e142]
+        - paragraph [ref=e143]: Get help with deployment, configuration, or technical questions.
+        - link "Open Support Case →" [ref=e144] [cursor=pointer]:
+          - /url: /support
+      - generic [ref=e145]:
+        - generic [ref=e146]: 📚
+        - heading "Documentation" [level=3] [ref=e147]
+        - paragraph [ref=e148]: Complete guides, API references, and deployment instructions.
+        - link "View Documentation →" [ref=e149] [cursor=pointer]:
+          - /url: /docs
+      - generic [ref=e150]:
+        - generic [ref=e151]: 💬
+        - heading "Community" [level=3] [ref=e152]
+        - paragraph [ref=e153]: Join discussions, share best practices, and get community support.
+        - link "GitHub Community →" [ref=e154] [cursor=pointer]:
+          - /url: https://github.com/zeroshare
+    - paragraph [ref=e156]:
+      - strong [ref=e157]: "Response Time:"
+      - text: We respond to all support inquiries within 2 business days as required by AWS Marketplace. For urgent issues, please contact us directly.
+  - generic [ref=e163]:
+    - heading "Ready to Secure Your AI Infrastructure?" [level=2] [ref=e164]
+    - paragraph [ref=e165]: Deploy ZeroShare Gateway from the AWS Marketplace today. Get enterprise-grade AI security in minutes, not months.
+    - link "Deploy on AWS Marketplace →" [ref=e167] [cursor=pointer]:
+      - /url: "#"
+    - paragraph [ref=e168]: ✓ 1-Click Deployment ✓ Free Trial Available ✓ Enterprise Support Included
+  - generic [ref=e170]:
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - heading "ZeroShare Gateway" [level=3] [ref=e173]
+        - paragraph [ref=e174]: On-premise AI security gateway protecting enterprises from data leaks and secret exposure.
+      - generic [ref=e175]:
+        - heading "Product" [level=4] [ref=e176]
+        - list [ref=e177]:
+          - listitem [ref=e178]:
+            - link "Features" [ref=e179] [cursor=pointer]:
+              - /url: "#solution"
+          - listitem [ref=e180]:
+            - link "AWS Marketplace" [ref=e181] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e182]:
+            - link "Documentation" [ref=e183] [cursor=pointer]:
+              - /url: /docs
+      - generic [ref=e184]:
+        - heading "Support" [level=4] [ref=e185]
+        - list [ref=e186]:
+          - listitem [ref=e187]:
+            - link "Contact Support" [ref=e188] [cursor=pointer]:
+              - /url: /support
+          - listitem [ref=e189]:
+            - link "GitHub" [ref=e190] [cursor=pointer]:
+              - /url: https://github.com/zeroshare
+          - listitem [ref=e191]:
+            - link "Help Center" [ref=e192] [cursor=pointer]:
+              - /url: /docs
+      - generic [ref=e193]:
+        - heading "Legal" [level=4] [ref=e194]
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - link "Privacy Policy" [ref=e197] [cursor=pointer]:
+              - /url: /privacy
+          - listitem [ref=e198]:
+            - link "Terms of Service" [ref=e199] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e200]:
+            - link "Compliance" [ref=e201] [cursor=pointer]:
+              - /url: /compliance
+    - generic [ref=e202]:
+      - paragraph [ref=e203]: © 2026 ZeroShare. All rights reserved.
+      - paragraph [ref=e204]: ZeroShare Gateway is available on AWS Marketplace. AWS Marketplace is a service of Amazon Web Services, Inc.
+```

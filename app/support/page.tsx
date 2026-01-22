@@ -510,19 +510,17 @@ export default function SupportPage() {
               fontSize: '0.95rem',
               marginBottom: '1rem'
             }}>
-              Join discussions
+              Join discussions and get community support.
             </p>
             <a
-              href="https://github.com/zeroshare"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/support"
               style={{
                 color: '#667eea',
                 fontWeight: 600,
                 textDecoration: 'none'
               }}
             >
-              GitHub →
+              Contact Support →
             </a>
           </div>
         </div>

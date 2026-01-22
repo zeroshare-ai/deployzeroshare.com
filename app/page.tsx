@@ -733,9 +733,7 @@ export default function Home() {
                 Join discussions, share best practices, and get community support.
               </p>
               <a
-                href="https://github.com/zeroshare"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/support"
                 style={{
                   color: '#4facfe',
                   fontWeight: 600,
@@ -743,7 +741,7 @@ export default function Home() {
                   fontSize: '1.05rem'
                 }}
               >
-                GitHub Community →
+                Contact Support →
               </a>
             </div>
           </div>
@@ -901,11 +899,6 @@ export default function Home() {
                 <li style={{ marginBottom: '0.5rem' }}>
                   <a href="/support" style={{ color: '#ccc', textDecoration: 'none', fontSize: '0.95rem' }}>
                     Contact Support
-                  </a>
-                </li>
-                <li style={{ marginBottom: '0.5rem' }}>
-                  <a href="https://github.com/zeroshare" target="_blank" rel="noopener noreferrer" style={{ color: '#ccc', textDecoration: 'none', fontSize: '0.95rem' }}>
-                    GitHub
                   </a>
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
