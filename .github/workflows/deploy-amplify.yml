@@ -1,4 +1,4 @@
-name: Deploy to AWS Amplify
+name: Verify Deployment
 
 on:
   push:
@@ -8,44 +8,11 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Next.js
-        run: npm run build
-
-      - name: Deploy to Amplify
-        id: deploy
-        uses: aws-amplify/amplify-cli-action@v1
-        with:
-          app-id: ${{ secrets.AMPLIFY_APP_ID }}
-          branch-name: main
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-        env:
-          AMPLIFY_APP_ID: d27qp6qcouw49r
-
   verify-deployment:
-    needs: build-and-deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: always()  # Run even if deployment fails
     
     steps:
       - name: Checkout code
@@ -63,10 +30,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       
-      - name: Wait for Amplify deployment
+      - name: Wait for Amplify auto-deployment
         run: |
-          echo "Waiting 60 seconds for Amplify deployment to complete..."
-          sleep 60
+          echo "Waiting 90 seconds for Amplify auto-deployment to complete..."
+          echo "Amplify is connected to GitHub and deploys automatically on push"
+          sleep 90
       
       - name: Run smoke tests against deployed site
         id: smoke-tests
