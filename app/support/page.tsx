@@ -27,9 +27,10 @@ export default function SupportPage() {
     setErrorMessage('');
 
     try {
-      // The API endpoint will be set up via Lambda function
-      // For now, we'll use a placeholder that will be replaced with the actual API Gateway URL
-      const apiEndpoint = process.env.NEXT_PUBLIC_SUPPORT_API_URL || 'https://YOUR_API_GATEWAY_URL/prod/support';
+      // API endpoint is automatically set by Amplify build process
+      // It reads from CloudFormation stack outputs and injects as environment variable
+      const apiEndpoint = process.env.NEXT_PUBLIC_SUPPORT_API_URL || 
+        'https://deployzeroshare-support-api.execute-api.us-east-1.amazonaws.com/prod/support';
       
       const response = await fetch(apiEndpoint, {
         method: 'POST',

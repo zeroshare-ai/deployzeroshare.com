@@ -24,10 +24,25 @@ backend:
               FromEmail=no-reply@deployzeroshare.com \
               ToEmail=rick@beaverpaw.com \
             || echo "Backend deployment skipped (may already exist or need manual setup)"
+          # Get API URL and inject as environment variable for frontend
+          API_URL=$(aws cloudformation describe-stacks \
+            --stack-name deployzeroshare-support-email \
+            --region us-east-1 \
+            --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
+            --output text 2>/dev/null || echo "")
+          if [ -n "$API_URL" ]; then
+            echo "NEXT_PUBLIC_SUPPORT_API_URL=$API_URL" >> ../.env.production
+            echo "Support API URL: $API_URL"
+          fi
 frontend:
   phases:
     preBuild:
       commands:
+        - |
+          # Load backend environment variables if they exist
+          if [ -f amplify/backend/.env.production ]; then
+            export $(cat amplify/backend/.env.production | xargs)
+          fi
         - npm ci
     build:
       commands:
