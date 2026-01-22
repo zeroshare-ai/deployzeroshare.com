@@ -5,9 +5,19 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Deploy ZeroShare - On-Premise AI Security Gateway',
-  description: 'Deploy ZeroShare Gateway: Protect sensitive data with PII redaction and secrets blocking for your AI applications.',
-  keywords: 'AI security, PII redaation, secrets blocking, on-premise AI gateway, ZeroShare',
+  title: 'ZeroShare Gateway - On-Premise AI Security | AWS Marketplace',
+  description: 'Stop data leaks before they reach AI. ZeroShare Gateway protects your organization from accidental PII leaks and secret exposure when using ChatGPT, Copilot, and other AI tools. Deploy on-premise, maintain full control.',
+  keywords: 'AI security, PII redaction, secrets blocking, on-premise AI gateway, ZeroShare, AWS Marketplace, ChatGPT security, Copilot security, data leak prevention, enterprise AI security, SOC 2, GDPR compliance',
+  openGraph: {
+    title: 'ZeroShare Gateway - On-Premise AI Security',
+    description: 'Stop data leaks before they reach AI. Enterprise-grade security for ChatGPT, Copilot, and other AI tools.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZeroShare Gateway - On-Premise AI Security',
+    description: 'Stop data leaks before they reach AI. Enterprise-grade security for ChatGPT, Copilot, and other AI tools.',
+  },
 };
 
 export default function RootLayout({

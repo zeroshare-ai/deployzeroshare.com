@@ -1,0 +1,9 @@
+{
+  "name": "support-email-lambda",
+  "version": "1.0.0",
+  "description": "Lambda function to send support emails via AWS SES",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1691.0"
+  }
+}
