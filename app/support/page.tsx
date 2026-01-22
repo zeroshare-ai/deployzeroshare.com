@@ -358,7 +358,7 @@ export default function SupportPage() {
                   marginBottom: '1.5rem',
                   fontSize: '0.95rem'
                 }}>
-                  {errorMessage || 'An error occurred. Please try again or contact support@deployzeroshare.com directly.'}
+                  {errorMessage || 'An error occurred. Please try again or use the form above to contact support.'}
                 </div>
               )}
 
@@ -433,24 +433,24 @@ export default function SupportPage() {
               marginBottom: '0.5rem',
               fontWeight: 700
             }}>
-              Email Support
+              Support Form
             </h3>
             <p style={{
               color: '#666',
               fontSize: '0.95rem',
               marginBottom: '1rem'
             }}>
-              For direct inquiries
+              Submit a support case
             </p>
             <a
-              href="mailto:support@deployzeroshare.com"
+              href="/support"
               style={{
                 color: '#667eea',
                 fontWeight: 600,
                 textDecoration: 'none'
               }}
             >
-              support@deployzeroshare.com →
+              Open Support Case →
             </a>
           </div>
 

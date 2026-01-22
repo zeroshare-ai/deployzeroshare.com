@@ -212,9 +212,9 @@ export default function TermsPage() {
             11. Contact Information
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            If you have any questions about these Terms of Service, please contact us at{' '}
-            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@deployzeroshare.com
+            If you have any questions about these Terms of Service, please{' '}
+            <a href="/support" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              contact us through our support form
             </a>.
           </p>
         </div>

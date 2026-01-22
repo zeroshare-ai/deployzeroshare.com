@@ -4,7 +4,6 @@ import { MarketplaceButton } from './components/MarketplaceButton';
 import { Navigation } from './components/Navigation';
 
 export default function Home() {
-  const supportEmail = "support@deployzeroshare.com";
   const documentationUrl = "/docs";
 
   return (
@@ -859,7 +858,7 @@ export default function Home() {
                 margin: 0
               }}>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <a href={`mailto:${supportEmail}`} style={{ color: '#ccc', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  <a href="/support" style={{ color: '#ccc', textDecoration: 'none', fontSize: '0.95rem' }}>
                     Contact Support
                   </a>
                 </li>

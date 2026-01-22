@@ -176,9 +176,9 @@ export default function PrivacyPage() {
             <li><strong>Withdraw Consent:</strong> Withdraw consent for processing where applicable</li>
           </ul>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            To exercise these rights, please contact us at{' '}
-            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@deployzeroshare.com
+            To exercise these rights, please{' '}
+            <a href="/support" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              contact us through our support form
             </a>.
           </p>
 
@@ -277,13 +277,10 @@ export default function PrivacyPage() {
             12. Contact Us
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            If you have any questions about this Privacy Policy or our data practices, please contact us at:
-          </p>
-          <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            <strong>Email:</strong>{' '}
-            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@deployzeroshare.com
-            </a>
+            If you have any questions about this Privacy Policy or our data practices, please{' '}
+            <a href="/support" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              contact us through our support form
+            </a>.
           </p>
         </div>
       </section>

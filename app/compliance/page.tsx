@@ -233,10 +233,9 @@ export default function CompliancePage() {
             Compliance Documentation
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            For detailed compliance documentation, security questionnaires, or compliance certifications, please contact 
-            our compliance team at{' '}
-            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@deployzeroshare.com
+            For detailed compliance documentation, security questionnaires, or compliance certifications, please{' '}
+            <a href="/support" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              contact our compliance team through our support form
             </a>.
           </p>
 
@@ -271,10 +270,9 @@ export default function CompliancePage() {
             Contact Compliance Team
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            For questions about compliance, security certifications, or to request compliance documentation, please 
-            contact us at{' '}
-            <a href="mailto:support@deployzeroshare.com" style={{ color: '#667eea', textDecoration: 'underline' }}>
-              support@deployzeroshare.com
+            For questions about compliance, security certifications, or to request compliance documentation, please{' '}
+            <a href="/support" style={{ color: '#667eea', textDecoration: 'underline' }}>
+              contact us through our support form
             </a>.
           </p>
         </div>
