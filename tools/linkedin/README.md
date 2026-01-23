@@ -15,6 +15,11 @@
 
 **Total: 8 posts/week**
 
+### Content Generation
+| When | What |
+|------|------|
+| Sunday 8 PM ET | Auto-generate new posts from blog |
+
 ### View/Edit Schedule
 ```bash
 crontab -l                    # View current schedule
@@ -23,7 +28,8 @@ crontab -e                    # Edit schedule
 
 ### Check Logs
 ```bash
-tail -f tools/linkedin/logs/post.log
+tail -f tools/linkedin/logs/post.log      # Posting logs
+tail -f tools/linkedin/logs/generate.log  # Generation logs
 ```
 
 ---
