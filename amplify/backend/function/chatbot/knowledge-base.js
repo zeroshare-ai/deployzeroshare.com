@@ -116,31 +116,37 @@ const ZEROSHARE_KNOWLEDGE = {
     uptime: "99.99% availability target"
   },
 
-  // Pricing
+  // Pricing (aligned with AWS Marketplace)
   pricing: {
     tiers: [
       {
-        name: "Startup",
+        name: "Free",
         price: "Free",
         details: "for up to 5 users",
-        features: ["Up to 5 users", "Basic PII detection", "Email support", "Community access", "1,000 requests/day"],
+        features: ["Up to 5 users", "Full PII detection", "Full secrets blocking", "Community support", "7-day audit log retention"],
         bestFor: "Small teams getting started with AI security"
       },
       {
-        name: "Professional",
-        price: "$299/month",
-        features: ["Up to 50 users", "Advanced PII & secret detection", "Priority email support", "Custom rules engine", "50,000 requests/day", "Audit logging", "SSO integration"],
+        name: "Team",
+        price: "$499/month",
+        features: ["Up to 25 users", "Full PII & secret detection", "Email support (24h response)", "10 custom rules", "30-day audit log retention", "2 AI backends", "99.5% SLA"],
         bestFor: "Growing teams that need advanced protection",
         mostPopular: true
       },
       {
+        name: "Business",
+        price: "$1,499/month",
+        features: ["Up to 100 users", "Full PII & secret detection", "Priority support (4h response)", "50 custom rules", "90-day audit log retention", "5 AI backends", "SSO/SAML", "99.9% SLA"],
+        bestFor: "Departments with compliance requirements"
+      },
+      {
         name: "Enterprise",
         price: "Custom pricing",
-        features: ["Unlimited users", "Full detection capabilities", "24/7 phone & email support", "Dedicated success manager", "Unlimited requests", "Advanced audit & compliance", "Custom integrations", "SLA guarantee", "On-premise deployment"],
-        bestFor: "Large organizations with compliance requirements"
+        features: ["Unlimited users", "Full detection + custom patterns", "24/7 support (1h response)", "Unlimited custom rules", "Custom audit log retention", "Unlimited AI backends", "Dedicated success manager", "Custom integrations", "99.99% SLA"],
+        bestFor: "Large organizations with custom needs"
       }
     ],
-    allPlansInclude: ["SOC 2 Compliant", "GDPR Ready", "99.9% Uptime SLA", "Cancel Anytime"]
+    allPlansInclude: ["SOC 2 Compliant", "GDPR Ready", "Cancel Anytime"]
   },
 
   // Target Audience & ICP
@@ -213,7 +219,7 @@ const ZEROSHARE_KNOWLEDGE = {
 
   // Common Objections & Responses
   objectionHandling: {
-    "too expensive": "The Startup tier is free for up to 5 users. For larger teams, consider that the average data breach costs $4.45M. ZeroShare Gateway pays for itself by preventing even one incident. Plus, it's billed through AWS, so it's consolidated with your existing cloud spend.",
+    "too expensive": "The Free tier covers up to 5 users at no cost. For larger teams, consider that the average data breach costs $4.45M. ZeroShare Gateway pays for itself by preventing even one incident. Plus, it's billed through AWS, so it's consolidated with your existing cloud spend.",
     "we already have DLP": "Traditional DLP wasn't built for AI. It looks at files and email. ZeroShare Gateway specifically understands AI API payloads - the prompts, the context, the code snippets. We catch things DLP misses because we're purpose-built for this threat vector.",
     "adds latency": "Less than 5ms at p99. Most users don't notice any difference. We designed it for high-performance workloads - 10,000+ requests per second with sub-millisecond scanning overhead.",
     "hard to deploy": "It's a Docker container. Most teams are up and running in under a day. The AWS Marketplace makes it even easier - 1-click deployment into your VPC.",

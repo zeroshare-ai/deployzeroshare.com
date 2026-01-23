@@ -35,7 +35,12 @@
     "compliance:hipaa": "node scripts/compliance/generate-evidence.js --cert=hipaa",
     "compliance:pci": "node scripts/compliance/generate-evidence.js --cert=pci",
     "compliance:ccpa": "node scripts/compliance/generate-evidence.js --cert=ccpa",
-    "compliance:auditor-package": "node scripts/compliance/generate-evidence.js --package"
+    "compliance:auditor-package": "node scripts/compliance/generate-evidence.js --package",
+    "compliance:send-report": "node scripts/compliance/package-and-send.js",
+    "compliance:send-soc2": "node scripts/compliance/package-and-send.js --cert=soc2",
+    "compliance:send-aws": "node scripts/compliance/package-and-send.js --cert=aws",
+    "compliance:send-all": "node scripts/compliance/package-and-send.js --cert=all",
+    "compliance:local": "node scripts/compliance/package-and-send.js --local"
   },
   "dependencies": {
     "next": "^14.0.4",

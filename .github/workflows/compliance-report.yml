@@ -1,0 +1,163 @@
+name: Compliance Report Generation & Delivery
+
+on:
+  # Weekly schedule - every Monday at 8 AM UTC
+  schedule:
+    - cron: '0 8 * * 1'
+  
+  # Manual trigger with options
+  workflow_dispatch:
+    inputs:
+      certification:
+        description: 'Certification to generate report for'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - soc2
+          - iso27001
+          - gdpr
+          - hipaa
+          - pci
+          - ccpa
+          - aws
+      email_recipient:
+        description: 'Email recipient (leave blank for default)'
+        required: false
+        type: string
+      upload_to_s3:
+        description: 'Upload to S3 and send email'
+        required: false
+        default: true
+        type: boolean
+
+env:
+  COMPLIANCE_S3_BUCKET: ${{ secrets.COMPLIANCE_S3_BUCKET }}
+  COMPLIANCE_EMAIL_FROM: ${{ secrets.COMPLIANCE_EMAIL_FROM }}
+  COMPLIANCE_EMAIL_TO: ${{ github.event.inputs.email_recipient || secrets.COMPLIANCE_EMAIL_TO }}
+  AWS_REGION: us-east-1
+
+jobs:
+  generate-reports:
+    name: Generate Compliance Reports
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          # Install additional dependencies for report generation
+          npm install archiver aws-sdk --save-dev
+      
+      - name: Configure AWS credentials
+        if: ${{ github.event.inputs.upload_to_s3 != 'false' }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      
+      - name: Generate compliance evidence
+        run: |
+          # Create output directory
+          mkdir -p compliance-artifacts/latest
+          
+          # Generate evidence artifacts
+          node scripts/compliance/generate-evidence.js --cert=${{ github.event.inputs.certification || 'all' }}
+      
+      - name: Create compliance packages
+        id: create-packages
+        run: |
+          # Run the package and send script
+          if [ "${{ github.event.inputs.upload_to_s3 }}" = "false" ]; then
+            node scripts/compliance/package-and-send.js \
+              --cert=${{ github.event.inputs.certification || 'all' }} \
+              --local
+          else
+            node scripts/compliance/package-and-send.js \
+              --cert=${{ github.event.inputs.certification || 'all' }}
+          fi
+      
+      - name: Upload artifacts to GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: compliance-packages-${{ github.run_id }}
+          path: compliance-artifacts/*.zip
+          retention-days: 30
+      
+      - name: Generate summary
+        run: |
+          echo "## Compliance Report Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "**Certification:** ${{ github.event.inputs.certification || 'all' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Packages Created" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          for f in compliance-artifacts/*.zip; do
+            if [ -f "$f" ]; then
+              SIZE=$(du -h "$f" | cut -f1)
+              NAME=$(basename "$f")
+              echo "- **$NAME** ($SIZE)" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Delivery" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event.inputs.upload_to_s3 }}" = "false" ]; then
+            echo "- Packages available as GitHub artifacts (30 days)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- Packages uploaded to S3" >> $GITHUB_STEP_SUMMARY
+            echo "- Email sent to: ${{ env.COMPLIANCE_EMAIL_TO }}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # Alternative: Upload to release (for permanent storage)
+  create-release:
+    name: Create Release (Optional)
+    runs-on: ubuntu-latest
+    needs: generate-reports
+    if: ${{ github.event.inputs.certification == 'all' && github.event_name == 'workflow_dispatch' }}
+    
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: compliance-packages-${{ github.run_id }}
+          path: packages
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: compliance-${{ github.run_id }}
+          name: Compliance Reports - ${{ github.run_id }}
+          body: |
+            ## Compliance Report Package
+            
+            Generated: ${{ github.event.head_commit.timestamp || 'Manual trigger' }}
+            
+            ### Contents
+            - SOC 2 Type II documentation and evidence
+            - ISO 27001 documentation and evidence
+            - GDPR compliance package
+            - HIPAA compliance package
+            - PCI DSS compliance package
+            - CCPA compliance package
+            - AWS Marketplace & certification documentation
+            
+            ### Usage
+            Download the relevant ZIP files for your compliance needs.
+            Each package contains documentation, templates, and generated evidence.
+          files: packages/*.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

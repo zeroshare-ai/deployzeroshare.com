@@ -133,8 +133,10 @@ This project is part of the ZeroShare ecosystem:
 
 ## Key Constraints
 
-- FREE TIER: 5 users max (matches PRD standard tier)
-- PRICING: $499/month per gateway (from marketplace/listing.md)
+- FREE TIER: 5 users max
+- TEAM: 25 users, $499/month
+- BUSINESS: 100 users, $1,499/month  
+- ENTERPRISE: Unlimited, custom pricing
 - DEPLOYMENT: Docker Compose only (no Kubernetes yet)
 - AI PROVIDERS: Azure OpenAI + AWS Bedrock
 

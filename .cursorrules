@@ -54,11 +54,16 @@ The product's actual capabilities are defined in `../zeroshare-gateway/PRD.md`:
 - **Dashboard**: Streamlit monitoring UI
 - **Deployment**: Docker Compose only
 
-### Pricing (from marketplace listing)
+### Pricing (from AWS Marketplace)
 
-- **Free Tier**: 5 users max
-- **Paid**: $499/month per gateway instance
-- **Trial**: 7 days free
+| Tier | Users | Price |
+|------|-------|-------|
+| **Free** | 5 | $0/month |
+| **Team** | 25 | $499/month |
+| **Business** | 100 | $1,499/month |
+| **Enterprise** | Unlimited | Custom |
+
+- **Trial**: 14 days free (all features, up to 25 users)
 
 ### Blog Posts Should Reflect PRD
 
