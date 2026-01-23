@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AI Chatbot Lambda function for ZeroShare Gateway using AWS Bedrock
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-3-haiku-20240307-v1:0
+    Description: The Bedrock model ID to use (Claude Haiku is fast and cost-effective)
+
+Resources:
+  ChatbotFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: deployzeroshare-chatbot
+      Runtime: nodejs18.x
+      Handler: index.handler
+      CodeUri: .
+      Timeout: 30
+      MemorySize: 512
+      Environment:
+        Variables:
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource: 
+                - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}'
+                - !Sub 'arn:aws:bedrock:us-east-1::foundation-model/${BedrockModelId}'
+                - !Sub 'arn:aws:bedrock:us-west-2::foundation-model/${BedrockModelId}'
+      Events:
+        ApiGateway:
+          Type: Api
+          Properties:
+            Path: /chat
+            Method: post
+            RestApiId: !Ref ChatbotApi
+
+  ChatbotApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: deployzeroshare-chatbot-api
+      StageName: !Ref Environment
+      Cors:
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL for chatbot
+    Value: !Sub 'https://${ChatbotApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/chat'
+    Export:
+      Name: !Sub '${AWS::StackName}-ApiUrl'
+  
+  FunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt ChatbotFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-FunctionArn'

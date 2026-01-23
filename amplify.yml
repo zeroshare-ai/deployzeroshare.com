@@ -5,6 +5,8 @@ backend:
       commands:
         - |
           echo "Deploying backend resources..."
+          
+          # Deploy Support Email Lambda
           (
             cd amplify/backend/function/support-email
             npm install --production
@@ -26,7 +28,8 @@ backend:
                 ToEmail=support@deployzeroshare.com \
               || echo "Backend deployment skipped (may already exist or need manual setup)"
           )
-          # Get API URL and inject as environment variable for frontend
+          
+          # Get Support API URL
           API_URL=$(aws cloudformation describe-stacks \
             --stack-name deployzeroshare-support-email \
             --region us-east-1 \
@@ -35,6 +38,37 @@ backend:
           if [ -n "$API_URL" ]; then
             echo "NEXT_PUBLIC_SUPPORT_API_URL=$API_URL" >> amplify/backend/.env.production
             echo "Support API URL: $API_URL"
+          fi
+          
+          # Deploy Chatbot Lambda (AWS Bedrock)
+          (
+            cd amplify/backend/function/chatbot
+            npm install --production
+            # Package Lambda function
+            zip -r function.zip . -x "*.git*" "*.zip" "node_modules/.cache/*" "template.yaml" "README.md"
+            # Deploy using AWS CloudFormation
+            aws cloudformation package \
+              --template-file template.yaml \
+              --s3-bucket amplify-deployments-$(aws sts get-caller-identity --query Account --output text) \
+              --output-template-file packaged-template.yaml \
+              --region us-east-1 || echo "CloudFormation package failed for chatbot"
+            aws cloudformation deploy \
+              --template-file packaged-template.yaml \
+              --stack-name deployzeroshare-chatbot \
+              --capabilities CAPABILITY_IAM \
+              --region us-east-1 \
+              || echo "Chatbot deployment skipped (may need Bedrock access enabled)"
+          )
+          
+          # Get Chatbot API URL
+          CHATBOT_URL=$(aws cloudformation describe-stacks \
+            --stack-name deployzeroshare-chatbot \
+            --region us-east-1 \
+            --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
+            --output text 2>/dev/null || echo "")
+          if [ -n "$CHATBOT_URL" ]; then
+            echo "NEXT_PUBLIC_CHATBOT_API_URL=$CHATBOT_URL" >> amplify/backend/.env.production
+            echo "Chatbot API URL: $CHATBOT_URL"
           fi
 frontend:
   phases:
