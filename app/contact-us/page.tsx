@@ -70,9 +70,27 @@ export default function ContactSalesPage() {
           padding: 'clamp(3rem, 8vw, 6rem)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden'
         }}>
-          <div style={{ maxWidth: '500px' }}>
+          {/* Hero illustration */}
+          <div style={{
+            position: 'absolute',
+            bottom: '-50px',
+            right: '-50px',
+            width: '400px',
+            height: '300px',
+            opacity: 0.15,
+            pointerEvents: 'none'
+          }}>
+            <img 
+              src="/contact-hero.png" 
+              alt=""
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </div>
+          <div style={{ maxWidth: '500px', position: 'relative', zIndex: 1 }}>
             <div style={{
               display: 'inline-block',
               background: 'rgba(255,255,255,0.15)',

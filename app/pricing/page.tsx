@@ -11,6 +11,7 @@ export default function PricingPage() {
       description: 'Perfect for small teams getting started with AI security',
       price: 'Free',
       priceDetail: 'for up to 5 users',
+      image: '/images/pricing/pricing-startup.png',
       features: [
         'Up to 5 users',
         'Basic PII detection',
@@ -27,6 +28,7 @@ export default function PricingPage() {
       description: 'For growing teams that need advanced protection',
       price: '$299',
       priceDetail: 'per month',
+      image: '/images/pricing/pricing-professional.png',
       features: [
         'Up to 50 users',
         'Advanced PII & secret detection',
@@ -45,6 +47,7 @@ export default function PricingPage() {
       description: 'For large organizations with compliance requirements',
       price: 'Custom',
       priceDetail: 'contact us for pricing',
+      image: '/images/pricing/pricing-enterprise.png',
       features: [
         'Unlimited users',
         'Full PII, secret & custom detection',
@@ -137,6 +140,24 @@ export default function PricingPage() {
                 color: plan.highlighted ? 'white' : '#1a1a1a'
               }}
             >
+              {/* Tier illustration */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginBottom: '1.5rem'
+              }}>
+                <img 
+                  src={plan.image} 
+                  alt={`${plan.name} tier`}
+                  style={{
+                    width: '120px',
+                    height: '90px',
+                    objectFit: 'contain',
+                    opacity: plan.highlighted ? 0.95 : 1
+                  }}
+                />
+              </div>
+              
               {plan.highlighted && (
                 <div style={{
                   position: 'absolute',

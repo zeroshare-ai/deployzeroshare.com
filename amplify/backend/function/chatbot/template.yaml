@@ -8,8 +8,8 @@ Parameters:
     Default: prod
   BedrockModelId:
     Type: String
-    Default: anthropic.claude-3-5-sonnet-20241022-v2:0
-    Description: Claude 3.5 Sonnet v2 - best for nuanced sales conversations and technical expertise
+    Default: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+    Description: Claude 3.5 Sonnet v2 inference profile - best for nuanced sales conversations
 
 Resources:
   ChatbotFunction:
@@ -30,9 +30,11 @@ Resources:
               Action:
                 - bedrock:InvokeModel
               Resource: 
-                - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}'
-                - !Sub 'arn:aws:bedrock:us-east-1::foundation-model/${BedrockModelId}'
-                - !Sub 'arn:aws:bedrock:us-west-2::foundation-model/${BedrockModelId}'
+                # Inference profile ARNs (required for Claude 3.5 Sonnet v2)
+                - !Sub 'arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/${BedrockModelId}'
+                - !Sub 'arn:aws:bedrock:us-east-1:${AWS::AccountId}:inference-profile/${BedrockModelId}'
+                # Also allow foundation model access as fallback
+                - 'arn:aws:bedrock:*::foundation-model/anthropic.*'
       Events:
         ApiGateway:
           Type: Api

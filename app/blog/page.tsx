@@ -18,6 +18,7 @@ const blogPosts = [
     readTime: '12 min read',
     category: 'Security Best Practices',
     featured: true,
+    image: '/images/blog/blog-pii-leaks.png',
   },
   {
     slug: 'ai-security-compliance-guide-2026',
@@ -29,6 +30,7 @@ const blogPosts = [
     readTime: '15 min read',
     category: 'Compliance',
     featured: true,
+    image: '/images/blog/blog-compliance.png',
   },
   {
     slug: 'zero-trust-ai-architecture',
@@ -40,6 +42,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-zero-trust.png',
   },
   {
     slug: 'secrets-detection-ai-code-assistants',
@@ -51,6 +54,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-secrets.png',
   },
   {
     slug: 'enterprise-ai-governance-framework',
@@ -62,6 +66,7 @@ const blogPosts = [
     readTime: '16 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-governance.png',
   },
   {
     slug: 'ai-proxy-gateway-explained',
@@ -73,6 +78,7 @@ const blogPosts = [
     readTime: '13 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-gateway.png',
   },
   // December 2025
   {
@@ -585,6 +591,24 @@ export default function BlogPage() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
                 >
+                  {post.image && (
+                    <div style={{
+                      height: '200px',
+                      overflow: 'hidden',
+                      position: 'relative'
+                    }}>
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          opacity: 0.9
+                        }}
+                      />
+                    </div>
+                  )}
                   <div style={{ padding: '2.5rem' }}>
                     <span style={{
                       display: 'inline-block',
@@ -712,6 +736,23 @@ export default function BlogPage() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
                 >
+                  {post.image && (
+                    <div style={{
+                      height: '160px',
+                      overflow: 'hidden',
+                      position: 'relative'
+                    }}>
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover'
+                        }}
+                      />
+                    </div>
+                  )}
                   <div style={{ padding: '2rem' }}>
                     <span style={{
                       display: 'inline-block',

@@ -101,4 +101,520 @@
     </news:news>
   </url>
 
+  <!-- December 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/shadow-ai-670k-breach-cost</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-28</news:publication_date>
+      <news:title>Shadow AI: The $670K Hidden Cost in Every Data Breach</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/hipaa-ai-requirements-2026</loc>
+    <lastmod>2025-12-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-22</news:publication_date>
+      <news:title>HIPAA's New AI Requirements: What Healthcare Organizations Must Know</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-dlp-architecture-patterns</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-18</news:publication_date>
+      <news:title>AI Data Loss Prevention: 5 Architecture Patterns That Work</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/secure-cicd-ai-assistants</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-15</news:publication_date>
+      <news:title>Securing Your CI/CD Pipeline When Developers Use AI Assistants</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-acceptable-use-policy-template</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-12</news:publication_date>
+      <news:title>The Enterprise AI Acceptable Use Policy Template You Can Actually Use</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/llm-security-fundamentals</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-12-08</news:publication_date>
+      <news:title>LLM Security Fundamentals Every Security Team Should Know</news:title>
+    </news:news>
+  </url>
+
+  <!-- November 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/chatgpt-enterprise-security-review</loc>
+    <lastmod>2025-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-28</news:publication_date>
+      <news:title>ChatGPT Enterprise Security: An Honest Assessment</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/soc2-ai-controls-guide</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-24</news:publication_date>
+      <news:title>SOC 2 Controls for AI: The Auditor's Perspective</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/microservices-ai-gateway-integration</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-20</news:publication_date>
+      <news:title>Integrating AI Gateways into Microservices Architecture</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/github-copilot-security-settings</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-15</news:publication_date>
+      <news:title>Every GitHub Copilot Security Setting Explained</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-risk-register-template</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-10</news:publication_date>
+      <news:title>Building Your AI Risk Register: A Practical Framework</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/prompt-injection-attacks-explained</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-11-05</news:publication_date>
+      <news:title>Prompt Injection Attacks: How They Work and How to Defend</news:title>
+    </news:news>
+  </url>
+
+  <!-- October 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-security-budget-justification</loc>
+    <lastmod>2025-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-28</news:publication_date>
+      <news:title>How to Justify Your AI Security Budget to the Board</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/gdpr-ai-processing-requirements</loc>
+    <lastmod>2025-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-24</news:publication_date>
+      <news:title>GDPR and AI: Data Processing Requirements You're Probably Missing</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/high-availability-ai-gateway</loc>
+    <lastmod>2025-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-20</news:publication_date>
+      <news:title>Designing High-Availability AI Security Gateways</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/pre-commit-hooks-ai-secrets</loc>
+    <lastmod>2025-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-15</news:publication_date>
+      <news:title>Pre-Commit Hooks for AI: Catching Secrets Before They Leak</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-vendor-assessment-checklist</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-10</news:publication_date>
+      <news:title>The AI Vendor Security Assessment Checklist</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/vector-database-security</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-10-05</news:publication_date>
+      <news:title>Vector Database Security: The New Attack Surface</news:title>
+    </news:news>
+  </url>
+
+  <!-- September 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/executive-ai-security-briefing</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-28</news:publication_date>
+      <news:title>The 10-Minute AI Security Briefing for Executives</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/eu-ai-act-compliance-timeline</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-22</news:publication_date>
+      <news:title>EU AI Act Compliance: Your 2025-2026 Timeline</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/kubernetes-ai-gateway-deployment</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-18</news:publication_date>
+      <news:title>Deploying AI Security Gateways on Kubernetes</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/terraform-ai-security-modules</loc>
+    <lastmod>2025-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-12</news:publication_date>
+      <news:title>Terraform Modules for AI Security Infrastructure</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-incident-response-playbook</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-08</news:publication_date>
+      <news:title>AI Incident Response: When Sensitive Data Reaches the LLM</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/openai-api-security-best-practices</loc>
+    <lastmod>2025-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-02</news:publication_date>
+      <news:title>OpenAI API Security: Configuration Best Practices</news:title>
+    </news:news>
+  </url>
+
+  <!-- August 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-phishing-detection-evasion</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-08-25</news:publication_date>
+      <news:title>How Attackers Use AI to Evade Phishing Detection</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/financial-services-ai-regulations</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-08-20</news:publication_date>
+      <news:title>Financial Services AI Regulations: SEC, OCC, and State Requirements</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/multi-tenant-ai-gateway-design</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-08-15</news:publication_date>
+      <news:title>Multi-Tenant AI Gateway Design for SaaS Providers</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/cursor-ide-security-configuration</loc>
+    <lastmod>2025-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-08-10</news:publication_date>
+      <news:title>Securing Cursor IDE: A DevSecOps Guide</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-third-party-risk-management</loc>
+    <lastmod>2025-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-08-05</news:publication_date>
+      <news:title>Third-Party AI Risk: Assessing Your Vendors' AI Usage</news:title>
+    </news:news>
+  </url>
+
+  <!-- July 2025 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/anthropic-claude-enterprise-security</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-28</news:publication_date>
+      <news:title>Anthropic Claude Enterprise Security Features Reviewed</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-red-team-exercises</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-22</news:publication_date>
+      <news:title>Running AI Red Team Exercises: A Practical Guide</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/state-privacy-laws-ai-implications</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-15</news:publication_date>
+      <news:title>State Privacy Laws and AI: California, Virginia, Colorado, and Beyond</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/edge-ai-security-considerations</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-10</news:publication_date>
+      <news:title>Edge AI Security: When the Model Runs on Device</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/aws-bedrock-security-guide</loc>
+    <lastmod>2025-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-05</news:publication_date>
+      <news:title>AWS Bedrock Security: IAM, VPC, and Logging Best Practices</news:title>
+    </news:news>
+  </url>
+
 </urlset>

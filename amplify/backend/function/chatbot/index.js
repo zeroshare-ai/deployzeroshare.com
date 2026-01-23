@@ -5,8 +5,9 @@ const { buildSystemPrompt } = require('./knowledge-base');
 const region = process.env.AWS_REGION || 'us-east-1';
 const bedrockClient = new BedrockRuntimeClient({ region });
 
-// Model configuration - Claude 3.5 Sonnet for nuanced sales conversations
-const MODEL_ID = process.env.BEDROCK_MODEL_ID || 'anthropic.claude-3-5-sonnet-20241022-v2:0';
+// Model configuration - Claude 3.5 Sonnet v2 via US inference profile
+// Using inference profile ID (required for newer Claude models on Bedrock)
+const MODEL_ID = process.env.BEDROCK_MODEL_ID || 'us.anthropic.claude-3-5-sonnet-20241022-v2:0';
 const MAX_TOKENS = 1024;
 
 exports.handler = async (event) => {

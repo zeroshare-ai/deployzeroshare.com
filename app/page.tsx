@@ -20,8 +20,8 @@ export default function Home() {
         overflow: 'hidden'
       }}>
         <AnimatedBackground />
-        {/* Premium hero background - uncomment when image is generated */}
-        {/* <div style={{
+        {/* Premium hero background */}
+        <div style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: 'url(/images/hero/hero-abstract-bg.png)',
@@ -29,7 +29,7 @@ export default function Home() {
           backgroundPosition: 'center',
           opacity: 0.3,
           mixBlendMode: 'overlay'
-        }} /> */}
+        }} />
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div className="fade-in-up" style={{
             display: 'inline-block',
@@ -240,17 +240,14 @@ export default function Home() {
               <div style={{
                 width: '70px',
                 height: '70px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '2rem',
                 marginBottom: '1.5rem',
-                boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)'
+                overflow: 'hidden'
               }}>
-                {/* Replace with: <img src="/images/icons/icon-pii-detection.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
-                🔍
+                <img src="/images/icons/icon-pii-detection.png" alt="PII Detection" style={{ width: '70px', height: '70px', objectFit: 'cover' }} />
               </div>
               <h3 style={{
                 fontSize: '1.8rem',
@@ -280,17 +277,14 @@ export default function Home() {
               <div style={{
                 width: '70px',
                 height: '70px',
-                background: 'linear-gradient(135deg, #764ba2 0%, #f093fb 100%)',
                 borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '2rem',
                 marginBottom: '1.5rem',
-                boxShadow: '0 8px 20px rgba(118, 75, 162, 0.3)'
+                overflow: 'hidden'
               }}>
-                {/* Replace with: <img src="/images/icons/icon-secret-blocking.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
-                🛡️
+                <img src="/images/icons/icon-secret-blocking.png" alt="Secret Blocking" style={{ width: '70px', height: '70px', objectFit: 'cover' }} />
               </div>
               <h3 style={{
                 fontSize: '1.8rem',
@@ -320,17 +314,14 @@ export default function Home() {
               <div style={{
                 width: '70px',
                 height: '70px',
-                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                 borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '2rem',
                 marginBottom: '1.5rem',
-                boxShadow: '0 8px 20px rgba(79, 172, 254, 0.3)'
+                overflow: 'hidden'
               }}>
-                {/* Replace with: <img src="/images/icons/icon-on-premise.png" alt="" style={{ width: '50px', height: '50px' }} /> */}
-                🏢
+                <img src="/images/icons/icon-on-premise.png" alt="On-Premise Deployment" style={{ width: '70px', height: '70px', objectFit: 'cover' }} />
               </div>
               <h3 style={{
                 fontSize: '1.8rem',
@@ -581,6 +572,7 @@ export default function Home() {
               {
                 industry: 'Healthcare',
                 icon: '🏥',
+                image: '/images/industries/industry-healthcare.png',
                 outcome: 'Enabled 2,400 clinicians to use AI assistants while maintaining HIPAA compliance',
                 metric: '99.7%',
                 metricLabel: 'PHI blocked before reaching AI services',
@@ -589,6 +581,7 @@ export default function Home() {
               {
                 industry: 'Financial Services',
                 icon: '🏦',
+                image: '/images/industries/industry-finance.png',
                 outcome: 'Deployed company-wide AI access in 3 weeks instead of projected 6 months',
                 metric: '47,000+',
                 metricLabel: 'Secrets intercepted in first 90 days',
@@ -597,6 +590,7 @@ export default function Home() {
               {
                 industry: 'Technology',
                 icon: '💻',
+                image: '/images/industries/industry-technology.png',
                 outcome: 'Reduced shadow AI tools from 23 to 4 approved platforms with full visibility',
                 metric: '<5ms',
                 metricLabel: 'Added latency to AI requests',
@@ -608,8 +602,22 @@ export default function Home() {
                 padding: '2.5rem',
                 borderRadius: '15px',
                 boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
-                border: '1px solid #e9ecef'
+                border: '1px solid #e9ecef',
+                overflow: 'hidden'
               }}>
+                {/* Industry Image */}
+                <div style={{
+                  marginBottom: '1.5rem',
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  height: '120px'
+                }}>
+                  <img 
+                    src={caseStudy.image} 
+                    alt={caseStudy.industry}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -685,9 +693,9 @@ export default function Home() {
                 Compliance Ready
               </div>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>SOC 2</span>
-                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>HIPAA</span>
-                <span style={{ padding: '0.5rem 1rem', background: '#f8f9fa', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 600, color: '#333' }}>GDPR</span>
+                <img src="/images/badges/badge-soc2.png" alt="SOC 2" style={{ height: '45px', width: 'auto' }} />
+                <img src="/images/badges/badge-hipaa.png" alt="HIPAA" style={{ height: '45px', width: 'auto' }} />
+                <img src="/images/badges/badge-gdpr.png" alt="GDPR" style={{ height: '45px', width: 'auto' }} />
               </div>
             </div>
             <div style={{ width: '1px', height: '40px', background: '#e9ecef' }} />
