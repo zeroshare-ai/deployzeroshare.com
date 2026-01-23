@@ -139,7 +139,7 @@ export default function SecurityPage() {
             </div>
             <div>
               <div style={{ fontWeight: 700, color: '#1a1a1a' }}>GDPR Ready</div>
-              <div style={{ fontSize: '0.85rem', color: '#28a745', fontWeight: 600 }}>Compliant</div>
+              <div style={{ fontSize: '0.85rem', color: '#28a745', fontWeight: 600 }}>Supported</div>
             </div>
           </div>
         </div>

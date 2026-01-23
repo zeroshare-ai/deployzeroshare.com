@@ -255,7 +255,7 @@ export default function Home() {
                 color: '#667eea',
                 fontWeight: 700
               }}>
-                Intelligent PII Detection
+                50+ PII Patterns Detected
               </h3>
               <p style={{
                 fontSize: '1.1rem',
@@ -263,9 +263,9 @@ export default function Home() {
                 color: '#555',
                 fontWeight: 400
               }}>
-                Advanced pattern recognition automatically identifies emails, phone numbers, 
-                SSNs, credit cards, and other sensitive data. Redacts or blocks requests 
-                before they leave your network.
+                Microsoft Presidio-powered detection identifies emails, phone numbers, 
+                SSNs, credit cards, names, addresses, and 50+ other PII types. Automatically 
+                redacts sensitive data before it leaves your network.
               </p>
             </div>
             <div className="feature-card fade-in-up-delay-2" style={{
@@ -292,7 +292,7 @@ export default function Home() {
                 color: '#764ba2',
                 fontWeight: 700
               }}>
-                Secret Pattern Blocking
+                200+ Secret Patterns Blocked
               </h3>
               <p style={{
                 fontSize: '1.1rem',
@@ -300,9 +300,9 @@ export default function Home() {
                 color: '#555',
                 fontWeight: 400
               }}>
-                Hard blocks requests containing API keys, AWS credentials, database connection 
-                strings, and other secret patterns. Prevents accidental exposure to AI coding 
-                assistants and chat tools.
+                Hard blocks requests containing AWS keys, OpenAI tokens, GitHub PATs, database 
+                credentials, private keys, and 200+ other secret patterns. Protects against 
+                accidental exposure to AI coding assistants.
               </p>
             </div>
             <div className="feature-card fade-in-up-delay-3" style={{
@@ -492,8 +492,8 @@ export default function Home() {
             gap: '2rem'
           }}>
             {[
-              { icon: '🔒', title: 'SOC 2 Compliant', desc: 'Meets enterprise security standards' },
-              { icon: '🛡️', title: 'GDPR Ready', desc: 'Protects EU citizen data' },
+              { icon: '🔒', title: 'SOC 2 Ready', desc: 'Built for enterprise security audits' },
+              { icon: '🛡️', title: 'GDPR Ready', desc: 'Supports EU data protection' },
               { icon: '⚡', title: 'High Performance', desc: 'Sub-millisecond latency overhead' },
               { icon: '📈', title: 'Audit Logging', desc: 'Complete visibility into all requests' },
               { icon: '🔧', title: 'Easy Integration', desc: 'Works with existing infrastructure' },

@@ -102,23 +102,23 @@ const faqs: FAQItem[] = [
   // Compliance
   {
     category: 'Compliance',
-    question: 'Is ZeroShare Gateway SOC 2 compliant?',
-    answer: 'Yes. ZeroShare Gateway undergoes annual SOC 2 Type II audits by independent third-party auditors. The audit covers security, availability, and processing integrity. SOC 2 audit reports are available to customers under NDA.',
+    question: 'Is ZeroShare Gateway SOC 2 certified?',
+    answer: 'ZeroShare Gateway is designed with SOC 2 requirements in mind and we are actively working toward SOC 2 Type II certification. Our architecture includes comprehensive audit logging, access controls, encryption, and security monitoring aligned with SOC 2 Trust Service Criteria. Contact us for our current security documentation and certification timeline.',
   },
   {
     category: 'Compliance',
     question: 'Does ZeroShare Gateway support GDPR compliance?',
-    answer: 'Yes. ZeroShare Gateway supports GDPR compliance through: Data Processing Agreements (DPA), support for right to erasure requests, data minimization by design (no data retention on proxy), and complete audit trails for data processing activities.',
+    answer: 'ZeroShare Gateway includes features designed to support GDPR compliance: PII detection for EU data patterns, support for data subject rights (access, erasure), data minimization by design (configurable data retention), and complete audit trails. Note: Your organization is responsible for overall GDPR compliance; we provide tools to help.',
   },
   {
     category: 'Compliance',
-    question: 'Is ZeroShare Gateway HIPAA compliant?',
-    answer: 'Yes. ZeroShare Gateway supports HIPAA compliance with: Business Associate Agreements (BAA) available, PHI (Protected Health Information) detection and safeguards, comprehensive audit logging, and encryption at rest and in transit.',
+    question: 'Does ZeroShare Gateway support HIPAA compliance?',
+    answer: 'ZeroShare Gateway includes features designed to support HIPAA compliance: PHI detection and protection, comprehensive audit logging with configurable retention, encryption at rest and in transit. We can provide Business Associate Agreements (BAA) for healthcare customers. Note: Your organization is responsible for overall HIPAA compliance; we provide technical safeguards to help.',
   },
   {
     category: 'Compliance',
     question: 'Does ZeroShare Gateway help with PCI DSS compliance?',
-    answer: 'Yes. ZeroShare Gateway helps with PCI DSS compliance by detecting cardholder data (credit card numbers, CVVs), providing audit trails for compliance reporting, and ensuring no card data is stored on the gateway.',
+    answer: 'ZeroShare Gateway helps protect cardholder data by detecting and blocking credit card numbers, CVVs, and other payment data before it reaches AI services. We provide audit trails for compliance reporting. Note: PCI DSS compliance is your organization\'s responsibility; we provide technical controls to prevent accidental data exposure.',
   },
 
   // Pricing

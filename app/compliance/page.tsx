@@ -41,6 +41,20 @@ export default function CompliancePage() {
           borderRadius: '20px',
           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)'
         }}>
+          <div style={{
+            background: '#fff3cd',
+            border: '1px solid #ffc107',
+            borderRadius: '8px',
+            padding: '1rem 1.5rem',
+            marginBottom: '2rem'
+          }}>
+            <p style={{ margin: 0, color: '#856404', fontSize: '0.95rem' }}>
+              <strong>Note:</strong> ZeroShare Gateway provides technical features designed to support your compliance efforts. 
+              We are working toward formal certifications. Your organization remains responsible for overall compliance 
+              with applicable regulations.
+            </p>
+          </div>
+
           <h2 style={{
             fontSize: '1.8rem',
             marginTop: '2rem',
@@ -48,10 +62,10 @@ export default function CompliancePage() {
             fontWeight: 700,
             color: '#667eea'
           }}>
-            Compliance Standards
+            Compliance Support
           </h2>
           <p style={{ marginBottom: '1.5rem', color: '#555' }}>
-            ZeroShare Gateway is designed to help organizations comply with various regulatory and industry standards. 
+            ZeroShare Gateway is designed with compliance requirements in mind. 
             Our on-premise architecture ensures that sensitive data remains within your control and infrastructure.
           </p>
 
@@ -75,11 +89,12 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                SOC 2
+                SOC 2 Ready
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                ZeroShare Gateway is designed to meet SOC 2 Type II compliance requirements. Our on-premise 
-                deployment model ensures that data processing occurs entirely within your controlled environment.
+                ZeroShare Gateway is designed with SOC 2 Trust Service Criteria in mind. We are actively working 
+                toward SOC 2 Type II certification. Our architecture includes audit logging, access controls, and 
+                encryption aligned with SOC 2 requirements.
               </p>
             </div>
 
@@ -96,12 +111,12 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                GDPR
+                GDPR Support
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Compliant with the General Data Protection Regulation (GDPR). ZeroShare Gateway processes data 
-                on-premise, ensuring that personal data of EU citizens remains within your infrastructure and 
-                control.
+                Designed to support GDPR requirements. ZeroShare Gateway includes EU PII patterns, data subject 
+                rights support, and on-premise deployment ensuring personal data remains within your 
+                infrastructure and control.
               </p>
             </div>
 
@@ -118,11 +133,11 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                HIPAA
+                HIPAA Support
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Supports HIPAA compliance by preventing unauthorized disclosure of Protected Health Information (PHI). 
-                On-premise deployment ensures data never leaves your controlled environment.
+                Designed to support HIPAA requirements by detecting and protecting PHI before it reaches AI services. 
+                On-premise deployment ensures data never leaves your controlled environment. BAA available upon request.
               </p>
             </div>
 
@@ -139,11 +154,11 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                PCI DSS
+                PCI DSS Support
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Helps protect payment card data by preventing accidental exposure of credit card numbers and other 
-                sensitive financial information to external AI services.
+                Designed to help protect payment card data by detecting and blocking credit card numbers and other 
+                sensitive financial information before exposure to external AI services.
               </p>
             </div>
 
@@ -160,10 +175,10 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                ISO 27001
+                ISO 27001 Aligned
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Aligns with ISO 27001 information security management standards. Our security controls and on-premise 
+                Designed with ISO 27001 information security principles in mind. Our security controls and on-premise 
                 architecture support your ISO 27001 compliance efforts.
               </p>
             </div>
@@ -181,11 +196,11 @@ export default function CompliancePage() {
                 fontWeight: 700,
                 color: '#1a1a1a'
               }}>
-                CCPA
+                CCPA Support
               </h3>
               <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Supports California Consumer Privacy Act (CCPA) compliance by providing control over personal 
-                information and preventing unauthorized data sharing.
+                Designed to support California Consumer Privacy Act (CCPA) requirements by providing control over 
+                personal information and preventing unauthorized data sharing to AI services.
               </p>
             </div>
           </div>

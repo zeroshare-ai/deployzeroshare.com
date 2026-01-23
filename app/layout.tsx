@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: 'ZeroShare Gateway - AI Security Gateway | Stop Data Leaks to AI',
     template: '%s | ZeroShare Gateway',
   },
-  description: 'ZeroShare Gateway is the leading AI proxy security solution. Block PII leaks and secrets exposure to ChatGPT, Copilot, and other AI tools. On-premise deployment, SOC 2 compliant, GDPR ready. Trusted by enterprise security teams.',
+  description: 'ZeroShare Gateway is an AI security gateway that blocks PII leaks and secrets exposure to ChatGPT, Copilot, and other AI tools. On-premise deployment, designed for SOC 2, GDPR, and HIPAA compliance requirements.',
   keywords: [
     'AI security gateway',
     'AI proxy',
@@ -306,10 +306,10 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'Is ZeroShare Gateway compliant with GDPR, SOC 2, and HIPAA?',
+          name: 'Does ZeroShare Gateway support compliance requirements like GDPR, SOC 2, and HIPAA?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. ZeroShare Gateway is designed for enterprise compliance with built-in audit logging, data residency controls, and features that support GDPR, SOC 2, HIPAA, and other regulatory requirements.',
+            text: 'ZeroShare Gateway is designed with compliance in mind, featuring built-in audit logging, data residency controls, and technical safeguards that support GDPR, SOC 2, and HIPAA requirements. We are actively working toward formal SOC 2 certification.',
           },
         },
         {

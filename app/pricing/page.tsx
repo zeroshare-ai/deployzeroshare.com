@@ -360,7 +360,7 @@ export default function PricingPage() {
             flexWrap: 'wrap',
             fontSize: '0.95rem'
           }}>
-            <span>🔒 SOC 2 Compliant</span>
+            <span>🔒 SOC 2 Ready</span>
             <span>🛡️ GDPR Ready</span>
             <span>⚡ 99.9% Uptime SLA</span>
             <span>🔄 Cancel Anytime</span>

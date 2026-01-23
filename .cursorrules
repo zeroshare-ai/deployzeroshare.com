@@ -30,6 +30,37 @@ The project is built with **Next.js 14 (App Router)** and **TypeScript**, deploy
 
 ---
 
+## Documentation Honesty Requirements
+
+**CRITICAL: All documentation and marketing must be truthful about certifications and capabilities.**
+
+### Compliance Claims
+
+| Claim Type | Allowed Language | NOT Allowed |
+|------------|-----------------|-------------|
+| Certifications we don't have | "Designed for SOC 2", "SOC 2 Ready", "Working toward" | "SOC 2 Compliant", "SOC 2 Certified" |
+| Framework support | "Supports HIPAA compliance", "Designed for GDPR" | "HIPAA Compliant", "GDPR Certified" |
+| Features | "Helps protect", "Designed to prevent" | Absolute guarantees |
+
+### Current Certification Status (Update as earned)
+
+- SOC 2 Type I: **In Progress**
+- SOC 2 Type II: **Planned**
+- HIPAA BAA: **Available** (we can sign BAAs)
+- GDPR DPA: **Available** (we can sign DPAs)
+- ISO 27001: **Not certified**
+- PCI DSS: **Not certified**
+
+### When Making Product Changes
+
+Every feature change should trigger documentation updates:
+
+1. **Product code** (`../zeroshare-gateway/`) → Update README, QUICKSTART
+2. **Marketing website** (`./app/`) → Update feature claims, pricing, compliance pages
+3. **Public docs** (`./public/_docs/`) → Update technical documentation
+
+---
+
 ## Cross-Project Context (ZeroShare Ecosystem)
 
 This website is part of a multi-project system. **Marketing claims must match actual product capabilities.**

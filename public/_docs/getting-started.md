@@ -193,14 +193,16 @@ Test that ZeroShare is detecting sensitive data:
 
 ---
 
-## Security Compliance
+## Compliance Support
 
-ZeroShare Gateway helps you meet compliance requirements:
+ZeroShare Gateway provides technical controls designed to support your compliance efforts:
 
 | Framework | How ZeroShare Helps |
 |-----------|---------------------|
-| **HIPAA** | Blocks PHI from reaching AI services |
-| **GDPR** | Prevents PII export to third parties |
-| **SOC 2** | Complete audit logging |
-| **PCI-DSS** | Blocks credit card data |
-| **CCPA** | Controls personal data sharing |
+| **HIPAA** | Detects and protects PHI before it reaches AI services |
+| **GDPR** | Detects EU PII patterns, supports data subject rights |
+| **SOC 2** | Comprehensive audit logging and access controls |
+| **PCI-DSS** | Detects and blocks credit card data |
+| **CCPA** | Controls personal data sharing to AI services |
+
+> **Note:** ZeroShare Gateway provides technical safeguards to support compliance. Your organization remains responsible for overall compliance with applicable regulations. Contact us for BAAs (HIPAA) or DPAs (GDPR).
