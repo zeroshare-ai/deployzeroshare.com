@@ -27,3 +27,59 @@ The project is built with **Next.js 14 (App Router)** and **TypeScript**, deploy
 - `app/page.tsx`: Main landing page.
 - `app/layout.tsx`: Root layout (fonts, metadata).
 - `amplify.yml`: Build configuration for AWS Amplify.
+
+---
+
+## Cross-Project Context (ZeroShare Ecosystem)
+
+This website is part of a multi-project system. **Marketing claims must match actual product capabilities.**
+
+### Related Projects
+
+| Project | Location | Purpose |
+|---------|----------|---------|
+| **zeroshare-gateway** | `../zeroshare-gateway/` | The actual product (Docker/Python/FastAPI) |
+| **This project** | Current folder | Marketing website |
+| **LinkedIn automation** | `./tools/linkedin/` | Traffic generation (don't deploy) |
+
+### Source of Truth for Features
+
+The product's actual capabilities are defined in `../zeroshare-gateway/PRD.md`:
+
+- **PII Redaction**: Emails, phones, SSNs, credit cards (via Presidio)
+- **Secrets Blocking**: AWS keys (`AKIA...`), OpenAI keys (`sk-...`), private keys
+- **Two Lanes**: Standard users (PII redaction) + Developers (secrets blocking)
+- **RBAC**: Roles - standard, developer, admin
+- **AI Routing**: Azure OpenAI + AWS Bedrock via LiteLLM
+- **Dashboard**: Streamlit monitoring UI
+- **Deployment**: Docker Compose only
+
+### Pricing (from marketplace listing)
+
+- **Free Tier**: 5 users max
+- **Paid**: $499/month per gateway instance
+- **Trial**: 7 days free
+
+### Blog Posts Should Reflect PRD
+
+When writing or editing blog content, ensure features mentioned actually exist in the PRD:
+
+| Blog Claim | PRD Support |
+|------------|-------------|
+| "50+ PII patterns" | ✅ Presidio supports this |
+| "200+ secret patterns" | ⚠️ Verify in safety.py |
+| "Sub-millisecond latency" | ⚠️ Verify benchmark exists |
+| "Works with Copilot, Cursor" | ✅ PRD confirms dev tools support |
+
+### LinkedIn Integration
+
+- **Company Page ID**: 110457262
+- **App ID**: 228538213 (Advertising API approved)
+- **Partner ID**: 519048716 (Insight Tag)
+- **Automation scripts**: `./tools/linkedin/` (not part of website build)
+
+### Do NOT Deploy
+
+The `tools/` folder contains local automation scripts and should not be deployed:
+- Add to Amplify ignore if created
+- Keep LinkedIn credentials in `.env.local` only

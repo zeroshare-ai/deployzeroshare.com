@@ -1,0 +1,174 @@
+[
+  {
+    "blogSlug": "prevent-pii-leaks-ai-chatbots",
+    "blogTitle": "How to Prevent PII Leaks When Your Team Uses AI Chatbots",
+    "category": "Security Best Practices",
+    "format": "share",
+    "content": "📰 How to Prevent PII Leaks When Your Team Uses AI Chatbots\n\nNew research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.\n\nRead the full article → https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots\n\n#AISecurity #SecurityBestPractices",
+    "url": "https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots",
+    "generatedAt": "2026-01-23T03:16:53.158Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "ai-security-compliance-guide-2026",
+    "blogTitle": "The Complete Guide to AI Security Compliance in 2026",
+    "category": "Compliance",
+    "format": "share",
+    "content": "📰 The Complete Guide to AI Security Compliance in 2026\n\nFrom HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.\n\nRead the full article → https://deployzeroshare.com/blog/ai-security-compliance-guide-2026\n\n#AISecurity #Compliance",
+    "url": "https://deployzeroshare.com/blog/ai-security-compliance-guide-2026",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "zero-trust-ai-architecture",
+    "blogTitle": "Implementing Zero Trust Architecture for AI Applications",
+    "category": "Architecture",
+    "format": "share",
+    "content": "📰 Implementing Zero Trust Architecture for AI Applications\n\nTraditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.\n\nRead the full article → https://deployzeroshare.com/blog/zero-trust-ai-architecture\n\n#AISecurity #Architecture",
+    "url": "https://deployzeroshare.com/blog/zero-trust-ai-architecture",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "shadow-ai-670k-breach-cost",
+    "blogTitle": "Shadow AI: The $670K Hidden Cost in Every Data Breach",
+    "category": "Security Best Practices",
+    "format": "share",
+    "content": "📰 Shadow AI: The $670K Hidden Cost in Every Data Breach\n\n98% of organizations have employees using unsanctioned AI tools. New research reveals shadow AI increases breach costs by $670,000 on average.\n\nRead the full article → https://deployzeroshare.com/blog/shadow-ai-670k-breach-cost\n\n#AISecurity #SecurityBestPractices",
+    "url": "https://deployzeroshare.com/blog/shadow-ai-670k-breach-cost",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "ai-dlp-architecture-patterns",
+    "blogTitle": "AI Data Loss Prevention: 5 Architecture Patterns That Work",
+    "category": "Architecture",
+    "format": "share",
+    "content": "📰 AI Data Loss Prevention: 5 Architecture Patterns That Work\n\nNot all AI DLP architectures are created equal. We compare proxy, endpoint, API, and hybrid approaches with real performance data.\n\nRead the full article → https://deployzeroshare.com/blog/ai-dlp-architecture-patterns\n\n#AISecurity #Architecture",
+    "url": "https://deployzeroshare.com/blog/ai-dlp-architecture-patterns",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "ai-acceptable-use-policy-template",
+    "blogTitle": "The Enterprise AI Acceptable Use Policy Template You Can Actually Use",
+    "category": "Governance",
+    "format": "share",
+    "content": "📰 The Enterprise AI Acceptable Use Policy Template You Can Actually Use\n\nMost AI policies are either too vague or too restrictive. Download our battle-tested template based on real enterprise deployments.\n\nRead the full article → https://deployzeroshare.com/blog/ai-acceptable-use-policy-template\n\n#AISecurity #Governance",
+    "url": "https://deployzeroshare.com/blog/ai-acceptable-use-policy-template",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "llm-security-fundamentals",
+    "blogTitle": "LLM Security Fundamentals Every Security Team Should Know",
+    "category": "Technology",
+    "format": "share",
+    "content": "📰 LLM Security Fundamentals Every Security Team Should Know\n\nFrom prompt injection to training data extraction, understand the unique security challenges of large language models.\n\nRead the full article → https://deployzeroshare.com/blog/llm-security-fundamentals\n\n#AISecurity #Technology",
+    "url": "https://deployzeroshare.com/blog/llm-security-fundamentals",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "microservices-ai-gateway-integration",
+    "blogTitle": "Integrating AI Gateways into Microservices Architecture",
+    "category": "Architecture",
+    "format": "share",
+    "content": "📰 Integrating AI Gateways into Microservices Architecture\n\nPractical patterns for adding AI security controls to your microservices without creating bottlenecks.\n\nRead the full article → https://deployzeroshare.com/blog/microservices-ai-gateway-integration\n\n#AISecurity #Architecture",
+    "url": "https://deployzeroshare.com/blog/microservices-ai-gateway-integration",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "prompt-injection-attacks-explained",
+    "blogTitle": "Prompt Injection Attacks: How They Work and How to Defend",
+    "category": "Technology",
+    "format": "share",
+    "content": "📰 Prompt Injection Attacks: How They Work and How to Defend\n\nPrompt injection is the SQL injection of the AI era. Deep dive into attack vectors and defense strategies.\n\nRead the full article → https://deployzeroshare.com/blog/prompt-injection-attacks-explained\n\n#AISecurity #Technology",
+    "url": "https://deployzeroshare.com/blog/prompt-injection-attacks-explained",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "blogSlug": "ai-security-budget-justification",
+    "blogTitle": "How to Justify Your AI Security Budget to the Board",
+    "category": "Security Best Practices",
+    "format": "share",
+    "content": "📰 How to Justify Your AI Security Budget to the Board\n\nTranslate AI security risks into business impact with this framework for executive communication.\n\nRead the full article → https://deployzeroshare.com/blog/ai-security-budget-justification\n\n#AISecurity #SecurityBestPractices",
+    "url": "https://deployzeroshare.com/blog/ai-security-budget-justification",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "stat",
+    "stat": "22%",
+    "content": "📊 Your employees are leaking data to AI. Right now.\n\n22% of files uploaded to AI tools contain sensitive data.\n\nSource: Industry research\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "stat",
+    "stat": "$4.45M",
+    "content": "📊 One ChatGPT prompt shouldn't cost you $4.45 million.\n\n$4.45M is the average cost of a data breach.\n\nSource: IBM 2023\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "stat",
+    "stat": "65%",
+    "content": "📊 65% of your employees have already done it.\n\n65% of employees have shared sensitive data with AI tools without authorization.\n\nSource: Industry survey\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "stat",
+    "stat": "47,000+",
+    "content": "📊 They thought their developers were careful. Then they deployed ZeroShare.\n\n47,000+ secrets intercepted by one financial services firm in 90 days.\n\nSource: ZeroShare case study\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "thought",
+    "content": "You can't stop AI adoption.\n\nYou shouldn't try.\n\nBut you can make it safe.\n\nTraditional DLP watches files and emails.\nAI prompts? They're just HTTPS requests.\n\nYour DLP sees: \"POST request to api.openai.com\"\nWhat's actually happening: Customer SSNs sent to AI training data.\n\nThis is why AI security requires a new approach.\n\nA proxy-based gateway can:\n• Inspect request payloads in real-time\n• Detect PII patterns within prompts\n• Block secrets before transmission\n• Log everything for compliance\n\nThe threat model has changed.\nYour security architecture should too.\n\n#AISecurity #CISO #DataProtection",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "thought",
+    "content": "A question for CISOs:\n\nYour next board meeting is in 30 days.\n\nThe CEO will ask: \"What's our AI security posture?\"\n\nWhat's your answer?\n\n❌ \"We blocked ChatGPT\" \n   (Not sustainable, employees work around it)\n\n❌ \"We trust our training\" \n   (Accidents happen to trained people)\n\n❌ \"We're looking into it\" \n   (Not acceptable in 2026)\n\n✅ \"We enabled AI with automatic data protection\"\n✅ \"Every request is scanned before leaving our network\"  \n✅ \"We have full visibility and audit logs\"\n\nWhich answer do you want to give?\n\n#AISecurity #CISO #DataProtection",
+    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  }
+]
