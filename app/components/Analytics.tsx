@@ -181,3 +181,57 @@ export const trackPricingView = () => {
   trackEvent('pricing_page_view', {});
   trackLinkedInConversion('pricing_view');
 };
+
+// Track newsletter subscription
+export const trackNewsletterSubscribe = (email: string, source: string = 'blog') => {
+  trackEvent('newsletter_subscribe', {
+    source: source,
+    email_domain: email.split('@')[1] || 'unknown',
+  });
+};
+
+// Track blog engagement
+export const trackBlogView = (slug: string, category: string) => {
+  trackEvent('blog_view', {
+    article_slug: slug,
+    category: category,
+  });
+};
+
+// Track documentation views
+export const trackDocsView = (section: string) => {
+  trackEvent('docs_view', {
+    section: section,
+  });
+};
+
+// Track FAQ interactions
+export const trackFAQExpand = (question: string, category: string) => {
+  trackEvent('faq_expand', {
+    question: question.substring(0, 100), // Truncate for analytics
+    category: category,
+  });
+};
+
+// Track chatbot interactions
+export const trackChatbotInteraction = (type: 'open' | 'message' | 'close') => {
+  trackEvent('chatbot_interaction', {
+    interaction_type: type,
+  });
+};
+
+// Track file downloads (for llms.txt, documentation PDFs, etc.)
+export const trackFileDownload = (filename: string, filetype: string) => {
+  trackEvent('file_download', {
+    filename: filename,
+    filetype: filetype,
+  });
+};
+
+// Track search queries (for AI search optimization insights)
+export const trackSearch = (query: string, resultsCount: number) => {
+  trackEvent('search', {
+    search_term: query.substring(0, 100),
+    results_count: resultsCount,
+  });
+};

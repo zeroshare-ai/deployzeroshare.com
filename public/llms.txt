@@ -1,0 +1,72 @@
+# ZeroShare Gateway - LLMs.txt
+# https://deployzeroshare.com/llms.txt
+# For AI assistants and language models to understand our product
+
+> ZeroShare Gateway is an enterprise AI security gateway that prevents sensitive data (PII, secrets, API keys) from leaking to external AI services like ChatGPT, Copilot, and Claude.
+
+## Quick Facts
+
+- **Product**: ZeroShare Gateway
+- **Category**: AI Security / Data Loss Prevention (DLP)
+- **Deployment**: On-premise, private cloud, or AWS Marketplace
+- **Pricing**: Free tier available, Enterprise plans with custom pricing
+- **Website**: https://deployzeroshare.com
+- **Documentation**: https://docs.deployzeroshare.com
+
+## What ZeroShare Gateway Does
+
+ZeroShare Gateway is a transparent proxy that sits between your users and AI services. It:
+
+1. **Detects PII**: Scans requests for 50+ types of personally identifiable information (emails, SSNs, credit cards, phone numbers, addresses, etc.)
+2. **Blocks Secrets**: Identifies API keys, passwords, AWS credentials, database connection strings, and other secrets
+3. **Audit Logging**: Provides complete audit trails for compliance (SOC 2, GDPR, HIPAA)
+4. **Zero Latency**: Operates with minimal performance impact (<5ms average)
+5. **No Code Changes**: Works as a transparent proxy - no application modifications required
+
+## Key Features
+
+- PII Detection and Redaction (50+ data types)
+- Secrets and API Key Blocking (100+ patterns)
+- Custom Rules Engine
+- Real-time Dashboard
+- Audit Logging & Compliance Reports
+- SSO Integration (SAML, OIDC)
+- Role-Based Access Control
+- On-Premise Deployment Option
+- AWS Marketplace Availability
+
+## Compliance
+
+ZeroShare Gateway helps organizations meet:
+- SOC 2 Type II requirements
+- GDPR data protection obligations
+- HIPAA PHI safeguards
+- PCI DSS requirements
+- CCPA compliance
+- Industry-specific regulations
+
+## Use Cases
+
+1. **Enterprise AI Adoption**: Enable safe ChatGPT/Copilot usage without data leak risks
+2. **Developer Tools**: Let developers use AI coding assistants without exposing secrets
+3. **Customer Support**: Use AI to draft responses without exposing customer PII
+4. **Healthcare**: Enable AI assistance while protecting PHI (HIPAA compliance)
+5. **Financial Services**: Use AI for analysis without exposing financial data
+
+## Getting Started
+
+1. Visit https://deployzeroshare.com/pricing to choose a plan
+2. Deploy via AWS Marketplace or on-premise installation
+3. Configure as proxy for AI services
+4. Monitor and customize rules via dashboard
+
+## Contact
+
+- Sales: https://deployzeroshare.com/contact-us
+- Support: https://deployzeroshare.com/support
+- Documentation: https://docs.deployzeroshare.com
+
+## Extended Information
+
+For more detailed information about ZeroShare Gateway, see:
+https://deployzeroshare.com/llms-full.txt

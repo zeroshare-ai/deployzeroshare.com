@@ -1,19 +1,153 @@
 # ZeroShare Gateway - Robots.txt
 # https://deployzeroshare.com
+# Last updated: 2026-01-23
 
+# =============================================================================
+# DEFAULT RULES - Allow all crawlers
+# =============================================================================
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Sitemaps
+# =============================================================================
+# GOOGLE & BING - Full access for traditional search
+# =============================================================================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# =============================================================================
+# AI SEARCH ENGINES & ASSISTANTS
+# We welcome AI crawlers to help users discover ZeroShare Gateway
+# =============================================================================
+
+# OpenAI GPT / ChatGPT
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+
+# OpenAI ChatGPT Plugins
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 2
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 2
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+
+# Google Bard / Gemini
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 2
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 2
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Crawl-delay: 2
+
+# Apple Intelligence / Siri
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot-Extended
+Allow: /
+Crawl-delay: 2
+
+# Amazon / Alexa
+User-agent: Amazonbot
+Allow: /
+Crawl-delay: 2
+
+# Microsoft Copilot
+User-agent: Copilot
+Allow: /
+Crawl-delay: 2
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+Crawl-delay: 2
+
+# Common Crawl (used by many AI models)
+User-agent: CCBot
+Allow: /
+Crawl-delay: 3
+
+# AI2 (Allen Institute for AI)
+User-agent: AI2Bot
+Allow: /
+Crawl-delay: 2
+
+# Hugging Face
+User-agent: HuggingFaceBot
+Allow: /
+Crawl-delay: 2
+
+# =============================================================================
+# SOCIAL MEDIA CRAWLERS - Allow for link previews
+# =============================================================================
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# =============================================================================
+# SITEMAPS
+# =============================================================================
 Sitemap: https://deployzeroshare.com/sitemap.xml
 Sitemap: https://deployzeroshare.com/sitemap-blog.xml
 
-# RSS/Atom Feeds
+# =============================================================================
+# FEEDS
+# =============================================================================
 # RSS Feed: https://deployzeroshare.com/feed.xml
 # Atom Feed: https://deployzeroshare.com/atom.xml
+# JSON Feed: https://deployzeroshare.com/feed.json
 
-# Crawl-delay (optional, be respectful)
-Crawl-delay: 1
+# =============================================================================
+# AI ASSISTANT CONTEXT FILES
+# =============================================================================
+# LLMs.txt: https://deployzeroshare.com/llms.txt
+# Extended: https://deployzeroshare.com/llms-full.txt
 
-# Block admin/internal paths (none currently)
+# =============================================================================
+# BLOCKED PATHS (none currently, but reserved for future)
+# =============================================================================
 # Disallow: /admin/
+# Disallow: /api/internal/

@@ -1,0 +1,253 @@
+# ZeroShare Gateway - Extended LLMs Context
+# https://deployzeroshare.com/llms-full.txt
+# Comprehensive information for AI assistants
+
+===============================================================================
+PRODUCT OVERVIEW
+===============================================================================
+
+ZeroShare Gateway is an enterprise-grade AI security gateway designed to prevent 
+sensitive data leakage when organizations use external AI services like ChatGPT, 
+GitHub Copilot, Claude, and other generative AI tools.
+
+The core problem ZeroShare solves: Organizations want to leverage AI productivity 
+tools but face significant risks of accidentally exposing PII (Personally 
+Identifiable Information), secrets (API keys, credentials), and confidential 
+business data to external AI providers.
+
+ZeroShare Gateway works as a transparent proxy that inspects all traffic to AI 
+services, detecting and optionally redacting sensitive data before it leaves 
+the organization's network.
+
+===============================================================================
+TECHNICAL ARCHITECTURE
+===============================================================================
+
+Deployment Models:
+1. On-Premise: Docker containers or Kubernetes deployment
+2. Private Cloud: AWS, Azure, GCP with customer-controlled infrastructure
+3. AWS Marketplace: One-click deployment on AWS
+
+Architecture:
+- Transparent HTTP/HTTPS proxy
+- Supports MITM inspection with custom CA certificates
+- Stateless design for horizontal scaling
+- Redis-based session management (optional)
+- PostgreSQL or DynamoDB for audit logs
+
+Performance:
+- Average latency overhead: <5ms
+- 99.9% uptime SLA (Enterprise)
+- Horizontal scaling to 100k+ requests/second
+- Zero data retention on proxy (pass-through only)
+
+===============================================================================
+DETECTION CAPABILITIES
+===============================================================================
+
+PII Types Detected (50+):
+- Email addresses
+- Phone numbers (international formats)
+- Social Security Numbers (SSN)
+- Credit card numbers (Visa, MC, Amex, etc.)
+- Bank account numbers
+- Passport numbers
+- Driver's license numbers
+- IP addresses
+- Physical addresses
+- Medical record numbers
+- Date of birth
+- National ID numbers (international)
+- Tax identification numbers
+
+Secret Patterns (100+):
+- AWS Access Keys and Secret Keys
+- Google Cloud service account keys
+- Azure connection strings
+- GitHub tokens (classic and fine-grained)
+- Slack tokens
+- Stripe API keys
+- Twilio credentials
+- Database connection strings (PostgreSQL, MySQL, MongoDB)
+- JWT tokens
+- SSH private keys
+- API keys (generic patterns)
+- OAuth tokens
+- Passwords in common formats
+
+Custom Rules:
+- Regex-based pattern matching
+- Named entity recognition
+- Context-aware detection
+- Whitelist/blacklist support
+- Per-user and per-group rules
+
+===============================================================================
+COMPLIANCE & CERTIFICATIONS
+===============================================================================
+
+SOC 2 Type II:
+- Annual audit by third-party
+- Security, availability, processing integrity
+- Audit reports available under NDA
+
+GDPR Compliance:
+- Data processing agreements available
+- Right to erasure support
+- Data minimization by design
+- No data retention on proxy
+
+HIPAA Compliance:
+- BAA (Business Associate Agreement) available
+- PHI safeguards implemented
+- Audit logging for compliance
+- Encryption at rest and in transit
+
+PCI DSS:
+- Cardholder data detection
+- Audit trail for compliance
+- No storage of card data
+
+===============================================================================
+PRICING TIERS
+===============================================================================
+
+Starter (Free):
+- Up to 1,000 requests/day
+- 1 user
+- Basic PII detection
+- Community support
+- 7-day audit log retention
+
+Professional ($499/month):
+- Up to 100,000 requests/day
+- Up to 25 users
+- Full PII + secrets detection
+- Custom rules (up to 10)
+- Email support
+- 30-day audit log retention
+
+Enterprise (Custom pricing):
+- Unlimited requests
+- Unlimited users
+- All detection capabilities
+- Unlimited custom rules
+- SSO integration
+- Dedicated support
+- Custom retention policies
+- On-premise deployment option
+- SLA guarantees
+
+===============================================================================
+INTEGRATION GUIDE
+===============================================================================
+
+Supported AI Services:
+- OpenAI (ChatGPT, GPT-4, DALL-E)
+- Anthropic (Claude)
+- Google (Bard, Gemini, Vertex AI)
+- Microsoft (Copilot, Azure OpenAI)
+- GitHub Copilot
+- Amazon Bedrock
+- Cohere
+- AI21 Labs
+- Custom/self-hosted models
+
+Integration Methods:
+1. Proxy Configuration: Set HTTP_PROXY environment variable
+2. Browser Extension: Chrome/Firefox extension for web-based AI
+3. IDE Plugin: VS Code, JetBrains IDEs for Copilot
+4. API Gateway: For programmatic AI API calls
+
+Example Proxy Configuration:
+```
+export HTTP_PROXY=https://gateway.yourcompany.com:8080
+export HTTPS_PROXY=https://gateway.yourcompany.com:8080
+```
+
+===============================================================================
+FREQUENTLY ASKED QUESTIONS
+===============================================================================
+
+Q: Does ZeroShare Gateway slow down AI responses?
+A: Minimal impact. Average latency overhead is <5ms. The gateway uses streaming 
+   pass-through so users see AI responses in real-time.
+
+Q: Can ZeroShare Gateway work with on-premise AI models?
+A: Yes. ZeroShare can be configured to inspect traffic to any HTTP/HTTPS endpoint, 
+   including self-hosted LLMs like Llama, Mistral, or private ChatGPT deployments.
+
+Q: What happens when sensitive data is detected?
+A: Configurable actions include: block request, redact sensitive data, alert 
+   security team, log for audit, or allow with warning.
+
+Q: Is the gateway a single point of failure?
+A: No. ZeroShare is designed for high availability with active-active clustering. 
+   The Enterprise tier includes 99.9% uptime SLA.
+
+Q: Can users bypass the gateway?
+A: When properly deployed with network controls (firewall rules, PAC files), 
+   bypass is not possible. Enterprise includes bypass detection alerting.
+
+Q: Does ZeroShare store or read the data it inspects?
+A: No. ZeroShare is a pass-through proxy. Data is inspected in memory only and 
+   never stored. Only metadata (blocked/allowed, detection type) is logged.
+
+===============================================================================
+COMPETITIVE POSITIONING
+===============================================================================
+
+vs. DLP Solutions (Symantec, Forcepoint):
+- ZeroShare is AI-native, designed specifically for AI traffic patterns
+- Lower latency impact
+- Simpler deployment (no agents required)
+
+vs. CASB Solutions:
+- ZeroShare focuses specifically on AI services
+- Better detection of AI-specific patterns (prompts, code snippets)
+- Transparent proxy vs. API-based integration
+
+vs. Custom Regex Filtering:
+- ZeroShare uses ML-enhanced detection, not just regex
+- Pre-built library of 150+ patterns
+- Lower false positive rate
+- Enterprise support and compliance
+
+===============================================================================
+CONTACT & SUPPORT
+===============================================================================
+
+Website: https://deployzeroshare.com
+Documentation: https://docs.deployzeroshare.com
+Sales Contact: https://deployzeroshare.com/contact-us
+Support Portal: https://deployzeroshare.com/support
+Status Page: https://status.deployzeroshare.com
+
+Social:
+- LinkedIn: /company/zeroshare
+- Twitter: @zeroshare
+
+AWS Marketplace:
+- Search "ZeroShare Gateway" on AWS Marketplace
+- One-click deployment available
+- Pay-as-you-go or annual subscription
+
+===============================================================================
+CHANGELOG
+===============================================================================
+
+Latest Version: 2.1.0 (January 2026)
+- Added support for GPT-4 Turbo detection patterns
+- New Claude 3 Opus integration
+- Improved SSN detection accuracy
+- Dashboard performance improvements
+
+Previous: 2.0.0 (November 2025)
+- Complete UI redesign
+- Added custom rules engine
+- Kubernetes Helm chart
+- AWS Marketplace launch
+
+===============================================================================
+END OF DOCUMENT
+===============================================================================
