@@ -176,9 +176,10 @@ test.describe('Newsletter Subscription', () => {
       
       // Should show some feedback (success, already subscribed, or error)
       // On success, the form is replaced with a success message
-      const hasSuccessMessage = await page.getByText(/subscribed|check your inbox/i).isVisible();
-      const hasErrorMessage = await page.getByText(/error|failed|went wrong/i).isVisible();
-      const hasAlreadySubscribed = await page.getByText(/already subscribed/i).isVisible();
+      // Use first() to handle multiple matches in success state
+      const hasSuccessMessage = await page.getByText('Successfully subscribed').first().isVisible();
+      const hasErrorMessage = await page.getByText(/went wrong/i).first().isVisible();
+      const hasAlreadySubscribed = await page.getByText(/already subscribed/i).first().isVisible();
       
       // One of these feedback states should be visible
       expect(hasSuccessMessage || hasErrorMessage || hasAlreadySubscribed).toBe(true);
