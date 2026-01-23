@@ -8,8 +8,8 @@ Parameters:
     Default: prod
   BedrockModelId:
     Type: String
-    Default: anthropic.claude-3-haiku-20240307-v1:0
-    Description: The Bedrock model ID to use (Claude Haiku is fast and cost-effective)
+    Default: anthropic.claude-3-5-sonnet-20241022-v2:0
+    Description: Claude 3.5 Sonnet v2 - best for nuanced sales conversations and technical expertise
 
 Resources:
   ChatbotFunction:
