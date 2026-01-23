@@ -43,6 +43,40 @@ const COLORS = {
 
 // All image prompts organized by priority
 const IMAGE_PROMPTS = {
+  // LOGO OPTIONS - For A/B testing
+  'logo-option1': {
+    priority: 5,
+    filename: 'logo_option1.png',
+    outputPath: 'logo_option1.png',
+    dimensions: { width: 512, height: 512 },
+    prompt: `A minimal, professional logo icon for ZeroShare, an enterprise AI security company. Clean shield shape with a subtle zero or circular element integrated. Gradient from indigo (#667eea) to purple (#764ba2). NO text whatsoever - just the icon mark. Ultra clean geometric design that works as a favicon at 32x32. White background. Fortune 500 quality. Think Okta, Auth0, or Cloudflare logo simplicity.`
+  },
+
+  'logo-option2': {
+    priority: 5,
+    filename: 'logo_option2.png',
+    outputPath: 'logo_option2.png',
+    dimensions: { width: 512, height: 512 },
+    prompt: `A premium abstract logomark for ZeroShare, an enterprise security company. Interlocking geometric shapes forming a protective barrier or gateway concept. Deep indigo (#667eea) single color, flat design. NO text. Must be recognizable at tiny sizes. Sophisticated, trustworthy, minimal. Think Stripe, Linear, or Notion level design. White background.`
+  },
+
+  'logo-option3': {
+    priority: 5,
+    filename: 'logo_option3.png',
+    outputPath: 'logo_option3.png',
+    dimensions: { width: 512, height: 512 },
+    prompt: `A modern shield logo for a cybersecurity SaaS. The shield has clean angular lines with negative space forming a keyhole or lock. Solid purple (#764ba2) color. NO text, icon only. Conveys enterprise trust and security. Simple enough for a 16x16 favicon. Professional, not playful. White background.`
+  },
+
+  'logo-option4': {
+    priority: 5,
+    filename: 'logo_option4.png',
+    outputPath: 'logo_option4.png',
+    dimensions: { width: 512, height: 512 },
+    prompt: `A tech company logo icon: abstract "Z" and "S" letters merged into a shield or security symbol. Gradient indigo to purple. Geometric, angular, modern. NO spelled out text - just the abstract letterform icon. Clean vector style. Would look great on a business card or app icon. White background. Enterprise SaaS aesthetic.`
+  },
+
+
   // PRIORITY 1 - Immediate Impact
   'og-image': {
     priority: 1,

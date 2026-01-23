@@ -30,12 +30,25 @@ npm run test
 # Run specific test suites
 npm run test:smoke      # Smoke tests only
 npm run test:links      # Link validation only
-npm run test:forms      # All form tests (NEW)
+npm run test:forms      # Form UI tests (submissions skipped)
 npm run test:form       # Support form tests only
 npm run test:api        # API health checks
 
 # Run tests with UI
 npm run test:ui
+```
+
+### Running Form Submission Tests (sends real emails)
+
+Form submission tests are **SKIPPED by default** to avoid email spam.
+To run them manually when needed:
+
+```bash
+# Run form tests including actual submissions
+RUN_EMAIL_TESTS=true npm run test:forms
+
+# Run API tests including real submissions
+RUN_EMAIL_TESTS=true npm run test:api
 ```
 
 ### Testing Against Deployed Site

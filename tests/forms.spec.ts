@@ -7,9 +7,14 @@ import { test, expect } from '@playwright/test';
  * 1. Newsletter subscription (blog page)
  * 2. Support case form (support page)
  * 3. Contact sales form (contact-us page)
+ * 
+ * NOTE: Tests that send actual form submissions are SKIPPED by default to avoid
+ * email spam. Set RUN_EMAIL_TESTS=true to run them manually:
+ *   RUN_EMAIL_TESTS=true npm run test:forms
  */
 
 const BASE_URL = process.env.BASE_URL || 'https://deployzeroshare.com';
+const RUN_EMAIL_TESTS = process.env.RUN_EMAIL_TESTS === 'true';
 
 // API endpoints
 const SUPPORT_API_URL = process.env.SUPPORT_API_URL || 
@@ -33,7 +38,10 @@ test.describe('Newsletter Subscription', () => {
       expect([200, 204]).toContain(response.status());
     });
 
+    // SKIPPED by default - sends real email notification
     test('Newsletter API accepts valid subscription', async ({ request }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
+      
       const testEmail = `qa-test-${Date.now()}@example.com`;
       
       const response = await request.post(NEWSLETTER_API_URL, {
@@ -134,7 +142,9 @@ test.describe('Newsletter Subscription', () => {
       await page.waitForTimeout(500);
     });
 
+    // SKIPPED by default - sends real email notification
     test('Newsletter form submits without network errors', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/blog`);
       
       // Track network errors
@@ -163,7 +173,9 @@ test.describe('Newsletter Subscription', () => {
       expect(hasSuccess || hasApiError || networkErrors.length === 0).toBe(true);
     });
 
+    // SKIPPED by default - sends real email notification
     test('Newsletter form shows feedback after submission', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/blog`);
       
       const emailInput = page.locator('input[type="email"][placeholder="Enter your email"]');
@@ -185,7 +197,9 @@ test.describe('Newsletter Subscription', () => {
       expect(hasSuccessMessage || hasErrorMessage || hasAlreadySubscribed).toBe(true);
     });
 
+    // SKIPPED by default - sends real email notification
     test('Newsletter form handles duplicate subscription', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/blog`);
       
       const emailInput = page.locator('input[type="email"][placeholder="Enter your email"]');
@@ -241,7 +255,9 @@ test.describe('Support Case Form', () => {
       expect(hasGeneralInquiry || hasTechnicalSupport || hasUrgentIssue).toBe(true);
     });
 
+    // SKIPPED by default - sends real email
     test('Support form can be filled and submitted', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/support`);
       
       // Track API calls
@@ -273,7 +289,9 @@ test.describe('Support Case Form', () => {
       expect(apiCallMade).toBe(true);
     });
 
+    // SKIPPED by default - sends real email
     test('Support form does not throw network errors', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/support`);
       
       const networkErrors: string[] = [];
@@ -299,7 +317,9 @@ test.describe('Support Case Form', () => {
       expect(criticalErrors).toHaveLength(0);
     });
 
+    // SKIPPED by default - sends real email
     test('Support form shows feedback after submission', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/support`);
       
       await page.fill('input[name="name"]', 'QA Test User');
@@ -358,7 +378,9 @@ test.describe('Contact Sales Form', () => {
       }
     });
 
+    // SKIPPED by default - sends real email
     test('Contact form can be filled and submitted', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/contact-us`);
       
       let apiCallMade = false;
@@ -390,7 +412,9 @@ test.describe('Contact Sales Form', () => {
       expect(apiCallMade).toBe(true);
     });
 
+    // SKIPPED by default - sends real email
     test('Contact form does not throw network errors', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/contact-us`);
       
       const networkErrors: string[] = [];
@@ -414,7 +438,9 @@ test.describe('Contact Sales Form', () => {
       expect(hasFetchError).toBe(false);
     });
 
+    // SKIPPED by default - sends real email
     test('Contact form shows feedback after submission', async ({ page }) => {
+      test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
       await page.goto(`${BASE_URL}/contact-us`);
       
       const teamSizeBtn = page.getByRole('button', { name: '1-10' });

@@ -5,9 +5,13 @@ import { test, expect } from '@playwright/test';
  * 
  * These tests verify that all backend API endpoints are reachable and responding.
  * This is CRITICAL for catching issues like wrong URLs before they hit production.
+ * 
+ * NOTE: Tests that send actual form submissions are SKIPPED by default to avoid
+ * email spam. Set RUN_EMAIL_TESTS=true to run them manually.
  */
 
 const BASE_URL = process.env.BASE_URL || 'https://deployzeroshare.com';
+const RUN_EMAIL_TESTS = process.env.RUN_EMAIL_TESTS === 'true';
 
 // API endpoints from CloudFormation
 const SUPPORT_API_URL = process.env.SUPPORT_API_URL || 
@@ -31,7 +35,10 @@ test.describe('API Health Checks', () => {
     expect([200, 204]).toContain(response.status());
   });
 
-  test('Support API accepts POST requests', async ({ request }) => {
+  // SKIPPED by default - sends real email
+  test.skip('Support API accepts POST requests', async ({ request }) => {
+    test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
+    
     const response = await request.post(SUPPORT_API_URL, {
       headers: {
         'Content-Type': 'application/json',
@@ -110,7 +117,10 @@ test.describe('Newsletter API Health Checks', () => {
     expect([200, 204]).toContain(response.status());
   });
 
+  // SKIPPED by default - sends real email notification
   test('Newsletter API accepts valid subscription', async ({ request }) => {
+    test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
+    
     const testEmail = `api-test-${Date.now()}@example.com`;
     
     const response = await request.post(NEWSLETTER_API_URL, {
@@ -168,7 +178,9 @@ test.describe('Newsletter API Health Checks', () => {
 
 test.describe('Form Submission E2E', () => {
   
+  // SKIPPED by default - sends real email
   test('Support form submits without network errors', async ({ page }) => {
+    test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
     await page.goto(`${BASE_URL}/support`);
     
     // Listen for network failures
@@ -207,7 +219,9 @@ test.describe('Form Submission E2E', () => {
     expect(hasSuccess || hasServerError).toBe(true);
   });
 
+  // SKIPPED by default - sends real email
   test('Contact form submits without network errors', async ({ page }) => {
+    test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
     await page.goto(`${BASE_URL}/contact-us`);
     
     // Listen for network failures
@@ -238,7 +252,9 @@ test.describe('Form Submission E2E', () => {
     expect(errorVisible).toBe(false);
   });
 
+  // SKIPPED by default - sends real email notification
   test('Newsletter form submits without network errors', async ({ page }) => {
+    test.skip(!RUN_EMAIL_TESTS, 'Skipped to avoid email spam. Set RUN_EMAIL_TESTS=true to run.');
     await page.goto(`${BASE_URL}/blog`);
     
     // Listen for network failures

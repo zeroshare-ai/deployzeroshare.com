@@ -37,11 +37,10 @@ jobs:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:links
       
-      - name: Run support form tests
-        env:
-          BASE_URL: https://deployzeroshare.com
-        run: npm run test:form
-        continue-on-error: true  # Form tests may fail if API is not available
+      # Skip form tests in CI to avoid sending real API requests/emails
+      # Form tests should be run manually when needed
+      - name: Skip form tests
+        run: echo "Form tests skipped in CI to avoid email spam"
       
       - name: Run full deployment verification
         env:

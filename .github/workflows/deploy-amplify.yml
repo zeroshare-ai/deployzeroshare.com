@@ -48,12 +48,10 @@ jobs:
           BASE_URL: https://deployzeroshare.com
         run: npm run test:links
       
-      - name: Run support form tests
-        id: form-tests
-        env:
-          BASE_URL: https://deployzeroshare.com
-        run: npm run test:form
-        continue-on-error: true  # Form tests may fail if API is not available
+      # Skip form tests in CI to avoid sending real API requests/emails
+      # Form tests should be run manually when needed
+      - name: Skip form tests
+        run: echo "Form tests skipped in CI to avoid email spam"
       
       - name: Run full deployment verification
         id: deployment-tests
@@ -69,73 +67,18 @@ jobs:
           path: playwright-report/
           retention-days: 7
       
-      - name: Send email notification on failure
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: '❌ Deployment Tests Failed - deployzeroshare.com'
-          to: ${{ secrets.EMAIL_TO }}
-          from: ${{ secrets.EMAIL_FROM }}
-          body: |
-            Deployment tests failed for deployzeroshare.com
-            
-            Workflow: ${{ github.workflow }}
-            Commit: ${{ github.sha }}
-            Branch: ${{ github.ref }}
-            Actor: ${{ github.actor }}
-            
-            View details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
-            Critical tests failed. Please review the test results and fix issues before deploying again.
-          html_body: |
-            <h2>❌ Deployment Tests Failed</h2>
-            <p><strong>Site:</strong> deployzeroshare.com</p>
-            <p><strong>Workflow:</strong> ${{ github.workflow }}</p>
-            <p><strong>Commit:</strong> <code>${{ github.sha }}</code></p>
-            <p><strong>Branch:</strong> ${{ github.ref }}</p>
-            <p><strong>Actor:</strong> ${{ github.actor }}</p>
-            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View test results →</a></p>
-            <p><strong>Action Required:</strong> Critical tests failed. Please review the test results and fix issues before deploying again.</p>
-      
-      - name: Send email notification on success
-        if: success()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: '✅ Deployment Tests Passed - deployzeroshare.com'
-          to: ${{ secrets.EMAIL_TO }}
-          from: ${{ secrets.EMAIL_FROM }}
-          body: |
-            All deployment tests passed for deployzeroshare.com
-            
-            Workflow: ${{ github.workflow }}
-            Commit: ${{ github.sha }}
-            Branch: ${{ github.ref }}
-            Actor: ${{ github.actor }}
-            
-            View details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
-            ✅ Smoke tests: Passed
-            ✅ Link validation: Passed
-            ✅ Deployment verification: Passed
-          html_body: |
-            <h2>✅ Deployment Tests Passed</h2>
-            <p><strong>Site:</strong> deployzeroshare.com</p>
-            <p><strong>Workflow:</strong> ${{ github.workflow }}</p>
-            <p><strong>Commit:</strong> <code>${{ github.sha }}</code></p>
-            <p><strong>Branch:</strong> ${{ github.ref }}</p>
-            <p><strong>Actor:</strong> ${{ github.actor }}</p>
-            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">View test results →</a></p>
-            <ul>
-              <li>✅ Smoke tests: Passed</li>
-              <li>✅ Link validation: Passed</li>
-              <li>✅ Deployment verification: Passed</li>
-            </ul>
-            <p>Deployment is healthy and all tests are passing.</p>
+      # Email notifications disabled to reduce spam
+      # Results are available in GitHub Actions UI
+      # To enable failure notifications, configure EMAIL_* secrets
+      - name: Report status
+        if: always()
+        run: |
+          echo "## Deployment Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ All tests passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some tests failed - check logs above" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[View full report](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
