@@ -175,12 +175,13 @@ test.describe('Newsletter Subscription', () => {
       await page.waitForTimeout(5000);
       
       // Should show some feedback (success, already subscribed, or error)
-      const hasSuccessOrError = await page.getByText(/subscribed|already|error|failed/i).isVisible();
+      // On success, the form is replaced with a success message
+      const hasSuccessMessage = await page.getByText(/subscribed|check your inbox/i).isVisible();
+      const hasErrorMessage = await page.getByText(/error|failed|went wrong/i).isVisible();
+      const hasAlreadySubscribed = await page.getByText(/already subscribed/i).isVisible();
       
-      // Either feedback shown OR button changed to "Subscribing..."
-      const buttonText = await page.getByRole('button', { name: /subscribe/i }).textContent();
-      
-      expect(hasSuccessOrError || buttonText?.includes('Subscribing')).toBe(true);
+      // One of these feedback states should be visible
+      expect(hasSuccessMessage || hasErrorMessage || hasAlreadySubscribed).toBe(true);
     });
 
     test('Newsletter form handles duplicate subscription', async ({ page }) => {
