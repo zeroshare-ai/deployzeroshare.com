@@ -9,7 +9,7 @@ export function Navigation() {
   const navLinks = [
     { href: '/#solution', label: 'Features' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/security', label: 'Security' },
     { href: '/docs', label: 'Docs' },
   ];
 
