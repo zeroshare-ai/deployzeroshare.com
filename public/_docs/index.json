@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Getting Started",
+    "path": "getting-started",
+    "file": "getting-started.md",
+    "category": "Overview",
+    "icon": "rocket",
+    "description": "Quick introduction and first steps"
+  },
+  {
+    "title": "Installation Guide",
+    "path": "installation",
+    "file": "installation.md",
+    "category": "Overview",
+    "icon": "download",
+    "description": "Deploy via AWS Marketplace, Docker, or Kubernetes"
+  },
+  {
+    "title": "Technical Architecture",
+    "path": "architecture",
+    "file": "architecture.md",
+    "category": "Overview",
+    "icon": "diagram",
+    "description": "System design, components, and data flow"
+  },
+  {
+    "title": "Configuration Overview",
+    "path": "configuration",
+    "file": "configuration.md",
+    "category": "Configuration",
+    "icon": "settings",
+    "description": "Gateway settings and environment variables"
+  },
+  {
+    "title": "System-Wide Proxy",
+    "path": "system-proxy",
+    "file": "system-proxy.md",
+    "category": "Configuration",
+    "icon": "settings",
+    "description": "OS-level proxy for complete traffic interception"
+  },
+  {
+    "title": "Cursor IDE",
+    "path": "cursor",
+    "file": "cursor.md",
+    "category": "IDE & Desktop",
+    "icon": "cursor",
+    "description": "Configure Cursor IDE with custom base URL"
+  },
+  {
+    "title": "GitHub Copilot",
+    "path": "github-copilot",
+    "file": "github-copilot.md",
+    "category": "IDE & Desktop",
+    "icon": "code",
+    "description": "Route Copilot through VS Code proxy settings"
+  },
+  {
+    "title": "Continue.dev",
+    "path": "continue-dev",
+    "file": "continue-dev.md",
+    "category": "IDE & Desktop",
+    "icon": "code",
+    "description": "Configure Continue extension with gateway"
+  },
+  {
+    "title": "JetBrains AI",
+    "path": "jetbrains-ai",
+    "file": "jetbrains-ai.md",
+    "category": "IDE & Desktop",
+    "icon": "code",
+    "description": "IntelliJ, PyCharm, WebStorm configuration"
+  },
+  {
+    "title": "Claude Code CLI",
+    "path": "claude-code",
+    "file": "claude-code.md",
+    "category": "CLI Tools",
+    "icon": "terminal",
+    "description": "Configure Claude Code with HTTPS_PROXY"
+  },
+  {
+    "title": "aider",
+    "path": "aider",
+    "file": "aider.md",
+    "category": "CLI Tools",
+    "icon": "terminal",
+    "description": "AI pair programming tool configuration"
+  },
+  {
+    "title": "OpenAI SDK",
+    "path": "openai-sdk",
+    "file": "openai-sdk.md",
+    "category": "SDKs & Libraries",
+    "icon": "code",
+    "description": "Python and Node.js SDK configuration"
+  },
+  {
+    "title": "Anthropic SDK",
+    "path": "anthropic-sdk",
+    "file": "anthropic-sdk.md",
+    "category": "SDKs & Libraries",
+    "icon": "code",
+    "description": "Claude SDK with custom base URL"
+  },
+  {
+    "title": "LangChain",
+    "path": "langchain",
+    "file": "langchain.md",
+    "category": "SDKs & Libraries",
+    "icon": "code",
+    "description": "LLM framework with gateway integration"
+  },
+  {
+    "title": "LiteLLM",
+    "path": "litellm",
+    "file": "litellm.md",
+    "category": "SDKs & Libraries",
+    "icon": "code",
+    "description": "Unified LLM interface configuration"
+  },
+  {
+    "title": "Detection Patterns",
+    "path": "detection-patterns",
+    "file": "detection-patterns.md",
+    "category": "Reference",
+    "icon": "shield",
+    "description": "PII patterns, secret patterns, and custom rules"
+  },
+  {
+    "title": "API Reference",
+    "path": "api-reference",
+    "file": "api-reference.md",
+    "category": "Reference",
+    "icon": "code",
+    "description": "Admin API endpoints and usage"
+  },
+  {
+    "title": "Troubleshooting",
+    "path": "troubleshooting",
+    "file": "troubleshooting.md",
+    "category": "Support",
+    "icon": "help",
+    "description": "Common issues and solutions"
+  }
+]

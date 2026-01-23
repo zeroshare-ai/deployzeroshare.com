@@ -144,6 +144,10 @@ customHeaders:
       - key: 'X-XSS-Protection'
         value: '1; mode=block'
 rewrites:
+  # Documentation static files - underscore path bypasses SPA routing
+  - source: '/_docs/<*>'
+    target: '/_docs/<*>'
+    status: '200'
   # Static files - serve directly (before any other rules)
   - source: '/robots.txt'
     target: '/robots.txt'
