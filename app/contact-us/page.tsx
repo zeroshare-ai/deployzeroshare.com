@@ -1,9 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Navigation } from '../components/Navigation';
+import { trackDemoRequest, trackFormStart } from '../components/Analytics';
 
 export default function ContactSalesPage() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,12 +15,29 @@ export default function ContactSalesPage() {
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formStarted, setFormStarted] = useState(false);
+
+  // Capture UTM parameters for attribution
+  const utmSource = searchParams?.get('utm_source') || '';
+  const utmMedium = searchParams?.get('utm_medium') || '';
+  const utmCampaign = searchParams?.get('utm_campaign') || '';
+  const utmContent = searchParams?.get('utm_content') || '';
+  const source = searchParams?.get('source') || '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Track form start on first interaction
+    if (!formStarted) {
+      trackFormStart('contact_sales');
+      setFormStarted(true);
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleTeamSize = (size: string) => {
+    if (!formStarted) {
+      trackFormStart('contact_sales');
+      setFormStarted(true);
+    }
     setFormData({ ...formData, teamSize: size });
   };
 
@@ -37,10 +57,23 @@ export default function ContactSalesPage() {
           subject: `[SALES LEAD] ${formData.company || formData.name} - ${formData.teamSize} team`,
           priority: 'high',
           timestamp: new Date().toISOString(),
+          // Include attribution data for tracking
+          attribution: {
+            utm_source: utmSource,
+            utm_medium: utmMedium,
+            utm_campaign: utmCampaign,
+            utm_content: utmContent,
+            source: source,
+            referrer: typeof document !== 'undefined' ? document.referrer : '',
+          },
         }),
       });
 
       if (!response.ok) throw new Error('Failed');
+      
+      // Track successful conversion for LinkedIn and GA
+      trackDemoRequest(formData.teamSize, formData.company);
+      
       setStatus('success');
     } catch {
       setStatus('error');

@@ -33,6 +33,14 @@ const COLORS = {
   pink: '#f093fb',
 };
 
+// Color Psychology Guide:
+// - Security/Threats: Red, orange, amber (danger, urgency)
+// - Compliance: Blue, gold, navy (trust, authority)
+// - Architecture: Teal, cyan, dark blue (technical, modern)
+// - DevSecOps: Green, lime, terminal-green (code, growth)
+// - Governance: Warm earth tones, burgundy (corporate, human)
+// - Technology: Dark with neon accents (cutting edge)
+
 // All image prompts organized by priority
 const IMAGE_PROMPTS = {
   // PRIORITY 1 - Immediate Impact
@@ -156,6 +164,285 @@ const IMAGE_PROMPTS = {
     outputPath: 'blog/blog-gateway.png',
     dimensions: { width: 1200, height: 630 },
     prompt: `A detailed visualization of an AI proxy gateway. The gateway itself is a large glowing portal or arch in the center, gradient from indigo to purple. Data streams enter from the left (various icons: chat bubbles, code, documents). Inside the gateway: a scanning zone with X-ray/filter effect. Clean data exits right toward cloud/AI icons. Blocked data is diverted. Technical but accessible. Dark background, the gateway provides the light source.`
+  },
+
+  // PRIORITY 4 - Additional Blog Images (Conversion-Optimized Colors)
+  // Security Topics: RED/ORANGE/AMBER (danger, urgency)
+  'blog-shadow-ai': {
+    priority: 4,
+    filename: 'blog-shadow-ai.png',
+    outputPath: 'blog/blog-shadow-ai.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `Editorial photo style: A dramatic scene of a corporate employee at their desk, silhouette illuminated by the glow of an unauthorized AI chat interface. Deep shadows and warm ORANGE and RED warning tones. A ghostly AI assistant hovering in the darkness. Money symbols ($670K) fading into smoke. Cinematic, moody, like a thriller movie poster. Dark background with orange/amber highlights. NOT corporate - feels like investigative journalism.`
+  },
+
+  'blog-chatgpt-enterprise': {
+    priority: 4,
+    filename: 'blog-chatgpt-enterprise.png',
+    outputPath: 'blog/blog-chatgpt-enterprise.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A split-screen editorial visualization: Left side shows the polished ChatGPT Enterprise interface in clean green. Right side reveals hidden concerns in RED - question marks, warning symbols, security gaps. A magnifying glass bridges both sides. Investigative journalism aesthetic. Colors: GREEN (good) vs RED (concerns). Dramatic lighting, editorial magazine quality.`
+  },
+
+  'blog-ai-phishing': {
+    priority: 4,
+    filename: 'blog-ai-phishing.png',
+    outputPath: 'blog/blog-ai-phishing.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A menacing visualization of AI-powered phishing. A robotic hand typing on a keyboard, generating convincing fake emails that transform into fishing hooks. Deep RED and ORANGE warning colors dominate. Emails flying toward unsuspecting silhouettes. Dark, ominous atmosphere. Cyber-thriller aesthetic. Red alert energy.`
+  },
+
+  'blog-executive-briefing': {
+    priority: 4,
+    filename: 'blog-executive-briefing.png',
+    outputPath: 'blog/blog-executive-briefing.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A boardroom scene with dramatic lighting. A presenter showing an AI risk chart to executives. The chart glows ORANGE with upward trend. Executive silhouettes looking concerned. Clock showing 10 minutes. Professional but urgent. Colors: Dark navy background, ORANGE/AMBER highlights for the data. Corporate thriller energy.`
+  },
+
+  'blog-ai-red-team': {
+    priority: 4,
+    filename: 'blog-ai-red-team.png',
+    outputPath: 'blog/blog-ai-red-team.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An intense red team operation scene. Ethical hackers at terminals with RED-lit screens, testing AI defenses. Matrix-style data streams in RED. Target icons on an AI system. War room atmosphere. Colors: Deep blacks with RED accents and amber highlights. Feels like a heist movie planning scene.`
+  },
+
+  'blog-budget-justification': {
+    priority: 4,
+    filename: 'blog-budget-justification.png',
+    outputPath: 'blog/blog-budget-justification.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A compelling visualization of ROI. Dollar signs transforming into shield icons. A balance scale showing "RISK" (heavy, red) vs "INVESTMENT" (lighter, green). Executive looking at the scale. Colors: AMBER and GOLD for money, RED for risk. Professional financial aesthetic. Compelling, not boring.`
+  },
+
+  // Compliance Topics: BLUE/GOLD/NAVY (institutional trust)
+  'blog-hipaa-2026': {
+    priority: 4,
+    filename: 'blog-hipaa-2026.png',
+    outputPath: 'blog/blog-hipaa-2026.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A healthcare compliance visualization. A medical caduceus symbol integrated with a digital shield. Hospital building silhouette protected by a BLUE and GOLD barrier. HIPAA text rendered officially. Colors: Medical BLUE, institutional GOLD, white. Clean, authoritative, trustworthy. Think government document meets modern design.`
+  },
+
+  'blog-soc2-controls': {
+    priority: 4,
+    filename: 'blog-soc2-controls.png',
+    outputPath: 'blog/blog-soc2-controls.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An auditor's perspective visualization. A magnifying glass examining a checklist with checkmarks. An official-looking seal or badge. Audit documents floating. Colors: Navy BLUE, GOLD accents, crisp white. Professional, authoritative. Big 4 consulting aesthetic. Trust signals prominent.`
+  },
+
+  'blog-gdpr-ai': {
+    priority: 4,
+    filename: 'blog-gdpr-ai.png',
+    outputPath: 'blog/blog-gdpr-ai.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A European Union themed compliance visual. EU stars circle around an AI brain icon. Data protection shield in the center. Legal document aesthetic with modern digital elements. Colors: EU BLUE and GOLD stars, white background. Official but modern. Map of Europe subtly in background.`
+  },
+
+  'blog-eu-ai-act': {
+    priority: 4,
+    filename: 'blog-eu-ai-act.png',
+    outputPath: 'blog/blog-eu-ai-act.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A timeline visualization with EU branding. Calendar pages flipping from 2025 to 2026. Milestones marked with warning symbols and deadlines. Large "6%" fine warning in RED against BLUE EU background. Colors: Official EU BLUE and GOLD, with RED warning accents. Urgent but authoritative.`
+  },
+
+  'blog-financial-regulations': {
+    priority: 4,
+    filename: 'blog-financial-regulations.png',
+    outputPath: 'blog/blog-financial-regulations.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A Wall Street meets regulation visual. SEC, OCC logos stylized. Bank building columns with digital overlay. Regulatory documents and AI symbols intertwined. Colors: Financial NAVY, GOLD accents, green money hints. Institutional, serious, trustworthy. Think Bloomberg terminal aesthetic.`
+  },
+
+  'blog-state-privacy': {
+    priority: 4,
+    filename: 'blog-state-privacy.png',
+    outputPath: 'blog/blog-state-privacy.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A US map visualization with state-by-state privacy laws. California, Virginia, Colorado highlighted in different colors. AI symbols scattered across states. Legal gavel in corner. Colors: Patriotic RED, WHITE, BLUE with state-specific accents. Geographic, informative, editorial map style.`
+  },
+
+  // Architecture Topics: TEAL/CYAN/DARK (technical, modern)
+  'blog-dlp-patterns': {
+    priority: 4,
+    filename: 'blog-dlp-patterns.png',
+    outputPath: 'blog/blog-dlp-patterns.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A technical architecture comparison. Five different architecture patterns shown as elegant diagrams. Clean blueprint aesthetic with TEAL and CYAN lines on dark background. Numbered 1-5 with different node arrangements. Colors: Deep navy background, CYAN (#00f2fe) and TEAL lines, white labels. Technical documentation quality.`
+  },
+
+  'blog-microservices': {
+    priority: 4,
+    filename: 'blog-microservices.png',
+    outputPath: 'blog/blog-microservices.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A microservices architecture diagram with AI gateway integration. Multiple small service boxes connected by lines, with a central gateway node glowing TEAL. Data flowing through the gateway. Colors: Dark background, CYAN service boxes, TEAL gateway, flowing data lines. Modern infrastructure aesthetic.`
+  },
+
+  'blog-high-availability': {
+    priority: 4,
+    filename: 'blog-high-availability.png',
+    outputPath: 'blog/blog-high-availability.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A high-availability infrastructure visualization. Multiple redundant gateway nodes in a failover configuration. 99.99% uptime displayed prominently. Health check indicators glowing GREEN. Colors: Dark infrastructure background, TEAL nodes, GREEN health indicators, CYAN connections. Enterprise reliability aesthetic.`
+  },
+
+  'blog-kubernetes': {
+    priority: 4,
+    filename: 'blog-kubernetes.png',
+    outputPath: 'blog/blog-kubernetes.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A Kubernetes deployment visualization. K8s wheel logo integrated with AI gateway pods. Helm chart icons. Container orchestration aesthetic. Colors: Kubernetes BLUE, CYAN accents, dark background. Technical, modern, DevOps aesthetic. Clean and professional.`
+  },
+
+  'blog-multi-tenant': {
+    priority: 4,
+    filename: 'blog-multi-tenant.png',
+    outputPath: 'blog/blog-multi-tenant.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A multi-tenancy architecture visualization. Multiple isolated tenant boxes, each protected by their own shield, all routing through a central gateway. Thousands of connections visualized elegantly. Colors: TEAL primary, different accent colors for different tenants, dark background. SaaS architecture aesthetic.`
+  },
+
+  'blog-edge-ai': {
+    priority: 4,
+    filename: 'blog-edge-ai.png',
+    outputPath: 'blog/blog-edge-ai.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An edge computing visualization. Small device icons (phones, IoT, laptops) each running local AI. Distributed network without central cloud. Colors: CYAN devices, TEAL connections, dark background. Decentralized, modern, innovative. Edge computing aesthetic.`
+  },
+
+  // DevSecOps Topics: GREEN/LIME/TERMINAL (code, growth)
+  'blog-cicd-security': {
+    priority: 4,
+    filename: 'blog-cicd-security.png',
+    outputPath: 'blog/blog-cicd-security.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A CI/CD pipeline visualization with security checkpoints. Pipeline stages flowing left to right. AI assistant icons integrated. Security scan checkpoints glowing GREEN for pass. Colors: Dark terminal background, GREEN pipeline, LIME highlights for security checks. DevOps aesthetic meets security.`
+  },
+
+  'blog-copilot-settings': {
+    priority: 4,
+    filename: 'blog-copilot-settings.png',
+    outputPath: 'blog/blog-copilot-settings.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A GitHub Copilot settings panel visualization. IDE-style interface with security toggles. Green checkmarks for enabled security features. Code editor in background. Colors: GitHub dark theme, GREEN enabled toggles, code syntax highlighting accents. Developer-friendly aesthetic.`
+  },
+
+  'blog-pre-commit': {
+    priority: 4,
+    filename: 'blog-pre-commit.png',
+    outputPath: 'blog/blog-pre-commit.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A git commit being intercepted visualization. Terminal showing "git commit" command. A hook catching sensitive data before it's committed. Secrets highlighted in RED being blocked, clean code in GREEN passing through. Colors: Terminal GREEN text, RED for blocked secrets, dark background.`
+  },
+
+  'blog-terraform': {
+    priority: 4,
+    filename: 'blog-terraform.png',
+    outputPath: 'blog/blog-terraform.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A Terraform infrastructure as code visualization. HCL code syntax on one side, cloud infrastructure deploying on the other. AWS, Azure, GCP icons. Colors: Terraform PURPLE/VIOLET, cloud provider colors, dark code editor background. Infrastructure as code aesthetic.`
+  },
+
+  'blog-cursor-security': {
+    priority: 4,
+    filename: 'blog-cursor-security.png',
+    outputPath: 'blog/blog-cursor-security.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A Cursor IDE security configuration visualization. Modern IDE interface with security panels. AI assistant with a protective barrier. Code completion being filtered. Colors: Modern editor dark theme, LIME GREEN security indicators, CYAN AI elements. Fresh, modern IDE aesthetic.`
+  },
+
+  'blog-bedrock-security': {
+    priority: 4,
+    filename: 'blog-bedrock-security.png',
+    outputPath: 'blog/blog-bedrock-security.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An AWS Bedrock security visualization. AWS orange branding with IAM shields. VPC boundaries clearly marked. CloudWatch logs flowing. Colors: AWS ORANGE, dark background, GREEN security checkmarks. AWS console aesthetic meets security visualization.`
+  },
+
+  // Governance Topics: WARM EARTH/BURGUNDY (corporate, human)
+  'blog-policy-template': {
+    priority: 4,
+    filename: 'blog-policy-template.png',
+    outputPath: 'blog/blog-policy-template.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A policy document visualization. An elegant document template with sections highlighted. Download icon prominent. Checkboxes being ticked. Colors: Warm CREAM paper background, BURGUNDY accents, gold highlights. Professional document aesthetic. Feels valuable and downloadable.`
+  },
+
+  'blog-risk-register': {
+    priority: 4,
+    filename: 'blog-risk-register.png',
+    outputPath: 'blog/blog-risk-register.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A risk register spreadsheet visualization. Risk matrix with AI-specific entries. Heat map colors from GREEN (low) to RED (high). Framework structure visible. Colors: Warm background, risk heat map colors, professional BURGUNDY headers. Enterprise risk management aesthetic.`
+  },
+
+  'blog-vendor-checklist': {
+    priority: 4,
+    filename: 'blog-vendor-checklist.png',
+    outputPath: 'blog/blog-vendor-checklist.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A vendor assessment checklist visualization. 47 checkbox items cascading down. Red flags and deal breaker warnings highlighted. Magnifying glass over vendor logos. Colors: Professional CREAM background, RED flags, GREEN checkmarks, BURGUNDY headers. Due diligence aesthetic.`
+  },
+
+  'blog-incident-response': {
+    priority: 4,
+    filename: 'blog-incident-response.png',
+    outputPath: 'blog/blog-incident-response.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An incident response playbook visualization. Emergency aesthetic - alarm, urgent timeline, action steps. A document with "SSN" being pasted into ChatGPT shown as the trigger. Response steps flowing down. Colors: ORANGE/RED urgency, professional BURGUNDY playbook, white space. Crisis management aesthetic.`
+  },
+
+  'blog-third-party-risk': {
+    priority: 4,
+    filename: 'blog-third-party-risk.png',
+    outputPath: 'blog/blog-third-party-risk.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A supply chain risk visualization. Your company in the center, connected to vendor companies, who are each using AI tools. Risk flowing down the chain. Colors: Warm earth tones, AMBER warning highlights, professional corporate aesthetic. Third-party risk infographic style.`
+  },
+
+  // Technology Topics: DARK + NEON (cutting edge, hacker)
+  'blog-llm-fundamentals': {
+    priority: 4,
+    filename: 'blog-llm-fundamentals.png',
+    outputPath: 'blog/blog-llm-fundamentals.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A neural network visualization for LLM security. Brain-shaped neural network with attack vectors highlighted. Prompt injection arrows. Training data extraction illustrated. Colors: Deep BLACK background, NEON PINK and CYAN neural connections, RED attack vectors. Cyberpunk/hacker aesthetic.`
+  },
+
+  'blog-prompt-injection': {
+    priority: 4,
+    filename: 'blog-prompt-injection.png',
+    outputPath: 'blog/blog-prompt-injection.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A prompt injection attack visualization. Malicious text being injected into a clean prompt. The AI being manipulated like a puppet. Glitch effects. Colors: Matrix GREEN text on BLACK, NEON PINK for malicious injection, glitch aesthetics. Hacker movie poster vibe.`
+  },
+
+  'blog-vector-database': {
+    priority: 4,
+    filename: 'blog-vector-database.png',
+    outputPath: 'blog/blog-vector-database.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `A vector database security visualization. 3D vector space with embedded data points. Some vectors highlighted as attack targets. RAG architecture shown. Colors: Deep space BLACK, NEON CYAN vectors, PINK attack highlights. Futuristic data visualization aesthetic.`
+  },
+
+  'blog-openai-security': {
+    priority: 4,
+    filename: 'blog-openai-security.png',
+    outputPath: 'blog/blog-openai-security.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An OpenAI API security configuration visualization. API key being rotated. Rate limiting gauges. Monitoring dashboards. Colors: OpenAI TEAL/GREEN accent, dark interface, NEON monitoring graphs. API developer aesthetic meets security.`
+  },
+
+  'blog-claude-enterprise': {
+    priority: 4,
+    filename: 'blog-claude-enterprise.png',
+    outputPath: 'blog/blog-claude-enterprise.png',
+    dimensions: { width: 1200, height: 630 },
+    prompt: `An Anthropic Claude security review visualization. Claude logo with security assessment checkmarks and X marks. Split view of features being tested. Colors: Anthropic ORANGE/TAN branding, dark background, GREEN passes, RED concerns. Security audit aesthetic.`
   },
 
   // PRIORITY 2 - Industry Visuals

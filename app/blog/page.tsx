@@ -91,6 +91,7 @@ const blogPosts = [
     readTime: '10 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-shadow-ai.png',
   },
   {
     slug: 'hipaa-ai-requirements-2026',
@@ -102,6 +103,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-hipaa-2026.png',
   },
   {
     slug: 'ai-dlp-architecture-patterns',
@@ -113,6 +115,7 @@ const blogPosts = [
     readTime: '18 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-dlp-patterns.png',
   },
   {
     slug: 'secure-cicd-ai-assistants',
@@ -124,6 +127,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-cicd-security.png',
   },
   {
     slug: 'ai-acceptable-use-policy-template',
@@ -135,6 +139,7 @@ const blogPosts = [
     readTime: '9 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-policy-template.png',
   },
   {
     slug: 'llm-security-fundamentals',
@@ -146,6 +151,7 @@ const blogPosts = [
     readTime: '15 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-llm-fundamentals.png',
   },
   // November 2025
   {
@@ -158,6 +164,7 @@ const blogPosts = [
     readTime: '13 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-chatgpt-enterprise.png',
   },
   {
     slug: 'soc2-ai-controls-guide',
@@ -169,6 +176,7 @@ const blogPosts = [
     readTime: '12 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-soc2-controls.png',
   },
   {
     slug: 'microservices-ai-gateway-integration',
@@ -180,6 +188,7 @@ const blogPosts = [
     readTime: '16 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-microservices.png',
   },
   {
     slug: 'github-copilot-security-settings',
@@ -191,6 +200,7 @@ const blogPosts = [
     readTime: '10 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-copilot-settings.png',
   },
   {
     slug: 'ai-risk-register-template',
@@ -202,6 +212,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-risk-register.png',
   },
   {
     slug: 'prompt-injection-attacks-explained',
@@ -213,6 +224,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-prompt-injection.png',
   },
   // October 2025
   {
@@ -225,6 +237,7 @@ const blogPosts = [
     readTime: '9 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-budget-justification.png',
   },
   {
     slug: 'gdpr-ai-processing-requirements',
@@ -236,6 +249,7 @@ const blogPosts = [
     readTime: '13 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-gdpr-ai.png',
   },
   {
     slug: 'high-availability-ai-gateway',
@@ -247,6 +261,7 @@ const blogPosts = [
     readTime: '15 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-high-availability.png',
   },
   {
     slug: 'pre-commit-hooks-ai-secrets',
@@ -258,6 +273,7 @@ const blogPosts = [
     readTime: '8 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-pre-commit.png',
   },
   {
     slug: 'ai-vendor-assessment-checklist',
@@ -269,6 +285,7 @@ const blogPosts = [
     readTime: '12 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-vendor-checklist.png',
   },
   {
     slug: 'vector-database-security',
@@ -280,6 +297,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-vector-database.png',
   },
   // September 2025
   {
@@ -292,6 +310,7 @@ const blogPosts = [
     readTime: '10 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-executive-briefing.png',
   },
   {
     slug: 'eu-ai-act-compliance-timeline',
@@ -303,6 +322,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-eu-ai-act.png',
   },
   {
     slug: 'kubernetes-ai-gateway-deployment',
@@ -314,6 +334,7 @@ const blogPosts = [
     readTime: '17 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-kubernetes.png',
   },
   {
     slug: 'terraform-ai-security-modules',
@@ -325,6 +346,7 @@ const blogPosts = [
     readTime: '13 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-terraform.png',
   },
   {
     slug: 'ai-incident-response-playbook',
@@ -336,6 +358,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-incident-response.png',
   },
   {
     slug: 'openai-api-security-best-practices',
@@ -347,6 +370,7 @@ const blogPosts = [
     readTime: '10 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-openai-security.png',
   },
   // August 2025
   {
@@ -359,6 +383,7 @@ const blogPosts = [
     readTime: '12 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-ai-phishing.png',
   },
   {
     slug: 'financial-services-ai-regulations',
@@ -370,6 +395,7 @@ const blogPosts = [
     readTime: '16 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-financial-regulations.png',
   },
   {
     slug: 'multi-tenant-ai-gateway-design',
@@ -381,6 +407,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-multi-tenant.png',
   },
   {
     slug: 'cursor-ide-security-configuration',
@@ -392,6 +419,7 @@ const blogPosts = [
     readTime: '9 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-cursor-security.png',
   },
   {
     slug: 'ai-third-party-risk-management',
@@ -403,6 +431,7 @@ const blogPosts = [
     readTime: '11 min read',
     category: 'Governance',
     featured: false,
+    image: '/images/blog/blog-third-party-risk.png',
   },
   // July 2025
   {
@@ -415,6 +444,7 @@ const blogPosts = [
     readTime: '13 min read',
     category: 'Technology',
     featured: false,
+    image: '/images/blog/blog-claude-enterprise.png',
   },
   {
     slug: 'ai-red-team-exercises',
@@ -426,6 +456,7 @@ const blogPosts = [
     readTime: '15 min read',
     category: 'Security Best Practices',
     featured: false,
+    image: '/images/blog/blog-ai-red-team.png',
   },
   {
     slug: 'state-privacy-laws-ai-implications',
@@ -437,6 +468,7 @@ const blogPosts = [
     readTime: '18 min read',
     category: 'Compliance',
     featured: false,
+    image: '/images/blog/blog-state-privacy.png',
   },
   {
     slug: 'edge-ai-security-considerations',
@@ -448,6 +480,7 @@ const blogPosts = [
     readTime: '12 min read',
     category: 'Architecture',
     featured: false,
+    image: '/images/blog/blog-edge-ai.png',
   },
   {
     slug: 'aws-bedrock-security-guide',
@@ -459,6 +492,7 @@ const blogPosts = [
     readTime: '14 min read',
     category: 'DevSecOps',
     featured: false,
+    image: '/images/blog/blog-bedrock-security.png',
   },
 ];
 
@@ -802,142 +836,232 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section style={{
-        padding: '80px 20px',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: '2rem',
-            fontWeight: 700,
-            color: 'white',
+      <NewsletterSubscribe />
+    </main>
+  );
+}
+
+// Newsletter Subscribe Component
+function NewsletterSubscribe() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('error');
+      setMessage('Please enter a valid email address');
+      return;
+    }
+
+    setStatus('loading');
+    
+    try {
+      const apiEndpoint = process.env.NEXT_PUBLIC_NEWSLETTER_API_URL || 
+        'https://jaqw7kgt6f.execute-api.us-east-1.amazonaws.com/prod/subscribe';
+      
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email, 
+          source: 'blog',
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus('success');
+        setMessage(data.message || 'Successfully subscribed!');
+        setEmail('');
+      } else {
+        throw new Error(data.error || 'Subscription failed');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage(error instanceof Error ? error.message : 'Something went wrong');
+    }
+  };
+
+  return (
+    <section style={{
+      padding: '80px 20px',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      textAlign: 'center'
+    }}>
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <h2 style={{
+          fontSize: '2rem',
+          fontWeight: 700,
+          color: 'white',
+          marginBottom: '1rem'
+        }}>
+          Stay Ahead of AI Security Threats
+        </h2>
+        <p style={{
+          color: 'rgba(255,255,255,0.9)',
+          fontSize: '1.1rem',
+          marginBottom: '2rem',
+          lineHeight: 1.7
+        }}>
+          Get weekly insights on AI security, compliance updates, and best practices 
+          delivered to your inbox.
+        </p>
+        
+        {status === 'success' ? (
+          <div style={{
+            background: 'rgba(255,255,255,0.2)',
+            borderRadius: '12px',
+            padding: '20px',
             marginBottom: '1rem'
           }}>
-            Stay Ahead of AI Security Threats
-          </h2>
-          <p style={{
-            color: 'rgba(255,255,255,0.9)',
-            fontSize: '1.1rem',
-            marginBottom: '2rem',
-            lineHeight: 1.7
-          }}>
-            Get weekly insights on AI security, compliance updates, and best practices 
-            delivered to your inbox.
-          </p>
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            maxWidth: '450px',
-            margin: '0 auto',
-            flexWrap: 'wrap',
-            justifyContent: 'center'
-          }}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              style={{
-                flex: '1',
-                minWidth: '250px',
-                padding: '16px 20px',
-                borderRadius: '12px',
-                border: 'none',
-                fontSize: '1rem',
-                outline: 'none'
-              }}
-            />
-            <button style={{
-              padding: '16px 32px',
-              background: 'white',
-              color: '#667eea',
-              border: 'none',
-              borderRadius: '12px',
-              fontWeight: 700,
-              fontSize: '1rem',
-              cursor: 'pointer',
-              transition: 'transform 0.2s ease'
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>✓</div>
+            <p style={{ color: 'white', fontWeight: 600 }}>{message}</p>
+            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+              Check your inbox for a welcome email.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              maxWidth: '450px',
+              margin: '0 auto',
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                disabled={status === 'loading'}
+                style={{
+                  flex: '1',
+                  minWidth: '250px',
+                  padding: '16px 20px',
+                  borderRadius: '12px',
+                  border: status === 'error' ? '2px solid #ff6b6b' : 'none',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  opacity: status === 'loading' ? 0.7 : 1
+                }}
+              />
+              <button 
+                type="submit"
+                disabled={status === 'loading'}
+                style={{
+                  padding: '16px 32px',
+                  background: 'white',
+                  color: '#667eea',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  cursor: status === 'loading' ? 'wait' : 'pointer',
+                  transition: 'transform 0.2s ease',
+                  opacity: status === 'loading' ? 0.7 : 1
+                }}
+                onMouseOver={(e) => {
+                  if (status !== 'loading') e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </div>
+            
+            {status === 'error' && (
+              <p style={{
+                color: '#ffcccb',
+                fontSize: '0.9rem',
+                marginTop: '0.75rem'
+              }}>
+                {message}
+              </p>
+            )}
+          </form>
+        )}
+        
+        <p style={{
+          color: 'rgba(255,255,255,0.7)',
+          fontSize: '0.85rem',
+          marginTop: '1rem'
+        }}>
+          No spam. Unsubscribe anytime.
+        </p>
+        
+        {/* RSS/Atom Feed Links */}
+        <div style={{
+          marginTop: '2rem',
+          paddingTop: '1.5rem',
+          borderTop: '1px solid rgba(255,255,255,0.2)',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          flexWrap: 'wrap'
+        }}>
+          <a 
+            href="/feed.xml" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'rgba(255,255,255,0.8)',
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
-            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-            >
-              Subscribe
-            </button>
-          </div>
-          <p style={{
-            color: 'rgba(255,255,255,0.7)',
-            fontSize: '0.85rem',
-            marginTop: '1rem'
-          }}>
-            No spam. Unsubscribe anytime.
-          </p>
-          
-          {/* RSS/Atom Feed Links */}
-          <div style={{
-            marginTop: '2rem',
-            paddingTop: '1.5rem',
-            borderTop: '1px solid rgba(255,255,255,0.2)',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '1.5rem',
-            flexWrap: 'wrap'
-          }}>
-            <a 
-              href="/feed.xml" 
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: 'rgba(255,255,255,0.8)',
-                fontSize: '0.85rem',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
-              </svg>
-              RSS Feed
-            </a>
-            <a 
-              href="/atom.xml" 
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: 'rgba(255,255,255,0.8)',
-                fontSize: '0.85rem',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
-              </svg>
-              Atom Feed
-            </a>
-            <a 
-              href="/feed.json" 
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: 'rgba(255,255,255,0.8)',
-                fontSize: '0.85rem',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m3.5 6a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M7 15v2h2v-2H7m4 0v2h6v-2h-6m0-4v2h6v-2h-6Z"/>
-              </svg>
-              JSON Feed
-            </a>
-          </div>
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
+            </svg>
+            RSS Feed
+          </a>
+          <a 
+            href="/atom.xml" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'rgba(255,255,255,0.8)',
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
+            </svg>
+            Atom Feed
+          </a>
+          <a 
+            href="/feed.json" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'rgba(255,255,255,0.8)',
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m3.5 6a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M7 15v2h2v-2H7m4 0v2h6v-2h-6m0-4v2h6v-2h-6Z"/>
+            </svg>
+            JSON Feed
+          </a>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

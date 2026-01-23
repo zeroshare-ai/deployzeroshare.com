@@ -70,6 +70,40 @@ backend:
             echo "NEXT_PUBLIC_CHATBOT_API_URL=$CHATBOT_URL" >> amplify/backend/.env.production
             echo "Chatbot API URL: $CHATBOT_URL"
           fi
+          
+          # Deploy Newsletter Lambda
+          (
+            cd amplify/backend/function/newsletter
+            npm install --production
+            # Package Lambda function
+            zip -r function.zip . -x "*.git*" "*.zip" "node_modules/.cache/*" "template.yaml" "README.md"
+            # Deploy using AWS CloudFormation
+            aws cloudformation package \
+              --template-file template.yaml \
+              --s3-bucket amplify-deployments-$(aws sts get-caller-identity --query Account --output text) \
+              --output-template-file packaged-template.yaml \
+              --region us-east-1 || echo "CloudFormation package failed for newsletter"
+            aws cloudformation deploy \
+              --template-file packaged-template.yaml \
+              --stack-name deployzeroshare-newsletter \
+              --capabilities CAPABILITY_IAM \
+              --region us-east-1 \
+              --parameter-overrides \
+                FromEmail=no-reply@deployzeroshare.com \
+                NotifyEmail=rick@deployzeroshare.com \
+              || echo "Newsletter deployment skipped (may already exist or need manual setup)"
+          )
+          
+          # Get Newsletter API URL
+          NEWSLETTER_URL=$(aws cloudformation describe-stacks \
+            --stack-name deployzeroshare-newsletter \
+            --region us-east-1 \
+            --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
+            --output text 2>/dev/null || echo "")
+          if [ -n "$NEWSLETTER_URL" ]; then
+            echo "NEXT_PUBLIC_NEWSLETTER_API_URL=$NEWSLETTER_URL" >> amplify/backend/.env.production
+            echo "Newsletter API URL: $NEWSLETTER_URL"
+          fi
 frontend:
   phases:
     preBuild:

@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Newsletter subscription Lambda function for ZeroShare Gateway
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+  FromEmail:
+    Type: String
+    Default: no-reply@deployzeroshare.com
+  NotifyEmail:
+    Type: String
+    Default: rick@deployzeroshare.com
+
+Resources:
+  # DynamoDB table for storing subscribers
+  SubscribersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: zeroshare-newsletter-subscribers
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: subscriberId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: subscriberId
+          KeyType: HASH
+      Tags:
+        - Key: Application
+          Value: ZeroShare
+
+  # Lambda function
+  NewsletterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: deployzeroshare-newsletter
+      Runtime: nodejs18.x
+      Handler: index.handler
+      CodeUri: .
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          FROM_EMAIL: !Ref FromEmail
+          NOTIFY_EMAIL: !Ref NotifyEmail
+          TABLE_NAME: !Ref SubscribersTable
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+                - ses:SendRawEmail
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:Query
+              Resource: !GetAtt SubscribersTable.Arn
+      Events:
+        ApiGateway:
+          Type: Api
+          Properties:
+            Path: /subscribe
+            Method: post
+            RestApiId: !Ref NewsletterApi
+
+  NewsletterApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: deployzeroshare-newsletter-api
+      StageName: !Ref Environment
+      Cors:
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL for newsletter
+    Value: !Sub 'https://${NewsletterApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/subscribe'
+    Export:
+      Name: !Sub '${AWS::StackName}-ApiUrl'
+  
+  FunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt NewsletterFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-FunctionArn'
+  
+  TableName:
+    Description: DynamoDB table name for subscribers
+    Value: !Ref SubscribersTable
+    Export:
+      Name: !Sub '${AWS::StackName}-TableName'

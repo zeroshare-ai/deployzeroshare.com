@@ -1,10 +1,16 @@
 'use client';
 
+import { useEffect } from 'react';
 import { Navigation } from '../components/Navigation';
 import { MarketplaceButton } from '../components/MarketplaceButton';
 import Link from 'next/link';
+import { trackPricingView } from '../components/Analytics';
 
 export default function PricingPage() {
+  // Track pricing page view as a high-intent signal
+  useEffect(() => {
+    trackPricingView();
+  }, []);
   const plans = [
     {
       name: 'Startup',

@@ -24,7 +24,9 @@
     "images:all": "node scripts/generate-images.js",
     "images:priority1": "node scripts/generate-images.js --priority 1",
     "images:priority2": "node scripts/generate-images.js --priority 2",
-    "images:priority3": "node scripts/generate-images.js --priority 3"
+    "images:priority3": "node scripts/generate-images.js --priority 3",
+    "images:priority4": "node scripts/generate-images.js --priority 4",
+    "images:blogs": "node scripts/generate-images.js --priority 2 && node scripts/generate-images.js --priority 4"
   },
   "dependencies": {
     "next": "^14.0.4",
