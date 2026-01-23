@@ -124,9 +124,10 @@
     "stat": "22%",
     "content": "📊 Your employees are leaking data to AI. Right now.\n\n22% of files uploaded to AI tools contain sensitive data.\n\nSource: Industry research\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
     "generatedAt": "2026-01-23T03:16:53.159Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
+    "status": "published",
+    "postedAt": "2026-01-23T04:06:14.999Z",
+    "linkedinPostId": "urn:li:share:7420315906049806336",
+    "error": "Requested version 20240601 is not active"
   },
   {
     "type": "stat",

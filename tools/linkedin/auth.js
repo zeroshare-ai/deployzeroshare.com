@@ -23,7 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 validateConfig();
 
-const PORT = 3000;
+const PORT = 8888;
 const CALLBACK_PATH = '/callback';
 
 // Build authorization URL

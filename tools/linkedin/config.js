@@ -35,10 +35,9 @@ export const config = {
     campaigns: 'https://api.linkedin.com/rest/adCampaigns',
   },
   
-  // Required OAuth Scopes
+  // Required OAuth Scopes (only use scopes authorized for your app)
   scopes: [
-    'openid',
-    'profile',
+    'r_basicprofile',            // Read basic profile
     'w_member_social',           // Post as member
     'w_organization_social',     // Post as company page
     'r_organization_social',     // Read company page
@@ -46,8 +45,8 @@ export const config = {
     'r_ads_reporting',           // Read ad analytics
   ],
   
-  // API Version Header
-  apiVersion: '202501',
+  // API Version Header (YYYYMM format)
+  apiVersion: '202601',
 };
 
 // Validate config

@@ -8,6 +8,8 @@
     "generate": "node generate-content.js",
     "preview": "node post.js --dry-run",
     "post": "echo 'Use: node post.js --live (requires explicit authorization)'",
+    "post:next": "node post-next.js",
+    "post:auto": "node post-next.js",
     "campaign:preview": "node campaign.js --dry-run",
     "campaign:create": "echo 'Use: node campaign.js --live (requires explicit authorization)'"
   },

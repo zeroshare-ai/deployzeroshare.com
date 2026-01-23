@@ -1,9 +1,19 @@
 # ZeroShare LinkedIn Automation Tools
 
+> **Location:** `deployzeroshare.com/tools/linkedin/`  
+> **Part of:** ZeroShare Marketing Automation (see `docs/MULTI_PROJECT_ARCHITECTURE.md`)
+
 Automation scripts for managing ZeroShare's LinkedIn presence.
 
-**App ID:** 228538213 (Advertising API - Development Tier)
-**Company Page ID:** 110457262
+## Configuration
+
+| Setting | Value |
+|---------|-------|
+| **App ID** | 228538213 |
+| **Company Page ID** | 110457262 |
+| **Partner ID (Insight Tag)** | 519048716 |
+| **API Access** | Development Tier (5 posts/month) |
+| **Redirect URI** | `http://localhost:3001/callback` |
 
 ---
 
@@ -198,6 +208,60 @@ Ensure your LinkedIn app has the required scopes:
 5. [ ] Run `npm run preview` to verify
 6. [ ] Get explicit authorization to post live
 7. [ ] Set `LINKEDIN_LIVE_MODE=true` and run `node post.js --live`
+
+---
+
+## n8n Automation Setup
+
+### Option 1: Simple Scheduled Posting
+
+1. **Create n8n workflow:**
+   - Trigger: **Schedule** (e.g., 9:00 AM Mon-Fri)
+   - Node: **Execute Command**
+   - Command: `cd /home/rick/checkout/deployzeroshare.com/tools/linkedin && npm run post:next`
+
+2. **Workflow will:**
+   - Post the next draft from `posts.json`
+   - Mark it as published
+   - Exit with code 0 (success), 1 (error), or 2 (no drafts)
+
+### Option 2: With Content Generation
+
+1. **Daily content refresh workflow:**
+   - Trigger: **Schedule** (e.g., 6:00 AM daily)
+   - Node 1: **Execute Command** - `cd /path/to/tools/linkedin && npm run generate`
+   - Node 2: **Execute Command** - `npm run post:next`
+
+### n8n Node Configuration
+
+```
+Execute Command Node:
+  - Command: cd /home/rick/checkout/deployzeroshare.com/tools/linkedin && npm run post:next
+  - Working Directory: (leave empty)
+  - Timeout: 30000
+```
+
+### Exit Codes
+
+| Code | Meaning | n8n Action |
+|------|---------|------------|
+| 0 | Success - posted | Continue workflow |
+| 1 | Error - API failed | Send alert |
+| 2 | No drafts left | Trigger content generation |
+
+---
+
+## Daily Content Workflow
+
+To generate fresh content daily (run this yourself or via n8n):
+
+```bash
+cd ~/checkout/deployzeroshare.com/tools/linkedin
+npm run generate    # Creates posts from blog content
+npm run preview     # Review what will be posted
+```
+
+The generator reads your blog posts and creates LinkedIn-optimized versions.
 
 ---
 

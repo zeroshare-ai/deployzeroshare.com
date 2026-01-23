@@ -3,6 +3,10 @@
 /.pnp
 .pnp.js
 
+# LinkedIn tools (local automation - not deployed)
+tools/linkedin/node_modules
+tools/linkedin/.env
+
 # Lambda function build artifacts
 amplify/backend/function/**/node_modules
 amplify/backend/function/**/function.zip
@@ -13,6 +17,9 @@ amplify/backend/function/**/packaged-template.yaml
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# compliance artifacts (auto-generated)
+/compliance-artifacts/
 
 # next.js
 /.next/

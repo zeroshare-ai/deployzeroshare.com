@@ -1,0 +1,20 @@
+{
+  "timezone": "America/New_York",
+  "postingSchedule": [
+    { "day": "monday", "time": "09:00", "enabled": true },
+    { "day": "tuesday", "time": "09:00", "enabled": true },
+    { "day": "wednesday", "time": "09:00", "enabled": true },
+    { "day": "thursday", "time": "09:00", "enabled": true },
+    { "day": "friday", "time": "09:00", "enabled": true },
+    { "day": "saturday", "time": "10:00", "enabled": false },
+    { "day": "sunday", "time": "10:00", "enabled": false }
+  ],
+  "maxPostsPerDay": 1,
+  "rotateContent": true,
+  "contentSources": [
+    "blog_shares",
+    "stat_posts",
+    "thought_leadership"
+  ],
+  "notes": "Edit this file to change posting schedule. GitHub Action reads this."
+}

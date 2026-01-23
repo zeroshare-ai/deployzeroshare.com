@@ -309,13 +309,32 @@ cursor .
 
 ## Next Steps
 
-1. [ ] Create `tools/linkedin/` folder structure
-2. [ ] Build LinkedIn OAuth flow (using App ID 228538213)
-3. [ ] Create content generator that reads from blog posts
-4. [ ] Build posting script using LinkedIn Posts API
+1. [x] Create `tools/linkedin/` folder structure
+2. [x] Build LinkedIn OAuth flow (using App ID 228538213)
+3. [x] Create content generator that reads from blog posts
+4. [x] Build posting script using LinkedIn Posts API
 5. [ ] Build campaign management using Advertising API
-6. [ ] Update `.cursorrules` in both projects with cross-references
-7. [ ] Create first batch of LinkedIn content from existing blog posts
+6. [x] Update `.cursorrules` in both projects with cross-references
+7. [x] Create first batch of LinkedIn content from existing blog posts (16 posts generated)
+
+## Current Status
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| LinkedIn API Access | ✅ Approved | Development Tier - 5 posts/month |
+| OAuth Configuration | ✅ Ready | Redirect: `http://localhost:8888/callback` |
+| Content Generator | ✅ Working | 16 posts generated in `tools/linkedin/content/` |
+| Post Publisher | ✅ LIVE | First post published successfully! |
+| Auto-Post Script | ✅ Ready | `npm run post:next` for n8n/cron |
+| Campaign Manager | 🔲 Pending | To be built after posting confirmed |
+
+## Automation Options
+
+| Method | Command | When to Use |
+|--------|---------|-------------|
+| **Manual** | `node post.js --live --index N` | One-off posts |
+| **Auto-next** | `npm run post:next` | n8n/cron scheduling |
+| **Generate fresh** | `npm run generate` | Refresh content from blog |
 
 ---
 

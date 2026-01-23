@@ -27,7 +27,15 @@
     "images:priority2": "node scripts/generate-images.js --priority 2",
     "images:priority3": "node scripts/generate-images.js --priority 3",
     "images:priority4": "node scripts/generate-images.js --priority 4",
-    "images:blogs": "node scripts/generate-images.js --priority 2 && node scripts/generate-images.js --priority 4"
+    "images:blogs": "node scripts/generate-images.js --priority 2 && node scripts/generate-images.js --priority 4",
+    "compliance:generate": "node scripts/compliance/generate-evidence.js",
+    "compliance:soc2": "node scripts/compliance/generate-evidence.js --cert=soc2",
+    "compliance:iso27001": "node scripts/compliance/generate-evidence.js --cert=iso27001",
+    "compliance:gdpr": "node scripts/compliance/generate-evidence.js --cert=gdpr",
+    "compliance:hipaa": "node scripts/compliance/generate-evidence.js --cert=hipaa",
+    "compliance:pci": "node scripts/compliance/generate-evidence.js --cert=pci",
+    "compliance:ccpa": "node scripts/compliance/generate-evidence.js --cert=ccpa",
+    "compliance:auditor-package": "node scripts/compliance/generate-evidence.js --package"
   },
   "dependencies": {
     "next": "^14.0.4",
