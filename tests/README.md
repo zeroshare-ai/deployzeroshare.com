@@ -4,10 +4,17 @@ This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
 
 ## Test Structure
 
-- **`tests/smoke.spec.ts`** - Critical functionality tests (homepage, navigation, buttons, legal pages)
-- **`tests/links.spec.ts`** - Link validation tests (internal/external links, navigation)
-- **`tests/support-form.spec.ts`** - Support form functionality tests
-- **`tests/deployment.spec.ts`** - Post-deployment verification tests
+| File | Purpose | Tests |
+|------|---------|-------|
+| `smoke.spec.ts` | Critical functionality | 5 tests |
+| `links.spec.ts` | Link validation | 6 tests |
+| `forms.spec.ts` | All form functionality | 25 tests |
+| `support-form.spec.ts` | Support form (legacy) | 7 tests |
+| `api-health.spec.ts` | API endpoint checks | 10 tests |
+| `pre-deployment.spec.ts` | Pre-deploy QA | 20 tests |
+| `deployment.spec.ts` | Post-deploy verification | 8 tests |
+| `chatbot.spec.ts` | Chatbot functionality | 5 tests |
+| `screenshots.spec.ts` | Visual regression | 3 tests |
 
 ## Running Tests
 
@@ -17,13 +24,15 @@ This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
 # Install Playwright browsers (first time only)
 npm run test:install
 
-# Run all tests (requires local server)
+# Run all tests
 npm run test
 
 # Run specific test suites
 npm run test:smoke      # Smoke tests only
-npm run test:links     # Link validation only
-npm run test:form      # Support form tests only
+npm run test:links      # Link validation only
+npm run test:forms      # All form tests (NEW)
+npm run test:form       # Support form tests only
+npm run test:api        # API health checks
 
 # Run tests with UI
 npm run test:ui
@@ -41,13 +50,21 @@ BASE_URL=https://deployzeroshare.com npm run test:deployed
 
 ## Test Scripts
 
-- `npm run test` - Run all tests locally
-- `npm run test:smoke` - Run smoke tests only
-- `npm run test:links` - Run link validation tests
-- `npm run test:form` - Run support form tests
-- `npm run test:deployed` - Run deployment verification tests
-- `npm run test:ui` - Run tests with Playwright UI
-- `npm run test:install` - Install Playwright browsers
+| Script | Description |
+|--------|-------------|
+| `npm run test` | Run all tests locally |
+| `npm run test:smoke` | Smoke tests only |
+| `npm run test:links` | Link validation tests |
+| `npm run test:forms` | All form tests (NEW) |
+| `npm run test:form` | Support form tests only |
+| `npm run test:api` | API health checks |
+| `npm run test:pre-deploy` | Pre-deployment QA |
+| `npm run test:deployed` | Post-deployment verification |
+| `npm run test:screenshots` | Visual regression tests |
+| `npm run test:ui` | Tests with Playwright UI |
+| `npm run test:install` | Install Playwright browsers |
+| `npm run test:qa` | Full QA suite (pre-deploy + api + forms + smoke) |
+| `npm run qa` | Build + full QA suite |
 
 ## CI/CD Integration
 
@@ -82,7 +99,42 @@ Smoke tests run during build (if Playwright is available):
 - ✅ External links have correct attributes (target="_blank", rel="noopener")
 - ✅ No broken internal links
 
-### Support Form
+### Forms Tests (NEW - `forms.spec.ts`)
+
+**Newsletter Subscription:**
+- ✅ API endpoint is reachable
+- ✅ API accepts valid subscription
+- ✅ API rejects invalid email
+- ✅ API rejects missing email
+- ✅ Form is visible on blog page
+- ✅ Form validates email format
+- ✅ Form shows loading state
+- ✅ Form submits without network errors
+- ✅ Form shows feedback after submission
+- ✅ Form handles duplicate subscription
+
+**Support Case Form:**
+- ✅ Page loads correctly
+- ✅ Has all required fields
+- ✅ Priority selector works
+- ✅ Can be filled and submitted
+- ✅ No network errors
+- ✅ Shows feedback after submission
+
+**Contact Sales Form:**
+- ✅ Page loads correctly
+- ✅ Has all required fields
+- ✅ Team size selector works
+- ✅ Can be filled and submitted
+- ✅ No network errors
+- ✅ Shows feedback after submission
+- ✅ Captures UTM parameters
+
+**Cross-Form Integration:**
+- ✅ All forms use correct API endpoints
+- ✅ No hardcoded wrong URLs
+
+### Support Form (Legacy - `support-form.spec.ts`)
 - ✅ Form displays correctly
 - ✅ Form validation works
 - ✅ Form can be filled out
