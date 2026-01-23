@@ -1,10 +1,10 @@
-name: Post-Deployment Verification (Standalone)
+name: Post-Deployment Verification (Manual)
 
 on:
   workflow_dispatch:
-  schedule:
-    # Run daily at 2 AM UTC to verify site is still working
-    - cron: '0 2 * * *'
+  # Daily schedule moved to daily-health-check.yml for digest emails
+  # schedule:
+  #   - cron: '0 2 * * *'
 
 jobs:
   verify-deployment:

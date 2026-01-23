@@ -18,6 +18,8 @@ const SUPPORT_API_URL = process.env.SUPPORT_API_URL ||
   'https://obkptu26ug.execute-api.us-east-1.amazonaws.com/prod/support';
 const NEWSLETTER_API_URL = process.env.NEWSLETTER_API_URL || 
   'https://jaqw7kgt6f.execute-api.us-east-1.amazonaws.com/prod/subscribe';
+const CHATBOT_API_URL = process.env.CHATBOT_API_URL || 
+  'https://l3tmvuwzdi.execute-api.us-east-1.amazonaws.com/prod/chat';
 
 test.describe('API Health Checks', () => {
   
@@ -172,6 +174,57 @@ test.describe('Newsletter API Health Checks', () => {
       },
     });
 
+    expect(response.status()).toBe(400);
+  });
+});
+
+test.describe('Chatbot API Health Checks', () => {
+  
+  test('Chatbot API endpoint is reachable', async ({ request }) => {
+    const response = await request.fetch(CHATBOT_API_URL, {
+      method: 'OPTIONS',
+      headers: {
+        'Origin': BASE_URL,
+        'Access-Control-Request-Method': 'POST',
+      },
+    });
+    
+    expect([200, 204]).toContain(response.status());
+  });
+
+  test('Chatbot API responds to valid message', async ({ request }) => {
+    const response = await request.post(CHATBOT_API_URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Origin': BASE_URL,
+      },
+      data: {
+        messages: [{ role: 'user', content: 'What is ZeroShare?' }],
+        sessionId: `health-check-${Date.now()}`,
+      },
+    });
+
+    // Should return 200 with a response
+    expect(response.status()).toBe(200);
+    
+    const body = await response.json();
+    expect(body.success).toBe(true);
+    expect(body.message).toBeTruthy();
+    expect(body.message.length).toBeGreaterThan(10);
+  });
+
+  test('Chatbot API rejects empty messages', async ({ request }) => {
+    const response = await request.post(CHATBOT_API_URL, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: {
+        messages: [],
+        sessionId: 'test',
+      },
+    });
+
+    // Should return 400 for empty messages
     expect(response.status()).toBe(400);
   });
 });

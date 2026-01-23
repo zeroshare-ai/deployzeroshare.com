@@ -1,0 +1,285 @@
+name: Daily Health Check & Digest
+
+on:
+  workflow_dispatch:  # Allow manual trigger
+  schedule:
+    # Run daily at 6 AM UTC (1 AM EST / 10 PM PST)
+    - cron: '0 6 * * *'
+
+env:
+  BASE_URL: https://deployzeroshare.com
+  SITE_NAME: deployzeroshare.com
+
+jobs:
+  health-check:
+    name: Daily Site Health Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    outputs:
+      smoke_result: ${{ steps.smoke.outcome }}
+      links_result: ${{ steps.links.outcome }}
+      pages_result: ${{ steps.pages.outcome }}
+      api_result: ${{ steps.api.outcome }}
+      seo_result: ${{ steps.seo.outcome }}
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+      
+      # Test 1: Smoke Tests
+      - name: Run smoke tests
+        id: smoke
+        continue-on-error: true
+        run: |
+          npx playwright test tests/smoke.spec.ts --project=chromium --reporter=list 2>&1 | tee smoke-results.txt
+          echo "SMOKE_OUTPUT<<EOF" >> $GITHUB_ENV
+          tail -20 smoke-results.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
+      # Test 2: Link Validation
+      - name: Run link tests
+        id: links
+        continue-on-error: true
+        run: |
+          npx playwright test tests/links.spec.ts --project=chromium --reporter=list 2>&1 | tee links-results.txt
+          echo "LINKS_OUTPUT<<EOF" >> $GITHUB_ENV
+          tail -20 links-results.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
+      # Test 3: Critical Pages
+      - name: Check critical pages
+        id: pages
+        continue-on-error: true
+        run: |
+          echo "Checking critical pages..." | tee pages-results.txt
+          FAILED=0
+          
+          for page in "/" "/pricing" "/blog" "/docs" "/support" "/contact-us" "/faq" "/privacy" "/terms"; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL$page")
+            if [ "$STATUS" = "200" ]; then
+              echo "✓ $page - $STATUS" | tee -a pages-results.txt
+            else
+              echo "✗ $page - $STATUS" | tee -a pages-results.txt
+              FAILED=1
+            fi
+          done
+          
+          echo "PAGES_OUTPUT<<EOF" >> $GITHUB_ENV
+          cat pages-results.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          exit $FAILED
+      
+      # Test 4: API Health (no submissions)
+      - name: Check API endpoints
+        id: api
+        continue-on-error: true
+        run: |
+          echo "Checking API endpoints..." | tee api-results.txt
+          FAILED=0
+          
+          # Support API
+          SUPPORT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X OPTIONS \
+            "https://obkptu26ug.execute-api.us-east-1.amazonaws.com/prod/support" \
+            -H "Origin: $BASE_URL")
+          if [ "$SUPPORT_STATUS" = "200" ] || [ "$SUPPORT_STATUS" = "204" ]; then
+            echo "✓ Support API - $SUPPORT_STATUS" | tee -a api-results.txt
+          else
+            echo "✗ Support API - $SUPPORT_STATUS" | tee -a api-results.txt
+            FAILED=1
+          fi
+          
+          # Newsletter API
+          NEWSLETTER_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X OPTIONS \
+            "https://jaqw7kgt6f.execute-api.us-east-1.amazonaws.com/prod/subscribe" \
+            -H "Origin: $BASE_URL")
+          if [ "$NEWSLETTER_STATUS" = "200" ] || [ "$NEWSLETTER_STATUS" = "204" ]; then
+            echo "✓ Newsletter API - $NEWSLETTER_STATUS" | tee -a api-results.txt
+          else
+            echo "✗ Newsletter API - $NEWSLETTER_STATUS" | tee -a api-results.txt
+            FAILED=1
+          fi
+          
+          # Chatbot API
+          CHATBOT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X OPTIONS \
+            "https://l3tmvuwzdi.execute-api.us-east-1.amazonaws.com/prod/chat" \
+            -H "Origin: $BASE_URL")
+          if [ "$CHATBOT_STATUS" = "200" ] || [ "$CHATBOT_STATUS" = "204" ]; then
+            echo "✓ Chatbot API - $CHATBOT_STATUS" | tee -a api-results.txt
+          else
+            echo "✗ Chatbot API - $CHATBOT_STATUS" | tee -a api-results.txt
+            FAILED=1
+          fi
+          
+          echo "API_OUTPUT<<EOF" >> $GITHUB_ENV
+          cat api-results.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          exit $FAILED
+      
+      # Test 5: SEO Files
+      - name: Check SEO files
+        id: seo
+        continue-on-error: true
+        run: |
+          echo "Checking SEO files..." | tee seo-results.txt
+          FAILED=0
+          
+          for file in "/robots.txt" "/sitemap.xml" "/llms.txt" "/feed.xml"; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL$file")
+            if [ "$STATUS" = "200" ]; then
+              echo "✓ $file - $STATUS" | tee -a seo-results.txt
+            else
+              echo "✗ $file - $STATUS" | tee -a seo-results.txt
+              FAILED=1
+            fi
+          done
+          
+          echo "SEO_OUTPUT<<EOF" >> $GITHUB_ENV
+          cat seo-results.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          exit $FAILED
+      
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-health-report
+          path: |
+            *-results.txt
+            playwright-report/
+          retention-days: 7
+
+  send-digest:
+    name: Send Daily Digest Email
+    runs-on: ubuntu-latest
+    needs: health-check
+    if: always()
+    
+    steps:
+      - name: Prepare digest
+        id: digest
+        run: |
+          # Determine overall status
+          SMOKE="${{ needs.health-check.outputs.smoke_result }}"
+          LINKS="${{ needs.health-check.outputs.links_result }}"
+          PAGES="${{ needs.health-check.outputs.pages_result }}"
+          API="${{ needs.health-check.outputs.api_result }}"
+          SEO="${{ needs.health-check.outputs.seo_result }}"
+          
+          # Count results
+          PASSED=0
+          FAILED=0
+          
+          for result in "$SMOKE" "$LINKS" "$PAGES" "$API" "$SEO"; do
+            if [ "$result" = "success" ]; then
+              PASSED=$((PASSED + 1))
+            else
+              FAILED=$((FAILED + 1))
+            fi
+          done
+          
+          if [ $FAILED -eq 0 ]; then
+            echo "status=✅ All Checks Passed" >> $GITHUB_OUTPUT
+            echo "emoji=✅" >> $GITHUB_OUTPUT
+          else
+            echo "status=⚠️ $FAILED of 5 Checks Failed" >> $GITHUB_OUTPUT
+            echo "emoji=⚠️" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "passed=$PASSED" >> $GITHUB_OUTPUT
+          echo "failed=$FAILED" >> $GITHUB_OUTPUT
+          
+          # Format individual results
+          format_result() {
+            if [ "$1" = "success" ]; then echo "✅ Passed"; else echo "❌ Failed"; fi
+          }
+          
+          echo "smoke_status=$(format_result $SMOKE)" >> $GITHUB_OUTPUT
+          echo "links_status=$(format_result $LINKS)" >> $GITHUB_OUTPUT
+          echo "pages_status=$(format_result $PAGES)" >> $GITHUB_OUTPUT
+          echo "api_status=$(format_result $API)" >> $GITHUB_OUTPUT
+          echo "seo_status=$(format_result $SEO)" >> $GITHUB_OUTPUT
+      
+      - name: Send digest via AWS SES Lambda
+        run: |
+          # Use the support API to send the digest (it's already set up for email)
+          # This sends to support@deployzeroshare.com which forwards to rick@
+          
+          SUBJECT="${{ steps.digest.outputs.emoji }} Daily Health Check - ${{ env.SITE_NAME }}"
+          DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
+          
+          MESSAGE="Daily Health Check Report for ${{ env.SITE_NAME }}
+          
+          Status: ${{ steps.digest.outputs.status }}
+          Date: $DATE
+          
+          ═══════════════════════════════════════
+          TEST RESULTS
+          ═══════════════════════════════════════
+          
+          Smoke Tests:     ${{ steps.digest.outputs.smoke_status }}
+          Link Validation: ${{ steps.digest.outputs.links_status }}
+          Critical Pages:  ${{ steps.digest.outputs.pages_status }}
+          API Endpoints:   ${{ steps.digest.outputs.api_status }}
+          SEO Files:       ${{ steps.digest.outputs.seo_status }}
+          
+          ═══════════════════════════════════════
+          SUMMARY
+          ═══════════════════════════════════════
+          
+          Passed: ${{ steps.digest.outputs.passed }} / 5
+          Failed: ${{ steps.digest.outputs.failed }} / 5
+          
+          ═══════════════════════════════════════
+          
+          View full report:
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
+          ---
+          This is an automated daily health check.
+          To disable, remove the schedule from .github/workflows/daily-health-check.yml"
+          
+          # Send via support API
+          curl -s -X POST "https://obkptu26ug.execute-api.us-east-1.amazonaws.com/prod/support" \
+            -H "Content-Type: application/json" \
+            -H "Origin: https://deployzeroshare.com" \
+            -d "{
+              \"name\": \"Daily Health Check Bot\",
+              \"email\": \"healthcheck@deployzeroshare.com\",
+              \"subject\": \"$SUBJECT\",
+              \"message\": $(echo "$MESSAGE" | jq -Rs .),
+              \"priority\": \"general\"
+            }" || echo "Email send failed (non-critical)"
+      
+      - name: Post summary to workflow
+        if: always()
+        run: |
+          echo "## ${{ steps.digest.outputs.emoji }} Daily Health Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date -u +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "**Site:** ${{ env.SITE_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Test | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Smoke Tests | ${{ steps.digest.outputs.smoke_status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Link Validation | ${{ steps.digest.outputs.links_status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Critical Pages | ${{ steps.digest.outputs.pages_status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| API Endpoints | ${{ steps.digest.outputs.api_status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| SEO Files | ${{ steps.digest.outputs.seo_status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Result:** ${{ steps.digest.outputs.passed }}/5 passed" >> $GITHUB_STEP_SUMMARY
