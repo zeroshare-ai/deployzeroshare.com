@@ -87,27 +87,10 @@ jobs:
           
           echo "✅ API endpoint reachable (HTTP $HTTP_CODE)"
           
-          # Test POST
-          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$API_URL" \
-            -H "Content-Type: application/json" \
-            -d '{"name":"CI Test","email":"ci@test.com","message":"CI health check","priority":"general"}')
-          
-          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
-          BODY=$(echo "$RESPONSE" | head -n -1)
-          
-          if [ "$HTTP_CODE" = "000" ]; then
-            echo "❌ CRITICAL: API POST failed - network error!"
-            exit 1
-          fi
-          
-          # 200 = success, 500 = SES sandbox (expected), 400 = validation
-          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "400" ] && [ "$HTTP_CODE" != "500" ]; then
-            echo "❌ Unexpected response: HTTP $HTTP_CODE"
-            echo "Body: $BODY"
-            exit 1
-          fi
-          
-          echo "✅ API responding correctly (HTTP $HTTP_CODE)"
+          # Skip actual POST test - CORS/OPTIONS check is sufficient
+          # Real form submissions should only come from actual users
+          # POST tests were sending too many emails
+          echo "✅ API reachable - skipping POST test to avoid spam emails"
 
   # Stage 3: E2E Tests
   e2e-tests:
