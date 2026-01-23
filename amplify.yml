@@ -205,21 +205,15 @@ rewrites:
   - source: '/compliance/'
     target: '/compliance/index.html'
     status: '200'
-  # Documentation static files - must be before the docs index.html rule
-  - source: '/docs/index.json'
-    target: '/docs/index.json'
-    status: '200'
-  - source: '/docs/<*.md>'
-    target: '/docs/<*.md>'
-    status: '200'
-  - source: '/docs/<*.json>'
-    target: '/docs/<*.json>'
-    status: '200'
-  # Documentation page
+  # Documentation page - only exact /docs and /docs/ go to index.html
+  # Static files (*.md, *.json) are served directly by Amplify
   - source: '/docs'
     target: '/docs/index.html'
     status: '200'
   - source: '/docs/'
+    target: '/docs/index.html'
+    status: '200'
+  - source: '/docs/index.html'
     target: '/docs/index.html'
     status: '200'
   # Catch-all for SPA routing (homepage and client-side routes)
