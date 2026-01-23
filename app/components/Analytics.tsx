@@ -7,8 +7,8 @@ import { useEffect, Suspense } from 'react';
 // Google Analytics Measurement ID - Replace with your actual ID
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 
-// LinkedIn Insight Tag Partner ID - Replace with your actual ID from LinkedIn Campaign Manager
-const LINKEDIN_PARTNER_ID = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID || 'XXXXXXX';
+// LinkedIn Insight Tag Partner ID - From LinkedIn Campaign Manager
+const LINKEDIN_PARTNER_ID = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID || '519048716';
 
 function AnalyticsTracking() {
   const pathname = usePathname();

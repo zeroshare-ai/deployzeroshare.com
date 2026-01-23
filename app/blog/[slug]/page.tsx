@@ -3961,53 +3961,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             alignItems: 'flex-start',
             flexWrap: 'wrap'
           }}>
-            {/* Author Avatar - shows image if available, falls back to initials */}
-            {authorProfiles[post.author].image ? (
-              <div style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                overflow: 'hidden',
-                flexShrink: 0,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-              }}>
-                <img 
-                  src={authorProfiles[post.author].image} 
-                  alt={authorProfiles[post.author].name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  onError={(e) => {
-                    // Fallback to initials if image fails to load
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                      parent.style.display = 'flex';
-                      parent.style.alignItems = 'center';
-                      parent.style.justifyContent = 'center';
-                      parent.innerHTML = `<span style="color: white; font-weight: 700; font-size: 1.5rem">${post.author.split(' ').map((n: string) => n[0]).join('')}</span>`;
-                    }
-                  }}
-                />
-              </div>
-            ) : (
-              <div style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                fontWeight: 700,
-                fontSize: '1.5rem',
-                flexShrink: 0,
-                boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
-              }}>
-                {post.author.split(' ').map((n: string) => n[0]).join('')}
-              </div>
-            )}
+            {/* Author Avatar - shows initials with gradient background */}
+            <div style={{
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontWeight: 700,
+              fontSize: '1.5rem',
+              flexShrink: 0,
+              boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+            }}>
+              {post.author.split(' ').map((n: string) => n[0]).join('')}
+            </div>
             <div style={{ flex: 1, minWidth: '250px' }}>
               <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1a1a1a', marginBottom: '0.25rem' }}>
                 {authorProfiles[post.author].name}
