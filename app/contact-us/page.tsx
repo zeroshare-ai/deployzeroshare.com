@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { Navigation } from '../components/Navigation';
 import { trackDemoRequest, trackFormStart } from '../components/Analytics';
 
 export default function ContactSalesPage() {
-  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,13 +14,31 @@ export default function ContactSalesPage() {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formStarted, setFormStarted] = useState(false);
+  
+  // UTM parameters captured on client-side to avoid SSR issues with static export
+  const [utmParams, setUtmParams] = useState({
+    utmSource: '',
+    utmMedium: '',
+    utmCampaign: '',
+    utmContent: '',
+    source: ''
+  });
+  
+  // Capture UTM parameters on client-side after mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setUtmParams({
+        utmSource: params.get('utm_source') || '',
+        utmMedium: params.get('utm_medium') || '',
+        utmCampaign: params.get('utm_campaign') || '',
+        utmContent: params.get('utm_content') || '',
+        source: params.get('source') || ''
+      });
+    }
+  }, []);
 
-  // Capture UTM parameters for attribution
-  const utmSource = searchParams?.get('utm_source') || '';
-  const utmMedium = searchParams?.get('utm_medium') || '';
-  const utmCampaign = searchParams?.get('utm_campaign') || '';
-  const utmContent = searchParams?.get('utm_content') || '';
-  const source = searchParams?.get('source') || '';
+  const { utmSource, utmMedium, utmCampaign, utmContent, source } = utmParams;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     // Track form start on first interaction
