@@ -322,7 +322,98 @@ A premium GDPR compliance badge. Circular seal with EU stars motif subtly integr
 
 ---
 
-## 10. DOCUMENTATION DIAGRAMS
+## 10. AUTHOR AVATARS / PORTRAITS
+
+**Dimensions for all**: 400 x 400 px (will be displayed at 80-120px)  
+**Format**: PNG or JPG  
+**Style**: Mix of realistic professional portraits and stylized avatars for variety
+
+> **Note**: Some authors have realistic portraits, others have stylized avatars. This creates a natural mix similar to real company blogs where some team members prefer professional photos and others prefer illustrated avatars.
+
+### 10A. Sarah Chen - Security Research Lead (Realistic Portrait)
+
+**Filename**: `author-sarah-chen.png`
+
+**Prompt**:
+```
+Professional headshot portrait of an Asian-American woman in her mid-30s. Confident, intelligent expression with a slight knowing smile. Dark hair pulled back professionally. Wearing a modern charcoal blazer over a deep purple (#764ba2) blouse. Soft, even studio lighting with subtle rim light. Clean, slightly blurred office background with hints of blue. High-end corporate portrait style, warm but professional. Sharp focus on eyes. 4K quality.
+```
+
+### 10B. Michael Rodriguez - Compliance Director (Realistic Portrait)
+
+**Filename**: `author-michael-rodriguez.png`
+
+**Prompt**:
+```
+Professional headshot portrait of a Hispanic man in his early 40s. Distinguished, trustworthy appearance with salt-and-pepper hair at temples. Clean shaven. Genuine, approachable smile. Wearing a navy blue suit jacket over a white dress shirt, no tie (business casual). Soft studio lighting. Neutral gray background with subtle gradient. Executive presence, compliance/legal professional aesthetic. Corporate headshot quality. 4K.
+```
+
+### 10C. David Kim - Solutions Architect (Stylized Avatar)
+
+**Filename**: `author-david-kim.png`
+
+**Prompt**:
+```
+A stylized illustrated avatar portrait of an Asian man in his late 30s. Modern flat-design style with subtle 3D shading. Short neat black hair. Wearing thick-framed glasses and a casual tech company hoodie in indigo (#667eea). Friendly, approachable expression. Clean geometric style similar to high-end tech company illustrations (like Notion or Linear avatars). Solid color background in soft gray (#f8f9fa). Professional but approachable tech aesthetic.
+```
+
+### 10D. Emily Watson - DevSecOps Engineer (Stylized Avatar)
+
+**Filename**: `author-emily-watson.png`
+
+**Prompt**:
+```
+A stylized illustrated avatar portrait of a young Caucasian woman in her late 20s. Modern vector art style with soft gradients. Curly auburn/red hair, freckles. Wearing a DevOps/tech t-shirt with subtle code pattern. Confident, slightly playful expression. Headphones around neck. Clean geometric illustration style, vibrant but professional. Solid purple (#764ba2) background. Tech-forward, creative professional aesthetic.
+```
+
+### 10E. Dr. Amanda Foster - Healthcare Compliance Advisor (Realistic Portrait)
+
+**Filename**: `author-amanda-foster.png`
+
+**Prompt**:
+```
+Professional headshot portrait of an African-American woman in her late 40s. Distinguished, authoritative but warm presence. Short professional hair. Wearing a sophisticated white medical/lab coat over a teal blouse, suggesting healthcare expertise. Pearl earrings. Warm, genuine smile conveying trustworthiness. Soft professional lighting. Light neutral background. Healthcare executive aesthetic, PhD/Doctor professional presence. 4K quality.
+```
+
+### 10F. James Park - Security Researcher (Stylized Avatar)
+
+**Filename**: `author-james-park.png`
+
+**Prompt**:
+```
+A stylized illustrated avatar portrait of a Korean-American man in his early 30s. Minimalist flat design with clean lines. Short modern haircut. Wearing a black turtleneck (tech/hacker aesthetic). Slight smirk suggesting clever/analytical personality. Clean, sharp vector style similar to Apple or Figma avatars. Dark background with subtle circuit/code pattern. Cybersecurity researcher aesthetic, modern and sharp.
+```
+
+### 10G. Marcus Chen - Senior DevOps Engineer (Realistic Portrait)
+
+**Filename**: `author-marcus-chen.png`
+
+**Prompt**:
+```
+Professional headshot portrait of a Chinese-American man in his mid-30s. Relaxed, friendly expression with genuine smile. Short hair, possibly slight beard stubble. Wearing a casual button-up shirt in blue plaid (Pacific Northwest tech aesthetic). Natural lighting suggesting modern office environment. Slightly blurred background with plants/modern office. Approachable senior engineer presence. Candid but professional style. 4K quality.
+```
+
+### 10H. Rachel Thompson - Guest Contributor (Stylized Avatar)
+
+**Filename**: `author-rachel-thompson.png`
+
+**Prompt**:
+```
+A stylized illustrated avatar portrait of a Caucasian woman in her mid-30s. Elegant flat design style with sophisticated coloring. Shoulder-length blonde hair. Wearing professional attire - blazer suggesting business/consulting background. Confident, polished expression. Gold accent earrings. Clean illustration style suggesting Big 4 consulting professionalism. Soft cream/beige background. External expert/guest contributor aesthetic.
+```
+
+### 10I. Default/Anonymous Author Avatar
+
+**Filename**: `author-default.png`
+
+**Prompt**:
+```
+A sophisticated abstract avatar placeholder. A silhouette of a professional person in indigo (#667eea) to purple (#764ba2) gradient. Modern geometric style with subtle shield/security motif integrated. Gender-neutral, professional. Clean, premium placeholder that fits the ZeroShare brand. Transparent or light gray (#f8f9fa) background. For use when author doesn't have a specific avatar.
+```
+
+---
+
+## 11. DOCUMENTATION DIAGRAMS
 
 ### 10A. Deployment Architecture
 
@@ -357,12 +448,14 @@ A sequence diagram showing request flow. Vertical swimlanes for: User, Applicati
    - All 6 feature icons - Consistent premium feel
    - All 6 blog featured images - Content marketing
    - Case study industry visuals - Trust building
+   - Author avatars (at least core 4: Sarah, Michael, David, Emily)
 
 3. **Polish** (Do Third):
    - Pricing tier illustrations
    - Trust badges
    - Contact page visual
    - Documentation diagrams
+   - Remaining author avatars (Amanda, James, Marcus, Rachel, Default)
 
 ---
 
@@ -396,6 +489,16 @@ Place all generated images in:
 │   │   ├── blog-secrets.png
 │   │   ├── blog-governance.png
 │   │   └── blog-gateway.png
+│   ├── authors/
+│   │   ├── author-sarah-chen.png       (realistic portrait)
+│   │   ├── author-michael-rodriguez.png (realistic portrait)
+│   │   ├── author-david-kim.png        (stylized avatar)
+│   │   ├── author-emily-watson.png     (stylized avatar)
+│   │   ├── author-amanda-foster.png    (realistic portrait)
+│   │   ├── author-james-park.png       (stylized avatar)
+│   │   ├── author-marcus-chen.png      (realistic portrait)
+│   │   ├── author-rachel-thompson.png  (stylized avatar)
+│   │   └── author-default.png          (abstract placeholder)
 │   ├── pricing/
 │   │   ├── pricing-startup.png
 │   │   ├── pricing-professional.png

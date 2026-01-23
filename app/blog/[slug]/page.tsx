@@ -56,59 +56,69 @@ export function generateStaticParams() {
 }
 
 // Author profiles with bios - reflects natural team evolution
+// Images: mix of realistic portraits and stylized avatars (see IMAGE_PROMPTS.md section 10)
 const authorProfiles: Record<string, {
   name: string;
   role: string;
   bio: string;
   expertise: string[];
+  image?: string;
 }> = {
   'Sarah Chen': {
     name: 'Sarah Chen',
     role: 'Security Research Lead',
     bio: 'Sarah leads security research at ZeroShare, focusing on emerging threats in enterprise AI adoption. With over a decade in cybersecurity and previous roles at major cloud providers, she specializes in data protection and threat modeling for AI systems.',
-    expertise: ['AI Security', 'Threat Intelligence', 'Data Protection']
+    expertise: ['AI Security', 'Threat Intelligence', 'Data Protection'],
+    image: '/images/authors/author-sarah-chen.png'
   },
   'Michael Rodriguez': {
     name: 'Michael Rodriguez',
     role: 'Compliance Director',
     bio: 'Michael oversees compliance strategy at ZeroShare, helping organizations navigate the complex regulatory landscape around AI. He previously led compliance programs at Fortune 500 financial services firms and holds CISA, CISM, and CRISC certifications.',
-    expertise: ['Regulatory Compliance', 'Risk Management', 'Financial Services']
+    expertise: ['Regulatory Compliance', 'Risk Management', 'Financial Services'],
+    image: '/images/authors/author-michael-rodriguez.png'
   },
   'David Kim': {
     name: 'David Kim',
     role: 'Solutions Architect',
     bio: 'David designs enterprise security architectures at ZeroShare, with particular focus on zero trust implementations. His background includes 15 years building security infrastructure at hyperscale technology companies.',
-    expertise: ['Zero Trust', 'Enterprise Architecture', 'Cloud Security']
+    expertise: ['Zero Trust', 'Enterprise Architecture', 'Cloud Security'],
+    image: '/images/authors/author-david-kim.png'
   },
   'Emily Watson': {
     name: 'Emily Watson',
     role: 'DevSecOps Engineer',
     bio: 'Emily bridges development and security at ZeroShare, focusing on securing the software development lifecycle. She contributes to open-source security tools and speaks regularly at DevSecOps conferences.',
-    expertise: ['DevSecOps', 'Secrets Management', 'CI/CD Security']
+    expertise: ['DevSecOps', 'Secrets Management', 'CI/CD Security'],
+    image: '/images/authors/author-emily-watson.png'
   },
   'Dr. Amanda Foster': {
     name: 'Dr. Amanda Foster',
     role: 'Healthcare Compliance Advisor',
     bio: 'Dr. Foster advises healthcare organizations on HIPAA, FDA, and emerging AI regulations. She previously served as Chief Privacy Officer at a major health system and holds a PhD in Health Informatics.',
-    expertise: ['HIPAA', 'Healthcare IT', 'FDA Compliance']
+    expertise: ['HIPAA', 'Healthcare IT', 'FDA Compliance'],
+    image: '/images/authors/author-amanda-foster.png'
   },
   'James Park': {
     name: 'James Park',
     role: 'Security Researcher',
     bio: 'James conducts technical security research on LLM vulnerabilities and AI attack surfaces. His work has been presented at Black Hat and DEF CON, and he contributes to OWASP AI security initiatives.',
-    expertise: ['LLM Security', 'Vulnerability Research', 'Red Team']
+    expertise: ['LLM Security', 'Vulnerability Research', 'Red Team'],
+    image: '/images/authors/author-james-park.png'
   },
   'Marcus Chen': {
     name: 'Marcus Chen',
     role: 'Senior DevOps Engineer',
     bio: 'Marcus specializes in infrastructure automation and cloud-native security. He maintains several popular open-source Terraform modules and has architected deployments serving millions of users.',
-    expertise: ['Terraform', 'Kubernetes', 'Cloud Infrastructure']
+    expertise: ['Terraform', 'Kubernetes', 'Cloud Infrastructure'],
+    image: '/images/authors/author-marcus-chen.png'
   },
   'Rachel Thompson': {
     name: 'Rachel Thompson',
     role: 'Guest Contributor',
     bio: 'Rachel is a former Big 4 auditor specializing in SOC 2 and technology risk assessments. She now consults independently, helping organizations prepare for compliance audits.',
-    expertise: ['SOC 2', 'Audit', 'Risk Assessment']
+    expertise: ['SOC 2', 'Audit', 'Risk Assessment'],
+    image: '/images/authors/author-rachel-thompson.png'
   }
 };
 
@@ -3951,21 +3961,53 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             alignItems: 'flex-start',
             flexWrap: 'wrap'
           }}>
-            <div style={{
-              width: '64px',
-              height: '64px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontWeight: 700,
-              fontSize: '1.25rem',
-              flexShrink: 0
-            }}>
-              {post.author.split(' ').map(n => n[0]).join('')}
-            </div>
+            {/* Author Avatar - shows image if available, falls back to initials */}
+            {authorProfiles[post.author].image ? (
+              <div style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                flexShrink: 0,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+              }}>
+                <img 
+                  src={authorProfiles[post.author].image} 
+                  alt={authorProfiles[post.author].name}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={(e) => {
+                    // Fallback to initials if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                      parent.style.display = 'flex';
+                      parent.style.alignItems = 'center';
+                      parent.style.justifyContent = 'center';
+                      parent.innerHTML = `<span style="color: white; font-weight: 700; font-size: 1.5rem">${post.author.split(' ').map((n: string) => n[0]).join('')}</span>`;
+                    }
+                  }}
+                />
+              </div>
+            ) : (
+              <div style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontWeight: 700,
+                fontSize: '1.5rem',
+                flexShrink: 0,
+                boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+              }}>
+                {post.author.split(' ').map((n: string) => n[0]).join('')}
+              </div>
+            )}
             <div style={{ flex: 1, minWidth: '250px' }}>
               <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#1a1a1a', marginBottom: '0.25rem' }}>
                 {authorProfiles[post.author].name}
