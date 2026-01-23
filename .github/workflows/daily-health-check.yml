@@ -165,10 +165,18 @@ jobs:
           retention-days: 7
 
   send-digest:
-    name: Send Daily Digest Email
+    name: Send Failure Alert Email
     runs-on: ubuntu-latest
     needs: health-check
-    if: always()
+    # Only send email when there are failures (not on success)
+    if: |
+      always() && (
+        needs.health-check.outputs.smoke_result != 'success' ||
+        needs.health-check.outputs.links_result != 'success' ||
+        needs.health-check.outputs.pages_result != 'success' ||
+        needs.health-check.outputs.api_result != 'success' ||
+        needs.health-check.outputs.seo_result != 'success'
+      )
     
     steps:
       - name: Prepare digest
@@ -215,12 +223,12 @@ jobs:
           echo "api_status=$(format_result $API)" >> $GITHUB_OUTPUT
           echo "seo_status=$(format_result $SEO)" >> $GITHUB_OUTPUT
       
-      - name: Send digest via AWS SES Lambda
+      - name: Send failure alert via AWS SES Lambda
         run: |
-          # Use the support API to send the digest (it's already set up for email)
-          # This sends to support@deployzeroshare.com which forwards to rick@
+          # Only runs when tests fail (success emails disabled)
+          # Sends to support@deployzeroshare.com which forwards to rick@
           
-          SUBJECT="${{ steps.digest.outputs.emoji }} Daily Health Check - ${{ env.SITE_NAME }}"
+          SUBJECT="🚨 ALERT: Health Check Failed - ${{ env.SITE_NAME }}"
           DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
           
           MESSAGE="Daily Health Check Report for ${{ env.SITE_NAME }}

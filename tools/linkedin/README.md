@@ -1,5 +1,33 @@
 # ZeroShare LinkedIn Automation Tools
 
+## Active Posting Schedule
+
+**Automated via cron on this system.**
+
+| Day | Posts | Times (ET) | Rationale |
+|-----|-------|------------|-----------|
+| Monday | 1 | 8:00 AM | Catch-up day |
+| Tuesday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
+| Wednesday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
+| Thursday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
+| Friday | 1 | 8:00 AM | Wind-down day |
+| Weekend | 0 | — | B2B audience offline |
+
+**Total: 8 posts/week**
+
+### View/Edit Schedule
+```bash
+crontab -l                    # View current schedule
+crontab -e                    # Edit schedule
+```
+
+### Check Logs
+```bash
+tail -f tools/linkedin/logs/post.log
+```
+
+---
+
 > **Location:** `deployzeroshare.com/tools/linkedin/`  
 > **Part of:** ZeroShare Marketing Automation (see `docs/MULTI_PROJECT_ARCHITECTURE.md`)
 

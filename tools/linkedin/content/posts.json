@@ -7,9 +7,9 @@
     "content": "📰 How to Prevent PII Leaks When Your Team Uses AI Chatbots\n\nNew research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.\n\nRead the full article → https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots\n\n#AISecurity #SecurityBestPractices",
     "url": "https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots",
     "generatedAt": "2026-01-23T03:16:53.158Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
+    "status": "published",
+    "postedAt": "2026-01-23T14:00:02.103Z",
+    "linkedinPostId": "urn:li:share:7420465336845754369"
   },
   {
     "blogSlug": "ai-security-compliance-guide-2026",
@@ -19,9 +19,9 @@
     "content": "📰 The Complete Guide to AI Security Compliance in 2026\n\nFrom HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.\n\nRead the full article → https://deployzeroshare.com/blog/ai-security-compliance-guide-2026\n\n#AISecurity #Compliance",
     "url": "https://deployzeroshare.com/blog/ai-security-compliance-guide-2026",
     "generatedAt": "2026-01-23T03:16:53.159Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
+    "status": "published",
+    "postedAt": "2026-01-23T19:19:59.060Z",
+    "linkedinPostId": "urn:li:share:7420545854857646081"
   },
   {
     "blogSlug": "zero-trust-ai-architecture",
@@ -168,6 +168,86 @@
     "type": "thought",
     "content": "A question for CISOs:\n\nYour next board meeting is in 30 days.\n\nThe CEO will ask: \"What's our AI security posture?\"\n\nWhat's your answer?\n\n❌ \"We blocked ChatGPT\" \n   (Not sustainable, employees work around it)\n\n❌ \"We trust our training\" \n   (Accidents happen to trained people)\n\n❌ \"We're looking into it\" \n   (Not acceptable in 2026)\n\n✅ \"We enabled AI with automatic data protection\"\n✅ \"Every request is scanned before leaving our network\"  \n✅ \"We have full visibility and audit logs\"\n\nWhich answer do you want to give?\n\n#AISecurity #CISO #DataProtection",
     "generatedAt": "2026-01-23T03:16:53.159Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "engagement",
+    "content": "Poll for security leaders:\n\nHow is your organization handling AI tool usage?\n\n🅰️ Blocked entirely (waiting for security solution)\n🅱️ Allowed with policies only (hoping for the best)\n🅲️ Using DLP tools (retrofitted for AI)\n🅳️ Purpose-built AI security gateway\n\nComment with your letter and biggest challenge.\n\n#AISecurity #CISO #Poll",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "hot-take",
+    "content": "Hot take: Blocking ChatGPT is the new \"blocking social media.\"\n\nRemember 2010? Companies blocked Facebook.\nEmployees used their phones instead.\n\nNow in 2026:\n• Companies block ChatGPT\n• Employees use personal devices\n• You lose ALL visibility\n\nThe answer isn't prohibition.\nIt's protection.\n\nEnable AI safely, or watch it happen unsafely.\n\n#AISecurity #Leadership",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "how-to",
+    "content": "5 things to include in your AI Acceptable Use Policy:\n\n1️⃣ Define \"approved\" AI tools (and how to request new ones)\n\n2️⃣ Explicitly prohibit pasting customer data, credentials, and source code\n\n3️⃣ Require sanitization of code before using AI assistants\n\n4️⃣ Mandate reporting of accidental sensitive data exposure\n\n5️⃣ Specify consequences for policy violations\n\nBut here's the hard truth:\n\nPolicies don't prevent accidents. Technology does.\n\n#AISecurity #Compliance #Governance",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "story",
+    "content": "Real scenario from last month:\n\nA developer needed to debug a database issue.\n\nThey pasted the error message into ChatGPT.\n\nThe error message included the full connection string:\npostgresql://admin:P@ssw0rd@prod-db.company.com/customers\n\nThat database held 2.3 million customer records.\n\nThe \"secret\" lasted 47 seconds in their clipboard.\nBut it's now part of an AI training dataset. Forever.\n\nHow many times has this happened in your org?\n\n(Without an AI gateway, you'll never know.)\n\n#AISecurity #DevSecOps",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "myth-busting",
+    "content": "\"Our developers are careful.\"\n\nI hear this a lot.\n\nHere's what the data says:\n\n• 47,000+ secrets intercepted in 90 days at ONE company\n• Most were from senior engineers\n• 11pm commits had 3x more secrets than 9am commits\n\nCareful people make mistakes.\nEspecially at 11pm on a deadline.\n\nAI security isn't about trust.\nIt's about safety nets.\n\n#AISecurity #DevSecOps #Engineering",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "comparison",
+    "content": "AI Security: Build vs Buy\n\nBuild it yourself:\n• 200+ regex patterns to tune\n• 50+ PII detection rules\n• Ongoing maintenance as AI tools evolve\n• 6-12 months to production-ready\n\nBuy a purpose-built solution:\n• Deploy in a day\n• Continuously updated patterns\n• Enterprise support\n• Focus your team on your core product\n\nYour team's time is valuable.\nSpend it on what differentiates your business.\n\n#AISecurity #Engineering #BuildVsBuy",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "objection",
+    "content": "\"We already have DLP.\"\n\nI hear this from every CISO.\n\nHere's why traditional DLP fails for AI:\n\nDLP watches: Files, email attachments, USB drives\n\nAI prompts are: HTTPS POST requests to api.openai.com\n\nYour DLP sees: \"Employee accessed external API\"\nWhat actually happened: Customer SSNs sent to AI\n\nTraditional DLP wasn't built for this threat vector.\nAI security requires AI-aware tools.\n\n#AISecurity #DLP #CISO",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "question",
+    "content": "Question for engineering leaders:\n\nYour team wants to use AI coding assistants.\nSecurity wants proof that secrets won't leak.\n\nHow do you bridge this gap?\n\nA) Detailed policies and training\nB) Code review for AI-assisted commits\nC) Automated scanning at the proxy level\nD) Something else (comment below)\n\nThe best orgs do C + A.\nAutomation catches what training misses.\n\n#Engineering #AISecurity #DevSecOps",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "technical",
+    "content": "How ZeroShare Gateway works (30-second version):\n\n1. Configure AI tools to route through the gateway\n   (HTTPS_PROXY, base_url, or system proxy)\n\n2. Gateway inspects every request\n   • PII patterns (50+ types)\n   • Secrets (200+ patterns)\n   • Custom rules you define\n\n3. Takes action based on your policy\n   • Redact: Replace with placeholders\n   • Block: Reject high-risk requests\n   • Warn: Allow with logging\n   • Allow: Passthrough with audit\n\n4. Everything logged for compliance\n\nSub-5ms latency. On-premise. Your data never leaves your network until it's safe.\n\n#AISecurity #Architecture #DevSecOps",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "cta",
+    "content": "Every day you wait is a day of unnecessary risk.\n\nYour employees used AI 47 times today.\n(Yes, even if you blocked ChatGPT.)\n\nWas any sensitive data leaked?\nIf you don't know, that's the problem.\n\nZeroShare Gateway:\n→ Deploys in 15 minutes\n→ Instant visibility into all AI traffic\n→ Automatic PII and secrets protection\n→ Available on AWS Marketplace\n\nStop hoping. Start protecting.\n\nLink in comments 👇\n\n#AISecurity #AWS #CISO",
+    "generatedAt": "2026-01-23T19:28:22.624Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null

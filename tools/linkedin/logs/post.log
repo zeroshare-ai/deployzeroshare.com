@@ -1,0 +1,16 @@
+
+> zeroshare-linkedin-tools@1.0.0 post:next
+> node post-next.js
+
+📤 LinkedIn Auto-Post
+
+📝 Posting: How to Prevent PII Leaks When Your Team Uses AI Chatbots
+📊 Drafts remaining after this: 14
+
+✅ Published!
+🔗 https://www.linkedin.com/feed/update/urn:li:share:7420465336845754369
+
+📊 Status: 2 published, 14 drafts remaining
+
+__N8N_OUTPUT__
+{"success":true,"postId":"urn:li:share:7420465336845754369","url":"https://www.linkedin.com/feed/update/urn:li:share:7420465336845754369","draftsRemaining":14}
