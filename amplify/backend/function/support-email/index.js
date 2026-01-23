@@ -158,7 +158,7 @@ Please respond directly to ${email}.
             Data: `
 Thank you for contacting ZeroShare Gateway support.
 
-We've received your support case and will respond within 2 business days.
+We've received your support case and will respond within 24 hours.
 
 Case Details:
 - Subject: ${subject}
@@ -180,7 +180,7 @@ ZeroShare Gateway Support Team
                 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
                   <h2 style="color: #667eea;">Support Case Received</h2>
                   <p>Thank you for contacting ZeroShare Gateway support.</p>
-                  <p>We've received your support case and will respond within <strong>2 business days</strong>.</p>
+                  <p>We've received your support case and will respond within <strong>24 hours</strong>.</p>
                   
                   <h3>Case Details</h3>
                   <ul>

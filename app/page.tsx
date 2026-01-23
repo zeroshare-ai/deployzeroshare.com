@@ -871,8 +871,7 @@ export default function Home() {
               lineHeight: '1.7',
               margin: 0
             }}>
-              <strong style={{ color: '#1a1a1a' }}>Response Time:</strong> We respond to all support inquiries 
-              within 2 business days as required by AWS Marketplace. For urgent issues, please contact us directly.
+              <strong style={{ color: '#1a1a1a' }}>Response Time:</strong> We respond to all support inquiries within 24 hours. Enterprise customers receive priority support with 4-hour SLA.
             </p>
           </div>
         </div>

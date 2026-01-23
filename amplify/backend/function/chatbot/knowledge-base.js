@@ -200,7 +200,7 @@ const ZEROSHARE_KNOWLEDGE = {
       "4. Configure and deploy in your VPC",
       "5. Start protecting your AI traffic immediately"
     ],
-    support: "Enterprise support included with all paid plans. 2 business day response time guaranteed."
+    support: "Enterprise support included with all paid plans. 24-hour response time guaranteed, with 4-hour SLA for Enterprise tier."
   },
 
   // Roadmap (for future features)
