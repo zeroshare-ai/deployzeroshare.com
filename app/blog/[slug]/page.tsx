@@ -5,12 +5,26 @@ import type { Metadata } from 'next';
 // Generate static params for all blog posts at build time
 export function generateStaticParams() {
   return [
+    // January 2026
     { slug: 'prevent-pii-leaks-ai-chatbots' },
     { slug: 'ai-security-compliance-guide-2026' },
     { slug: 'zero-trust-ai-architecture' },
     { slug: 'secrets-detection-ai-code-assistants' },
     { slug: 'enterprise-ai-governance-framework' },
     { slug: 'ai-proxy-gateway-explained' },
+    // December 2025 - January 2026
+    { slug: 'shadow-ai-enterprise-risk' },
+    { slug: 'nist-ai-rmf-implementation' },
+    { slug: 'microsoft-copilot-security-guide' },
+    { slug: 'eu-ai-act-compliance-checklist' },
+    { slug: 'prompt-injection-defense-guide' },
+    { slug: 'ai-data-residency-gdpr' },
+    { slug: 'ai-audit-logging-soc2' },
+    { slug: 'healthcare-ai-fda-compliance' },
+    { slug: 'financial-services-ai-risk' },
+    { slug: 'ai-incident-response-planning' },
+    { slug: 'education-sector-ai-security' },
+    { slug: 'government-ai-fedramp-cui' },
   ];
 }
 

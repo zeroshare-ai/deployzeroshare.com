@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>ZeroShare Security Blog</title>
+  <subtitle>Expert insights on AI security, data protection, and compliance from the ZeroShare team.</subtitle>
+  <link href="https://deployzeroshare.com/blog" rel="alternate" type="text/html"/>
+  <link href="https://deployzeroshare.com/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://deployzeroshare.com/blog</id>
+  <updated>2026-01-23T12:00:00Z</updated>
+  <author>
+    <name>ZeroShare Editorial Team</name>
+    <email>blog@deployzeroshare.com</email>
+    <uri>https://deployzeroshare.com</uri>
+  </author>
+  <rights>Copyright 2026 ZeroShare. All rights reserved.</rights>
+  <icon>https://deployzeroshare.com/favicon.png</icon>
+  <logo>https://deployzeroshare.com/logo_150x150.png</logo>
+  <category term="AI Security"/>
+  <category term="Cybersecurity"/>
+  <category term="Enterprise Technology"/>
+  <generator uri="https://deployzeroshare.com" version="1.0">ZeroShare Blog Platform</generator>
+
+  <entry>
+    <title>How to Prevent PII Leaks When Your Team Uses AI Chatbots</title>
+    <link href="https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots</id>
+    <published>2026-01-20T09:00:00Z</published>
+    <updated>2026-01-20T09:00:00Z</updated>
+    <author>
+      <name>Sarah Chen</name>
+    </author>
+    <category term="Security Best Practices"/>
+    <summary>New research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.</summary>
+    <content type="html"><![CDATA[<p>Last month, I sat across from a CISO who was convinced his organization had AI usage under control. They had policies. They had approved tool lists. They had done the training. Then we ran a network analysis.</p><p>Within the first hour, we found 47 different AI tools his employees were using—and his security team knew about exactly 8 of them.</p><p>In Q2 2025, Harmonic Security analyzed over 1 million generative AI prompts and 20,000 uploaded files across 300 AI tools. Their findings: 22% of all uploaded files and 4.37% of prompts contained sensitive data.</p><p><a href="https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots">Continue reading →</a></p>]]></content>
+  </entry>
+
+  <entry>
+    <title>The Complete Guide to AI Security Compliance in 2026</title>
+    <link href="https://deployzeroshare.com/blog/ai-security-compliance-guide-2026" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/ai-security-compliance-guide-2026</id>
+    <published>2026-01-18T09:00:00Z</published>
+    <updated>2026-01-18T09:00:00Z</updated>
+    <author>
+      <name>Michael Rodriguez</name>
+    </author>
+    <category term="Compliance"/>
+    <summary>From HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.</summary>
+    <content type="html"><![CDATA[<p>2026 marks a turning point in AI regulation. The EU AI Act is in full enforcement. HIPAA's Security Rule modernization introduces prescriptive AI requirements. The SEC mandates AI risk disclosure.</p><p>For compliance professionals, understanding these overlapping frameworks is no longer optional—it's the foundation of enterprise AI strategy.</p><p><a href="https://deployzeroshare.com/blog/ai-security-compliance-guide-2026">Continue reading →</a></p>]]></content>
+  </entry>
+
+  <entry>
+    <title>Implementing Zero Trust Architecture for AI Applications</title>
+    <link href="https://deployzeroshare.com/blog/zero-trust-ai-architecture" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/zero-trust-ai-architecture</id>
+    <published>2026-01-15T09:00:00Z</published>
+    <updated>2026-01-15T09:00:00Z</updated>
+    <author>
+      <name>David Kim</name>
+    </author>
+    <category term="Architecture"/>
+    <summary>Traditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.</summary>
+    <content type="html"><![CDATA[<p>The traditional enterprise security model assumed a secure perimeter: if you were inside the network, you could be trusted. AI has demolished this assumption entirely.</p><p>Zero trust architecture—"never trust, always verify"—provides the framework for securing AI usage.</p><p><a href="https://deployzeroshare.com/blog/zero-trust-ai-architecture">Continue reading →</a></p>]]></content>
+  </entry>
+
+  <entry>
+    <title>Stop Secrets from Leaking to AI Code Assistants</title>
+    <link href="https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants</id>
+    <published>2026-01-12T09:00:00Z</published>
+    <updated>2026-01-12T09:00:00Z</updated>
+    <author>
+      <name>Emily Watson</name>
+    </author>
+    <category term="DevSecOps"/>
+    <summary>Researchers extracted 2,702 real credentials from GitHub Copilot. Your developers are at risk. Here's how to protect your secrets.</summary>
+    <content type="html"><![CDATA[<p>I'll admit it: I love AI code assistants. They've probably saved me hundreds of hours over the past two years. But last spring, something happened that fundamentally changed how I think about them.</p><p>Security researchers extracted 2,702 hard-coded credentials from GitHub Copilot and 129 from Amazon CodeWhisperer in controlled studies.</p><p><a href="https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants">Continue reading →</a></p>]]></content>
+  </entry>
+
+  <entry>
+    <title>Building an Enterprise AI Governance Framework</title>
+    <link href="https://deployzeroshare.com/blog/enterprise-ai-governance-framework" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/enterprise-ai-governance-framework</id>
+    <published>2026-01-08T09:00:00Z</published>
+    <updated>2026-01-08T09:00:00Z</updated>
+    <author>
+      <name>Sarah Chen</name>
+    </author>
+    <category term="Governance"/>
+    <summary>With 20% of breaches now involving shadow AI, governance isn't optional. Learn how to build a framework that enables innovation while managing risk.</summary>
+    <content type="html"><![CDATA[<p>"We just need to write some policies and we'll be fine." I hear this from executives constantly.</p><p>Twenty percent of data breaches in 2025 involved "shadow AI"—unauthorized AI tool usage by employees. AI governance has shifted from a nice-to-have to a business imperative.</p><p><a href="https://deployzeroshare.com/blog/enterprise-ai-governance-framework">Continue reading →</a></p>]]></content>
+  </entry>
+
+  <entry>
+    <title>AI Proxy Gateways Explained: The Security Layer Your AI Stack Needs</title>
+    <link href="https://deployzeroshare.com/blog/ai-proxy-gateway-explained" rel="alternate" type="text/html"/>
+    <id>https://deployzeroshare.com/blog/ai-proxy-gateway-explained</id>
+    <published>2026-01-05T09:00:00Z</published>
+    <updated>2026-01-05T09:00:00Z</updated>
+    <author>
+      <name>Michael Rodriguez</name>
+    </author>
+    <category term="Technology"/>
+    <summary>With 72.6% of sensitive AI prompts going to ChatGPT alone, you need a security layer that works across all AI tools. Here's how AI gateways work.</summary>
+    <content type="html"><![CDATA[<p>ChatGPT accounts for 72.6% of all sensitive prompts analyzed by security researchers. Microsoft Copilot handles 13.7%, Google Gemini 5.0%.</p><p>No single-vendor solution can address this. You need a security layer that works across all AI tools. That's what an AI proxy gateway provides.</p><p><a href="https://deployzeroshare.com/blog/ai-proxy-gateway-explained">Continue reading →</a></p>]]></content>
+  </entry>
+
+</feed>

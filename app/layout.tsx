@@ -73,6 +73,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://deployzeroshare.com',
+    types: {
+      'application/rss+xml': [
+        { url: '/feed.xml', title: 'ZeroShare Security Blog RSS Feed' },
+      ],
+      'application/atom+xml': [
+        { url: '/atom.xml', title: 'ZeroShare Security Blog Atom Feed' },
+      ],
+    },
   },
   category: 'technology',
 };

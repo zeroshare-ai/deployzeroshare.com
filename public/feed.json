@@ -1,0 +1,84 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "ZeroShare Security Blog",
+  "home_page_url": "https://deployzeroshare.com/blog",
+  "feed_url": "https://deployzeroshare.com/feed.json",
+  "description": "Expert insights on AI security, data protection, and compliance from the ZeroShare team.",
+  "icon": "https://deployzeroshare.com/logo_150x150.png",
+  "favicon": "https://deployzeroshare.com/favicon.png",
+  "authors": [
+    {
+      "name": "ZeroShare Editorial Team",
+      "url": "https://deployzeroshare.com"
+    }
+  ],
+  "language": "en-US",
+  "items": [
+    {
+      "id": "https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots",
+      "url": "https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots",
+      "title": "How to Prevent PII Leaks When Your Team Uses AI Chatbots",
+      "content_text": "New research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.",
+      "summary": "New research shows 22% of files uploaded to AI tools contain sensitive data. Learn how to protect your organization from the growing threat of AI-enabled data leaks.",
+      "date_published": "2026-01-20T09:00:00Z",
+      "date_modified": "2026-01-20T09:00:00Z",
+      "authors": [{ "name": "Sarah Chen" }],
+      "tags": ["Security Best Practices", "PII Protection", "ChatGPT Security"]
+    },
+    {
+      "id": "https://deployzeroshare.com/blog/ai-security-compliance-guide-2026",
+      "url": "https://deployzeroshare.com/blog/ai-security-compliance-guide-2026",
+      "title": "The Complete Guide to AI Security Compliance in 2026",
+      "content_text": "From HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.",
+      "summary": "From HIPAA modernization to SEC AI disclosure requirements, navigate the new regulatory landscape with this comprehensive compliance guide.",
+      "date_published": "2026-01-18T09:00:00Z",
+      "date_modified": "2026-01-18T09:00:00Z",
+      "authors": [{ "name": "Michael Rodriguez" }],
+      "tags": ["Compliance", "HIPAA", "GDPR", "SOC 2"]
+    },
+    {
+      "id": "https://deployzeroshare.com/blog/zero-trust-ai-architecture",
+      "url": "https://deployzeroshare.com/blog/zero-trust-ai-architecture",
+      "title": "Implementing Zero Trust Architecture for AI Applications",
+      "content_text": "Traditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.",
+      "summary": "Traditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.",
+      "date_published": "2026-01-15T09:00:00Z",
+      "date_modified": "2026-01-15T09:00:00Z",
+      "authors": [{ "name": "David Kim" }],
+      "tags": ["Architecture", "Zero Trust", "Enterprise Security"]
+    },
+    {
+      "id": "https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants",
+      "url": "https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants",
+      "title": "Stop Secrets from Leaking to AI Code Assistants",
+      "content_text": "Researchers extracted 2,702 real credentials from GitHub Copilot. Your developers are at risk. Here's how to protect your secrets.",
+      "summary": "Researchers extracted 2,702 real credentials from GitHub Copilot. Your developers are at risk. Here's how to protect your secrets.",
+      "date_published": "2026-01-12T09:00:00Z",
+      "date_modified": "2026-01-12T09:00:00Z",
+      "authors": [{ "name": "Emily Watson" }],
+      "tags": ["DevSecOps", "Secrets Management", "GitHub Copilot"]
+    },
+    {
+      "id": "https://deployzeroshare.com/blog/enterprise-ai-governance-framework",
+      "url": "https://deployzeroshare.com/blog/enterprise-ai-governance-framework",
+      "title": "Building an Enterprise AI Governance Framework",
+      "content_text": "With 20% of breaches now involving shadow AI, governance isn't optional. Learn how to build a framework that enables innovation while managing risk.",
+      "summary": "With 20% of breaches now involving shadow AI, governance isn't optional. Learn how to build a framework that enables innovation while managing risk.",
+      "date_published": "2026-01-08T09:00:00Z",
+      "date_modified": "2026-01-08T09:00:00Z",
+      "authors": [{ "name": "Sarah Chen" }],
+      "tags": ["Governance", "Shadow AI", "Risk Management"]
+    },
+    {
+      "id": "https://deployzeroshare.com/blog/ai-proxy-gateway-explained",
+      "url": "https://deployzeroshare.com/blog/ai-proxy-gateway-explained",
+      "title": "AI Proxy Gateways Explained: The Security Layer Your AI Stack Needs",
+      "content_text": "With 72.6% of sensitive AI prompts going to ChatGPT alone, you need a security layer that works across all AI tools. Here's how AI gateways work.",
+      "summary": "With 72.6% of sensitive AI prompts going to ChatGPT alone, you need a security layer that works across all AI tools. Here's how AI gateways work.",
+      "date_published": "2026-01-05T09:00:00Z",
+      "date_modified": "2026-01-05T09:00:00Z",
+      "authors": [{ "name": "Michael Rodriguez" }],
+      "tags": ["Technology", "AI Gateway", "Security Architecture"]
+    }
+  ]
+}

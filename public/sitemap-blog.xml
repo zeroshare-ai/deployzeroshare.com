@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Blog Index -->
+  <url>
+    <loc>https://deployzeroshare.com/blog</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- January 2026 Articles -->
+  <url>
+    <loc>https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-20</news:publication_date>
+      <news:title>How to Prevent PII Leaks When Your Team Uses AI Chatbots</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-security-compliance-guide-2026</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-18</news:publication_date>
+      <news:title>The Complete Guide to AI Security Compliance in 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/zero-trust-ai-architecture</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-15</news:publication_date>
+      <news:title>Implementing Zero Trust Architecture for AI Applications</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/secrets-detection-ai-code-assistants</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-12</news:publication_date>
+      <news:title>Stop Secrets from Leaking to AI Code Assistants</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/enterprise-ai-governance-framework</loc>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-08</news:publication_date>
+      <news:title>Building an Enterprise AI Governance Framework</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://deployzeroshare.com/blog/ai-proxy-gateway-explained</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>ZeroShare Security Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-01-05</news:publication_date>
+      <news:title>AI Proxy Gateways Explained: The Security Layer Your AI Stack Needs</news:title>
+    </news:news>
+  </url>
+
+</urlset>

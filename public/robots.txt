@@ -1,0 +1,19 @@
+# ZeroShare Gateway - Robots.txt
+# https://deployzeroshare.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://deployzeroshare.com/sitemap.xml
+Sitemap: https://deployzeroshare.com/sitemap-blog.xml
+
+# RSS/Atom Feeds
+# RSS Feed: https://deployzeroshare.com/feed.xml
+# Atom Feed: https://deployzeroshare.com/atom.xml
+
+# Crawl-delay (optional, be respectful)
+Crawl-delay: 1
+
+# Block admin/internal paths (none currently)
+# Disallow: /admin/

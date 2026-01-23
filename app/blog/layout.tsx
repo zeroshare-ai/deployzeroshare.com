@@ -11,7 +11,12 @@ export const metadata: Metadata = {
   },
   alternates: {
     types: {
-      'application/rss+xml': '/blog/feed.xml',
+      'application/rss+xml': [
+        { url: '/feed.xml', title: 'ZeroShare Security Blog RSS Feed' },
+      ],
+      'application/atom+xml': [
+        { url: '/atom.xml', title: 'ZeroShare Security Blog Atom Feed' },
+      ],
     },
   },
 };
