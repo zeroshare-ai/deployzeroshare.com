@@ -1,24 +1,35 @@
-AWS MARKETPLACE PROFILE INFORMATION
-===================================
+AWS MARKETPLACE SELLER PROFILE
+==============================
 
 DISPLAY NAME
 ------------
-Automated Merchandising, LLC
+ZeroShare
 
 SHORT DESCRIPTION
 -----------------
-Professional merchandising solutions.
+Stop AI Data Leaks Before They Start. Enable ChatGPT & Copilot Safely.
 
 FULL COMPANY DESCRIPTION
 ------------------------
-Automated Merchandising, LLC specializes in professional merchandising solutions designed for modern businesses. We provide discreet, reliable services tailored to meet the evolving needs of today's marketplace.
+Your employees are using AI. The question is: do you have visibility?
 
-PRODUCT INFORMATION (ZeroShare Gateway)
----------------------------------------
-Product Title: ZeroShare Gateway
-Short Description: On-premise AI security gateway that prevents PII and secrets from leaking to AI services.
+THE PROBLEM
+65% of employees have shared sensitive data with ChatGPT, Copilot, or Claude—without authorization. Every prompt is a potential breach: customer SSNs pasted into support chats, API keys shared in code reviews, and financial data analyzed for trends. Once it's sent, it's in their training data forever.
 
-ASSETS IN THIS FOLDER
----------------------
-1. zeroshare-logo-small.png (12KB) - Product Icon
-2. company-logo.png (2KB) - Company Logo (Automated Merchandising, LLC)
+THE SOLUTION
+ZeroShare Gateway is the security layer between your employees and AI. We deploy on-premise so you maintain complete control.
+
+• Automatic PII Detection: Redacts 50+ patterns (SSNs, emails, phones) before they leave your network.
+• Secrets Blocking: Instantly blocks API keys and credentials from leaking into code assistants.
+• Compliance Ready: Full audit logging for SOC 2, HIPAA, and GDPR.
+• Low Latency: Sub-5ms processing ensures users won't notice the security layer.
+
+Deploy on-premise. Maintain control. Enable productivity without risk.
+
+WEBSITE URL
+-----------
+https://deployzeroshare.com
+
+LOGO FILE
+---------
+Location: deployzeroshare.com/aws-marketplace-assets/zeroshare-product-logo.png

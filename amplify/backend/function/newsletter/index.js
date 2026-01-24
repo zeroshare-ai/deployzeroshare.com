@@ -6,6 +6,40 @@ const ses = new AWS.SES({ region });
 const dynamodb = new AWS.DynamoDB.DocumentClient({ region });
 
 const TABLE_NAME = process.env.TABLE_NAME || 'zeroshare-newsletter-subscribers';
+const LOOPS_API_KEY = process.env.LOOPS_API_KEY;
+
+// Add contact to Loops.so for nurture sequence
+async function addToLoops(email, source) {
+  if (!LOOPS_API_KEY) {
+    console.log('Loops integration skipped - no API key');
+    return;
+  }
+  
+  try {
+    const response = await fetch('https://app.loops.so/api/v1/contacts/create', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${LOOPS_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email.toLowerCase(),
+        source: source || 'website',
+        subscribed: true,
+        userGroup: 'newsletter'
+      })
+    });
+    
+    const result = await response.json();
+    if (result.success) {
+      console.log('Contact added to Loops for nurture sequence');
+    } else {
+      console.log('Loops response:', result.message || 'unknown');
+    }
+  } catch (err) {
+    console.log('Loops integration error:', err.message);
+  }
+}
 
 exports.handler = async (event) => {
   // Handle CORS
@@ -92,6 +126,11 @@ exports.handler = async (event) => {
     } catch (dbError) {
       // Log but don't fail - email notification is the priority
       console.log('DynamoDB storage skipped:', dbError.message);
+    }
+
+    // Add to Loops.so for nurture sequence (new subscribers only)
+    if (isNewSubscriber) {
+      await addToLoops(email, source);
     }
 
     // Send notification email to admin

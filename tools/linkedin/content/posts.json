@@ -34,163 +34,221 @@
     "error": "Requested version 20240601 is not active"
   },
   {
-    "type": "viral",
-    "title": "My Favorite Prompt",
-    "content": "My most-used prompt isn't \"make this better\" or \"explain like I'm 5.\"\n\nIt's: \"I already gave you that.\"\n\nEvery time you re-share that API key because the AI forgot...\n\nYou're creating another copy of your secrets in a system you don't control.\n\nThe average employee re-exposes sensitive data 4.7x per conversation.\n\nThat's not forgetfulness.\n\nThat's a security multiplication problem.\n\nThe AI doesn't remember.\nBut the logs do.\n\n#AISecurity #CISO #DataProtection",
-    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
-    "generatedAt": "2026-01-24T02:58:45.185Z",
+    "id": "ciso-1",
+    "audience": "CISO",
+    "hook": "peer-insight",
+    "content": "The CISOs I talk to are all dealing with the same problem right now.\n\nTheir boards want AI innovation.\nTheir employees are already using AI.\nTheir security posture wasn't built for this.\n\nThe old playbook doesn't work:\n→ Blocking AI creates shadow IT\n→ Policies alone don't prevent data leaks\n→ Training doesn't change behavior at scale\n\nWhat's working:\n\nTechnical controls that intercept data before it leaves.\n\nNot blocking AI. Enabling it safely.\n\nThe orgs doing this well have:\n✓ Visibility into what's being sent to AI\n✓ Automatic detection of sensitive data\n✓ Real-time blocking without user friction\n\nThis is the infrastructure that lets you say \"yes\" to AI.\n\nWe built ZeroShare Gateway for exactly this problem.\n\nFree tier available → https://deployzeroshare.com\n\n#CISO #AIGovernance #SecurityLeadership",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
     "status": "draft",
     "postedAt": null,
-    "linkedinPostId": null,
-    "priority": "next",
-    "viralAngle": "Relatable frustration pivot to security insight"
+    "linkedinPostId": null
   },
   {
-    "type": "thought-leadership",
-    "title": "The Hidden Cost of AI Memory",
-    "content": "Unpopular opinion: AI's terrible memory is a feature, not a bug.\n\nHere's why that should terrify you:\n\nWhen you type \"I already gave you that API key\"...\n\nYou're about to give it again.\nTo a system that will log it.\nAgain.\n\nThe math:\n→ 100 developers\n→ 5 AI chats/day  \n→ 3 re-shares per chat\n→ 547,500 exposures per year\n\nJust from re-sharing what the AI \"forgot.\"\n\nAI companies benefit from stateless conversations:\n• Simpler infrastructure\n• Less liability  \n• More training data (that's you)\n\nYour security team pays the price.\n\nThe fix isn't better prompts.\n\nIt's intercepting sensitive data before it reaches AI.\n\nEvery. Single. Time.\n\nIncluding the 5th time someone pastes that API key.\n\nFull breakdown → link in comments\n\n#AISecurity #EnterpriseAI #CISO",
-    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
-    "generatedAt": "2026-01-24T02:58:45.185Z",
+    "id": "ciso-2",
+    "audience": "CISO",
+    "hook": "board-prep",
+    "content": "Your next board meeting will include AI security.\n\nHere's what high-performing CISOs are presenting:\n\nInstead of:\n❌ \"We blocked ChatGPT\"\n❌ \"We did training\"\n❌ \"We have policies\"\n\nThey're showing:\n✅ \"We enabled AI with data protection controls\"\n✅ \"We have visibility into every AI request\"\n✅ \"Zero sensitive data has left our network\"\n\nThe shift: from prohibition to enablement.\n\nBoards don't want to hear you're blocking innovation.\n\nThey want to hear you've made it safe.\n\nThat requires infrastructure, not just policy.\n\nSee how it works → https://deployzeroshare.com/docs\n\n#BoardReporting #CISO #AIStrategy",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
     "status": "draft",
     "postedAt": null,
-    "linkedinPostId": null,
-    "priority": "high",
-    "viralAngle": "Hot take + math + solution"
+    "linkedinPostId": null
   },
   {
+    "id": "ciso-3",
+    "audience": "CISO",
+    "hook": "roi-calculation",
+    "content": "The math on AI security investment:\n\nCost of blocking AI:\n→ 18% productivity hit (industry avg)\n→ Shadow IT from 67% of employees\n→ Zero actual risk reduction\n\nCost of AI incident:\n→ $4.45M average breach cost\n→ 6-9 months remediation\n→ Regulatory scrutiny\n\nCost of AI security infrastructure:\n→ ~$500/month for most teams\n→ Deployed in hours\n→ ROI positive after preventing ONE incident\n\nThe question isn't whether you can afford AI security.\n\nIt's whether you can afford not to have it.\n\nFree trial on AWS Marketplace → https://deployzeroshare.com/pricing\n\n#SecurityROI #CISO #RiskManagement",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "compliance-1",
+    "audience": "Compliance",
+    "hook": "audit-reality",
+    "content": "What auditors are asking about AI in 2026:\n\n\"Show me your AI tool inventory.\"\n\"How do you prevent data from reaching AI services?\"\n\"What's your detection and response capability?\"\n\"Where are your audit logs?\"\n\nIf you can't answer these with evidence, not just policies, you have a gap.\n\nTechnical controls are becoming baseline expectations.\n\nZeroShare Gateway provides:\n✓ Complete audit logging of all AI requests\n✓ Automatic PII/secrets detection\n✓ Evidence for SOC 2, HIPAA, GDPR audits\n✓ Exportable compliance reports\n\nBuilt for audit day → https://deployzeroshare.com/compliance\n\n#Compliance #SOC2 #AuditReady",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "compliance-2",
+    "audience": "Compliance",
+    "hook": "regulation-timeline",
+    "content": "Key AI compliance dates for 2026:\n\nQ1: HIPAA Security Rule modernization\n→ AI tools now require risk assessments\n\nQ2: SEC AI disclosure requirements\n→ Material AI risks in 10-K filings\n\nQ3: EU AI Act enforcement begins\n→ High-risk systems face €15M+ fines\n\nQ4: State privacy law updates\n→ AI-specific provisions enforceable\n\nCommon thread: \"We have policies\" is no longer sufficient.\n\nRegulators expect technical controls.\n\nZeroShare Gateway gives you the infrastructure to demonstrate compliance—not just claim it.\n\nCompliance documentation → https://deployzeroshare.com/compliance\n\n#Compliance2026 #GDPR #HIPAA",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "compliance-3",
+    "audience": "Compliance",
+    "hook": "dpo-specific",
+    "content": "For Data Protection Officers:\n\nThe GDPR question you'll face this year:\n\n\"How do you ensure personal data isn't processed by AI systems without lawful basis?\"\n\nThe honest answer for most orgs: \"We ask people not to.\"\n\nThat's not a control. That's hope.\n\nTechnical controls you need:\n1. Detection of personal data in AI prompts\n2. Blocking or redaction before transmission\n3. Audit trail proving no unauthorized processing\n4. Data subject access request capability\n\nThis is what Article 32 looks like for AI.\n\nSee the GDPR features → https://deployzeroshare.com/compliance\n\n#DPO #GDPR #DataProtection",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "engineer-1",
+    "audience": "Security Engineer",
+    "hook": "technical-approach",
+    "content": "How we built ZeroShare Gateway (technical thread):\n\nThe problem: intercept AI traffic without breaking anything.\n\nOur approach:\n\n1. Transparent proxy architecture\n   → Works with any AI service (ChatGPT, Claude, Copilot)\n   → No code changes required\n   → Sub-5ms latency impact\n\n2. Streaming detection\n   → Scan request payloads in real-time\n   → Don't buffer full requests (latency killer)\n   → Pattern matching on stream chunks\n\n3. Detection engine\n   → 50+ PII patterns (Presidio-based)\n   → 100+ secret patterns (API keys, credentials)\n   → Custom regex support\n\n4. Action flexibility\n   → Block (stop request)\n   → Redact (replace sensitive data)\n   → Alert (log and continue)\n\nFull architecture docs → https://deployzeroshare.com/docs\n\nTry it free → deploys in 10 minutes\n\n#SecurityEngineering #Architecture #AI",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "engineer-2",
+    "audience": "Security Engineer",
+    "hook": "deployment-simplicity",
+    "content": "Deploying an AI security gateway shouldn't take weeks.\n\nZeroShare Gateway deployment options:\n\nOption 1: Docker (10 min)\n```\ndocker pull zeroshare/gateway\ndocker run -p 8080:8080 zeroshare/gateway\n```\n\nOption 2: Kubernetes (15 min)\n```\nhelm install zeroshare zeroshare/gateway\n```\n\nOption 3: AWS Marketplace (5 min)\n→ One-click CloudFormation\n→ Runs in your VPC\n→ Your data never leaves your network\n\nAll options include:\n✓ Dashboard UI\n✓ API access\n✓ Log streaming\n✓ Slack/webhook alerts\n\nDocs → https://deployzeroshare.com/docs\n\n#DevOps #Security #Kubernetes",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "engineer-3",
+    "audience": "Security Engineer",
+    "hook": "integration-friendly",
+    "content": "ZeroShare Gateway integrations:\n\nSIEM:\n→ Splunk (native app)\n→ Elastic (Logstash output)\n→ Any syslog consumer\n\nIdentity:\n→ SAML SSO\n→ OIDC\n→ Azure AD / Okta\n\nAlerting:\n→ Slack\n→ PagerDuty\n→ Webhooks (build your own)\n\nDeployment:\n→ Terraform modules\n→ Helm charts\n→ CloudFormation templates\n\nAPI:\n→ REST API for everything\n→ Prometheus metrics\n→ OpenTelemetry tracing\n\nWe built this to fit into your stack, not replace it.\n\nIntegration docs → https://deployzeroshare.com/docs\n\n#Integration #SecurityTools #DevSecOps",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "devsecops-1",
+    "audience": "DevSecOps",
+    "hook": "copilot-risk",
+    "content": "GitHub Copilot security reality check:\n\nResearchers extracted 2,702 real credentials from Copilot-generated code.\n\nThe problem isn't Copilot.\n\nIt's what developers paste INTO Copilot.\n\nCommon pattern:\n1. Dev has bug in code with hardcoded creds\n2. Pastes code into Copilot for help\n3. Creds now in GitHub's training pipeline\n\nYour secrets management doesn't cover this.\n\nYour DLP doesn't see it.\n\nYour training didn't prevent it.\n\nWhat works: intercepting the request before it leaves.\n\nZeroShare detects secrets in code snippets going to AI.\n\nFree tier includes secrets detection → https://deployzeroshare.com\n\n#DevSecOps #GitHubCopilot #SecretsManagement",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "devsecops-2",
+    "audience": "DevSecOps",
+    "hook": "cursor-security",
+    "content": "Using Cursor, Copilot, or Claude for coding?\n\nSecurity checklist:\n\n✓ Secrets detection before AI\n✓ API key pattern blocking\n✓ Audit log of code sent to AI\n✓ Policy enforcement per repo\n\nMost teams have zero visibility into what code goes to AI.\n\nThat's a problem when:\n→ Devs paste prod configs\n→ Code includes database URLs\n→ API keys are in context\n\nZeroShare Gateway sits between your IDE and AI.\n\nDetects and blocks secrets before transmission.\n\nWorks with any AI coding assistant.\n\nTry it free → https://deployzeroshare.com\n\n#CursorIDE #DevSecOps #CodeSecurity",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "devsecops-3",
+    "audience": "DevSecOps",
+    "hook": "pipeline-integration",
+    "content": "Adding AI security to your CI/CD pipeline:\n\nPre-commit hook:\n→ Scan staged code for secrets before AI interaction\n\nProxy configuration:\n→ Route AI traffic through ZeroShare Gateway\n\nTerraform:\n```hcl\nmodule \"zeroshare\" {\n  source = \"zeroshare/gateway/aws\"\n  vpc_id = var.vpc_id\n}\n```\n\nThe goal: make secure AI usage automatic.\n\nNo developer friction.\nNo workflow changes.\nJust protection.\n\nTerraform modules available → https://deployzeroshare.com/docs\n\n#InfrastructureAsCode #DevSecOps #Terraform",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "it-leader-1",
+    "audience": "IT Director",
+    "hook": "vendor-evaluation",
+    "content": "Evaluating AI security solutions?\n\nQuestions to ask vendors:\n\n1. \"Where does my data go?\"\n   → On-prem vs cloud processing\n   → Data residency options\n\n2. \"What's the latency impact?\"\n   → Sub-5ms is acceptable\n   → >50ms will cause user complaints\n\n3. \"How does it integrate?\"\n   → SSO support\n   → SIEM integration\n   → Existing proxy compatibility\n\n4. \"What's the deployment model?\"\n   → Agent vs agentless\n   → Network changes required\n   → Time to production\n\n5. \"What's the pricing model?\"\n   → Per user vs per request\n   → Hidden costs\n\nZeroShare: On-prem, <5ms, agentless, deploys in hours.\n\nCompare options → https://deployzeroshare.com/pricing\n\n#ITLeadership #VendorEvaluation #Security",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "it-leader-2",
+    "audience": "IT Director",
+    "hook": "shadow-ai-visibility",
+    "content": "The shadow AI problem is worse than you think.\n\nData from Q4 2025:\n\n→ Average enterprise has 23 unauthorized AI tools in use\n→ 67% of AI interactions happen on personal accounts\n→ 65% of employees have shared sensitive data with AI\n\nYour IT team probably knows about 5-10 approved tools.\n\nEmployees are using 3x that.\n\nStep 1: Get visibility.\n\nBefore you can govern AI, you need to see it.\n\nZeroShare Gateway shows you:\n✓ Every AI tool in use\n✓ What data is being sent\n✓ Who is sending it\n✓ When it happens\n\nStart with visibility → https://deployzeroshare.com\n\n#ShadowIT #AIGovernance #Visibility",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "universal-1",
+    "audience": "Universal",
+    "hook": "stat-shock",
+    "content": "65% of employees have shared sensitive data with AI.\n\nWithout authorization.\nWithout training.\nWithout knowing the risk.\n\nSource: Cyberhaven 2025 AI Data Security Report\n\nThis isn't a future problem.\n\nIt's happening right now, in your organization.\n\nThe question isn't IF data has been leaked.\n\nIt's whether you have visibility to know.\n\nGet visibility → https://deployzeroshare.com\n\n#AISecurity #DataProtection #Statistics",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "universal-2",
+    "audience": "Universal",
+    "hook": "problem-aware",
+    "content": "The AI security gap most organizations have:\n\nPolicy says: \"Don't share sensitive data with AI\"\n\nReality:\n→ Employees do it anyway\n→ They don't think ChatGPT \"counts\"\n→ There's no technical enforcement\n→ There's no visibility when it happens\n\nThis gap exists in almost every organization I talk to.\n\nThe fix isn't more training.\n\nIt's technical controls that work automatically.\n\nBlock sensitive data before it reaches AI.\n\nSee how → https://deployzeroshare.com\n\n#AISecurity #DataLoss #Enterprise",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "id": "universal-3",
+    "audience": "Universal",
+    "hook": "poll-engagement",
     "type": "poll",
-    "title": "AI Memory Poll",
-    "content": "How many times per day do you type \"I already gave you that\" to an AI?\n\nAsking because every re-share is another copy of your data in systems you don't control.\n\n🔴 0 times (you have better memory than me)\n🟠 1-3 times (normal)  \n🟡 4-10 times (concerning)\n🔵 Lost count (we should talk)\n\nThe average is 4.7x per conversation.\n\nThat's not forgetfulness. That's a data multiplication problem.\n\n#AISecurity #Poll",
-    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
-    "generatedAt": "2026-01-24T02:58:45.185Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null,
-    "priority": "high",
-    "viralAngle": "Poll for engagement + education"
-  },
-  {
-    "type": "war-story",
-    "title": "The Samsung Incident",
-    "content": "A Samsung engineer had a bug.\n\nSo they did what any of us would do.\n\nThey pasted their source code into ChatGPT.\n\nThen another engineer pasted confidential meeting notes.\n\nThen another pasted proprietary test data.\n\nWithin 20 days, Samsung banned ChatGPT company-wide.\n\nThe kicker?\n\nNone of it was malicious.\n\nThey were just... trying to do their jobs faster.\n\nThat's the scary part.\n\nYour biggest data leak risk isn't a rogue employee.\n\nIt's your most productive one.\n\n#AISecurity #DataProtection #SecurityAwareness",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Relatable sympathy + unexpected villain (productivity)"
-  },
-  {
-    "type": "war-story",
-    "title": "The Google Search Console Leak",
-    "content": "November 2025.\n\nChatGPT conversations started appearing in Google Search Console.\n\nNot summaries.\nNot metadata.\nActual conversation logs.\n\nIncluding:\n→ Relationship advice sessions (awkward)\n→ Medical questions (HIPAA?)\n→ Business strategy discussions (yikes)\n\nOpenAI's response: \"We're investigating.\"\n\nYour board's question: \"Is OUR data in there?\"\n\nThe honest answer: \"We have no way to know.\"\n\nThis is why \"trust the AI company\" is not a security strategy.\n\n#AISecurity #DataPrivacy #CISO",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Current news + board-level fear"
-  },
-  {
-    "type": "stat-shock",
-    "title": "225,000 Credentials",
-    "content": "225,000 OpenAI credentials were found for sale on the dark web this year.\n\nNot hacked from OpenAI directly.\n\nStolen from employees via infostealer malware.\n\nHere's what that means:\n\nAttackers now have access to:\n→ Full conversation histories\n→ Every file ever uploaded\n→ Every API key ever pasted\n→ Every \"sensitive\" prompt ever typed\n\nYour employee's ChatGPT account is a treasure chest.\n\nAnd most companies have no idea who's using what account.\n\n67% of AI interactions happen on personal accounts.\n\nPersonal accounts = no SSO = no monitoring = no visibility.\n\nWhen the CISO asks \"who has access to our AI data\"...\n\nThe answer is usually \"we don't know.\"\n\nThat answer gets people fired.\n\n#AISecurity #CISO #Compliance",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Scary stat + career risk angle"
-  },
-  {
-    "type": "snarky-insight",
-    "title": "Personal Accounts Blind Spot",
-    "content": "IT Security: \"We monitor all AI usage.\"\n\nAlso IT Security: *can't see 67% of AI interactions because they're on personal accounts*\n\nThe personal account problem:\n\n→ Employee uses personal Gmail\n→ Signs into ChatGPT\n→ Pastes company source code\n→ Your DLP sees: \"employee visited openai.com\"\n→ What actually happened: trade secrets left the building\n\nThis is why JP Morgan banned ChatGPT.\n\nThis is why Goldman Sachs banned ChatGPT.\n\nThey couldn't see what their employees were sharing.\n\nSo they shut it down entirely.\n\nThe alternative: actually see what's being shared.\n\nEven on personal accounts.\nEven on personal devices.\nEven when employees \"forget\" to use the approved tool.\n\nProhibition didn't work for alcohol.\nIt doesn't work for AI either.\n\n#AISecurity #EnterpriseAI #CISO",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Expose false confidence + prohibition callback"
-  },
-  {
-    "type": "executive-fear",
-    "title": "The Board Question",
-    "content": "There's a question coming to your next board meeting.\n\n\"What is our exposure from employee AI usage?\"\n\nHere are the acceptable answers:\n✓ \"We have visibility and it's X requests per day with Y% containing sensitive data\"\n✓ \"We've deployed controls that block sensitive data before it reaches AI\"\n✓ \"We've quantified the risk at $Z and here's our mitigation plan\"\n\nHere are the unacceptable answers:\n✗ \"We trust our employees\"\n✗ \"We have a policy\"\n✗ \"We're looking into it\"\n\nThe board doesn't want to hear about policies.\n\nThey want to see dashboards.\n\nBecause when the breach happens, \"we had a policy\" doesn't hold up in court.\n\n\"We had technical controls and audit logs\" does.\n\n#CISO #BoardRoom #EnterpriseRisk",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Direct career risk for CISOs"
-  },
-  {
-    "type": "compliance-humor",
-    "title": "The Audit Question",
-    "content": "Auditor: \"Can you show me your AI acceptable use policy?\"\n\nCISO: *produces beautifully formatted 12-page PDF*\n\nAuditor: \"Great. Can you show me how you enforce it?\"\n\nCISO: \"We... trust our employees to follow it.\"\n\nAuditor: \"Can you show me audit logs of AI data flows?\"\n\nCISO: \"We don't have those.\"\n\nAuditor: \"Can you demonstrate that sensitive data isn't being shared with AI?\"\n\nCISO: \"Not exactly.\"\n\nAuditor: \"So you have a policy that you can't enforce or verify?\"\n\nCISO: \"It's a really nice PDF though.\"\n\n[This is how SOC 2 findings happen.]\n\n#Compliance #SOC2 #CISO",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Compliance humor, auditors will share"
-  },
-  {
-    "type": "relatable-moment",
-    "title": "The Slack Screenshot",
-    "content": "True story from a CISO friend:\n\nTheir security team found a Slack message.\n\nAn engineer had posted a screenshot.\n\nThe screenshot showed ChatGPT.\n\nThe ChatGPT prompt contained their AWS production credentials.\n\nThe engineer was asking for help with a Lambda function.\n\nThe screenshot was in a public Slack channel.\n\nWith 400+ people.\n\nAnd Slack's default retention setting.\n\nAnd automated backups to their data lake.\n\nSo now those credentials exist in:\n→ ChatGPT's systems\n→ Slack's systems\n→ Their data lake\n→ Their backup systems\n→ 400 people's screenshot caches\n\nFrom one person trying to debug a function.\n\nThis is why we can't have nice things.\n\n(They rotated the credentials. After I reminded them.)\n\n#AISecurity #DevSecOps #SecurityAwareness",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Real story, relatable horror, humor at end"
-  },
-  {
-    "type": "ciso-confession",
-    "title": "What CISOs Say Privately",
-    "content": "What CISOs say in public:\n\"We have robust controls around AI usage.\"\n\nWhat CISOs say privately:\n\"We have no idea what's being shared. We're terrified. Please don't quote me.\"\n\nI've had this exact conversation 20+ times this year.\n\nThe gap between public confidence and private concern is massive.\n\nWhy?\n\n→ They can't admit uncertainty to the board\n→ They can't ban AI (business won't allow it)\n→ They can't monitor personal accounts (technically hard)\n→ They can't train their way out (employees forget)\n\nSo they do what they can: policy, prayer, and hoping.\n\nThe ones who sleep well at night?\n\nThey've deployed technical controls that work regardless of employee behavior.\n\nThat's the difference between \"hoping\" and \"knowing.\"\n\n#CISO #AISecurity #EnterpriseRisk",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Insider truth, CISOs will share anonymously"
-  },
-  {
-    "type": "whitepaper",
-    "whitepaperSlug": "why-blocking-chatgpt-will-get-you-fired",
-    "whitepaperTitle": "Why Blocking ChatGPT Will Get You Fired",
-    "content": "🔥 Hot take: Blocking ChatGPT is career suicide for CISOs.\n\nHere's why:\n\nYour employees ARE using AI. The only question is whether you have visibility.\n\nBlock it → They use personal devices → You see NOTHING\nEnable with controls → They use approved channels → You see EVERYTHING\n\nI wrote a whitepaper on the \"Third Way\" - enabling AI with automatic data protection.\n\nNo more security vs productivity debates.\n\nDownload the full guide 👇\nhttps://deployzeroshare.com/resources/why-blocking-chatgpt-will-get-you-fired\n\n#AISecurity #CISO #Leadership",
-    "url": "https://deployzeroshare.com/resources/why-blocking-chatgpt-will-get-you-fired",
-    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "content": "Quick pulse check:\n\nHow confident are you that sensitive data ISN'T being sent to AI tools in your org?",
+    "pollOptions": [
+      "Very confident - we have controls",
+      "Somewhat confident",
+      "Not confident at all",
+      "We have no visibility"
+    ],
+    "pollFollowUp": "\n\nBased on industry data, \"no visibility\" is the honest answer for most.\n\n65% of employees have already shared sensitive data with AI.\n\nVisibility is the first step → https://deployzeroshare.com\n\n#Poll #AISecurity",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
   },
   {
-    "type": "whitepaper",
-    "whitepaperSlug": "shadow-ai-report-2026",
-    "whitepaperTitle": "The Shadow AI Report 2026",
-    "content": "📊 New data: 98% of organizations have shadow AI.\n\nWe analyzed AI usage patterns across 500+ enterprises. The findings are alarming:\n\n• 47 AI tools per company (only 12 approved)\n• 65% of employees shared sensitive data with AI\n• $670K added cost per breach from shadow AI\n\nThe full report includes:\n✓ Industry benchmarks\n✓ Risk assessment framework  \n✓ Remediation roadmap\n\nDownload free 👇\nhttps://deployzeroshare.com/resources/shadow-ai-report-2026\n\n#AISecurity #Research #CISO",
-    "url": "https://deployzeroshare.com/resources/shadow-ai-report-2026",
-    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "id": "universal-4",
+    "audience": "Universal",
+    "hook": "simple-explanation",
+    "content": "What is an AI security gateway?\n\nSimple version:\n\nIt sits between your employees and AI services.\n\nWhen someone sends a prompt to ChatGPT:\n1. Gateway intercepts the request\n2. Scans for sensitive data (PII, secrets, code)\n3. Blocks or redacts if found\n4. Logs everything for compliance\n\nYour employees use AI normally.\nYour data stays protected.\nYour compliance team has evidence.\n\nThat's it. No agent install. No workflow change.\n\nSee a demo → https://deployzeroshare.com\n\n#AISecurity #Explainer #Gateway",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
   },
   {
-    "type": "whitepaper",
-    "whitepaperSlug": "ai-security-board-presentation",
-    "whitepaperTitle": "The $4.45M Gamble Your Board Doesn't Know About",
-    "content": "Your board will ask about AI security. Are you ready?\n\n\"What's our exposure from employee AI usage?\"\n\nHere's the math:\n• $4.45M average breach cost\n• 65% of employees sharing sensitive data with AI\n• = Unquantified but massive exposure\n\nI created a board-ready presentation with:\n✓ Risk quantification framework\n✓ Business case with ROI\n✓ Recommended board motion (copy-paste ready)\n\nDownload the full deck 👇\nhttps://deployzeroshare.com/resources/ai-security-board-presentation\n\n#CISO #BoardRoom #AISecurity",
-    "url": "https://deployzeroshare.com/resources/ai-security-board-presentation",
-    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "id": "universal-5",
+    "audience": "Universal",
+    "hook": "cta-direct",
+    "content": "If you're evaluating AI security solutions:\n\nZeroShare Gateway - free tier available.\n\nWhat you get:\n✓ PII detection (50+ patterns)\n✓ Secrets blocking (API keys, credentials)\n✓ Audit logging\n✓ Works with ChatGPT, Claude, Copilot\n\nDeploy in 10 minutes.\nNo sales call required.\nFree for small teams.\n\nStart free → https://deployzeroshare.com\n\nAWS Marketplace available for enterprise.\n\n#AISecurity #FreeTier #StartToday",
+    "format": "strategic",
+    "generatedAt": "2026-01-24T06:04:49.439Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
-  },
-  {
-    "type": "compliance-reality",
-    "title": "The 92% Problem",
-    "content": "92% of Fortune 500 companies use ChatGPT.\n\n54% of CISOs say generative AI poses a security risk.\n\nSo... 46% of CISOs are either:\na) Very confident in their controls\nb) Not paying attention\nc) About to have a bad quarter\n\nI've talked to dozens of security leaders.\n\nZero of them said \"we have this completely figured out.\"\n\nMost said some version of:\n\n\"We know there's risk. We're trying to quantify it. Our employees are moving faster than our policies.\"\n\nThat's the real state of enterprise AI security in 2026.\n\nNot \"solved.\"\nNot \"ignored.\"\n\nSomewhere in between, hoping nothing makes the news.\n\n#AISecurity #CISO #EnterpriseRisk",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Honest industry reality check"
-  },
-  {
-    "type": "training-angle",
-    "title": "Training Is Not Enough",
-    "content": "\"We trained our employees on AI security.\"\n\nGreat.\n\nDid you know:\n\n→ 77% of AI interactions still involve company data\n→ Even after security awareness training\n→ Even after signing acceptable use policies\n→ Even after the all-hands meeting with the scary slides\n\nTraining tells people what NOT to do.\n\nIt doesn't stop them from doing it at 11pm when they're trying to hit a deadline.\n\nYour most compliant employee will paste an API key into ChatGPT when they're stuck on a bug at midnight.\n\nNot because they forgot the training.\n\nBecause the training said \"be careful\" and they thought they were.\n\nTraining + monitoring = security.\n\nTraining alone = compliance theater.\n\n#AISecurity #SecurityAwareness #ComplianceManagement",
-    "url": "https://deployzeroshare.com",
-    "generatedAt": "2026-01-24T03:03:44.469Z",
-    "status": "draft",
-    "viralAngle": "Training managers will share this"
   },
   {
     "blogSlug": "zero-trust-ai-architecture",
@@ -199,7 +257,7 @@
     "format": "share",
     "content": "📰 Implementing Zero Trust Architecture for AI Applications\n\nTraditional perimeter security fails for AI. Learn how to apply zero trust principles to protect your organization while enabling AI productivity.\n\nRead the full article → https://deployzeroshare.com/blog/zero-trust-ai-architecture\n\n#AISecurity #Architecture",
     "url": "https://deployzeroshare.com/blog/zero-trust-ai-architecture",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -211,7 +269,7 @@
     "format": "share",
     "content": "📰 Shadow AI: The $670K Hidden Cost in Every Data Breach\n\n98% of organizations have employees using unsanctioned AI tools. New research reveals shadow AI increases breach costs by $670,000 on average.\n\nRead the full article → https://deployzeroshare.com/blog/shadow-ai-670k-breach-cost\n\n#AISecurity #SecurityBestPractices",
     "url": "https://deployzeroshare.com/blog/shadow-ai-670k-breach-cost",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -223,7 +281,7 @@
     "format": "share",
     "content": "📰 AI Data Loss Prevention: 5 Architecture Patterns That Work\n\nNot all AI DLP architectures are created equal. We compare proxy, endpoint, API, and hybrid approaches with real performance data.\n\nRead the full article → https://deployzeroshare.com/blog/ai-dlp-architecture-patterns\n\n#AISecurity #Architecture",
     "url": "https://deployzeroshare.com/blog/ai-dlp-architecture-patterns",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -235,7 +293,7 @@
     "format": "share",
     "content": "📰 The Enterprise AI Acceptable Use Policy Template You Can Actually Use\n\nMost AI policies are either too vague or too restrictive. Download our battle-tested template based on real enterprise deployments.\n\nRead the full article → https://deployzeroshare.com/blog/ai-acceptable-use-policy-template\n\n#AISecurity #Governance",
     "url": "https://deployzeroshare.com/blog/ai-acceptable-use-policy-template",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -247,7 +305,7 @@
     "format": "share",
     "content": "📰 LLM Security Fundamentals Every Security Team Should Know\n\nFrom prompt injection to training data extraction, understand the unique security challenges of large language models.\n\nRead the full article → https://deployzeroshare.com/blog/llm-security-fundamentals\n\n#AISecurity #Technology",
     "url": "https://deployzeroshare.com/blog/llm-security-fundamentals",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -259,7 +317,7 @@
     "format": "share",
     "content": "📰 Integrating AI Gateways into Microservices Architecture\n\nPractical patterns for adding AI security controls to your microservices without creating bottlenecks.\n\nRead the full article → https://deployzeroshare.com/blog/microservices-ai-gateway-integration\n\n#AISecurity #Architecture",
     "url": "https://deployzeroshare.com/blog/microservices-ai-gateway-integration",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -271,7 +329,7 @@
     "format": "share",
     "content": "📰 Prompt Injection Attacks: How They Work and How to Defend\n\nPrompt injection is the SQL injection of the AI era. Deep dive into attack vectors and defense strategies.\n\nRead the full article → https://deployzeroshare.com/blog/prompt-injection-attacks-explained\n\n#AISecurity #Technology",
     "url": "https://deployzeroshare.com/blog/prompt-injection-attacks-explained",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -283,7 +341,7 @@
     "format": "share",
     "content": "📰 How to Justify Your AI Security Budget to the Board\n\nTranslate AI security risks into business impact with this framework for executive communication.\n\nRead the full article → https://deployzeroshare.com/blog/ai-security-budget-justification\n\n#AISecurity #SecurityBestPractices",
     "url": "https://deployzeroshare.com/blog/ai-security-budget-justification",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -292,7 +350,7 @@
     "type": "stat",
     "stat": "$4.45M",
     "content": "📊 One ChatGPT prompt shouldn't cost you $4.45 million.\n\n$4.45M is the average cost of a data breach.\n\nSource: IBM 2023\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -301,7 +359,7 @@
     "type": "stat",
     "stat": "65%",
     "content": "📊 65% of your employees have already done it.\n\n65% of employees have shared sensitive data with AI tools without authorization.\n\nSource: Industry survey\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -310,7 +368,7 @@
     "type": "stat",
     "stat": "47,000+",
     "content": "📊 They thought their developers were careful. Then they deployed ZeroShare.\n\n47,000+ secrets intercepted by one financial services firm in 90 days.\n\nSource: ZeroShare case study\n\nThis is why AI security isn't optional anymore.\n\nZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.\n\nLearn more → https://deployzeroshare.com\n\n#AISecurity #DataProtection #CISO #InfoSec",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -318,7 +376,7 @@
   {
     "type": "thought",
     "content": "You can't stop AI adoption.\n\nYou shouldn't try.\n\nBut you can make it safe.\n\nTraditional DLP watches files and emails.\nAI prompts? They're just HTTPS requests.\n\nYour DLP sees: \"POST request to api.openai.com\"\nWhat's actually happening: Customer SSNs sent to AI training data.\n\nThis is why AI security requires a new approach.\n\nA proxy-based gateway can:\n• Inspect request payloads in real-time\n• Detect PII patterns within prompts\n• Block secrets before transmission\n• Log everything for compliance\n\nThe threat model has changed.\nYour security architecture should too.\n\n#AISecurity #CISO #DataProtection",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
@@ -326,87 +384,7 @@
   {
     "type": "thought",
     "content": "A question for CISOs:\n\nYour next board meeting is in 30 days.\n\nThe CEO will ask: \"What's our AI security posture?\"\n\nWhat's your answer?\n\n❌ \"We blocked ChatGPT\" \n   (Not sustainable, employees work around it)\n\n❌ \"We trust our training\" \n   (Accidents happen to trained people)\n\n❌ \"We're looking into it\" \n   (Not acceptable in 2026)\n\n✅ \"We enabled AI with automatic data protection\"\n✅ \"Every request is scanned before leaving our network\"  \n✅ \"We have full visibility and audit logs\"\n\nWhich answer do you want to give?\n\n#AISecurity #CISO #DataProtection",
-    "generatedAt": "2026-01-23T03:16:53.159Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "engagement",
-    "content": "Poll for security leaders:\n\nHow is your organization handling AI tool usage?\n\n🅰️ Blocked entirely (waiting for security solution)\n🅱️ Allowed with policies only (hoping for the best)\n🅲️ Using DLP tools (retrofitted for AI)\n🅳️ Purpose-built AI security gateway\n\nComment with your letter and biggest challenge.\n\n#AISecurity #CISO #Poll",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "hot-take",
-    "content": "Hot take: Blocking ChatGPT is the new \"blocking social media.\"\n\nRemember 2010? Companies blocked Facebook.\nEmployees used their phones instead.\n\nNow in 2026:\n• Companies block ChatGPT\n• Employees use personal devices\n• You lose ALL visibility\n\nThe answer isn't prohibition.\nIt's protection.\n\nEnable AI safely, or watch it happen unsafely.\n\n#AISecurity #Leadership",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "how-to",
-    "content": "5 things to include in your AI Acceptable Use Policy:\n\n1️⃣ Define \"approved\" AI tools (and how to request new ones)\n\n2️⃣ Explicitly prohibit pasting customer data, credentials, and source code\n\n3️⃣ Require sanitization of code before using AI assistants\n\n4️⃣ Mandate reporting of accidental sensitive data exposure\n\n5️⃣ Specify consequences for policy violations\n\nBut here's the hard truth:\n\nPolicies don't prevent accidents. Technology does.\n\n#AISecurity #Compliance #Governance",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "story",
-    "content": "Real scenario from last month:\n\nA developer needed to debug a database issue.\n\nThey pasted the error message into ChatGPT.\n\nThe error message included the full connection string:\npostgresql://admin:P@ssw0rd@prod-db.company.com/customers\n\nThat database held 2.3 million customer records.\n\nThe \"secret\" lasted 47 seconds in their clipboard.\nBut it's now part of an AI training dataset. Forever.\n\nHow many times has this happened in your org?\n\n(Without an AI gateway, you'll never know.)\n\n#AISecurity #DevSecOps",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "myth-busting",
-    "content": "\"Our developers are careful.\"\n\nI hear this a lot.\n\nHere's what the data says:\n\n• 47,000+ secrets intercepted in 90 days at ONE company\n• Most were from senior engineers\n• 11pm commits had 3x more secrets than 9am commits\n\nCareful people make mistakes.\nEspecially at 11pm on a deadline.\n\nAI security isn't about trust.\nIt's about safety nets.\n\n#AISecurity #DevSecOps #Engineering",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "comparison",
-    "content": "AI Security: Build vs Buy\n\nBuild it yourself:\n• 200+ regex patterns to tune\n• 50+ PII detection rules\n• Ongoing maintenance as AI tools evolve\n• 6-12 months to production-ready\n\nBuy a purpose-built solution:\n• Deploy in a day\n• Continuously updated patterns\n• Enterprise support\n• Focus your team on your core product\n\nYour team's time is valuable.\nSpend it on what differentiates your business.\n\n#AISecurity #Engineering #BuildVsBuy",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "objection",
-    "content": "\"We already have DLP.\"\n\nI hear this from every CISO.\n\nHere's why traditional DLP fails for AI:\n\nDLP watches: Files, email attachments, USB drives\n\nAI prompts are: HTTPS POST requests to api.openai.com\n\nYour DLP sees: \"Employee accessed external API\"\nWhat actually happened: Customer SSNs sent to AI\n\nTraditional DLP wasn't built for this threat vector.\nAI security requires AI-aware tools.\n\n#AISecurity #DLP #CISO",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "question",
-    "content": "Question for engineering leaders:\n\nYour team wants to use AI coding assistants.\nSecurity wants proof that secrets won't leak.\n\nHow do you bridge this gap?\n\nA) Detailed policies and training\nB) Code review for AI-assisted commits\nC) Automated scanning at the proxy level\nD) Something else (comment below)\n\nThe best orgs do C + A.\nAutomation catches what training misses.\n\n#Engineering #AISecurity #DevSecOps",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "technical",
-    "content": "How ZeroShare Gateway works (30-second version):\n\n1. Configure AI tools to route through the gateway\n   (HTTPS_PROXY, base_url, or system proxy)\n\n2. Gateway inspects every request\n   • PII patterns (50+ types)\n   • Secrets (200+ patterns)\n   • Custom rules you define\n\n3. Takes action based on your policy\n   • Redact: Replace with placeholders\n   • Block: Reject high-risk requests\n   • Warn: Allow with logging\n   • Allow: Passthrough with audit\n\n4. Everything logged for compliance\n\nSub-5ms latency. On-premise. Your data never leaves your network until it's safe.\n\n#AISecurity #Architecture #DevSecOps",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
-    "status": "draft",
-    "postedAt": null,
-    "linkedinPostId": null
-  },
-  {
-    "type": "cta",
-    "content": "Every day you wait is a day of unnecessary risk.\n\nYour employees used AI 47 times today.\n(Yes, even if you blocked ChatGPT.)\n\nWas any sensitive data leaked?\nIf you don't know, that's the problem.\n\nZeroShare Gateway:\n→ Deploys in 15 minutes\n→ Instant visibility into all AI traffic\n→ Automatic PII and secrets protection\n→ Available on AWS Marketplace\n\nStop hoping. Start protecting.\n\nLink in comments 👇\n\n#AISecurity #AWS #CISO",
-    "generatedAt": "2026-01-23T19:28:22.624Z",
+    "generatedAt": "2026-01-24T06:04:57.054Z",
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null

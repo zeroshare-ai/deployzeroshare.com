@@ -1,0 +1,65 @@
+{
+  "sequence": "zeroshare-nurture",
+  "version": "1.0",
+  "emails": [
+    {
+      "id": "nurture-day-0",
+      "day": 0,
+      "subject": "Welcome to ZeroShare Security Insights",
+      "preheader": "Thank you for subscribing. Here's what to expect.",
+      "status": "implemented",
+      "note": "Already in newsletter Lambda"
+    },
+    {
+      "id": "nurture-day-3",
+      "day": 3,
+      "subject": "65% of your employees have done this (without knowing)",
+      "preheader": "The AI data leak most companies don't see coming.",
+      "body_text": "Hi,\n\nQuick stat that might surprise you:\n\n65% of employees have shared sensitive data with ChatGPT, Copilot, or other AI tools—without authorization.\n\nThey're not being malicious. They're just:\n- Pasting customer emails for help drafting responses\n- Sharing code snippets (with credentials) for debugging\n- Uploading documents for summarization\n\nThe AI doesn't feel like a data risk. But it is.\n\nWe put together a 5-minute read on the most common ways data leaks to AI:\n\n→ https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots?utm_source=email&utm_medium=nurture&utm_campaign=day_3\n\nStay secure,\nThe ZeroShare Team\n\nP.S. Reply to this email if you have questions. We read everything.",
+      "cta_text": "Read: How Employees Leak Data to AI",
+      "cta_url": "https://deployzeroshare.com/blog/prevent-pii-leaks-ai-chatbots?utm_source=email&utm_medium=nurture&utm_campaign=day_3"
+    },
+    {
+      "id": "nurture-day-7",
+      "day": 7,
+      "subject": "What if you could enable AI safely?",
+      "preheader": "The alternative to blocking AI entirely.",
+      "body_text": "Hi,\n\nLast email, we talked about how employees leak data to AI.\n\nThe typical response: block AI entirely.\n\nBut that doesn't work:\n- Employees use personal devices\n- Productivity drops\n- Shadow IT explodes\n- You lose visibility\n\nThere's a better approach: enable AI with protection.\n\nZeroShare Gateway sits between your employees and AI services. It:\n\n✓ Detects PII in prompts (SSNs, emails, credit cards)\n✓ Blocks secrets (API keys, credentials)\n✓ Logs everything for compliance\n✓ Works with ChatGPT, Copilot, Claude\n\nYour employees use AI normally. Your data stays protected.\n\nSee how it works in 2 minutes:\n\n→ https://deployzeroshare.com/docs?utm_source=email&utm_medium=nurture&utm_campaign=day_7\n\nQuestions? Just reply.\n\nThe ZeroShare Team",
+      "cta_text": "Explore ZeroShare Gateway",
+      "cta_url": "https://deployzeroshare.com/docs?utm_source=email&utm_medium=nurture&utm_campaign=day_7"
+    },
+    {
+      "id": "nurture-day-14",
+      "day": 14,
+      "subject": "How a healthcare company secured AI in 2 hours",
+      "preheader": "Real results from a real deployment.",
+      "body_text": "Hi,\n\nQuick case study:\n\nA mid-size healthcare company came to us with a problem:\n\nTheir clinical staff loved using AI for documentation.\nTheir compliance team was terrified of HIPAA violations.\nBlocking AI meant angry doctors and slower patient care.\n\nThey deployed ZeroShare Gateway on a Monday morning.\n\nBy lunch, they had:\n✓ Full visibility into AI usage\n✓ Automatic PHI detection\n✓ Audit logs for their compliance team\n✓ Happy clinicians who could keep using AI\n\nNo code changes. No workflow disruption.\n\nThe compliance officer told us: \"I can actually sleep now.\"\n\nWant similar results?\n\n→ https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_14\n\nFree tier available for small teams.\n\nThe ZeroShare Team",
+      "cta_text": "See Pricing",
+      "cta_url": "https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_14"
+    },
+    {
+      "id": "nurture-day-21",
+      "day": 21,
+      "subject": "Try ZeroShare free (10 minute setup)",
+      "preheader": "No credit card required. Deploy on AWS in minutes.",
+      "body_text": "Hi,\n\nYou've been on our list for 3 weeks. By now you've probably:\n\n✓ Seen the stats on AI data leaks\n✓ Understood the solution approach\n✓ Maybe even checked out our docs\n\nReady to try it?\n\nZeroShare Gateway - Free Tier:\n- Up to 1,000 requests/day\n- Full PII detection\n- Secrets blocking\n- Audit logging\n- No credit card required\n\nDeploy in 10 minutes:\n\n→ https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_21\n\nOr if you want a guided tour:\n\n→ https://deployzeroshare.com/contact-us?utm_source=email&utm_medium=nurture&utm_campaign=day_21_demo\n\nEither way, we're here to help.\n\nThe ZeroShare Team",
+      "cta_text": "Start Free on AWS Marketplace",
+      "cta_url": "https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_21"
+    },
+    {
+      "id": "nurture-day-30",
+      "day": 30,
+      "subject": "Still thinking about AI security?",
+      "preheader": "A quick check-in and reminder of what we offer.",
+      "body_text": "Hi,\n\nIt's been a month since you joined our list.\n\nWe know evaluating security tools takes time. You've got priorities, stakeholders, budgets.\n\nQuick reminder of why ZeroShare might be worth another look:\n\nFor CISOs:\n→ Enable AI without the risk profile\n\nFor Compliance:\n→ Audit logs that satisfy SOC 2, HIPAA, GDPR\n\nFor Engineering:\n→ 10-minute deployment, no code changes\n\nIf now isn't the right time, no worries. We'll keep sending helpful content.\n\nBut if you're ready to move forward:\n\n→ https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_30\n\n→ https://deployzeroshare.com/contact-us?utm_source=email&utm_medium=nurture&utm_campaign=day_30_talk\n\nThe ZeroShare Team\n\nP.S. What's holding you back? Reply and let us know—we might be able to help.",
+      "cta_text": "Start Free",
+      "cta_url": "https://deployzeroshare.com/pricing?utm_source=email&utm_medium=nurture&utm_campaign=day_30"
+    }
+  ],
+  "settings": {
+    "from_name": "ZeroShare Team",
+    "from_email": "hello@deployzeroshare.com",
+    "reply_to": "support@deployzeroshare.com",
+    "unsubscribe_url": "https://deployzeroshare.com/unsubscribe"
+  }
+}

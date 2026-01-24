@@ -3744,15 +3744,52 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) {
     return { title: 'Article Not Found' };
   }
+  
+  // Map slug to image - fallback to og-image if specific image doesn't exist
+  const imageMap: Record<string, string> = {
+    'prevent-pii-leaks-ai-chatbots': '/images/blog/blog-pii-leaks.png',
+    'ai-security-compliance-guide-2026': '/images/blog/blog-compliance.png',
+    'zero-trust-ai-architecture': '/images/blog/blog-zero-trust.png',
+    'secrets-detection-ai-code-assistants': '/images/blog/blog-secrets.png',
+    'enterprise-ai-governance-framework': '/images/blog/blog-governance.png',
+    'ai-proxy-gateway-explained': '/images/blog/blog-gateway.png',
+    'shadow-ai-670k-breach-cost': '/images/blog/blog-shadow-ai.png',
+    'hipaa-ai-requirements-2026': '/images/blog/blog-hipaa-2026.png',
+    'ai-dlp-architecture-patterns': '/images/blog/blog-dlp-patterns.png',
+    'secure-cicd-ai-assistants': '/images/blog/blog-cicd-security.png',
+  };
+  
+  const ogImage = imageMap[params.slug] || '/og-image.png';
+  const canonicalUrl = `https://deployzeroshare.com/blog/${params.slug}`;
+  
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
+      url: canonicalUrl,
       publishedTime: post.date,
       authors: [post.author],
+      siteName: 'ZeroShare Gateway',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }

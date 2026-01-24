@@ -50,3 +50,6 @@ next-env.d.ts
 
 # LinkedIn secrets
 tools/linkedin/.env.page-manager
+# Local env files
+tools/twitter/.env
+tools/email/.env

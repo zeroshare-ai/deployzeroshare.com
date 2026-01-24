@@ -181,11 +181,12 @@ export function Chatbot() {
     return parts.length > 0 ? parts : content;
   };
 
-  // Quick action buttons
+  // Quick action buttons - designed for qualification and conversion
   const quickActions = [
     { label: 'What is ZeroShare?', message: 'What is ZeroShare Gateway and what does it do?' },
-    { label: 'Pricing', message: 'What are the pricing plans?' },
-    { label: 'How to deploy', message: 'How do I deploy ZeroShare Gateway?' }
+    { label: 'See Pricing', message: 'What are the pricing plans? I want to understand the costs.' },
+    { label: 'Start Free Trial', message: 'I want to try ZeroShare Gateway. How do I get started with the free tier?' },
+    { label: 'Talk to Sales', message: 'I want to speak with someone about ZeroShare for my organization.' }
   ];
 
   return (

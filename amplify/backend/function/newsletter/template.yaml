@@ -12,6 +12,10 @@ Parameters:
   NotifyEmail:
     Type: String
     Default: rick@deployzeroshare.com
+  LoopsApiKey:
+    Type: String
+    Default: ''
+    Description: Loops.so API key for nurture sequence automation
 
 Resources:
   # DynamoDB table for storing subscribers
@@ -45,6 +49,7 @@ Resources:
           FROM_EMAIL: !Ref FromEmail
           NOTIFY_EMAIL: !Ref NotifyEmail
           TABLE_NAME: !Ref SubscribersTable
+          LOOPS_API_KEY: !Ref LoopsApiKey
       Policies:
         - Statement:
             - Effect: Allow

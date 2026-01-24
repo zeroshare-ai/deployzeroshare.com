@@ -1,0 +1,15 @@
+{
+  "name": "zeroshare-email-tools",
+  "version": "1.0.0",
+  "description": "Email nurture automation for ZeroShare",
+  "type": "module",
+  "scripts": {
+    "test": "node loops-setup.js --test",
+    "list-emails": "node loops-setup.js --list-emails",
+    "add-contact": "node loops-setup.js --add-contact"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "private": true
+}

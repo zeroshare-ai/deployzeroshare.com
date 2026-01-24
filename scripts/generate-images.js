@@ -569,7 +569,7 @@ const IMAGE_PROMPTS = {
     filename: 'linkedin-cover.png',
     outputPath: 'linkedin-cover.png',
     dimensions: { width: 1128, height: 191 },
-    prompt: `A sleek LinkedIn company page banner, exactly 1128x191 pixels wide format. Gradient background from deep indigo (#667eea) on left to rich purple (#764ba2) on right. On the right side: a subtle, elegant 3D translucent shield icon with a glowing "0" inside, made of glass with soft purple light. On the left side: clean white text reading "Enable AI. Block Data Leaks." in a modern sans-serif font. Below the main text, smaller: "Enterprise AI Security Gateway". Very minimal, premium SaaS aesthetic. No people, no busy elements. Clean corporate tech style like Okta or Auth0. The banner should feel trustworthy and cutting-edge.`
+    prompt: `A sleek LinkedIn company page banner, exactly 1128x191 pixels wide format. Gradient background from deep indigo (#667eea) on left to rich purple (#764ba2) on right. IMPORTANT: The LEFT side (first 250 pixels) must be EMPTY - just gradient, no text or icons - because the company logo overlays there. On the RIGHT SIDE: clean white text reading "Enable AI. Block Data Leaks." in a modern sans-serif font. Below the main text, smaller: "Enterprise AI Security Gateway". A subtle translucent shield icon with purple glow on the far right. Very minimal, premium SaaS aesthetic. No people, no busy elements. Clean corporate tech style like Okta or Auth0.`
   },
 
   'linkedin-logo-purple': {
@@ -756,16 +756,27 @@ async function generateImageWithImagen(client, name, config) {
 function listImages() {
   console.log('\n📋 Available Images:\n');
   
-  const byPriority = { 1: [], 2: [], 3: [] };
+  const byPriority = { 1: [], 2: [], 3: [], 4: [], 5: [] };
   for (const [name, config] of Object.entries(IMAGE_PROMPTS)) {
-    byPriority[config.priority].push({ name, ...config });
+    if (byPriority[config.priority]) {
+      byPriority[config.priority].push({ name, ...config });
+    }
   }
   
-  for (const priority of [1, 2, 3]) {
-    const label = priority === 1 ? 'Immediate Impact' : priority === 2 ? 'High Value' : 'Polish';
-    console.log(`\n🎯 Priority ${priority} - ${label}:`);
-    for (const img of byPriority[priority]) {
-      console.log(`   ${img.name.padEnd(25)} ${img.dimensions.width}x${img.dimensions.height}  → ${img.outputPath}`);
+  const labels = {
+    1: 'Immediate Impact',
+    2: 'High Value', 
+    3: 'Polish',
+    4: 'Blog Images',
+    5: 'Logo Options'
+  };
+  
+  for (const priority of [1, 2, 3, 4, 5]) {
+    if (byPriority[priority].length > 0) {
+      console.log(`\n🎯 Priority ${priority} - ${labels[priority]}:`);
+      for (const img of byPriority[priority]) {
+        console.log(`   ${img.name.padEnd(25)} ${img.dimensions.width}x${img.dimensions.height}  → ${img.outputPath}`);
+      }
     }
   }
   
