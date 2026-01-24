@@ -1,0 +1,24 @@
+AWS MARKETPLACE PROFILE INFORMATION
+===================================
+
+DISPLAY NAME
+------------
+Automated Merchandising, LLC
+
+SHORT DESCRIPTION
+-----------------
+Professional merchandising solutions.
+
+FULL COMPANY DESCRIPTION
+------------------------
+Automated Merchandising, LLC specializes in professional merchandising solutions designed for modern businesses. We provide discreet, reliable services tailored to meet the evolving needs of today's marketplace.
+
+PRODUCT INFORMATION (ZeroShare Gateway)
+---------------------------------------
+Product Title: ZeroShare Gateway
+Short Description: On-premise AI security gateway that prevents PII and secrets from leaking to AI services.
+
+ASSETS IN THIS FOLDER
+---------------------
+1. zeroshare-logo-small.png (12KB) - Product Icon
+2. company-logo.png (2KB) - Company Logo (Automated Merchandising, LLC)

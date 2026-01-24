@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "auth": "node auth.js",
+    "auth:page-manager": "node auth-page-manager.js",
     "generate": "node generate-content.js",
     "generate:whitepapers": "node generate-whitepapers.js",
     "generate:all": "node generate-content.js && node generate-whitepapers.js",
