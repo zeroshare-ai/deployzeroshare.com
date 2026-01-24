@@ -1,116 +1,187 @@
-# LinkedIn Company Page Content
+# LinkedIn Company Page - Optimized for Conversion
 
-> **Company Page:** https://www.linkedin.com/company/110457262/admin/
+> **Page URL:** https://www.linkedin.com/company/110457262/admin/
 > 
-> Copy this content to update your LinkedIn company page manually.
-> (API access for profile editing requires additional permissions)
+> Copy each section below to update your LinkedIn company page.
+> This version is optimized for maximum conversion of CISOs and security leaders.
 
 ---
 
-## Company Name
+## 1. Company Name
 ```
 ZeroShare
 ```
 
-## Tagline (120 characters max)
+## 2. Tagline (120 characters max)
 ```
-Stop Data Leaks Before They Reach AI | On-Premise Security Gateway
+Stop AI Data Leaks Before They Start | Enable ChatGPT, Copilot & Claude Safely
 ```
 
-## About / Description (2000 characters max)
+## 3. About / Description (2000 characters max)
 
 ```
-ZeroShare Gateway is the enterprise security layer for AI adoption.
+Your employees are using AI. The question is: do you have visibility?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 THE PROBLEM
-Your employees are using ChatGPT, Copilot, Claude, and other AI tools—whether you've approved them or not. Every prompt is a potential data leak.
 
-Research shows:
-• 22% of files uploaded to AI tools contain sensitive data
-• 65% of employees have shared sensitive data with AI without authorization
-• $4.45M average cost of a data breach (IBM 2023)
+65% of employees have shared sensitive data with ChatGPT, Copilot, or Claude—without authorization.
+
+Every prompt is a potential breach:
+• Customer SSNs pasted into support chats
+• API keys shared in code reviews
+• Medical records summarized for reports
+• Financial data analyzed for trends
+
+Once it's sent, it's in their training data. Forever.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 THE SOLUTION
-ZeroShare Gateway deploys on-premise as a transparent proxy between your users and AI services. It automatically:
 
-✓ Detects PII (emails, SSNs, credit cards, health data)
-✓ Blocks secrets (API keys, credentials, connection strings)
-✓ Logs everything for compliance audits
-✓ Works with ChatGPT, Copilot, Cursor, Claude & more
+ZeroShare Gateway is the security layer between your employees and AI.
 
-No code changes. Deploy in minutes. Sub-millisecond latency.
+Deploy on-premise. Maintain complete control. Enable productivity without risk.
 
-COMPLIANCE READY
-• SOC 2 Type II aligned
-• HIPAA compliant
-• GDPR ready
-• Complete audit logging
+✓ Automatic PII detection (50+ patterns)
+✓ Secrets blocking (API keys, credentials, tokens)
+✓ Complete audit logging for compliance
+✓ Works with ChatGPT, Copilot, Claude, Cursor & more
+✓ Sub-5ms latency—users won't notice
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHY ZEROSHARE
+
+• On-premise: Your data never leaves your network
+• Instant visibility: See every AI request in real-time
+• Compliance-ready: SOC 2, HIPAA, GDPR aligned
+• Fast deployment: Live in hours, not months
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 GET STARTED
-Available now on AWS Marketplace with 1-click deployment.
 
-🔗 Learn more: https://deployzeroshare.com
-📧 Contact: support@deployzeroshare.com
+Free tier available for teams up to 5 users.
+Deploy from AWS Marketplace in minutes.
+
+🔗 deployzeroshare.com
+📧 support@deployzeroshare.com
 ```
 
-## Website
+## 4. Website
 ```
 https://deployzeroshare.com
 ```
 
-## Industry
+## 5. Industry
 ```
 Computer & Network Security
 ```
 
-## Company Size
+## 6. Company Size
 ```
 2-10 employees
 ```
 
-## Specialties (add these)
+## 7. Headquarters
+```
+United States (Remote)
+```
+
+## 8. Specialties (add all)
 ```
 AI Security
 Data Loss Prevention
-PII Protection
+PII Protection  
 Secrets Management
 Enterprise Security
-Compliance
+Compliance Automation
 HIPAA
 SOC 2
 GDPR
 ChatGPT Security
-Copilot Security
+GitHub Copilot Security
 LLM Security
-On-Premise Security
+Cloud Security
+Zero Trust
+DevSecOps
 ```
 
-## Hashtags to Use
+## 9. Custom Button
 ```
-#AISecurity #DataProtection #CISO #InfoSec #Cybersecurity #Enterprise #Compliance
+Type: Contact us
+URL: https://deployzeroshare.com/contact-us?source=linkedin
 ```
 
 ---
 
-## How to Update
+## 10. Logo
 
-1. Go to: https://www.linkedin.com/company/110457262/admin/
-2. Click **Edit page**
-3. Copy/paste content from above into each field
-4. Upload logo from: `deployzeroshare.com/public/logo_150x150.png`
-5. Save changes
+**Upload:** `/public/logo_150x150.png`
+
+**Specs:**
+- Size: 300x300 pixels (minimum 150x150)
+- Format: PNG with transparent background
+- Style: Clean, professional, security-focused
 
 ---
 
-## Cover Image Specs
+## 11. Cover Image
 
-- **Size:** 1128 x 191 pixels
-- **Format:** PNG or JPG
-- **Content suggestion:** Purple gradient (#667eea to #764ba2) with tagline
+**Specs:**
+- Size: 1128 x 191 pixels
+- Format: PNG or JPG
 
-Generate with this prompt:
+**Recommended design:**
+- Purple gradient background (#667eea → #764ba2)
+- Text: "Enable AI. Block Data Leaks."
+- Subtle shield or lock icon
+- Website URL in corner
+
+**Gemini prompt to generate:**
 ```
-Professional LinkedIn company cover banner, 1128x191 pixels, purple gradient 
-background from #667eea to #764ba2, text "Enable AI. Block Data Leaks." in 
-white, subtle shield/security icon, clean enterprise software aesthetic
+Professional LinkedIn company cover banner, 1128x191 pixels exact dimensions.
+Purple gradient background from hex #667eea to #764ba2.
+White text saying "Enable AI. Block Data Leaks." centered.
+Subtle abstract security shield icon on the right side.
+Clean, modern enterprise software aesthetic.
+No people, minimalist design.
 ```
+
+---
+
+## 12. Featured Content
+
+Pin these posts (in order of importance):
+
+1. **Whitepaper:** "Why Blocking ChatGPT Will Get You Fired"
+2. **Blog post:** Most popular/engaging post
+3. **Product announcement:** AWS Marketplace availability
+
+---
+
+## Verification Checklist
+
+After updating, verify:
+
+- [ ] Logo displays correctly
+- [ ] Cover image is not cropped
+- [ ] Tagline is visible on mobile
+- [ ] About section renders properly
+- [ ] Website link works
+- [ ] CTA button goes to contact form
+- [ ] Specialties appear in search
+
+---
+
+## A/B Testing Notes
+
+Track these metrics weekly:
+- Profile views
+- Follower growth
+- Post impressions
+- Website clicks from LinkedIn
+
+Optimize based on data after 2 weeks.

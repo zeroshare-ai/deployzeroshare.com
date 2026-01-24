@@ -37,8 +37,8 @@ crontab -l 2>/dev/null | grep -v "deployzeroshare.com/tools/linkedin" | crontab 
 # 8:00 AM ET only
 0 8 * * 1,5 cd $SCRIPT_DIR && /usr/bin/npm run post:next >> $SCRIPT_DIR/logs/post.log 2>&1
 
-# Weekly Content Generation - Sunday 8 PM ET
-0 20 * * 0 cd $SCRIPT_DIR && /usr/bin/npm run generate >> $SCRIPT_DIR/logs/generate.log 2>&1
+# Weekly Content Generation - Sunday 8 PM ET (blogs + whitepapers)
+0 20 * * 0 cd $SCRIPT_DIR && /usr/bin/npm run generate:all >> $SCRIPT_DIR/logs/generate.log 2>&1
 CRON
 ) | crontab -
 

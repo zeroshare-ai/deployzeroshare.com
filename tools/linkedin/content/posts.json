@@ -251,5 +251,38 @@
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null
+  },
+  {
+    "type": "whitepaper",
+    "whitepaperSlug": "why-blocking-chatgpt-will-get-you-fired",
+    "whitepaperTitle": "Why Blocking ChatGPT Will Get You Fired",
+    "content": "🔥 Hot take: Blocking ChatGPT is career suicide for CISOs.\n\nHere's why:\n\nYour employees ARE using AI. The only question is whether you have visibility.\n\nBlock it → They use personal devices → You see NOTHING\nEnable with controls → They use approved channels → You see EVERYTHING\n\nI wrote a whitepaper on the \"Third Way\" - enabling AI with automatic data protection.\n\nNo more security vs productivity debates.\n\nDownload the full guide 👇\nhttps://deployzeroshare.com/resources/why-blocking-chatgpt-will-get-you-fired\n\n#AISecurity #CISO #Leadership",
+    "url": "https://deployzeroshare.com/resources/why-blocking-chatgpt-will-get-you-fired",
+    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "whitepaper",
+    "whitepaperSlug": "shadow-ai-report-2026",
+    "whitepaperTitle": "The Shadow AI Report 2026",
+    "content": "📊 New data: 98% of organizations have shadow AI.\n\nWe analyzed AI usage patterns across 500+ enterprises. The findings are alarming:\n\n• 47 AI tools per company (only 12 approved)\n• 65% of employees shared sensitive data with AI\n• $670K added cost per breach from shadow AI\n\nThe full report includes:\n✓ Industry benchmarks\n✓ Risk assessment framework  \n✓ Remediation roadmap\n\nDownload free 👇\nhttps://deployzeroshare.com/resources/shadow-ai-report-2026\n\n#AISecurity #Research #CISO",
+    "url": "https://deployzeroshare.com/resources/shadow-ai-report-2026",
+    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
+  },
+  {
+    "type": "whitepaper",
+    "whitepaperSlug": "ai-security-board-presentation",
+    "whitepaperTitle": "The $4.45M Gamble Your Board Doesn't Know About",
+    "content": "Your board will ask about AI security. Are you ready?\n\n\"What's our exposure from employee AI usage?\"\n\nHere's the math:\n• $4.45M average breach cost\n• 65% of employees sharing sensitive data with AI\n• = Unquantified but massive exposure\n\nI created a board-ready presentation with:\n✓ Risk quantification framework\n✓ Business case with ROI\n✓ Recommended board motion (copy-paste ready)\n\nDownload the full deck 👇\nhttps://deployzeroshare.com/resources/ai-security-board-presentation\n\n#CISO #BoardRoom #AISecurity",
+    "url": "https://deployzeroshare.com/resources/ai-security-board-presentation",
+    "generatedAt": "2026-01-24T02:36:02.321Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null
   }
 ]

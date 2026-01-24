@@ -6,6 +6,8 @@
   "scripts": {
     "auth": "node auth.js",
     "generate": "node generate-content.js",
+    "generate:whitepapers": "node generate-whitepapers.js",
+    "generate:all": "node generate-content.js && node generate-whitepapers.js",
     "preview": "node post.js --dry-run",
     "post": "echo 'Use: node post.js --live (requires explicit authorization)'",
     "post:next": "node post-next.js",
