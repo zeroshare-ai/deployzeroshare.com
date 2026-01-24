@@ -563,6 +563,23 @@ const IMAGE_PROMPTS = {
     prompt: `An inviting visualization for a contact/demo page. Two stylized figures (abstract, not realistic) connected by a glowing line representing communication. One figure represents the customer (blue), one represents the ZeroShare team (purple). Between them: a glowing handshake or connection point. Subtle shield and security elements in background. Warm, trustworthy, human. The style says "we're here to help". Light background, welcoming but professional.`
   },
 
+  // LinkedIn Assets
+  'linkedin-cover': {
+    priority: 1,
+    filename: 'linkedin-cover.png',
+    outputPath: 'linkedin-cover.png',
+    dimensions: { width: 1128, height: 191 },
+    prompt: `A sleek LinkedIn company page banner, exactly 1128x191 pixels wide format. Gradient background from deep indigo (#667eea) on left to rich purple (#764ba2) on right. On the right side: a subtle, elegant 3D translucent shield icon with a glowing "0" inside, made of glass with soft purple light. On the left side: clean white text reading "Enable AI. Block Data Leaks." in a modern sans-serif font. Below the main text, smaller: "Enterprise AI Security Gateway". Very minimal, premium SaaS aesthetic. No people, no busy elements. Clean corporate tech style like Okta or Auth0. The banner should feel trustworthy and cutting-edge.`
+  },
+
+  'linkedin-logo-purple': {
+    priority: 1,
+    filename: 'linkedin-logo-purple.png',
+    outputPath: 'linkedin-logo-purple.png',
+    dimensions: { width: 300, height: 300 },
+    prompt: `A premium company logo icon for LinkedIn profile, 300x300 square. A modern shield shape with clean geometric lines, gradient from indigo (#667eea) to purple (#764ba2). Inside the shield: a bold white "0" (zero) representing ZeroShare. The shield has subtle 3D depth with soft shadows. Ultra clean, minimal design that looks great at small sizes. White or transparent background. Fortune 500 quality logomark. No text, just the icon. Think Stripe, Linear, or Cloudflare simplicity.`
+  },
+
   'hero-shield-3d': {
     priority: 3,
     filename: 'hero-shield-3d.png',
