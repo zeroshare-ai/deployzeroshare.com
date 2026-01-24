@@ -1,228 +1,385 @@
 #!/usr/bin/env node
 /**
- * LinkedIn Company Page Profile Manager
+ * LinkedIn Company Profile Manager
  * 
- * Updates and enhances the ZeroShare LinkedIn company page.
+ * Manages the ZeroShare company page profile via LinkedIn API.
+ * Requires: rw_organization_admin scope (Community Management API)
  * 
  * Usage:
- *   node company-profile.js --get          # Get current profile
- *   node company-profile.js --update       # Update profile
- *   node company-profile.js --preview      # Preview changes (dry run)
+ *   node company-profile.js --get      # Fetch current profile
+ *   node company-profile.js --preview  # Preview what would be updated
+ *   node company-profile.js --update   # Update profile via API
  */
 
+import fetch from 'node-fetch';
+import { config, requireAccessToken } from './config.js';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { config, validateConfig, requireAccessToken } from './config.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Parse arguments
-const args = process.argv.slice(2);
-const action = args.includes('--get') ? 'get' 
-             : args.includes('--update') ? 'update'
-             : args.includes('--preview') ? 'preview'
-             : 'preview';
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPANY PROFILE CONTENT - Edit this section to update your LinkedIn page
+// ═══════════════════════════════════════════════════════════════════════════
 
-// Company profile data - edit this to update your page
 const companyProfile = {
-  // Basic Info
+  // Localized name (cannot be changed via API)
   localizedName: 'ZeroShare',
   
-  // Tagline (120 chars max)
-  localizedTagline: 'Stop Data Leaks Before They Reach AI | On-Premise Security Gateway',
+  // Tagline - shows below company name (120 chars max)
+  // NOTE: Tagline cannot be updated via API, must be done manually
+  localizedTagline: 'Stop AI Data Leaks Before They Start | Enable ChatGPT, Copilot & Claude Safely',
   
-  // Description (2000 chars max)
-  localizedDescription: `ZeroShare Gateway is the enterprise security layer for AI adoption.
+  // About section - shows on company page (2000 chars max)
+  description: {
+    localized: {
+      en_US: `Your employees are using AI. The question is: do you have visibility?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 THE PROBLEM
-Your employees are using ChatGPT, Copilot, Claude, and other AI tools—whether you've approved them or not. Every prompt is a potential data leak.
 
-Research shows:
-• 22% of files uploaded to AI tools contain sensitive data
-• 65% of employees have shared sensitive data with AI without authorization
-• $4.45M average cost of a data breach (IBM 2023)
+65% of employees have shared sensitive data with ChatGPT, Copilot, or Claude—without authorization.
+
+Every prompt is a potential breach:
+• Customer SSNs pasted into support chats
+• API keys shared in code reviews
+• Medical records summarized for reports
+• Financial data analyzed for trends
+
+Once it's sent, it's in their training data. Forever.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 THE SOLUTION
-ZeroShare Gateway deploys on-premise as a transparent proxy between your users and AI services. It automatically:
 
-✓ Detects PII (emails, SSNs, credit cards, health data)
-✓ Blocks secrets (API keys, credentials, connection strings)
-✓ Logs everything for compliance audits
-✓ Works with ChatGPT, Copilot, Cursor, Claude & more
+ZeroShare Gateway is the security layer between your employees and AI.
 
-No code changes. Deploy in minutes. Sub-millisecond latency.
+Deploy on-premise. Maintain complete control. Enable productivity without risk.
 
-COMPLIANCE READY
-• SOC 2 Type II aligned
-• HIPAA compliant
-• GDPR ready
-• Complete audit logging
+✓ Automatic PII detection (50+ patterns)
+✓ Secrets blocking (API keys, credentials, tokens)
+✓ Complete audit logging for compliance
+✓ Works with ChatGPT, Copilot, Claude, Cursor & more
+✓ Sub-5ms latency—users won't notice
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHY ZEROSHARE
+
+• On-premise: Your data never leaves your network
+• Instant visibility: See every AI request in real-time
+• Compliance-ready: SOC 2, HIPAA, GDPR aligned
+• Fast deployment: Live in hours, not months
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 GET STARTED
-Available now on AWS Marketplace with 1-click deployment.
 
-🔗 Learn more: https://deployzeroshare.com
-📧 Contact: support@deployzeroshare.com`,
+Free tier available for teams up to 5 users.
+Deploy from AWS Marketplace in minutes.
 
-  // Website
-  localizedWebsite: 'https://deployzeroshare.com',
-  
-  // Specialties (up to 20)
-  specialties: [
-    'AI Security',
-    'Data Loss Prevention',
-    'PII Protection',
-    'Secrets Management',
-    'Enterprise Security',
-    'Compliance',
-    'HIPAA',
-    'SOC 2',
-    'GDPR',
-    'ChatGPT Security',
-    'Copilot Security',
-    'LLM Security',
-    'On-Premise Security',
-    'API Security',
-    'Cloud Security'
-  ],
-  
-  // Industry
-  industries: ['Computer & Network Security'],
-  
-  // Company size
-  staffCountRange: '2-10',
-  
-  // Locations
-  locations: [
-    {
+🔗 deployzeroshare.com
+📧 support@deployzeroshare.com`
+    },
+    preferredLocale: {
       country: 'US',
-      city: 'Remote',
-      description: 'Headquarters',
-      isHeadquarters: true
+      language: 'en'
     }
-  ]
+  },
+  
+  // Website URL
+  website: {
+    localized: {
+      en_US: 'https://deployzeroshare.com'
+    },
+    preferredLocale: {
+      country: 'US',
+      language: 'en'
+    }
+  },
+  
+  // Specialties (keywords for search)
+  specialties: {
+    tags: [
+      'AI Security',
+      'Data Loss Prevention',
+      'PII Protection',
+      'Secrets Management',
+      'Enterprise Security',
+      'Compliance Automation',
+      'HIPAA',
+      'SOC 2',
+      'GDPR',
+      'ChatGPT Security',
+      'GitHub Copilot Security',
+      'LLM Security',
+      'Cloud Security',
+      'Zero Trust',
+      'DevSecOps'
+    ]
+  },
+
+  // Staff count range
+  staffCountRange: 'SIZE_2_TO_10',
+
+  // Industry URN (Computer & Network Security = 118)
+  industries: ['urn:li:industry:118']
 };
 
-// Get current company profile
-async function getCompanyProfile() {
-  const response = await fetch(
-    `https://api.linkedin.com/rest/organizations/${config.companyId}`,
-    {
-      headers: {
-        'Authorization': `Bearer ${config.accessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': config.apiVersion,
-      },
+// ═══════════════════════════════════════════════════════════════════════════
+// API FUNCTIONS
+// ═══════════════════════════════════════════════════════════════════════════
+
+const API_BASE = 'https://api.linkedin.com/rest';
+
+async function fetchCurrentProfile() {
+  const token = requireAccessToken();
+  
+  const url = `${API_BASE}/organizations/${config.companyId}`;
+  
+  console.log(`📥 Fetching profile for organization: ${config.companyId}`);
+  
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'LinkedIn-Version': config.apiVersion,
+      'Content-Type': 'application/json'
     }
-  );
-  
+  });
+
   if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || `HTTP ${response.status}`);
+    const error = await response.text();
+    throw new Error(`API Error (${response.status}): ${error}`);
   }
-  
-  return response.json();
+
+  return await response.json();
 }
 
-// Update company profile
-async function updateCompanyProfile(profileData) {
-  const response = await fetch(
-    `https://api.linkedin.com/rest/organizations/${config.companyId}`,
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${config.accessToken}`,
-        'Content-Type': 'application/json',
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': config.apiVersion,
-        'X-RestLi-Method': 'PARTIAL_UPDATE',
-      },
-      body: JSON.stringify({
-        patch: {
-          $set: profileData
+async function updateProfile() {
+  const token = requireAccessToken();
+  
+  const url = `${API_BASE}/organizations/${config.companyId}`;
+  
+  // Build the patch payload - only include fields that can be updated via API
+  const patchPayload = {
+    patch: {
+      $set: {
+        description: companyProfile.description,
+        website: companyProfile.website,
+        specialties: companyProfile.specialties,
+        staffCountRange: companyProfile.staffCountRange,
+        industries: companyProfile.industries
+      }
+    }
+  };
+
+  console.log(`📤 Updating profile for organization: ${config.companyId}`);
+  console.log('\nPayload preview:');
+  console.log(JSON.stringify(patchPayload, null, 2));
+  
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'X-Restli-Method': 'PARTIAL_UPDATE',
+      'LinkedIn-Version': config.apiVersion,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(patchPayload)
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`API Error (${response.status}): ${error}`);
+  }
+
+  // 204 No Content means success for PARTIAL_UPDATE
+  if (response.status === 204) {
+    return { success: true, message: 'Profile updated successfully' };
+  }
+
+  return await response.json();
+}
+
+async function uploadLogo(imagePath) {
+  const token = requireAccessToken();
+  
+  console.log(`📸 Uploading logo from: ${imagePath}`);
+  
+  // Step 1: Register the upload
+  const registerUrl = `${API_BASE}/images?action=initializeUpload`;
+  
+  const registerResponse = await fetch(registerUrl, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'LinkedIn-Version': config.apiVersion,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      initializeUploadRequest: {
+        owner: `urn:li:organization:${config.companyId}`
+      }
+    })
+  });
+
+  if (!registerResponse.ok) {
+    const error = await registerResponse.text();
+    throw new Error(`Failed to register upload: ${error}`);
+  }
+
+  const { value } = await registerResponse.json();
+  const uploadUrl = value.uploadUrl;
+  const imageUrn = value.image;
+
+  // Step 2: Upload the image
+  const imageData = fs.readFileSync(imagePath);
+  
+  const uploadResponse = await fetch(uploadUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/octet-stream'
+    },
+    body: imageData
+  });
+
+  if (!uploadResponse.ok) {
+    const error = await uploadResponse.text();
+    throw new Error(`Failed to upload image: ${error}`);
+  }
+
+  console.log(`✅ Logo uploaded: ${imageUrn}`);
+  
+  // Step 3: Update the organization with the new logo
+  const patchPayload = {
+    patch: {
+      $set: {
+        logoV2: {
+          original: imageUrn,
+          cropped: imageUrn,
+          cropInfo: { x: 0, y: 0, width: 0, height: 0 }
         }
-      }),
+      }
     }
-  );
-  
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || `HTTP ${response.status}`);
+  };
+
+  const updateResponse = await fetch(`${API_BASE}/organizations/${config.companyId}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'X-Restli-Method': 'PARTIAL_UPDATE',
+      'LinkedIn-Version': config.apiVersion,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(patchPayload)
+  });
+
+  if (!updateResponse.ok) {
+    const error = await updateResponse.text();
+    throw new Error(`Failed to update logo: ${error}`);
   }
-  
-  return true;
+
+  return { success: true, imageUrn };
 }
 
-// Get organization admin info
-async function getOrganizationAdminInfo() {
-  const response = await fetch(
-    `https://api.linkedin.com/rest/organizationAcls?q=roleAssignee`,
-    {
-      headers: {
-        'Authorization': `Bearer ${config.accessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': config.apiVersion,
-      },
-    }
-  );
-  
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || `HTTP ${response.status}`);
-  }
-  
-  return response.json();
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// CLI
+// ═══════════════════════════════════════════════════════════════════════════
 
 async function main() {
   console.log('🏢 LinkedIn Company Profile Manager\n');
-  
-  validateConfig();
-  requireAccessToken();
-  
   console.log(`Company ID: ${config.companyId}`);
-  console.log(`Action: ${action}\n`);
   
+  const args = process.argv.slice(2);
+  const action = args[0] || '--preview';
+
+  console.log(`Action: ${action.replace('--', '')}\n`);
+
   try {
-    if (action === 'get') {
-      console.log('📥 Fetching current profile...\n');
-      const profile = await getCompanyProfile();
+    if (action === '--get') {
+      // Fetch and display current profile
+      const profile = await fetchCurrentProfile();
+      console.log('\n📋 Current Profile:');
       console.log(JSON.stringify(profile, null, 2));
       
-    } else if (action === 'preview') {
-      console.log('👁️ Preview - Profile to be set:\n');
-      console.log('─'.repeat(60));
-      console.log(`Name: ${companyProfile.localizedName}`);
-      console.log(`Tagline: ${companyProfile.localizedTagline}`);
-      console.log(`Website: ${companyProfile.localizedWebsite}`);
-      console.log(`\nDescription:\n${companyProfile.localizedDescription.substring(0, 500)}...`);
-      console.log(`\nSpecialties: ${companyProfile.specialties.join(', ')}`);
-      console.log('─'.repeat(60));
-      console.log('\n⚠️ DRY RUN - No changes made');
-      console.log('Run with --update to apply changes');
+    } else if (action === '--preview') {
+      // Preview what would be updated
+      console.log('📋 Profile Preview (what would be sent to LinkedIn):\n');
+      console.log('═══════════════════════════════════════════════════════════');
+      console.log(`\n📛 Name: ${companyProfile.localizedName}`);
+      console.log(`\n💬 Tagline: ${companyProfile.localizedTagline}`);
+      console.log(`   ⚠️  (Tagline requires manual update in LinkedIn admin)`);
+      console.log(`\n🔗 Website: ${companyProfile.website.localized.en_US}`);
+      console.log(`\n👥 Staff: ${companyProfile.staffCountRange}`);
+      console.log(`\n🏭 Industry: ${companyProfile.industries.join(', ')}`);
+      console.log(`\n🏷️  Specialties (${companyProfile.specialties.tags.length}):`);
+      companyProfile.specialties.tags.forEach(s => console.log(`   • ${s}`));
+      console.log('\n📝 Description:');
+      console.log('───────────────────────────────────────────────────────────');
+      console.log(companyProfile.description.localized.en_US);
+      console.log('═══════════════════════════════════════════════════════════');
+      console.log('\n✅ To apply these changes, run: npm run profile:update');
       
-    } else if (action === 'update') {
-      console.log('📤 Updating company profile...\n');
+    } else if (action === '--update') {
+      // Update profile via API
+      console.log('🔄 Updating profile via LinkedIn API...\n');
       
-      // Note: LinkedIn API may not allow all fields to be updated
-      // Some fields require manual update in LinkedIn admin
-      const updateData = {
-        localizedDescription: companyProfile.localizedDescription,
-        localizedWebsite: companyProfile.localizedWebsite,
-      };
+      const result = await updateProfile();
       
-      await updateCompanyProfile(updateData);
-      console.log('✅ Profile updated successfully');
-      console.log('\n⚠️ Note: Some fields (name, tagline, logo) may need manual update in LinkedIn admin');
+      if (result.success) {
+        console.log('\n✅ Profile updated successfully!');
+        console.log('\n📋 Fields updated:');
+        console.log('   • Description');
+        console.log('   • Website');
+        console.log('   • Specialties');
+        console.log('   • Staff count range');
+        console.log('   • Industry');
+        console.log('\n⚠️  Manual updates still required for:');
+        console.log('   • Tagline (LinkedIn admin panel)');
+        console.log('   • Logo (use: npm run profile:logo)');
+        console.log('   • Cover image (LinkedIn admin panel)');
+        console.log('\n🔗 View your page: https://www.linkedin.com/company/' + config.companyId);
+      } else {
+        console.log('Result:', result);
+      }
+      
+    } else if (action === '--logo') {
+      // Upload logo
+      const logoPath = args[1] || join(__dirname, '../../public/logo_150x150.png');
+      
+      if (!fs.existsSync(logoPath)) {
+        console.error(`❌ Logo file not found: ${logoPath}`);
+        process.exit(1);
+      }
+      
+      const result = await uploadLogo(logoPath);
+      console.log('\n✅ Logo uploaded and applied successfully!');
+      console.log(`   Image URN: ${result.imageUrn}`);
+      
+    } else {
+      console.log('Usage:');
+      console.log('  --get       Fetch current profile from LinkedIn');
+      console.log('  --preview   Preview what would be updated');
+      console.log('  --update    Update profile via API');
+      console.log('  --logo [path]  Upload logo (default: public/logo_150x150.png)');
     }
     
-  } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+  } catch (error) {
+    console.error(`\n❌ Error: ${error.message}`);
     
-    if (err.message.includes('403') || err.message.includes('ACCESS_DENIED')) {
-      console.log('\n💡 Tip: Make sure your app has rw_organization_admin scope');
-      console.log('   You may need to re-authenticate with: npm run auth');
+    if (error.message.includes('Not enough permissions')) {
+      console.log('\n💡 You need the "rw_organization_admin" scope.');
+      console.log('   Request "Community Management API" access at:');
+      console.log('   https://www.linkedin.com/developers/apps/228538213/products');
+      console.log('\n   After approval, re-run: npm run auth');
     }
     
     process.exit(1);

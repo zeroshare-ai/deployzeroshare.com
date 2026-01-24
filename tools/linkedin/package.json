@@ -15,6 +15,7 @@
     "profile:get": "node company-profile.js --get",
     "profile:preview": "node company-profile.js --preview",
     "profile:update": "node company-profile.js --update",
+    "profile:logo": "node company-profile.js --logo",
     "campaign:preview": "node campaign.js --dry-run",
     "campaign:create": "echo 'Use: node campaign.js --live (requires explicit authorization)'"
   },

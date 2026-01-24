@@ -41,6 +41,8 @@ export const config = {
     'w_member_social',           // Post as member
     'w_organization_social',     // Post as company page
     'r_organization_social',     // Read company page
+    'rw_organization_admin',     // Edit company page profile (Community Management API)
+    'r_organization_admin',      // Read company page admin data
     'rw_ads',                    // Manage ads
     'r_ads_reporting',           // Read ad analytics
   ],

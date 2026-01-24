@@ -46,8 +46,33 @@ Automation scripts for managing ZeroShare's LinkedIn presence.
 | **App ID** | 228538213 |
 | **Company Page ID** | 110457262 |
 | **Partner ID (Insight Tag)** | 519048716 |
-| **API Access** | Development Tier (5 posts/month) |
-| **Redirect URI** | `http://localhost:3001/callback` |
+| **API Access** | Default Tier (500 posts/day) |
+| **Redirect URI** | `http://localhost:8888/callback` |
+
+---
+
+## API Permissions
+
+### Current Scopes
+| Scope | Purpose | Status |
+|-------|---------|--------|
+| `w_organization_social` | Post as company page | ✅ Active |
+| `r_organization_social` | Read company posts | ✅ Active |
+| `rw_ads` | Manage ad campaigns | ✅ Active |
+| `r_ads_reporting` | Read ad analytics | ✅ Active |
+
+### Required for Full Automation
+| Scope | Purpose | Status |
+|-------|---------|--------|
+| `rw_organization_admin` | Edit company page profile | ⏳ Request |
+| `r_organization_admin` | Read company admin data | ⏳ Request |
+
+### How to Request Additional Permissions
+
+1. Go to: https://www.linkedin.com/developers/apps/228538213/products
+2. Find **"Community Management API"** 
+3. Click **"Request Access"**
+4. After approval, re-run: `npm run auth`
 
 ---
 
@@ -95,6 +120,47 @@ This will:
 1. Open your browser to LinkedIn authorization
 2. Ask you to grant permissions
 3. Save the access token to `.env`
+
+---
+
+## Company Page Profile Management
+
+### View Current Profile
+```bash
+npm run profile:get
+```
+
+### Preview Changes (what would be updated)
+```bash
+npm run profile:preview
+```
+
+### Update Profile via API
+```bash
+npm run profile:update
+```
+
+### Upload Logo
+```bash
+npm run profile:logo
+# Or specify path:
+npm run profile:logo /path/to/logo.png
+```
+
+### Fields Updated via API
+| Field | Via API | Notes |
+|-------|---------|-------|
+| Description | ✅ Yes | About section (2000 chars) |
+| Website | ✅ Yes | Company URL |
+| Specialties | ✅ Yes | Search keywords |
+| Staff count | ✅ Yes | Company size |
+| Industry | ✅ Yes | Industry category |
+| Logo | ✅ Yes | Company logo image |
+| Tagline | ❌ Manual | Must update in LinkedIn admin |
+| Cover image | ❌ Manual | Must update in LinkedIn admin |
+
+### Edit Profile Content
+Edit `company-profile.js` → `companyProfile` object, then run `npm run profile:update`.
 
 ---
 
