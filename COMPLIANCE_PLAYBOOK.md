@@ -7,37 +7,51 @@
 
 ---
 
-## DO THIS TODAY
+## CURRENT STATUS (Updated Jan 24, 2026)
 
-**Time needed: ~2 hours**
+### Completed
+- [x] Security Trust Page deployed at `/security`
+- [x] Container image built and pushed to ECR (`zeroshare-gateway:v1.0.0`)
+- [x] CI/CD pipeline configured (GitHub Actions + AWS OIDC)
+- [x] Release process documented
+- [x] AWS Seller Profile active (AUTOMATED MERCHANDISING, LLC / ZeroShare)
 
-### Step 1: Deploy Your Trust Page (5 min)
-Your security trust page is ready at `/security`. Commit and deploy:
-```bash
-git add app/security/
-git commit -m "Add security trust center page"
-git push
-```
+### Pending
+- [ ] AWS Payment Verification (support ticket open - passport docs submitted)
+- [ ] Fill out Marketplace product listing (blocked until verification)
+- [ ] Sign up for TrustCloud free tier
 
-### Step 2: Register for Free Compliance Platform (15 min)
-1. Go to https://trustcloud.ai
-2. Sign up for free tier
-3. Connect your GitHub repo
-4. Connect your AWS account
-5. You now have a "SOC 2 in progress" badge and trust portal
+### Blocked
+- [ ] Paid product listing (waiting for AWS payment verification)
 
-### Step 3: Start AWS Partner Registration (30 min)
-1. Go to https://partnercentral.awspartner.com
-2. Click "Join Now" 
-3. Complete company profile
-4. Select "Software Path"
-5. This is free and gets you access to Marketplace
+---
 
-### Step 4: Update Your Playbook Status (5 min)
-Come back here and check off what you completed.
+## DO NEXT
 
-**After today, you can tell customers:**
-> "We're SOC 2 in progress, view our trust portal at [trustcloud link]. We're an AWS Partner with Marketplace listing pending."
+### While Waiting for AWS Verification
+
+1. **Sign up for TrustCloud** (15 min)
+   - Go to https://trustcloud.ai
+   - Free tier gets you SOC 2 readiness tracking
+   - Connect GitHub and AWS for automated evidence
+
+2. **Test the Container Locally**
+   ```bash
+   cd ~/checkout/zeroshare-gateway
+   docker-compose up -d
+   curl http://localhost:8000/health
+   ```
+
+3. **Prepare Marketplace Screenshots**
+   - Dashboard view
+   - PII redaction example
+   - Configuration screen
+
+### When AWS Verification Clears
+
+1. Complete Marketplace product listing in AWS Console
+2. Submit for review
+3. Publish free tier immediately
 
 ---
 
@@ -454,6 +468,54 @@ Use this space to record important decisions and context:
 6. Request re-test
 
 ---
+
+---
+
+## Release Discipline
+
+> **Every requirement change triggers ALL of these. No exceptions.**
+
+### The Release Chain
+
+```
+PRD Change → Code (with tests) → Docs → Marketing → Content → Deploy
+```
+
+### Checklist for Every Release
+
+| Step | Required | Notes |
+|------|----------|-------|
+| **Tests** | All pass, 70%+ coverage | `pytest tests/ --cov-fail-under=70` |
+| **Documentation** | Updated | Manual must be perfect |
+| **Marketing** | Claims match PRD | No exaggerations |
+| **Content** | Release notes | Blog post if major |
+| **Deploy** | Staging → Production | Verify both |
+
+### Source of Truth
+
+| What | Where |
+|------|-------|
+| Product capabilities | `zeroshare-gateway/PRD.md` |
+| Marketing claims | Must reference PRD |
+| Release process | `zeroshare-gateway/RELEASE_PROCESS.md` |
+| Agent rules | `.cursor/rules/release-discipline.mdc` |
+
+### Verify Production
+
+```bash
+# Check ECR images
+aws ecr list-images --repository-name zeroshare-gateway
+
+# Check Marketplace status
+aws marketplace-catalog describe-entity \
+  --catalog AWSMarketplace \
+  --entity-id prod-p7etizzvknoge
+
+# Check seller status
+aws marketplace-catalog describe-entity \
+  --catalog AWSMarketplace \
+  --entity-id seller-4q3mn3dkihdg6
+```
 
 ---
 

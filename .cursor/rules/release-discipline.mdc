@@ -1,0 +1,137 @@
+# Release Discipline Rules
+
+> **These rules apply to ALL agents working on ZeroShare projects.**
+> **No exceptions. No cutting corners.**
+
+## The Golden Rule
+
+**Every requirement change triggers a cascade of updates:**
+
+```
+PRD Change → Code → Tests → Docs → Marketing → Content → Deploy
+```
+
+All of these MUST happen for EVERY requirement change.
+
+---
+
+## Mandatory Cascade
+
+When ANY requirement in `PRD.md` changes:
+
+### 1. Code Changes
+- [ ] Implement the feature/fix
+- [ ] Write tests (minimum 70% coverage on new code)
+- [ ] All existing tests must pass
+
+### 2. Documentation Updates
+- [ ] User manual must be updated
+- [ ] API docs if endpoints changed
+- [ ] Changelog entry required
+- [ ] README if setup changed
+
+### 3. Marketing Updates (`deployzeroshare.com`)
+- [ ] Features page if new capability
+- [ ] Claims must match PRD exactly
+- [ ] No exaggerated capabilities
+- [ ] Security/compliance page if relevant
+
+### 4. Content Generation
+- [ ] Release notes
+- [ ] Blog post for major features
+- [ ] Social media announcement
+
+### 5. Test Coverage
+- [ ] Unit tests for all new code
+- [ ] Integration tests if system behavior changed
+- [ ] Security tests if auth/data handling changed
+- [ ] E2E tests for user-facing features
+
+---
+
+## Cross-Project Coordination
+
+### Projects Affected by PRD Changes
+
+| PRD Section | Gateway Repo | Marketing Site | LinkedIn Tools |
+|-------------|--------------|----------------|----------------|
+| PII Detection | `backend/src/safety.py` | Features page | Content posts |
+| Secrets Blocking | `backend/src/safety.py` | Features page | Content posts |
+| RBAC/Auth | `backend/src/auth.py` | Security page | - |
+| Integrations | `backend/src/api/` | Docs page | Content posts |
+| Pricing | `marketplace/` | Pricing page | Content posts |
+
+### Source of Truth
+
+- **Product capabilities**: `zeroshare-gateway/PRD.md`
+- **Marketing claims**: Must reference PRD
+- **Documentation**: Must match actual code behavior
+
+---
+
+## Agent Instructions
+
+### When Making Code Changes
+
+1. First read `PRD.md` to understand the requirement
+2. Implement with tests
+3. Update `CHANGELOG.md`
+4. Check if marketing site needs updates
+5. Check if docs need updates
+
+### When Updating Marketing Site
+
+1. First read `PRD.md` to verify claims
+2. Never claim features not in PRD
+3. Use exact terminology from PRD
+4. Link to documentation
+
+### When Creating Content
+
+1. Reference actual features from PRD
+2. No invented capabilities
+3. Include version number if feature is new
+
+---
+
+## Pre-Release Checklist
+
+Before ANY release:
+
+```markdown
+## Code
+- [ ] All tests pass
+- [ ] Coverage >= 70%
+- [ ] No security vulnerabilities
+- [ ] PR reviewed and approved
+
+## Documentation
+- [ ] User manual current
+- [ ] API docs current
+- [ ] Changelog updated
+- [ ] Version bumped
+
+## Marketing
+- [ ] Website claims verified against PRD
+- [ ] New features reflected
+- [ ] No outdated information
+
+## Content
+- [ ] Release notes drafted
+- [ ] Blog post (if major)
+- [ ] Social announcement (if major)
+
+## Deploy
+- [ ] Staging verified
+- [ ] Production verified
+- [ ] Rollback plan ready
+```
+
+---
+
+## Remember
+
+1. **Documentation must be perfect** - Users depend on it
+2. **Tests are mandatory** - No exceptions
+3. **Marketing must be truthful** - Claims match capabilities
+4. **No cutting corners** - Quality over speed
