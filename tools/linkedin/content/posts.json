@@ -1,5 +1,95 @@
 [
   {
+    "type": "war-story",
+    "title": "The Samsung Incident",
+    "content": "A Samsung engineer had a bug.\n\nSo they did what any of us would do.\n\nThey pasted their source code into ChatGPT.\n\nThen another engineer pasted confidential meeting notes.\n\nThen another pasted proprietary test data.\n\nWithin 20 days, Samsung banned ChatGPT company-wide.\n\nThe kicker?\n\nNone of it was malicious.\n\nThey were just... trying to do their jobs faster.\n\nThat's the scary part.\n\nYour biggest data leak risk isn't a rogue employee.\n\nIt's your most productive one.\n\n#AISecurity #DataProtection #SecurityAwareness",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Relatable sympathy + unexpected villain (productivity)"
+  },
+  {
+    "type": "war-story",
+    "title": "The Google Search Console Leak",
+    "content": "November 2025.\n\nChatGPT conversations started appearing in Google Search Console.\n\nNot summaries.\nNot metadata.\nActual conversation logs.\n\nIncluding:\n→ Relationship advice sessions (awkward)\n→ Medical questions (HIPAA?)\n→ Business strategy discussions (yikes)\n\nOpenAI's response: \"We're investigating.\"\n\nYour board's question: \"Is OUR data in there?\"\n\nThe honest answer: \"We have no way to know.\"\n\nThis is why \"trust the AI company\" is not a security strategy.\n\n#AISecurity #DataPrivacy #CISO",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Current news + board-level fear"
+  },
+  {
+    "type": "stat-shock",
+    "title": "225,000 Credentials",
+    "content": "225,000 OpenAI credentials were found for sale on the dark web this year.\n\nNot hacked from OpenAI directly.\n\nStolen from employees via infostealer malware.\n\nHere's what that means:\n\nAttackers now have access to:\n→ Full conversation histories\n→ Every file ever uploaded\n→ Every API key ever pasted\n→ Every \"sensitive\" prompt ever typed\n\nYour employee's ChatGPT account is a treasure chest.\n\nAnd most companies have no idea who's using what account.\n\n67% of AI interactions happen on personal accounts.\n\nPersonal accounts = no SSO = no monitoring = no visibility.\n\nWhen the CISO asks \"who has access to our AI data\"...\n\nThe answer is usually \"we don't know.\"\n\nThat answer gets people fired.\n\n#AISecurity #CISO #Compliance",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Scary stat + career risk angle"
+  },
+  {
+    "type": "snarky-insight",
+    "title": "Personal Accounts Blind Spot",
+    "content": "IT Security: \"We monitor all AI usage.\"\n\nAlso IT Security: *can't see 67% of AI interactions because they're on personal accounts*\n\nThe personal account problem:\n\n→ Employee uses personal Gmail\n→ Signs into ChatGPT\n→ Pastes company source code\n→ Your DLP sees: \"employee visited openai.com\"\n→ What actually happened: trade secrets left the building\n\nThis is why JP Morgan banned ChatGPT.\n\nThis is why Goldman Sachs banned ChatGPT.\n\nThey couldn't see what their employees were sharing.\n\nSo they shut it down entirely.\n\nThe alternative: actually see what's being shared.\n\nEven on personal accounts.\nEven on personal devices.\nEven when employees \"forget\" to use the approved tool.\n\nProhibition didn't work for alcohol.\nIt doesn't work for AI either.\n\n#AISecurity #EnterpriseAI #CISO",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Expose false confidence + prohibition callback"
+  },
+  {
+    "type": "compliance-reality",
+    "title": "The 92% Problem",
+    "content": "92% of Fortune 500 companies use ChatGPT.\n\n54% of CISOs say generative AI poses a security risk.\n\nSo... 46% of CISOs are either:\na) Very confident in their controls\nb) Not paying attention\nc) About to have a bad quarter\n\nI've talked to dozens of security leaders.\n\nZero of them said \"we have this completely figured out.\"\n\nMost said some version of:\n\n\"We know there's risk. We're trying to quantify it. Our employees are moving faster than our policies.\"\n\nThat's the real state of enterprise AI security in 2026.\n\nNot \"solved.\"\nNot \"ignored.\"\n\nSomewhere in between, hoping nothing makes the news.\n\n#AISecurity #CISO #EnterpriseRisk",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Honest industry reality check"
+  },
+  {
+    "type": "training-angle",
+    "title": "Training Is Not Enough",
+    "content": "\"We trained our employees on AI security.\"\n\nGreat.\n\nDid you know:\n\n→ 77% of AI interactions still involve company data\n→ Even after security awareness training\n→ Even after signing acceptable use policies\n→ Even after the all-hands meeting with the scary slides\n\nTraining tells people what NOT to do.\n\nIt doesn't stop them from doing it at 11pm when they're trying to hit a deadline.\n\nYour most compliant employee will paste an API key into ChatGPT when they're stuck on a bug at midnight.\n\nNot because they forgot the training.\n\nBecause the training said \"be careful\" and they thought they were.\n\nTraining + monitoring = security.\n\nTraining alone = compliance theater.\n\n#AISecurity #SecurityAwareness #ComplianceManagement",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Training managers will share this"
+  },
+  {
+    "type": "executive-fear",
+    "title": "The Board Question",
+    "content": "There's a question coming to your next board meeting.\n\n\"What is our exposure from employee AI usage?\"\n\nHere are the acceptable answers:\n✓ \"We have visibility and it's X requests per day with Y% containing sensitive data\"\n✓ \"We've deployed controls that block sensitive data before it reaches AI\"\n✓ \"We've quantified the risk at $Z and here's our mitigation plan\"\n\nHere are the unacceptable answers:\n✗ \"We trust our employees\"\n✗ \"We have a policy\"\n✗ \"We're looking into it\"\n\nThe board doesn't want to hear about policies.\n\nThey want to see dashboards.\n\nBecause when the breach happens, \"we had a policy\" doesn't hold up in court.\n\n\"We had technical controls and audit logs\" does.\n\n#CISO #BoardRoom #EnterpriseRisk",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Direct career risk for CISOs"
+  },
+  {
+    "type": "relatable-moment",
+    "title": "The Slack Screenshot",
+    "content": "True story from a CISO friend:\n\nTheir security team found a Slack message.\n\nAn engineer had posted a screenshot.\n\nThe screenshot showed ChatGPT.\n\nThe ChatGPT prompt contained their AWS production credentials.\n\nThe engineer was asking for help with a Lambda function.\n\nThe screenshot was in a public Slack channel.\n\nWith 400+ people.\n\nAnd Slack's default retention setting.\n\nAnd automated backups to their data lake.\n\nSo now those credentials exist in:\n→ ChatGPT's systems\n→ Slack's systems\n→ Their data lake\n→ Their backup systems\n→ 400 people's screenshot caches\n\nFrom one person trying to debug a function.\n\nThis is why we can't have nice things.\n\n(They rotated the credentials. After I reminded them.)\n\n#AISecurity #DevSecOps #SecurityAwareness",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Real story, relatable horror, humor at end"
+  },
+  {
+    "type": "compliance-humor",
+    "title": "The Audit Question",
+    "content": "Auditor: \"Can you show me your AI acceptable use policy?\"\n\nCISO: *produces beautifully formatted 12-page PDF*\n\nAuditor: \"Great. Can you show me how you enforce it?\"\n\nCISO: \"We... trust our employees to follow it.\"\n\nAuditor: \"Can you show me audit logs of AI data flows?\"\n\nCISO: \"We don't have those.\"\n\nAuditor: \"Can you demonstrate that sensitive data isn't being shared with AI?\"\n\nCISO: \"Not exactly.\"\n\nAuditor: \"So you have a policy that you can't enforce or verify?\"\n\nCISO: \"It's a really nice PDF though.\"\n\n[This is how SOC 2 findings happen.]\n\n#Compliance #SOC2 #CISO",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Compliance humor, auditors will share"
+  },
+  {
+    "type": "ciso-confession",
+    "title": "What CISOs Say Privately",
+    "content": "What CISOs say in public:\n\"We have robust controls around AI usage.\"\n\nWhat CISOs say privately:\n\"We have no idea what's being shared. We're terrified. Please don't quote me.\"\n\nI've had this exact conversation 20+ times this year.\n\nThe gap between public confidence and private concern is massive.\n\nWhy?\n\n→ They can't admit uncertainty to the board\n→ They can't ban AI (business won't allow it)\n→ They can't monitor personal accounts (technically hard)\n→ They can't train their way out (employees forget)\n\nSo they do what they can: policy, prayer, and hoping.\n\nThe ones who sleep well at night?\n\nThey've deployed technical controls that work regardless of employee behavior.\n\nThat's the difference between \"hoping\" and \"knowing.\"\n\n#CISO #AISecurity #EnterpriseRisk",
+    "url": "https://deployzeroshare.com",
+    "generatedAt": "2026-01-24T03:03:44.469Z",
+    "status": "draft",
+    "viralAngle": "Insider truth, CISOs will share anonymously"
+  },
+  {
     "type": "poll",
     "title": "AI Memory Poll",
     "content": "How many times per day do you type \"I already gave you that\" to an AI?\n\nAsking because every re-share is another copy of your data in systems you don't control.\n\n🔴 0 times (you have better memory than me)\n🟠 1-3 times (normal)  \n🟡 4-10 times (concerning)\n🔵 Lost count (we should talk)\n\nThe average is 4.7x per conversation.\n\nThat's not forgetfulness. That's a data multiplication problem.\n\n#AISecurity #Poll",
@@ -32,7 +122,7 @@
     "status": "draft",
     "postedAt": null,
     "linkedinPostId": null,
-    "priority": "high",
+    "priority": "next",
     "viralAngle": "Relatable frustration pivot to security insight"
   },
   {
