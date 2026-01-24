@@ -17,7 +17,10 @@
     "profile:update": "node company-profile.js --update",
     "profile:logo": "node company-profile.js --logo",
     "campaign:preview": "node campaign.js --dry-run",
-    "campaign:create": "echo 'Use: node campaign.js --live (requires explicit authorization)'"
+    "campaign:create": "echo 'Use: node campaign.js --live (requires explicit authorization)'",
+    "content:audit": "node review-content.js --audit",
+    "content:score": "node review-content.js --score",
+    "content:sort": "node review-content.js --sort"
   },
   "dependencies": {
     "dotenv": "^16.3.1",

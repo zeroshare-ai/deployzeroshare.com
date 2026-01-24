@@ -119,3 +119,35 @@ When writing or editing blog content, ensure features mentioned actually exist i
 The `tools/` folder contains local automation scripts and should not be deployed:
 - Add to Amplify ignore if created
 - Keep LinkedIn credentials in `.env.local` only
+
+---
+
+## Content Quality Standards (LinkedIn & All Marketing)
+
+### Non-Negotiable Rules
+
+1. **Technical Accuracy**: All technical claims MUST be factually correct. Even in stories with fictional people, the technology must be perfectly described.
+
+2. **Verified Statistics Only**: Every percentage or number must have a named source:
+   - 65% shared sensitive data (Cyberhaven 2025)
+   - 67% on personal accounts (LayerX 2025)
+   - 77% involve company data (Cyera 2025)
+   - $4.45M breach cost (IBM 2023)
+
+3. **No Oversimplification**: Layman's terms must NOT sacrifice accuracy. "AI stores your data" ≠ "AI stores everything forever"
+
+4. **Viral Quality Bar**: Only publish content scoring 7+/10 on viral potential. See `tools/linkedin/CONTENT_STANDARDS.md`
+
+5. **Brand Tone**: Snarky but professional. Never mean, never fear-mongering. Target audience: CISOs, Compliance Managers, Engineering Leaders.
+
+### Content Commands
+```bash
+npm run content:audit   # Full quality audit
+npm run content:score   # Quick score summary
+npm run content:sort    # Sort by quality
+```
+
+### Future Vision
+- Phase 1: Awareness (current) - War stories, stats, education
+- Phase 2: Solution - ZeroShare deep-dives, case studies
+- Phase 3: Authority - AI Security Training & Certification SaaS
