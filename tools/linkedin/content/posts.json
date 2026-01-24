@@ -1,5 +1,41 @@
 [
   {
+    "type": "poll",
+    "title": "AI Memory Poll",
+    "content": "How many times per day do you type \"I already gave you that\" to an AI?\n\nAsking because every re-share is another copy of your data in systems you don't control.\n\n🔴 0 times (you have better memory than me)\n🟠 1-3 times (normal)  \n🟡 4-10 times (concerning)\n🔵 Lost count (we should talk)\n\nThe average is 4.7x per conversation.\n\nThat's not forgetfulness. That's a data multiplication problem.\n\n#AISecurity #Poll",
+    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
+    "generatedAt": "2026-01-24T02:58:45.185Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null,
+    "priority": "high",
+    "viralAngle": "Poll for engagement + education"
+  },
+  {
+    "type": "thought-leadership",
+    "title": "The Hidden Cost of AI Memory",
+    "content": "Unpopular opinion: AI's terrible memory is a feature, not a bug.\n\nHere's why that should terrify you:\n\nWhen you type \"I already gave you that API key\"...\n\nYou're about to give it again.\nTo a system that will log it.\nAgain.\n\nThe math:\n→ 100 developers\n→ 5 AI chats/day  \n→ 3 re-shares per chat\n→ 547,500 exposures per year\n\nJust from re-sharing what the AI \"forgot.\"\n\nAI companies benefit from stateless conversations:\n• Simpler infrastructure\n• Less liability  \n• More training data (that's you)\n\nYour security team pays the price.\n\nThe fix isn't better prompts.\n\nIt's intercepting sensitive data before it reaches AI.\n\nEvery. Single. Time.\n\nIncluding the 5th time someone pastes that API key.\n\nFull breakdown → link in comments\n\n#AISecurity #EnterpriseAI #CISO",
+    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
+    "generatedAt": "2026-01-24T02:58:45.185Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null,
+    "priority": "high",
+    "viralAngle": "Hot take + math + solution"
+  },
+  {
+    "type": "viral",
+    "title": "My Favorite Prompt",
+    "content": "My most-used prompt isn't \"make this better\" or \"explain like I'm 5.\"\n\nIt's: \"I already gave you that.\"\n\nEvery time you re-share that API key because the AI forgot...\n\nYou're creating another copy of your secrets in a system you don't control.\n\nThe average employee re-exposes sensitive data 4.7x per conversation.\n\nThat's not forgetfulness.\n\nThat's a security multiplication problem.\n\nThe AI doesn't remember.\nBut the logs do.\n\n#AISecurity #CISO #DataProtection",
+    "url": "https://deployzeroshare.com/resources/my-favorite-prompt",
+    "generatedAt": "2026-01-24T02:58:45.185Z",
+    "status": "draft",
+    "postedAt": null,
+    "linkedinPostId": null,
+    "priority": "high",
+    "viralAngle": "Relatable frustration pivot to security insight"
+  },
+  {
     "blogSlug": "prevent-pii-leaks-ai-chatbots",
     "blogTitle": "How to Prevent PII Leaks When Your Team Uses AI Chatbots",
     "category": "Security Best Practices",
