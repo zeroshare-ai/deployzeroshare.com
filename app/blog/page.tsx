@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import Link from 'next/link';
+import { comicPostsReleased } from './comic-posts-generated';
 
 // Blog posts with real research-backed content
 // Authors reflect natural team evolution - some consistent, some guest contributors, some departed
-const blogPosts = [
+const blogPostsStatic = [
   // January 2026
   {
     slug: 'prevent-pii-leaks-ai-chatbots',
@@ -496,7 +497,10 @@ const blogPosts = [
   },
 ];
 
-const categories = ['All', 'Security Best Practices', 'Compliance', 'Architecture', 'DevSecOps', 'Governance', 'Technology'];
+// Comics: release-date gated. Only episodes with releaseDate <= COMIC_RELEASE_AS_OF (prebuild) appear.
+const blogPosts = [...blogPostsStatic, ...comicPostsReleased];
+
+const categories = ['All', 'Security Best Practices', 'Compliance', 'Architecture', 'DevSecOps', 'Governance', 'Technology', 'Comics'];
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('All');

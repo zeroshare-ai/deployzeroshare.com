@@ -1,0 +1,301 @@
+{
+  "episodes": [
+    {
+      "number": 1,
+      "title": "First Day Back",
+      "slug": "the-gateway-episode-01-first-day-back",
+      "theme": "Introduction - Something's Off",
+      "releaseDate": "2026-01-30",
+      "linkedinHook": "It's Thursday at the office. Or is it Monday? Marcus can't quite remember.",
+      "linkedinCaption": "It's Thursday at the office. Or is it Monday? Marcus can't quite remember.\n\nSee what happens → https://deployzeroshare.com/blog/the-gateway-episode-01-first-day-back\n\n#AISecurity #DataProtection #CISO #OfficeLife",
+      "panel1": {
+        "description": "Photorealistic modern tech office, open floor plan. MARCUS THOMPSON (mid-30s, Black male, well-groomed, enthusiastic in crisp button-down) at his sales desk, confidently pasting customer information into ChatGPT on his large monitor. The screen clearly shows: 'Customer: John Smith, SSN: 452-XX-XXXX, Email: john@...' ChatGPT suddenly displays an error message. Marcus looks mildly confused.",
+        "dialogue": "Marcus (thought bubble): 'Huh. AI hates Mondays too.'",
+        "hiddenElements": "Wall calendar clearly shows 'THURSDAY'. Clock on wall shows exactly 9:47 AM. On a far desk, barely visible, a small purple logo glows on a monitor."
+      },
+      "panel2": {
+        "description": "Same office, different angle. ALEX CHEN (early 30s, Asian-American, wearing gray hoodie, round glasses, neutral expression, messy hair) and JORDAN MARTINEZ (late 20s, Latinx woman, button-down slightly untucked, multiple monitors showing dashboards with scrolling data) sit at adjacent desks. They exchange a knowing look without speaking. Alex has a coffee mug that's clearly full but untouched. Jordan's fingers hover over her keyboard.",
+        "dialogue": "No dialogue - just the look.",
+        "hiddenElements": "Jordan's main monitor shows 'GATEWAY STATUS: ACTIVE' in small text. Alex's secondary monitor shows scrolling logs with 'PII_BLOCKED' entries. The same 9:47 timestamp appears on their screen corners."
+      },
+      "panel3": {
+        "description": "Wide shot of the office. Marcus has shrugged and moved on to his next task, phone to ear, charming a customer. In the background, Alex sips his cold coffee (grimaces slightly at the temperature) while Jordan resumes typing rapidly. The office looks completely normal - other employees working, laughing, collaborating. But Alex and Jordan seem slightly apart from it all.",
+        "dialogue": "Alex (small text, under breath): 'It begins.'",
+        "hiddenElements": "The wall calendar still shows Thursday. Every visible clock shows 9:47. In the very corner of the panel, a motivational poster reads 'PROTECT WHAT MATTERS' with a subtle shield icon."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 2,
+      "title": "The Quick Fix",
+      "slug": "the-gateway-episode-02-the-quick-fix",
+      "theme": "Secrets Blocking - Developers",
+      "releaseDate": "2026-02-06",
+      "linkedinHook": "The new developer just discovered that Copilot 'doesn't like his code style.'",
+      "linkedinCaption": "The new developer just discovered that Copilot 'doesn't like his code style.'\n\nSee what really happened → https://deployzeroshare.com/blog/the-gateway-episode-02-the-quick-fix\n\n#AISecurity #DevSecOps #CodingLife #Thursday",
+      "panel1": {
+        "description": "Developer area of the same office. A YOUNG DEVELOPER (early 20s, eager expression, hoodie, energy drink on desk) is pasting code into GitHub Copilot. The code clearly shows AWS credentials: 'aws_access_key_id = AKIAIOSFODNN7EXAMPLE'. Copilot displays an unhelpful error. The developer looks frustrated, running hands through hair.",
+        "dialogue": "Developer: 'Ugh, Copilot doesn't like my code style.'",
+        "hiddenElements": "Thursday calendar visible. Clock: 9:47 AM. In background, Jordan's head is turned toward the developer area, though she appears to be typing."
+      },
+      "panel2": {
+        "description": "Close-up on Jordan's workstation. Her screen shows a security dashboard with a fresh alert: 'AWS_KEY DETECTED - BLOCKED - Source: Dev-Workstation-7'. She dismisses it with a single keypress, expression unchanged. Alex watches from his peripheral vision, coffee mug in hand (still full, visibly cold with no steam).",
+        "dialogue": "Jordan (deadpan): 'Yeah. That's probably it.'",
+        "hiddenElements": "Dashboard shows 'KEYS_BLOCKED TODAY: 47'. Previous alerts scroll by: 'OPENAI_KEY', 'GITHUB_TOKEN', 'DB_PASSWORD'."
+      },
+      "panel3": {
+        "description": "The developer has given up on pasting the full code, now typing manually instead. He looks annoyed but continues working. In the background, Alex and Jordan have returned to their normal positions. Alex takes a sip of coffee, makes a subtle face (it's cold). Jordan types steadily.",
+        "dialogue": "Developer (muttering): 'Guess I'll do it the hard way.'\nAlex (barely audible, small text): 'The safe way.'",
+        "hiddenElements": "Developer's screen now shows code WITHOUT credentials. The clock still reads 9:47. A small 'Gateway' icon pulses green in Jordan's system tray."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 3,
+      "title": "Customer Service",
+      "slug": "the-gateway-episode-03-customer-service",
+      "theme": "PII Redaction - Support",
+      "releaseDate": "2026-02-13",
+      "linkedinHook": "Lisa's getting really good at AI prompting. Or so she thinks.",
+      "linkedinCaption": "Lisa's getting really good at AI prompting. Or so she thinks.\n\nThe truth → https://deployzeroshare.com/blog/the-gateway-episode-03-customer-service\n\n#CustomerService #AISecurity #WorkplaceComedy #Thursday",
+      "panel1": {
+        "description": "Support area of the office. LISA PARK (late 20s, Asian-American, friendly face, headset around neck, warm smile) is at her desk with multiple customer tickets open. She's pasting a customer email into an AI assistant. The visible text shows: 'Dear Support, My name is Sarah Johnson, email sarah.j@email.com, my account #445-223-1890 has been...' The AI is generating a response.",
+        "dialogue": "Lisa (pleased expression): 'Let me help you draft a response...'",
+        "hiddenElements": "Calendar: Thursday. Clock: 9:47 AM. The AI response being generated is notably clean - no customer PII visible in the output."
+      },
+      "panel2": {
+        "description": "Lisa's screen showing the AI-generated response. It's helpful, empathetic, professional - but every piece of PII has been subtly replaced with placeholders like '[Customer Name]' and '[Account Number]'. Lisa doesn't notice the replacements; she's already editing the tone. In the background, we see Alex's monitor with real-time redaction logs scrolling.",
+        "dialogue": "Lisa: 'Wow, I'm getting really good at this!'",
+        "hiddenElements": "Alex's screen shows: 'PII_REDACTED: sarah.j@email.com → [EMAIL]', 'PII_REDACTED: 445-223-1890 → [ACCOUNT]'. Count: 'REDACTIONS_TODAY: 847'."
+      },
+      "panel3": {
+        "description": "Lisa sends her response, looking satisfied. She moves to the next ticket with confidence. Alex watches from his desk, coffee mug in hand (no steam, clearly cold). His expression is neutral but there's a hint of something - protectiveness? Jordan types without looking up, but there's a small, almost imperceptible smile.",
+        "dialogue": "Alex (quiet, almost to himself): 'You have no idea.'",
+        "hiddenElements": "Lisa's sent response is visible - completely PII-free. The 'Gateway Active' indicator glows steady on Jordan's screen. Clock: still 9:47."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 4,
+      "title": "The Big Deal",
+      "slug": "the-gateway-episode-04-the-big-deal",
+      "theme": "Sales Data Protection",
+      "releaseDate": "2026-02-20",
+      "linkedinHook": "Marcus just closed a $2M deal. He credits AI. But who really saved it?",
+      "linkedinCaption": "Marcus just closed a $2M deal. He credits AI. But who really saved it?\n\nFind out → https://deployzeroshare.com/blog/the-gateway-episode-04-the-big-deal\n\n#Sales #AISecurity #B2B #Thursday",
+      "panel1": {
+        "description": "Sales floor celebration. MARCUS stands triumphant, phone in hand, colleagues congratulating him. Visible on his large monitor behind him: ChatGPT with a pasted contract showing 'Acme Corp - $2.5M - Contact: CEO John Smith - Terms: 30% upfront, payment schedule...' MIKE RODRIGUEZ (Sales Director, late 30s, high-energy, sleeves rolled up) slaps Marcus's back.",
+        "dialogue": "Mike: 'How'd you draft that closing email so fast?'\nMarcus: 'AI is amazing when you know how to prompt it.'",
+        "hiddenElements": "The ChatGPT screen shows an error state - the paste didn't actually work. Marcus didn't notice because he got distracted by the celebration."
+      },
+      "panel2": {
+        "description": "Cut to Jordan's desk. Her screen shows an urgent alert cascade: 'CONTRACT_BLOCKED - Source: Sales-Marcus - PII_COUNT: 127 - FINANCIAL_DATA: DETECTED - CLIENT_CONFIDENTIAL: BLOCKED'. She dismisses each alert rapidly, expression unchanging. Alex has stopped mid-sip of his cold coffee, watching the alerts scroll.",
+        "dialogue": "Jordan (typing rapidly, monotone): 'One twenty-seven.'",
+        "hiddenElements": "The PII list scrolls: 'CEO_NAME', 'BANK_DETAILS', 'PRICING_TERMS', 'INTERNAL_MARGIN'... Alex's coffee has clearly been sitting there untouched; there's a coffee ring stain on a paper beneath it."
+      },
+      "panel3": {
+        "description": "Wide shot: Marcus celebrating in foreground, accepting congratulations. Deep in background, barely visible, Alex and Jordan at their desks - Jordan still typing, Alex staring at his cold coffee. The celebration continues around them. They are islands of stillness in the chaos.",
+        "dialogue": "Marcus (distant): 'Couldn't have done it without AI!'\nAlex (small text, to Jordan): 'Couldn't have done it WITH AI either.'",
+        "hiddenElements": "Clock: 9:47. Calendar: Thursday. Jordan's block count now reads: 12,974 TOTAL. A tiny '127' appears in red, fading."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 5,
+      "title": "Creative Direction",
+      "slug": "the-gateway-episode-05-creative-direction",
+      "theme": "Marketing Content Protection",
+      "releaseDate": "2026-02-27",
+      "linkedinHook": "Tom's AI-generated campaign is perfect. Suspiciously perfect.",
+      "linkedinCaption": "Tom's AI-generated campaign is perfect. Suspiciously perfect.\n\nSee why → https://deployzeroshare.com/blog/the-gateway-episode-05-creative-direction\n\n#Marketing #AI #ContentCreation #Thursday",
+      "panel1": {
+        "description": "Marketing area. TOM WILSON (Marketing Director, mid-30s, creative-casual style, company hoodie, surrounded by mood boards and campaign mockups) presents at his standing desk. His screen shows a sleek campaign with customer testimonials. He's beaming, gesturing at the AI-generated content.",
+        "dialogue": "Tom: 'Look at this! The AI totally gets our brand voice!'",
+        "hiddenElements": "The testimonials on screen show names like '[Customer A]' and '[Beta User]' - no real names or emails. Tom doesn't notice. Reflection in his glasses shows a brief purple flash."
+      },
+      "panel2": {
+        "description": "Close-up of what Tom actually pasted into AI: 'Use these real customer quotes: John Smith (john.smith@acme.com) said \"ZeroShare saved us...\" Sarah Jones (555-0123) mentioned...' But the output has all PII stripped. Tom scrolls through, oblivious, making small edits to tone.",
+        "dialogue": "Tom (narrating his edit): 'Just tweaking the CTA...'",
+        "hiddenElements": "Split screen showing Jordan's view - her dashboard reads: 'CONTENT_SANITIZATION: Marketing-Tom - PII_STRIPPED: 23 - EMAILS: 8 - PHONES: 3 - NAMES: 12'."
+      },
+      "panel3": {
+        "description": "Tom saves his campaign, satisfied. Colleagues give thumbs up. In far background, Alex watches with an expression that might almost be amusement. He raises his cold coffee in a tiny, ironic toast that no one sees. Jordan continues typing, the ghost of a smirk on her face.",
+        "dialogue": "Alex (quiet, looking at his coffee): 'Really captures the essence.'\nJordan (not looking up): 'Of what?'\nAlex: 'Safety.'",
+        "hiddenElements": "The ZeroShare logo is now visible - subtly - on Jordan's monitor wallpaper. Clock: 9:47. Thursday calendar. Tom's original paste is gone forever."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 6,
+      "title": "The All-Hands",
+      "slug": "the-gateway-episode-06-the-all-hands",
+      "theme": "AI-First Strategy Announcement",
+      "releaseDate": "2026-03-06",
+      "linkedinHook": "The CEO announces the AI-first strategy. The engineers don't react. At all.",
+      "linkedinCaption": "The CEO announces the AI-first strategy. The engineers don't react. At all.\n\nWatch → https://deployzeroshare.com/blog/the-gateway-episode-06-the-all-hands\n\n#Leadership #AIStrategy #Tech #Thursday",
+      "panel1": {
+        "description": "All-hands meeting in a large conference room. DAVID CHEN (CEO, 40s, confident, well-dressed but approachable, standing at podium with slides behind him showing 'AI-FIRST: OUR FUTURE'). Employees fill rows of chairs, attentive. RACHEL FOSTER (CISO, early 40s, professional blazer, tablet in hand, visibly tense) sits in the front row.",
+        "dialogue": "David: 'Starting today, we're going AI-first. This will change EVERYTHING.'",
+        "hiddenElements": "In the back row: Alex and Jordan sit apart from the crowd. Their expressions are completely neutral - no excitement, no concern. Just... watching."
+      },
+      "panel2": {
+        "description": "Reaction shots. Most employees look excited, nodding. Rachel looks nervous, making notes. Marketing Tom looks thrilled. Sales Marcus is already on his phone, probably telling a client. But in the back: Alex takes a sip of his cold coffee (tiny grimace). Jordan hasn't stopped typing on her laptop - she brought it to the meeting.",
+        "dialogue": "Rachel (thought bubble, worried): 'The security implications...'\nEmployee nearby (whispering excitedly): 'This is huge!'",
+        "hiddenElements": "Jordan's laptop screen shows Gateway stats continuing to update in real-time. Alex's phone shows a text from Jordan: 'Already handled.' He doesn't respond."
+      },
+      "panel3": {
+        "description": "David concludes with arms spread wide, triumphant. Applause throughout the room. Rachel claps politely but looks at her tablet (listing security concerns). In the very back, Alex and Jordan remain seated while everyone stands to applaud. They exchange a look - not smug, not worried. Just... knowing.",
+        "dialogue": "David: 'Our AI future starts TODAY!'\nAlex (under his breath, tiny text): 'It already has.'\nJordan (equally quiet): 'Three years ago.'",
+        "hiddenElements": "The slide behind David shows logos of AI tools - ChatGPT, Claude, Copilot. Unnoticed: each one has a tiny, barely visible shield overlay (Gateway). Clock: 9:47. Date: Thursday."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 7,
+      "title": "Security Review",
+      "slug": "the-gateway-episode-07-security-review",
+      "theme": "CISO's Concerns Already Solved",
+      "releaseDate": "2026-03-13",
+      "linkedinHook": "The CISO lists every AI security threat. The engineers have already blocked them all.",
+      "linkedinCaption": "The CISO lists every AI security threat. The engineers have already blocked them all.\n\nSee the list → https://deployzeroshare.com/blog/the-gateway-episode-07-security-review\n\n#InfoSec #CISO #RiskManagement #Thursday",
+      "panel1": {
+        "description": "Small conference room. Rachel presents to a leadership team including David. Her slides show: 'AI SECURITY RISKS: 1. PII Leakage 2. Credential Exposure 3. IP Theft 4. Compliance Violations'. She looks serious, pointing at each risk. David nods thoughtfully.",
+        "dialogue": "Rachel: 'These threats are REAL. We need to implement controls BEFORE—'",
+        "hiddenElements": "Through the glass wall of the conference room, we can see Alex at his desk. His monitor shows the same list - but each item has a green checkmark and 'MITIGATED' status."
+      },
+      "panel2": {
+        "description": "Rachel's slide shows 'PROPOSED TIMELINE: 6-month implementation'. She's explaining the complexity. David looks concerned about the timeline. Other leaders are taking notes. Meanwhile, visible through the glass: Jordan's dashboard shows CURRENT status - all threats listed are showing 'ACTIVE PROTECTION' in green.",
+        "dialogue": "Rachel: 'We'll need to evaluate vendors, pilot solutions—'\nDavid: 'Six months? Can we move faster?'",
+        "hiddenElements": "Jordan's screen shows: 'THREAT_COVERAGE: 100%' and 'ACTIVE_SINCE: 1,127 days'. She's not even watching the meeting; she's handling an alert."
+      },
+      "panel3": {
+        "description": "Meeting ends. Rachel walks out looking stressed, tablet clutched to chest. She passes Alex's desk, doesn't stop. Alex watches her go, expression unreadable. His monitor still shows the 'MITIGATED' list. Jordan catches his eye, raises an eyebrow fractionally.",
+        "dialogue": "Jordan (quiet): 'Should we tell her?'\nAlex (equally quiet): 'Tell her what? That the problems she's worried about were solved before she worried about them?'\nJordan: 'Good thinking.'",
+        "hiddenElements": "Alex's block counter visible: '12,847 PREVENTED' in small text. Clock: 9:47. Rachel's reflection shows her phone screen - she's googling 'AI security solutions'."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 8,
+      "title": "The Intern",
+      "slug": "the-gateway-episode-08-the-intern",
+      "theme": "New Generation Protected",
+      "releaseDate": "2026-03-20",
+      "linkedinHook": "New intern: 'Why won't this paste?' Alex: 'Huh.'",
+      "linkedinCaption": "New intern: 'Why won't this paste?'\nAlex: 'Huh.'\n\nThe explanation they didn't give → https://deployzeroshare.com/blog/the-gateway-episode-08-the-intern\n\n#Internship #Tech #MentorMoments #Thursday",
+      "panel1": {
+        "description": "Engineering area. A NEW INTERN (college-age, enthusiastic, laptop covered in stickers) approaches Alex's desk with a confused expression. Their laptop shows a failed paste attempt into an AI coding assistant. The paste contained what looks like database credentials. Alex looks up from his monitor, coffee in hand.",
+        "dialogue": "Intern: 'Hey, um, Alex? Can you help? I'm trying to use AI to help debug but it won't let me paste my code.'",
+        "hiddenElements": "Alex's screen shows a fresh alert: 'DB_CREDENTIALS_BLOCKED - Intern_Workstation'. He minimizes it before turning to face the intern."
+      },
+      "panel2": {
+        "description": "Alex stands, walks to intern's desk (coffee comes with him). He looks at their screen without touching anything. The failed paste is visible - 'CONNECTION_STRING=postgresql://admin:supersecret@prod-db...' The AI shows an error. Alex's expression remains completely neutral.",
+        "dialogue": "Alex: 'What are you trying to paste?'\nIntern: 'Just my code. To ask about the bug.'\nAlex: 'What's IN the code?'\nIntern (confused): 'Just... config stuff?'",
+        "hiddenElements": "Jordan watches from her desk, fingers paused over keyboard. Her screen shows the intern's blocked attempt in real-time. She's ready to intervene if needed."
+      },
+      "panel3": {
+        "description": "Alex gently points at a specific line on the intern's screen - the database password. The intern's eyes go wide with realization. Alex doesn't lecture, doesn't explain, just points. Then he walks back to his desk, sipping his cold coffee.",
+        "dialogue": "Alex (walking away): 'Be careful what you paste. Anything real.'\nIntern (calling after, embarrassed): 'Thanks!'\nAlex (already back at desk): 'Huh.'",
+        "hiddenElements": "The intern's next paste attempt is clean - no credentials. Alex's 'Huh.' is his signature. Jordan adds a note: 'INTERN_LEARNING: TRUE'. Clock: 9:47. Thursday."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Free Trial →"
+    },
+    {
+      "number": 15,
+      "title": "The Truth",
+      "slug": "the-gateway-episode-15-the-truth",
+      "theme": "THE REVEAL - Engineers Admit Protection",
+      "releaseDate": "2026-05-08",
+      "linkedinHook": "They finally said it out loud. 'Because we won't let it.'",
+      "linkedinCaption": "They finally said it out loud.\n\n'Because we won't let it.'\n\nThe reveal → https://deployzeroshare.com/blog/the-gateway-episode-15-the-truth\n\n#AISecurity #BigReveal #Thursday",
+      "panel1": {
+        "description": "Open office. Someone (FRUSTRATED EMPLOYEE - could be anyone, generic professional) stands at their desk, clicking angrily. They've tried to paste sensitive data multiple times. Each attempt fails. Coworkers are starting to notice the frustration. The employee's screen shows repeated error messages from AI tools.",
+        "dialogue": "Frustrated Employee: 'WHY. WON'T. THIS. WORK?!'",
+        "hiddenElements": "In background: multiple employees are watching. Alex has set down his coffee. Jordan has stopped typing for the first time in 14 episodes."
+      },
+      "panel2": {
+        "description": "Everyone is looking at the frustrated employee, then at each other, confused. But one by one, eyes drift to Alex and Jordan's corner of the office. The engineers are standing now - the first time they've both stood for something social. Their screens behind them show scrolling data - logs, dashboards, block counts. The Gateway interface is finally visible to others.",
+        "dialogue": "Frustrated Employee: 'Does anyone know why AI never works with sensitive data?'\nSilence.\nSomeone else: '...Alex? Jordan?'",
+        "hiddenElements": "The Gateway dashboard is fully visible for the first time: 'TOTAL PROTECTED: 2,341,847 ATTEMPTS'. The logo is clear. The block count is massive."
+      },
+      "panel3": {
+        "description": "Alex and Jordan stand side by side. Alex sets down his cold coffee. Jordan's hands are still for the first time. They look at the room - at all the people they've been silently protecting. The moment stretches. Then, finally, Alex speaks. Jordan follows.",
+        "dialogue": "Alex (calm, quiet, final): 'Because we won't let it.'\nLong pause.\nJordan: 'We never have.'",
+        "hiddenElements": "Clock: 9:47. Calendar: Thursday. But now everyone can see it. Everyone can see everything. The Gateway has been running since before Episode 1. The counter shows: 'PROTECTING SINCE: Day 1'."
+      },
+      "ctaHeadline": "Protect your team like Alex and Jordan.",
+      "ctaBody": "ZeroShare Gateway has been blocking threats since Day 1. Now it's your turn.",
+      "ctaPricing": "Free for 5 users · $499/mo · 14-day trial",
+      "ctaButton": "Start Protecting →"
+    },
+    {
+      "number": 34,
+      "title": "The Thursday",
+      "slug": "the-gateway-episode-34-the-thursday",
+      "theme": "FINALE - Always Protecting",
+      "releaseDate": "2026-09-24",
+      "linkedinHook": "Final episode. Nothing has changed. Everything is different.",
+      "linkedinCaption": "Final episode of The Gateway.\n\nNothing has changed. Everything is different.\n\nThank you for watching. → https://deployzeroshare.com/blog/the-gateway-episode-34-the-thursday\n\n#TheGateway #Finale #AISecurity #Thursday",
+      "panel1": {
+        "description": "Normal Thursday morning. The office looks exactly like Episode 1. Marcus pastes something into ChatGPT - it gets blocked. He shrugs, doesn't question it anymore. Lisa's AI responses come back sanitized - she smiles at the 'helpful' output. Tom's campaign generates clean. Everyone works happily, productively, safely.",
+        "dialogue": "Marcus (casual): 'AI's being picky again.'\nLisa (content): 'Mine's working great!'",
+        "hiddenElements": "Same clock: 9:47. Same calendar: Thursday. Same office. But now we see tiny '✓ Protected' indicators near everyone's desk."
+      },
+      "panel2": {
+        "description": "Alex at his desk. Coffee mug in hand - still full, still cold (it's always cold). Jordan at her desk, typing (she's always typing). They're in their usual spots, doing their usual things. The Gateway dashboard glows steadily: 'ALL SYSTEMS NOMINAL'. The block counter is now over 10 million.",
+        "dialogue": "Intern (walking by, casual): 'You guys are always here on Thursdays.'\nAlex (not looking up): 'Is it Thursday?'",
+        "hiddenElements": "Jordan's screen shows: 'PROTECTED TODAY: 47,281'. Alex's coffee ring stain on the paper is visible - same stain from Episode 1."
+      },
+      "panel3": {
+        "description": "Final panel. Wide shot of the entire office. Everyone working, living their lives, using AI safely without knowing they're being protected. In the corner, Alex and Jordan at their desks - small figures in a big office, doing the work that keeps everyone safe. For the first time in 34 episodes, they both smile. Small smiles. Knowing smiles.",
+        "dialogue": "Jordan (small text, smiling): 'It's always Thursday.'\nAlex (matching small smile): 'Always.'",
+        "hiddenElements": "Bottom corner text: 'Gateway Active. Protecting: All.' The final easter egg: if you look at every Episode 1 panel again, the protection was ALWAYS visible. You just didn't know what to look for."
+      },
+      "ctaHeadline": "Thank you for watching The Gateway.",
+      "ctaBody": "Alex and Jordan protected everyone for 34 weeks. Now they can protect your team too.",
+      "ctaPricing": "Start free. $499/mo for full protection. Always Thursday.",
+      "ctaButton": "Start Your Thursday →"
+    }
+  ],
+  "seriesInfo": {
+    "title": "The Gateway",
+    "subtitle": "An AI Security Office Comedy",
+    "description": "Two engineers protect their entire organization from AI data leaks. Dry humor. Silent heroism. Hidden twists. Every Thursday.",
+    "totalEpisodes": 34,
+    "postingSchedule": "Every Thursday 8 AM ET",
+    "startDate": "2026-01-30",
+    "revealEpisode": 15,
+    "awsMarketplaceUrl": "https://aws.amazon.com/marketplace/pp/prodview-zeroshare",
+    "blogBaseUrl": "https://deployzeroshare.com/blog",
+    "ctaBlock": {
+      "headline": "Protect your team like Alex and Jordan.",
+      "body": "ZeroShare Gateway blocks PII and secrets before they leak to AI.",
+      "pricing": "Free for 5 users · $499/mo · 14-day trial",
+      "button": "Start Free Trial →"
+    }
+  }
+}

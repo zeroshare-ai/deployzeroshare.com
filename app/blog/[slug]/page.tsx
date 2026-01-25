@@ -1,57 +1,65 @@
 import { Navigation } from '../../components/Navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ComicCTA } from '../../components/ComicCTA';
+import { comicContentReleased } from '../comic-content-generated';
 
-// Generate static params for all blog posts at build time
+const STATIC_SLUGS = [
+  // January 2026
+  'prevent-pii-leaks-ai-chatbots',
+  'ai-security-compliance-guide-2026',
+  'zero-trust-ai-architecture',
+  'secrets-detection-ai-code-assistants',
+  'enterprise-ai-governance-framework',
+  'ai-proxy-gateway-explained',
+  // December 2025
+  'shadow-ai-670k-breach-cost',
+  'hipaa-ai-requirements-2026',
+  'ai-dlp-architecture-patterns',
+  'secure-cicd-ai-assistants',
+  'ai-acceptable-use-policy-template',
+  'llm-security-fundamentals',
+  // November 2025
+  'chatgpt-enterprise-security-review',
+  'soc2-ai-controls-guide',
+  'microservices-ai-gateway-integration',
+  'github-copilot-security-settings',
+  'ai-risk-register-template',
+  'prompt-injection-attacks-explained',
+  // October 2025
+  'ai-security-budget-justification',
+  'gdpr-ai-processing-requirements',
+  'high-availability-ai-gateway',
+  'pre-commit-hooks-ai-secrets',
+  'ai-vendor-assessment-checklist',
+  'vector-database-security',
+  // September 2025
+  'executive-ai-security-briefing',
+  'eu-ai-act-compliance-timeline',
+  'kubernetes-ai-gateway-deployment',
+  'terraform-ai-security-modules',
+  'ai-incident-response-playbook',
+  'openai-api-security-best-practices',
+  // August 2025
+  'ai-phishing-detection-evasion',
+  'financial-services-ai-regulations',
+  'multi-tenant-ai-gateway-design',
+  'cursor-ide-security-configuration',
+  'ai-third-party-risk-management',
+  // July 2025
+  'anthropic-claude-enterprise-security',
+  'ai-red-team-exercises',
+  'state-privacy-laws-ai-implications',
+  'edge-ai-security-considerations',
+  'aws-bedrock-security-guide',
+];
+
+// Generate static params for all blog posts at build time. Comics: only released (prebuild) slugs.
 export function generateStaticParams() {
+  const comicSlugs = Object.keys(comicContentReleased);
   return [
-    // January 2026
-    { slug: 'prevent-pii-leaks-ai-chatbots' },
-    { slug: 'ai-security-compliance-guide-2026' },
-    { slug: 'zero-trust-ai-architecture' },
-    { slug: 'secrets-detection-ai-code-assistants' },
-    { slug: 'enterprise-ai-governance-framework' },
-    { slug: 'ai-proxy-gateway-explained' },
-    // December 2025
-    { slug: 'shadow-ai-670k-breach-cost' },
-    { slug: 'hipaa-ai-requirements-2026' },
-    { slug: 'ai-dlp-architecture-patterns' },
-    { slug: 'secure-cicd-ai-assistants' },
-    { slug: 'ai-acceptable-use-policy-template' },
-    { slug: 'llm-security-fundamentals' },
-    // November 2025
-    { slug: 'chatgpt-enterprise-security-review' },
-    { slug: 'soc2-ai-controls-guide' },
-    { slug: 'microservices-ai-gateway-integration' },
-    { slug: 'github-copilot-security-settings' },
-    { slug: 'ai-risk-register-template' },
-    { slug: 'prompt-injection-attacks-explained' },
-    // October 2025
-    { slug: 'ai-security-budget-justification' },
-    { slug: 'gdpr-ai-processing-requirements' },
-    { slug: 'high-availability-ai-gateway' },
-    { slug: 'pre-commit-hooks-ai-secrets' },
-    { slug: 'ai-vendor-assessment-checklist' },
-    { slug: 'vector-database-security' },
-    // September 2025
-    { slug: 'executive-ai-security-briefing' },
-    { slug: 'eu-ai-act-compliance-timeline' },
-    { slug: 'kubernetes-ai-gateway-deployment' },
-    { slug: 'terraform-ai-security-modules' },
-    { slug: 'ai-incident-response-playbook' },
-    { slug: 'openai-api-security-best-practices' },
-    // August 2025
-    { slug: 'ai-phishing-detection-evasion' },
-    { slug: 'financial-services-ai-regulations' },
-    { slug: 'multi-tenant-ai-gateway-design' },
-    { slug: 'cursor-ide-security-configuration' },
-    { slug: 'ai-third-party-risk-management' },
-    // July 2025
-    { slug: 'anthropic-claude-enterprise-security' },
-    { slug: 'ai-red-team-exercises' },
-    { slug: 'state-privacy-laws-ai-implications' },
-    { slug: 'edge-ai-security-considerations' },
-    { slug: 'aws-bedrock-security-guide' },
+    ...STATIC_SLUGS.map((slug) => ({ slug })),
+    ...comicSlugs.map((slug) => ({ slug })),
   ];
 }
 
@@ -3736,11 +3744,14 @@ Amazon Bedrock provides managed AI services, but security is still your responsi
 
 AWS Bedrock simplifies AI deployment but requires the same security diligence as any AWS service.
     `
-  }
+  },
 };
 
+// Comics: release-date gated. Merged from comic-content-generated (prebuild).
+const blogContentAll = { ...blogContent, ...comicContentReleased };
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogContent[params.slug];
+  const post = blogContentAll[params.slug];
   if (!post) {
     return { title: 'Article Not Found' };
   }
@@ -3759,7 +3770,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     'secure-cicd-ai-assistants': '/images/blog/blog-cicd-security.png',
   };
   
-  const ogImage = imageMap[params.slug] || '/og-image.png';
+  const comicMatch = params.slug.match(/^the-gateway-episode-(\d{2})-/);
+const ogImage = imageMap[params.slug]
+  || (comicMatch ? `/images/comics/comic-episode-${comicMatch[1]}.png` : '/og-image.png');
   const canonicalUrl = `https://deployzeroshare.com/blog/${params.slug}`;
   
   return {
@@ -3795,7 +3808,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogContent[params.slug];
+  const post = blogContentAll[params.slug];
 
   if (!post) {
     return (
@@ -4044,40 +4057,44 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         )}
 
         {/* CTA */}
-        <div style={{
-          marginTop: '3rem',
-          paddingTop: '2rem',
-          borderTop: '1px solid #e9ecef'
-        }}>
+        {post.category === 'Comics' ? (
+          <ComicCTA />
+        ) : (
           <div style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            borderRadius: '20px',
-            padding: '2.5rem',
-            textAlign: 'center',
-            color: 'white'
+            marginTop: '3rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid #e9ecef'
           }}>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>
-              Ready to Protect Your AI Data?
-            </h3>
-            <p style={{ opacity: 0.9, marginBottom: '1.5rem', fontSize: '1.05rem' }}>
-              See how ZeroShare Gateway can help your organization use AI safely.
-            </p>
-            <Link
-              href="/contact-us"
-              style={{
-                display: 'inline-block',
-                background: 'white',
-                color: '#667eea',
-                padding: '14px 32px',
-                borderRadius: '12px',
-                fontWeight: 700,
-                textDecoration: 'none'
-              }}
-            >
-              Get a Free Demo →
-            </Link>
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: '20px',
+              padding: '2.5rem',
+              textAlign: 'center',
+              color: 'white'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>
+                Ready to Protect Your AI Data?
+              </h3>
+              <p style={{ opacity: 0.9, marginBottom: '1.5rem', fontSize: '1.05rem' }}>
+                See how ZeroShare Gateway can help your organization use AI safely.
+              </p>
+              <Link
+                href="/contact-us"
+                style={{
+                  display: 'inline-block',
+                  background: 'white',
+                  color: '#667eea',
+                  padding: '14px 32px',
+                  borderRadius: '12px',
+                  fontWeight: 700,
+                  textDecoration: 'none'
+                }}
+              >
+                Get a Free Demo →
+              </Link>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Editorial Note */}
         <div style={{

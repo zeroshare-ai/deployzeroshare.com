@@ -1,0 +1,69 @@
+# "The Gateway" comic — Thursday release
+# Runs weekly Thursday 8 AM ET: trigger Amplify deploy, then post that week's episode to LinkedIn.
+# Blog posts go live only on release day (COMIC_RELEASE_AS_OF = build day).
+#
+# Secrets: LINKEDIN_ACCESS_TOKEN. Set LINKEDIN_LIVE_MODE=true to post live (default: preview only).
+name: Comic Release Thursday
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 13 * * 4'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: |
+          npm ci
+          cd tools/linkedin && npm install
+
+      - name: Build date (ET)
+        id: date
+        run: |
+          BUILD_DATE=$(TZ=America/New_York date +%Y-%m-%d)
+          echo "date=$BUILD_DATE" >> $GITHUB_OUTPUT
+          echo "Comic release: $BUILD_DATE"
+
+      - name: Trigger Amplify deploy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "comic release ${{ steps.date.outputs.date }}" || true
+          git push
+
+      - name: Wait for Amplify
+        run: sleep 600
+
+      - name: Post comic to LinkedIn
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_LIVE_MODE: ${{ secrets.LINKEDIN_LIVE_MODE || 'false' }}
+        run: |
+          if [ "$LINKEDIN_LIVE_MODE" = "true" ]; then
+            node tools/linkedin/post-comic.js --next
+          else
+            node tools/linkedin/post-comic.js --next --preview
+            echo "Preview only. Set LINKEDIN_LIVE_MODE=true to post live."
+          fi
+        continue-on-error: true
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Comic Thursday Release" >> $GITHUB_STEP_SUMMARY
+          echo "Date: ${{ steps.date.outputs.date }}" >> $GITHUB_STEP_SUMMARY

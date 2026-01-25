@@ -113,6 +113,10 @@ frontend:
           if [ -f amplify/backend/.env.production ]; then
             export $(cat amplify/backend/.env.production | xargs)
           fi
+        - |
+          # Comics: only episodes with releaseDate <= COMIC_RELEASE_AS_OF go live. Default = build day (ET).
+          export COMIC_RELEASE_AS_OF="${COMIC_RELEASE_AS_OF:-$(TZ=America/New_York date +%Y-%m-%d)}"
+          echo "COMIC_RELEASE_AS_OF=$COMIC_RELEASE_AS_OF"
         - npm ci
     build:
       commands:
