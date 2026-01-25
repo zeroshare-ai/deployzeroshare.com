@@ -70,6 +70,10 @@ deployzeroshare.com/
 │   └── README.md               # Test documentation
 │
 ├── tools/linkedin/             # LinkedIn automation
+├── tools/twitter/              # Twitter cross-posting
+├── scripts/
+│   ├── setup-marketing-cron.sh # LinkedIn + Twitter + Comic cron
+│   └── release-comic-thursday.sh
 │
 └── Documentation
     ├── IMPLEMENTATION_SUMMARY.md  # Feature documentation
@@ -118,6 +122,16 @@ git push origin main
 ```
 
 Amplify auto-deploys on push to `main`. Build config in `amplify.yml`.
+
+## Marketing automation (LinkedIn, Twitter, Comic)
+
+Unified cron for content generation, LinkedIn posts, Twitter cross-posts, and the weekly comic:
+
+```bash
+./scripts/setup-marketing-cron.sh
+```
+
+**Docs:** `docs/CRON_AND_AUTOMATION.md` · `tools/linkedin/GROWTH_PLAYBOOK.md`
 
 ## Live URLs
 

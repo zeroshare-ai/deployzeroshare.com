@@ -42,7 +42,8 @@
 | Component | Status | Frequency | Human Needed |
 |-----------|--------|-----------|--------------|
 | Content Generation | ✅ Automated | Weekly (Sunday 8 PM) | None |
-| Post Publishing | ✅ Automated | 8x/week (cron) | None |
+| Post Publishing | ✅ Automated | 7 regular + 1 comic/week (cron) | None |
+| Twitter Cross-Post | ✅ Automated | ~15 min after each LinkedIn post | None |
 | Paid Campaigns | ⏳ Setup Once | Runs continuously | Setup only |
 | Analytics Report | ⏳ To Build | Weekly email | None |
 | Token Refresh | ⏳ To Build | Every 60 days | None |
@@ -76,24 +77,38 @@ Then copy specs into LinkedIn Campaign Manager → Set to "Run continuously" →
 
 ## 📝 Automated Content Pipeline
 
+### Install Cron (LinkedIn + Twitter + Comic)
+
+```bash
+./scripts/setup-marketing-cron.sh
+```
+
+**Full schedule:** `docs/CRON_AND_AUTOMATION.md`
+
 ### Weekly Content Generation (Sundays 8 PM ET)
 
-```cron
-0 20 * * 0 cd ~/checkout/deployzeroshare.com/tools/linkedin && npm run generate >> logs/generate.log 2>&1
-```
+`generate:all` (content + strategic + viral + whitepapers + executive) → `tools/linkedin/content/posts.json`
 
 ### Daily Posting Schedule (Automated via Cron)
 
-| Day | Time | Action |
-|-----|------|--------|
-| Mon | 8:00 AM ET | Post 1 |
-| Tue | 8:00 AM ET | Post 2 |
-| Tue | 5:00 PM ET | Post 3 |
-| Wed | 8:00 AM ET | Post 4 |
-| Wed | 5:00 PM ET | Post 5 |
-| Thu | 8:00 AM ET | Post 6 |
-| Thu | 5:00 PM ET | Post 7 |
-| Fri | 8:00 AM ET | Post 8 |
+| Day | Time | LinkedIn | Twitter |
+|-----|------|----------|---------|
+| Mon | 8:00 AM | Post 1 | — |
+| Mon | 8:15 AM | — | Cross-post |
+| Tue | 8:00 AM | Post 2 | — |
+| Tue | 8:15 AM | — | Cross-post |
+| Tue | 5:00 PM | Post 3 | — |
+| Tue | 5:15 PM | — | Cross-post |
+| Wed | 8:00 AM | Post 4 | — |
+| Wed | 8:15 AM | — | Cross-post |
+| Wed | 5:00 PM | Post 5 | — |
+| Wed | 5:15 PM | — | Cross-post |
+| Thu | 8:00 AM | **Comic** (no regular post) | — |
+| Thu | 8:15 AM | — | Cross-post (often no-op) |
+| Thu | 5:00 PM | Post 6 | — |
+| Thu | 5:15 PM | — | Cross-post |
+| Fri | 8:00 AM | Post 7 | — |
+| Fri | 8:15 AM | — | Cross-post |
 
 ### Content Types (AI-Generated)
 
@@ -102,6 +117,19 @@ Then copy specs into LinkedIn Campaign Manager → Set to "Run continuously" →
 - War stories (anonymized)
 - Contrarian perspectives
 - Checklists and guides
+
+### Twitter/X Cross-Posting
+
+- Every **published** LinkedIn post is cross-posted to Twitter (same narrative, shortened).
+- Twitter tweets use **conversion URLs** with `utm_source=twitter&utm_medium=social&utm_campaign=crosspost`.
+- Each tweet includes **"Also on LinkedIn →"** link to company page for cross-discovery.
+- Run: `cd tools/twitter && npm run preview` / `npm run post` / `npm run sync`.
+
+### Conversion & Crosslinking
+
+- **LinkedIn:** All links use UTM (`utm_source=linkedin&utm_medium=social&utm_campaign=...`). Every post ends with **"Follow us on X → @DeployZeroShare"**.
+- **Twitter:** Same CTAs, UTMs, plus **"Also on LinkedIn"** link.
+- **Goal:** Build brand, trust, loyalty; nudge toward free trial → paid. See `CONVERSION_PLAYBOOK.md`.
 
 ---
 

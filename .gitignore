@@ -5,6 +5,7 @@
 
 # LinkedIn tools (local automation - not deployed)
 tools/linkedin/node_modules
+tools/twitter/node_modules
 tools/linkedin/.env
 
 # Lambda function build artifacts
@@ -53,3 +54,7 @@ tools/linkedin/.env.page-manager
 # Local env files
 tools/twitter/.env
 tools/email/.env
+# Marketing automation state & logs (local)
+tools/twitter/posted.json
+tools/linkedin/logs/
+tools/twitter/logs/

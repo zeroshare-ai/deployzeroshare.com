@@ -22,6 +22,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
+import { TwitterApi } from 'twitter-api-v2';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: join(__dirname, '.env') });
@@ -29,94 +30,108 @@ dotenv.config({ path: join(__dirname, '.env') });
 const LINKEDIN_POSTS = join(__dirname, '../linkedin/content/posts.json');
 const TWITTER_LOG = join(__dirname, 'posted.json');
 
+const WEBSITE = 'https://deployzeroshare.com';
+const MARKETPLACE = 'https://aws.amazon.com/marketplace/pp/prodview-zeroshare';
+const LINKEDIN_COMPANY = 'https://www.linkedin.com/company/110457262';
+const UTM_TWITTER = 'utm_source=twitter&utm_medium=social&utm_campaign=crosspost';
+const CROSSLINK_LINKEDIN = `Also on LinkedIn → ${LINKEDIN_COMPANY}`;
+
 const config = {
-  apiKey: process.env.TWITTER_API_KEY,
-  apiSecret: process.env.TWITTER_API_SECRET,
+  appKey: process.env.TWITTER_API_KEY,
+  appSecret: process.env.TWITTER_API_SECRET,
   accessToken: process.env.TWITTER_ACCESS_TOKEN,
   accessSecret: process.env.TWITTER_ACCESS_SECRET,
-  bearerToken: process.env.TWITTER_BEARER_TOKEN,
   liveMode: process.env.TWITTER_LIVE_MODE === 'true',
 };
+
+function getClient() {
+  if (!config.appKey || !config.appSecret || !config.accessToken || !config.accessSecret) {
+    throw new Error('Twitter credentials missing. Set TWITTER_API_KEY, _SECRET, ACCESS_TOKEN, ACCESS_SECRET in .env');
+  }
+  return new TwitterApi({
+    appKey: config.appKey,
+    appSecret: config.appSecret,
+    accessToken: config.accessToken,
+    accessSecret: config.accessSecret,
+  });
+}
 
 // =============================================================================
 // CONTENT TRANSFORMATION
 // =============================================================================
 
 /**
- * Transform LinkedIn post to Twitter format
- * LinkedIn: Long-form, professional, #MultiWordHashtags
- * Twitter: Punchy, conversational, shorter hashtags
+ * Pick best conversion URL from post. Priority: pricing/marketplace > docs > compliance > blog > homepage.
+ * Always add UTM for attribution.
+ */
+function pickConversionUrl(linkedinPost) {
+  const content = (linkedinPost.content || '').toLowerCase();
+  const raw = (linkedinPost.content || '').match(/(https?:\/\/[^\s)\]]+)/g) || [];
+  const sep = (s) => (s.includes('?') ? '&' : '?');
+  const addUtm = (u) => `${u.replace(/[&\s]+$/, '')}${sep(u)}${UTM_TWITTER}`;
+
+  if (/pricing|marketplace|free trial|try it free|try free|start free/i.test(content) || raw.some((u) => /pricing|marketplace/i.test(u))) {
+    const u = raw.find((x) => /pricing|marketplace/i.test(x));
+    return u ? addUtm(u) : addUtm(`${WEBSITE}/pricing`);
+  }
+  if (/\/docs|documentation|see how it works|architecture docs/i.test(content) || raw.some((u) => /\/docs/i.test(u))) {
+    const u = raw.find((x) => /\/docs/i.test(x));
+    return u ? addUtm(u) : addUtm(`${WEBSITE}/docs`);
+  }
+  if (/compliance|audit|gdpr|hipaa|soc2|dpo/i.test(content) || raw.some((u) => /compliance/i.test(u))) {
+    const u = raw.find((x) => /compliance/i.test(x));
+    return u ? addUtm(u) : addUtm(`${WEBSITE}/compliance`);
+  }
+  if (/\/blog\/|read the|full article/i.test(content) || raw.some((u) => /\/blog\//i.test(u))) {
+    const u = raw.find((x) => /deployzeroshare\.com\/blog\//i.test(x));
+    return u ? addUtm(u) : addUtm(WEBSITE);
+  }
+  return addUtm(raw[0] || WEBSITE);
+}
+
+/**
+ * Transform LinkedIn post to Twitter. Same narrative, same CTA, conversion URLs + UTMs, crosslink to LinkedIn.
  */
 function transformForTwitter(linkedinPost) {
   const content = linkedinPost.content || '';
-  
-  // Extract the hook (first meaningful line)
-  const lines = content.split('\n').filter(l => l.trim());
+  const lines = content.split('\n').filter((l) => l.trim());
   const hook = lines[0] || '';
-  
-  // Get key points (lines that start with →, •, ✓, ✅, ❌, or numbers)
-  const keyPoints = lines.filter(l => 
-    /^[→•✓✅❌\d]/.test(l.trim()) || 
-    /^[-*]/.test(l.trim())
-  ).slice(0, 3);
-  
-  // Extract URL if present
-  const urlMatch = content.match(/(https?:\/\/[^\s]+)/);
-  const url = urlMatch ? urlMatch[1] : 'https://deployzeroshare.com';
-  
-  // Transform hashtags (shorter for Twitter)
-  const hashtagMap = {
-    '#AISecurity': '#AISec',
-    '#DataProtection': '#DataSec',
-    '#SecurityLeadership': '#SecLeadership',
-    '#CyberSecurity': '#CyberSec',
-    '#Compliance': '#GRC',
-    '#DevSecOps': '#DevSecOps',
-    '#InfoSec': '#InfoSec',
-    '#CISO': '#CISO',
-  };
-  
-  // Build Twitter post
-  let tweet = '';
-  
-  // If hook is short enough, use it directly
-  if (hook.length <= 200) {
-    tweet = hook;
-  } else {
-    // Truncate hook
-    tweet = hook.substring(0, 197) + '...';
+  const keyPoints = lines.filter((l) => /^[→•✓✅❌\d]/.test(l.trim()) || /^[-*]/.test(l.trim())).slice(0, 2);
+  const conversionUrl = pickConversionUrl(linkedinPost);
+  const hashtags = '#AISec #InfoSec';
+  const max = 280;
+
+  let tweet = hook.length <= 200 ? hook : hook.substring(0, 197) + '...';
+  if (keyPoints.length && tweet.length < 160) {
+    tweet += '\n\n' + keyPoints.join('\n');
   }
-  
-  // Add key points if room
-  if (keyPoints.length > 0 && tweet.length < 180) {
-    tweet += '\n\n' + keyPoints.slice(0, 2).join('\n');
+  tweet += `\n\n${conversionUrl}`;
+
+  const withCrosslink = tweet + '\n\n' + CROSSLINK_LINKEDIN;
+  if (withCrosslink.length <= max) {
+    tweet = withCrosslink;
+  } else if (tweet.length + 4 + hashtags.length <= max) {
+    tweet += '\n\n' + hashtags;
   }
-  
-  // Add URL
-  tweet += `\n\n${url}`;
-  
-  // Add hashtags (fit what we can)
-  const hashtags = ['#AISec', '#InfoSec'];
-  if (tweet.length + hashtags.join(' ').length + 2 <= 280) {
-    tweet += '\n\n' + hashtags.join(' ');
+  if (tweet.length > max) {
+    const suffix = '\n\n' + conversionUrl;
+    const allow = max - suffix.length - 4;
+    const body = (hook.length > allow ? hook.substring(0, allow - 3) + '...' : hook) + suffix;
+    tweet = body.length <= max ? body : hook.substring(0, max - suffix.length - 5) + '...' + suffix;
   }
-  
-  // Create thread if content is substantial
-  const thread = [];
-  thread.push(tweet);
-  
-  // Second tweet with more detail (optional)
+
+  const thread = [tweet];
   if (lines.length > 5) {
-    const moreContent = lines.slice(3, 8).join('\n');
-    if (moreContent.length > 50) {
-      let tweet2 = moreContent.substring(0, 270);
-      if (moreContent.length > 270) tweet2 += '...';
-      thread.push(tweet2);
+    const more = lines.slice(3, 8).join('\n');
+    if (more.length > 50) {
+      let t2 = more.substring(0, 260) + (more.length > 260 ? '...' : '');
+      t2 += `\n\n${conversionUrl}`;
+      if (t2.length <= max) thread.push(t2);
     }
   }
-  
+
   return {
-    linkedinId: linkedinPost.id || linkedinPost.blogSlug || 'unknown',
+    linkedinId: linkedinPost.linkedinPostId || linkedinPost.id || linkedinPost.blogSlug || 'unknown',
     tweet: thread[0],
     thread: thread.length > 1 ? thread : null,
     originalLength: content.length,
@@ -125,74 +140,40 @@ function transformForTwitter(linkedinPost) {
 }
 
 // =============================================================================
-// TWITTER API
+// TWITTER API (OAuth 1.0a user context – required for posting)
 // =============================================================================
 
 async function postTweet(tweetText) {
   if (!config.liveMode) {
     console.log('🔸 DRY RUN - Would post:', tweetText.substring(0, 100) + '...');
-    return { id: 'dry-run-' + Date.now() };
+    return { data: { id: 'dry-run-' + Date.now() } };
   }
-  
-  if (!config.apiKey || !config.accessToken) {
-    throw new Error('Twitter credentials not configured. Add to .env');
-  }
-  
-  // Using Twitter API v2
-  const response = await fetch('https://api.twitter.com/2/tweets', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${config.bearerToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ text: tweetText }),
-  });
-  
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Twitter API error: ${error}`);
-  }
-  
-  return response.json();
+  const client = getClient();
+  const res = await client.v2.tweet(tweetText);
+  return res;
 }
 
 async function postThread(tweets) {
   const postedIds = [];
-  let replyTo = null;
-  
+  let replyToId = null;
+  const client = config.liveMode ? getClient() : null;
+
   for (const tweet of tweets) {
-    const body = { text: tweet };
-    if (replyTo) {
-      body.reply = { in_reply_to_tweet_id: replyTo };
-    }
-    
     if (!config.liveMode) {
       console.log(`🔸 DRY RUN - Thread tweet ${postedIds.length + 1}:`, tweet.substring(0, 80) + '...');
       postedIds.push('dry-run-' + Date.now());
       continue;
     }
-    
-    const response = await fetch('https://api.twitter.com/2/tweets', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${config.bearerToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Thread failed at tweet ${postedIds.length + 1}`);
+    let res;
+    if (replyToId) {
+      res = await client.v2.reply(tweet, replyToId);
+    } else {
+      res = await client.v2.tweet(tweet);
     }
-    
-    const result = await response.json();
-    replyTo = result.data.id;
-    postedIds.push(replyTo);
-    
-    // Rate limit protection
-    await new Promise(r => setTimeout(r, 1000));
+    replyToId = res.data.id;
+    postedIds.push(replyToId);
+    await new Promise((r) => setTimeout(r, 1000));
   }
-  
   return postedIds;
 }
 
@@ -295,6 +276,13 @@ async function postNext() {
     
   } catch (error) {
     console.error(`❌ Failed: ${error.message}`);
+    const err = error.data ?? error;
+    if (err.detail) console.error(`   Detail: ${typeof err.detail === 'string' ? err.detail : JSON.stringify(err.detail)}`);
+    if (err.title) console.error(`   Title: ${err.title}`);
+    if (err.status === 403) {
+      console.error('\n   → Ensure your app has "Read and write" permissions.');
+      console.error('   → Regenerate Access Token & Secret after changing permissions.');
+    }
   }
 }
 

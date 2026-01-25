@@ -30,6 +30,12 @@ const POSTS_FILE = join(CONTENT_DIR, 'posts.json');
 
 const WEBSITE = 'https://deployzeroshare.com';
 const MARKETPLACE = 'https://aws.amazon.com/marketplace/pp/prodview-zeroshare';
+const UTM = 'utm_source=linkedin&utm_medium=social&utm_campaign=strategic';
+const CROSSLINK_X = '\n\nFollow us on X → @DeployZeroShare';
+
+const u = (path = '', content = '') =>
+  `${WEBSITE}${path}?${content ? `utm_content=${content}&` : ''}${UTM}`;
+const m = () => `${MARKETPLACE}?utm_source=linkedin&utm_medium=social&utm_campaign=strategic&utm_content=marketplace`;
 
 console.log('🎯 Strategic Content Generator\n');
 console.log('Building conversion-focused content for each audience...\n');
@@ -71,7 +77,7 @@ This is the infrastructure that lets you say "yes" to AI.
 
 We built ZeroShare Gateway for exactly this problem.
 
-Free tier available → ${WEBSITE}
+Free tier available → ${u('')}
 
 #CISO #AIGovernance #SecurityLeadership`,
   },
@@ -101,7 +107,7 @@ They want to hear you've made it safe.
 
 That requires infrastructure, not just policy.
 
-See how it works → ${WEBSITE}/docs
+See how it works → ${u('/docs', 'docs')}
 
 #BoardReporting #CISO #AIStrategy`,
   },
@@ -130,7 +136,7 @@ The question isn't whether you can afford AI security.
 
 It's whether you can afford not to have it.
 
-Free trial on AWS Marketplace → ${WEBSITE}/pricing
+Free trial on AWS Marketplace → ${u('/pricing', 'pricing')}
 
 #SecurityROI #CISO #RiskManagement`,
   },
@@ -164,7 +170,7 @@ ZeroShare Gateway provides:
 ✓ Evidence for SOC 2, HIPAA, GDPR audits
 ✓ Exportable compliance reports
 
-Built for audit day → ${WEBSITE}/compliance
+Built for audit day → ${u('/compliance', 'compliance')}
 
 #Compliance #SOC2 #AuditReady`,
   },
@@ -192,7 +198,7 @@ Regulators expect technical controls.
 
 ZeroShare Gateway gives you the infrastructure to demonstrate compliance—not just claim it.
 
-Compliance documentation → ${WEBSITE}/compliance
+Compliance documentation → ${u('/compliance', 'compliance')}
 
 #Compliance2026 #GDPR #HIPAA`,
   },
@@ -218,7 +224,7 @@ Technical controls you need:
 
 This is what Article 32 looks like for AI.
 
-See the GDPR features → ${WEBSITE}/compliance
+See the GDPR features → ${u('/compliance', 'compliance')}
 
 #DPO #GDPR #DataProtection`,
   },
@@ -261,7 +267,7 @@ Our approach:
    → Redact (replace sensitive data)
    → Alert (log and continue)
 
-Full architecture docs → ${WEBSITE}/docs
+Full architecture docs → ${u('/docs', 'docs')}
 
 Try it free → deploys in 10 minutes
 
@@ -297,7 +303,7 @@ All options include:
 ✓ Log streaming
 ✓ Slack/webhook alerts
 
-Docs → ${WEBSITE}/docs
+Docs → ${u('/docs', 'docs')}
 
 #DevOps #Security #Kubernetes`,
   },
@@ -334,7 +340,7 @@ API:
 
 We built this to fit into your stack, not replace it.
 
-Integration docs → ${WEBSITE}/docs
+Integration docs → ${u('/docs', 'docs')}
 
 #Integration #SecurityTools #DevSecOps`,
   },
@@ -374,7 +380,7 @@ What works: intercepting the request before it leaves.
 
 ZeroShare detects secrets in code snippets going to AI.
 
-Free tier includes secrets detection → ${WEBSITE}
+Free tier includes secrets detection → ${u('')}
 
 #DevSecOps #GitHubCopilot #SecretsManagement`,
   },
@@ -404,7 +410,7 @@ Detects and blocks secrets before transmission.
 
 Works with any AI coding assistant.
 
-Try it free → ${WEBSITE}
+Try it free → ${u('')}
 
 #CursorIDE #DevSecOps #CodeSecurity`,
   },
@@ -434,7 +440,7 @@ No developer friction.
 No workflow changes.
 Just protection.
 
-Terraform modules available → ${WEBSITE}/docs
+Terraform modules available → ${u('/docs', 'docs')}
 
 #InfrastructureAsCode #DevSecOps #Terraform`,
   },
@@ -479,7 +485,7 @@ Questions to ask vendors:
 
 ZeroShare: On-prem, <5ms, agentless, deploys in hours.
 
-Compare options → ${WEBSITE}/pricing
+Compare options → ${u('/pricing', 'pricing')}
 
 #ITLeadership #VendorEvaluation #Security`,
   },
@@ -509,7 +515,7 @@ ZeroShare Gateway shows you:
 ✓ Who is sending it
 ✓ When it happens
 
-Start with visibility → ${WEBSITE}
+Start with visibility → ${u('')}
 
 #ShadowIT #AIGovernance #Visibility`,
   },
@@ -542,7 +548,7 @@ The question isn't IF data has been leaked.
 
 It's whether you have visibility to know.
 
-Get visibility → ${WEBSITE}
+Get visibility → ${u('')}
 
 #AISecurity #DataProtection #Statistics`,
   },
@@ -568,7 +574,7 @@ It's technical controls that work automatically.
 
 Block sensitive data before it reaches AI.
 
-See how → ${WEBSITE}
+See how → ${u('')}
 
 #AISecurity #DataLoss #Enterprise`,
   },
@@ -592,7 +598,7 @@ Based on industry data, "no visibility" is the honest answer for most.
 
 65% of employees have already shared sensitive data with AI.
 
-Visibility is the first step → ${WEBSITE}
+Visibility is the first step → ${u('')}
 
 #Poll #AISecurity`,
   },
@@ -618,7 +624,7 @@ Your compliance team has evidence.
 
 That's it. No agent install. No workflow change.
 
-See a demo → ${WEBSITE}
+See a demo → ${u('')}
 
 #AISecurity #Explainer #Gateway`,
   },
@@ -640,7 +646,7 @@ Deploy in 10 minutes.
 No sales call required.
 Free for small teams.
 
-Start free → ${WEBSITE}
+Start free → ${u('')}
 
 AWS Marketplace available for enterprise.
 
@@ -664,6 +670,7 @@ function generateStrategicContent() {
 
   return allPosts.map(post => ({
     ...post,
+    content: post.content + CROSSLINK_X,
     format: 'strategic',
     generatedAt: new Date().toISOString(),
     status: 'draft',

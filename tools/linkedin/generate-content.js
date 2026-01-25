@@ -53,10 +53,13 @@ function extractBlogPosts() {
   return posts;
 }
 
+const CROSSLINK_X = '\n\nFollow us on X → @DeployZeroShare';
+const UTM_SHARE = 'utm_source=linkedin&utm_medium=social&utm_campaign=share';
+
 // Generate LinkedIn post from blog post
 function generateLinkedInPost(blogPost, type = 'share') {
   const { title, excerpt, category, slug } = blogPost;
-  const url = `https://deployzeroshare.com/blog/${slug}`;
+  const url = `https://deployzeroshare.com/blog/${slug}?${UTM_SHARE}`;
   
   // Different post formats
   const formats = {
@@ -67,7 +70,7 @@ ${excerpt}
 
 Read more → ${url}
 
-#AISecurity #${category.replace(/\s+/g, '')} #DataProtection #CISO`,
+#AISecurity #${category.replace(/\s+/g, '')} #DataProtection #CISO${CROSSLINK_X}`,
     
     // Format 2: Stat-led
     stat: `📊 New on the blog:
@@ -78,7 +81,7 @@ ${excerpt}
 
 Full article → ${url}
 
-#AISecurity #InfoSec #CyberSecurity`,
+#AISecurity #InfoSec #CyberSecurity${CROSSLINK_X}`,
     
     // Format 3: Problem-solution
     problem: `The challenge: ${excerpt.split('.')[0]}.
@@ -89,7 +92,7 @@ The solution: We break it down in our latest article.
 
 ${url}
 
-#AISecurity #Enterprise #DataProtection`,
+#AISecurity #Enterprise #DataProtection${CROSSLINK_X}`,
     
     // Format 4: Simple share
     share: `📰 ${title}
@@ -98,7 +101,7 @@ ${excerpt}
 
 Read the full article → ${url}
 
-#AISecurity #${category.replace(/\s+/g, '')}`,
+#AISecurity #${category.replace(/\s+/g, '')}${CROSSLINK_X}`,
   };
   
   return {
@@ -157,9 +160,9 @@ This is why AI security isn't optional anymore.
 
 ZeroShare Gateway automatically blocks PII and secrets before they reach external AI services.
 
-Learn more → https://deployzeroshare.com
+Learn more → https://deployzeroshare.com?${UTM_SHARE}
 
-#AISecurity #DataProtection #CISO #InfoSec`,
+#AISecurity #DataProtection #CISO #InfoSec${CROSSLINK_X}`,
     generatedAt: new Date().toISOString(),
     status: 'draft',
     postedAt: null,
@@ -224,7 +227,9 @@ Which answer do you want to give?`,
 
 ${t.body}
 
-#AISecurity #CISO #DataProtection`,
+See how → https://deployzeroshare.com?${UTM_SHARE}
+
+#AISecurity #CISO #DataProtection${CROSSLINK_X}`,
     generatedAt: new Date().toISOString(),
     status: 'draft',
     postedAt: null,

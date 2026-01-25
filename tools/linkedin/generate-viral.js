@@ -23,6 +23,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dirname, 'content');
 const POSTS_FILE = join(CONTENT_DIR, 'posts.json');
 
+const WEBSITE = 'https://deployzeroshare.com';
+const UTM_VIRAL = 'utm_source=linkedin&utm_medium=social&utm_campaign=viral';
+const CTA = `\n\nLearn more → ${WEBSITE}?${UTM_VIRAL}`;
+const CROSSLINK_X = '\n\nFollow us on X → @DeployZeroShare';
+
 console.log('🔥 LinkedIn Viral Content Generator\n');
 console.log('Exploiting algorithm weaknesses for maximum organic reach...\n');
 
@@ -672,13 +677,21 @@ function generateViralContent() {
     ...QUESTION_POSTS.map(p => ({ ...p, type: 'question', format: 'algorithm_optimized' })),
   ];
 
-  return allPosts.map(post => ({
-    ...post,
-    generatedAt: new Date().toISOString(),
-    status: 'draft',
-    postedAt: null,
-    linkedinPostId: null,
-  }));
+  return allPosts.map(post => {
+    let content = post.content || '';
+    if (!content.includes('deployzeroshare.com')) {
+      content += CTA;
+    }
+    content += CROSSLINK_X;
+    return {
+      ...post,
+      content,
+      generatedAt: new Date().toISOString(),
+      status: 'draft',
+      postedAt: null,
+      linkedinPostId: null,
+    };
+  });
 }
 
 function main() {

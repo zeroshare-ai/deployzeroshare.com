@@ -12,7 +12,7 @@
     "generate:strategic": "node generate-strategic.js",
     "generate:rebuild": "node generate-strategic.js --replace",
     "generate:whitepapers": "node generate-whitepapers.js",
-    "generate:all": "node generate-content.js && node generate-whitepapers.js && node generate-viral.js && node generate-executive.js",
+    "generate:all": "node generate-content.js && node generate-whitepapers.js && node generate-viral.js && node generate-executive.js && node generate-strategic.js",
     "preview": "node post.js --dry-run",
     "post": "echo 'Use: node post.js --live (requires explicit authorization)'",
     "post:next": "node post-next.js",

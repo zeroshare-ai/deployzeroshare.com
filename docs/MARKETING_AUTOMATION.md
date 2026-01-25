@@ -139,20 +139,21 @@ Campaign: ZeroShare - AI Security Leaders
 
 ---
 
-## Cron Schedule Summary
+## Cron Schedule (Unified: LinkedIn + Twitter + Comic)
 
 ```bash
-# View current schedule
-crontab -l
-
-# LinkedIn Posting
-0 8 * * 1,5     # Mon/Fri 8am - 1 post
-0 8 * * 2-4     # Tue-Thu 8am - morning post  
-0 17 * * 2-4    # Tue-Thu 5pm - afternoon post
-
-# Content Generation
-0 20 * * 0      # Sunday 8pm - generate new content
+./scripts/setup-marketing-cron.sh   # Install
+crontab -l                          # View
 ```
+
+**Full schedule, logs, flow:** `docs/CRON_AND_AUTOMATION.md`
+
+| When (ET) | Action |
+|-----------|--------|
+| Sun 8 PM | `generate:all` (content + strategic + viral + whitepapers + executive) |
+| Mon–Fri 8 AM / Tue–Thu 5 PM | LinkedIn `post:next` (Thu 8 AM = comic only) |
+| ~15 min after each LinkedIn post | Twitter cross-post |
+| Mon 9 AM | `report-weekly` (LinkedIn analytics) |
 
 ---
 
@@ -161,11 +162,13 @@ crontab -l
 | Component | Location |
 |-----------|----------|
 | LinkedIn tools | `tools/linkedin/` |
+| Twitter tools | `tools/twitter/` |
 | Post queue | `tools/linkedin/content/posts.json` |
 | Whitepapers | `public/resources/` |
 | Blog posts | `app/blog/` |
 | Ad creatives | `tools/linkedin/ads/` |
-| Cron setup | `tools/linkedin/setup-cron.sh` |
+| Cron setup | `scripts/setup-marketing-cron.sh` |
+| Cron docs | `docs/CRON_AND_AUTOMATION.md` |
 
 ---
 

@@ -2,35 +2,40 @@
 
 ## Active Posting Schedule
 
-**Automated via cron on this system.**
+**Automated via unified cron (LinkedIn + Twitter + Comic).**
 
 | Day | Posts | Times (ET) | Rationale |
 |-----|-------|------------|-----------|
 | Monday | 1 | 8:00 AM | Catch-up day |
 | Tuesday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
 | Wednesday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
-| Thursday | 2 | 8:00 AM, 5:00 PM | Peak B2B engagement |
+| Thursday | 2 | 8:00 AM (comic), 5:00 PM (post) | Comic 8 AM; no regular post that slot |
 | Friday | 1 | 8:00 AM | Wind-down day |
 | Weekend | 0 | — | B2B audience offline |
 
-**Total: 8 posts/week**
+**Total: 7 regular + 1 comic/week.** Twitter cross-posts ~15 min after each LinkedIn post.
 
-### Content Generation
+### Install / view schedule
+```bash
+./scripts/setup-marketing-cron.sh   # Install LinkedIn + Twitter + Comic cron
+crontab -l                          # View schedule
+crontab -e                          # Edit
+```
+
+### Content generation
 | When | What |
 |------|------|
-| Sunday 8 PM ET | Auto-generate new posts from blog |
+| Sunday 8 PM ET | `generate:all` (content + strategic + viral + whitepapers + executive) |
 
-### View/Edit Schedule
+### Logs
 ```bash
-crontab -l                    # View current schedule
-crontab -e                    # Edit schedule
+tail -f tools/linkedin/logs/post.log         # LinkedIn posting
+tail -f tools/linkedin/logs/generate.log     # Generation
+tail -f tools/linkedin/logs/comic-release.log # Comic Thu
+tail -f tools/twitter/logs/crosspost.log     # Twitter cross-posts
 ```
 
-### Check Logs
-```bash
-tail -f tools/linkedin/logs/post.log      # Posting logs
-tail -f tools/linkedin/logs/generate.log  # Generation logs
-```
+**Full cron docs:** `docs/CRON_AND_AUTOMATION.md`
 
 ---
 

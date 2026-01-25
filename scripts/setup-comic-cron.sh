@@ -1,9 +1,12 @@
 #!/bin/bash
 #===============================================================================
-# "The Gateway" comic — Thursday release cron
+# "The Gateway" comic — Thursday release cron (comic-only install)
 #
 # Every Thursday 8 AM ET: trigger Amplify deploy, then post that week's episode
 # to LinkedIn. Blog posts for that episode go live only on release day.
+#
+# Prefer: ./scripts/setup-marketing-cron.sh (unified LinkedIn + Twitter + Comic).
+# Use this script only if you want comic cron alone.
 #
 # Prereqs: git push access, LINKEDIN_ACCESS_TOKEN (and LINKEDIN_LIVE_MODE=true)
 # in tools/linkedin/.env. GOOGLE_API_KEY for image generation (run comics:generate
