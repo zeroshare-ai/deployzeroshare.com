@@ -19,6 +19,7 @@ This installs the unified schedule and removes any older ZeroShare LinkedIn/Twit
 | When (ET) | Action | Platform |
 |-----------|--------|----------|
 | **Sun 8 PM** | `generate:all` (content + strategic + viral + whitepapers + executive) | LinkedIn queue |
+| **Sun 9 PM** | `blog:generate --cron` (queue-based; only generates if unshared articles < 5; gated until `BLOG_GENERATION_AFTER`) | Blog drafts |
 | **Mon 8 AM** | `post:next` (publish next draft) | LinkedIn |
 | **Mon 8:15 AM** | `npm run post` (cross-post latest published) | Twitter |
 | **Tue 8 AM** | `post:next` | LinkedIn |
@@ -42,6 +43,7 @@ This installs the unified schedule and removes any older ZeroShare LinkedIn/Twit
 - **Thu 8 AM:** Comic only. No `post:next` that slot. Regular LinkedIn posts resume at Thu 5 PM.
 - **Twitter** runs ~15 min after each LinkedIn post so `posts.json` is updated before cross-posting.
 - **Comic** posts to LinkedIn via `post-comic.js`; it does *not* write to `posts.json`, so Twitter does not cross-post comic episodes (LinkedIn-only).
+- **Sun 9 PM:** Blog generation runs **every Sunday** but only generates if unshared blog articles **< 5**. It is **gated** until `BLOG_GENERATION_AFTER` (default 2026-02-23); until then, no Opus API calls. See `docs/BLOG_AUTOMATION_DECISIONS.md`.
 
 ---
 
@@ -68,6 +70,7 @@ Mon–Fri      post:next → publish draft to LinkedIn, mark published in posts.
 | `tools/linkedin/logs/post.log` | `post:next` (LinkedIn) |
 | `tools/linkedin/logs/comic-release.log` | Comic Thursday (git push + post-comic) |
 | `tools/linkedin/logs/report.log` | `report-weekly` |
+| `tools/linkedin/logs/blog-generate.log` | `blog:generate` (Opus; gated until enabled) |
 | `tools/twitter/logs/crosspost.log` | Twitter cross-posts |
 
 ---
@@ -100,6 +103,8 @@ cd tools/twitter && TWITTER_LIVE_MODE=true npm run post
 
 ## Related docs
 
+- **Blog automation decisions:** `docs/BLOG_AUTOMATION_DECISIONS.md` (frequency, queue, Opus, gate)
+- **Blog strategy:** `docs/BLOG_ARTICLE_STRATEGY.md`
 - **Conversion & crosslinking:** `tools/linkedin/CONVERSION_PLAYBOOK.md`
 - **Growth playbook:** `tools/linkedin/GROWTH_PLAYBOOK.md`
 - **Twitter setup:** `tools/twitter/README.md`

@@ -33,6 +33,9 @@ mkdir -p "$LINKEDIN_DIR/logs" "$TWITTER_DIR/logs"
 # Content generation – Sunday 8 PM ET
 0 20 * * 0 TZ=America/New_York cd $LINKEDIN_DIR && /usr/bin/npm run generate:all >> $LINKEDIN_DIR/logs/generate.log 2>&1
 
+# Blog generation – 1st & 3rd Sunday 9 PM ET (gated until BLOG_GENERATION_AFTER; see docs/BLOG_AUTOMATION_DECISIONS.md)
+0 21 * * 0 TZ=America/New_York cd $REPO_DIR && /usr/bin/npm run blog:generate -- --cron >> $LINKEDIN_DIR/logs/blog-generate.log 2>&1
+
 # LinkedIn post:next — Mon/Fri 8 AM, Tue–Thu 8 AM (Tue/Wed only; Thu 8 AM = comic), Tue–Thu 5 PM
 0 8 * * 1 TZ=America/New_York cd $LINKEDIN_DIR && /usr/bin/npm run post:next >> $LINKEDIN_DIR/logs/post.log 2>&1
 0 8 * * 5 TZ=America/New_York cd $LINKEDIN_DIR && /usr/bin/npm run post:next >> $LINKEDIN_DIR/logs/post.log 2>&1
@@ -65,6 +68,7 @@ echo "✅ Marketing cron installed (LinkedIn + Twitter + Comic)"
 echo ""
 echo "📋 Schedule (all America/New_York):"
 echo "   Sun 8 PM    generate:all (content + strategic + viral + whitepapers + executive)"
+echo "   Sun 9 PM    blog:generate (queue-based; only generates if unshared articles < 5; gated until BLOG_GENERATION_AFTER)"
 echo "   Mon 8 AM    LinkedIn post → 8:15 Twitter cross-post"
 echo "   Tue 8 AM    LinkedIn post → 8:15 Twitter | 5 PM LinkedIn → 5:15 Twitter"
 echo "   Wed 8 AM    LinkedIn post → 8:15 Twitter | 5 PM LinkedIn → 5:15 Twitter"
@@ -77,6 +81,7 @@ echo "   $LINKEDIN_DIR/logs/post.log"
 echo "   $LINKEDIN_DIR/logs/generate.log"
 echo "   $LINKEDIN_DIR/logs/comic-release.log"
 echo "   $LINKEDIN_DIR/logs/report.log"
+echo "   $LINKEDIN_DIR/logs/blog-generate.log"
 echo "   $TWITTER_DIR/logs/crosspost.log"
 echo ""
 echo "🔧 Commands: crontab -l | crontab -e"

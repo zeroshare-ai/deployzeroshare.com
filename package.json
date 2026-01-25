@@ -47,7 +47,9 @@
     "compliance:send-soc2": "node scripts/compliance/package-and-send.js --cert=soc2",
     "compliance:send-aws": "node scripts/compliance/package-and-send.js --cert=aws",
     "compliance:send-all": "node scripts/compliance/package-and-send.js --cert=all",
-    "compliance:local": "node scripts/compliance/package-and-send.js --local"
+    "compliance:local": "node scripts/compliance/package-and-send.js --local",
+    "blog:generate": "node scripts/blog-generate.js",
+    "blog:check-queue": "node scripts/blog-generate.js --check-queue"
   },
   "dependencies": {
     "next": "^14.0.4",
