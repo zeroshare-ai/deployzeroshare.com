@@ -108,28 +108,57 @@ for (const ep of released) {
   const excerpt = `${ep.linkedinHook || ''} See how Alex and Jordan protect everyone silently.`;
   const date = formatDate(ep.releaseDate);
   const imgPath = `/images/comics/comic-episode-${String(ep.number).padStart(2, '0')}.png`;
+  
+  // Calculate next episode info
+  const nextEp = episodes.find(e => e.number === ep.number + 1);
+  const nextThursday = nextEp ? formatDate(nextEp.releaseDate) : null;
+  const episodesRemaining = 34 - ep.number;
+  
+  // Series indicator text
+  const seriesProgress = ep.number === 34 
+    ? '🏁 **SERIES FINALE** — Thank you for following Alex and Jordan\'s story!'
+    : `📺 **Episode ${ep.number} of 34** — ${episodesRemaining} episodes remaining`;
+  
+  const nextEpisodeText = nextEp && nextThursday
+    ? `⏰ **Next episode:** "${nextEp.title}" drops **${nextThursday}** (next Thursday)`
+    : ep.number === 34 
+      ? '✅ You\'ve reached the end! Start from [Episode 1](/blog/the-gateway-episode-01-the-ssn-leak) to catch anything you missed.'
+      : '⏰ **Next episode:** Coming next Thursday';
+
   const content = [
     `# ${title}`,
     '',
-    `**${ep.theme || ''}**`,
-    '',
-    "It's Thursday. Here's what happened at the office this week.",
+    seriesProgress,
     '',
     `![The Gateway Episode ${ep.number}](${imgPath})`,
     '',
-    ep.linkedinHook || '',
-    '',
-    'Alex and Jordan protect everyone silently. No drama. No speeches. Just quiet heroism.',
+    `> *${ep.linkedinHook || ''}*`,
     '',
     '---',
     '',
-    '## About "The Gateway"',
+    '## The Story So Far',
     '',
-    '"The Gateway" is a weekly comic series about two engineers who protect their entire organization from AI data leaks. Every Thursday, we share a new episode showing how ZeroShare Gateway blocks PII and secrets automatically.',
+    'Alex and Jordan are two engineers who protect their entire organization from AI data leaks. Every Thursday, they silently block another disaster. No drama. No speeches. Just quiet heroism.',
     '',
-    '**Previous episodes:** [View all comics](/blog?category=Comics)',
+    ep.number >= 15 ? '**But something bigger is happening.** Keep watching.' : '**Something bigger is coming.** Keep watching.',
     '',
-    '**Next episode:** Coming next Thursday',
+    '---',
+    '',
+    '## Never Miss an Episode',
+    '',
+    nextEpisodeText,
+    '',
+    '📖 **Catch up:** [View all episodes](/blog?category=Comics)',
+    '',
+    '🔔 **Follow us on LinkedIn** to get notified every Thursday: [ZeroShare on LinkedIn](https://www.linkedin.com/company/zeroshare)',
+    '',
+    '---',
+    '',
+    '## What Alex and Jordan Use',
+    '',
+    'The engineers in this comic use **ZeroShare Gateway** — the same AI security tool available to you. It blocks PII and secrets before they leak to ChatGPT, Copilot, and other AI tools.',
+    '',
+    '**Try it yourself:**',
   ].join('\n');
   contentLines.push(`  [${JSON.stringify(ep.slug)}]: {`);
   contentLines.push(`    title: ${JSON.stringify(title)},`);
