@@ -235,3 +235,33 @@ export const trackSearch = (query: string, resultsCount: number) => {
     results_count: resultsCount,
   });
 };
+
+// Track comic views and engagement
+export const trackComicView = (episodeNumber: number, episodeTitle: string) => {
+  trackEvent('comic_view', {
+    episode_number: episodeNumber,
+    episode_title: episodeTitle,
+    category: 'Comics',
+  });
+  // Also fire LinkedIn conversion for content engagement
+  if (typeof window !== 'undefined' && (window as unknown as { lintrk?: Function }).lintrk) {
+    (window as unknown as { lintrk: Function }).lintrk('track', { conversion_id: 'comic_view' });
+  }
+};
+
+// Track comic CTA clicks (high-intent conversion from comics)
+export const trackComicCTAClick = (episodeNumber: number) => {
+  trackEvent('comic_cta_click', {
+    episode_number: episodeNumber,
+    source: 'comic_page',
+  });
+  trackLinkedInConversion('aws_marketplace_click');
+};
+
+// Track comic share actions
+export const trackComicShare = (episodeNumber: number, platform: string) => {
+  trackEvent('comic_share', {
+    episode_number: episodeNumber,
+    platform: platform,
+  });
+};
