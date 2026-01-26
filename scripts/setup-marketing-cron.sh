@@ -60,6 +60,9 @@ mkdir -p "$LINKEDIN_DIR/logs" "$TWITTER_DIR/logs"
 
 # Weekly report – Monday 9 AM ET (optional)
 0 9 * * 1 TZ=America/New_York cd $LINKEDIN_DIR && /usr/bin/npm run report >> $LINKEDIN_DIR/logs/report.log 2>&1
+
+# Daily log digest email – Every morning 7 AM ET
+0 7 * * * TZ=America/New_York cd $REPO_DIR && /usr/bin/node scripts/email-logs.js --daily >> $LINKEDIN_DIR/logs/email-logs.log 2>&1
 # ----- END ZeroShare marketing -----
 CRON
 ) | crontab -
@@ -75,6 +78,7 @@ echo "   Wed 8 AM    LinkedIn post → 8:15 Twitter | 5 PM LinkedIn → 5:15 Twi
 echo "   Thu 8 AM    Comic release only → 8:15 Twitter (often no-op) | 5 PM LinkedIn → 5:15 Twitter"
 echo "   Fri 8 AM    LinkedIn post → 8:15 Twitter"
 echo "   Mon 9 AM    report-weekly (LinkedIn analytics)"
+echo "   Daily 7 AM  Log digest email (all logs → rick@deployzeroshare.com)"
 echo ""
 echo "📁 Logs:"
 echo "   $LINKEDIN_DIR/logs/post.log"
@@ -83,6 +87,7 @@ echo "   $LINKEDIN_DIR/logs/comic-release.log"
 echo "   $LINKEDIN_DIR/logs/report.log"
 echo "   $LINKEDIN_DIR/logs/blog-generate.log"
 echo "   $TWITTER_DIR/logs/crosspost.log"
+echo "   $LINKEDIN_DIR/logs/email-logs.log (email digest log)"
 echo ""
 echo "🔧 Commands: crontab -l | crontab -e"
 echo "📖 Full docs: docs/CRON_AND_AUTOMATION.md"

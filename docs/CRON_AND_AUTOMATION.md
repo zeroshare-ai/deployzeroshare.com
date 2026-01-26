@@ -37,6 +37,7 @@ This installs the unified schedule and removes any older ZeroShare LinkedIn/Twit
 | **Fri 8 AM** | `post:next` | LinkedIn |
 | **Fri 8:15 AM** | Twitter cross-post | Twitter |
 | **Mon 9 AM** | `report-weekly` (LinkedIn analytics) | Log / optional email |
+| **Daily 7 AM** | Log digest email (all logs → rick@deployzeroshare.com) | Email via AWS SES |
 
 **Notes:**
 
@@ -72,6 +73,7 @@ Mon–Fri      post:next → publish draft to LinkedIn, mark published in posts.
 | `tools/linkedin/logs/report.log` | `report-weekly` |
 | `tools/linkedin/logs/blog-generate.log` | `blog:generate` (Opus; gated until enabled) |
 | `tools/twitter/logs/crosspost.log` | Twitter cross-posts |
+| `tools/linkedin/logs/email-logs.log` | Email digest script logs |
 
 ---
 

@@ -16,10 +16,32 @@
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { execSync } from 'child_process';
 import { config, validateConfig, requireAccessToken } from './config.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const POSTS_FILE = join(__dirname, 'content/posts.json');
+const ROOT = join(__dirname, '../..');
+
+// Send blog post report email (for Thunderbird filtering)
+function sendBlogPostReport(post, linkedinUrl) {
+  if (!post.blogSlug) return; // Not a blog post
+  
+  try {
+    const script = join(ROOT, 'scripts/email-blog-report.js');
+    if (fs.existsSync(script)) {
+      console.log('📧 Sending blog post report email...');
+      execSync(`node "${script}" --slug "${post.blogSlug}"`, {
+        cwd: ROOT,
+        stdio: 'pipe',
+        encoding: 'utf-8',
+      });
+      console.log('✅ Blog post report email sent');
+    }
+  } catch (e) {
+    console.log(`⚠️  Blog report email failed (non-fatal): ${e.message}`);
+  }
+}
 
 // LinkedIn API: Create a post
 async function createPost(postContent) {
@@ -94,6 +116,9 @@ async function main() {
     console.log(`✅ Published!`);
     console.log(`🔗 https://www.linkedin.com/feed/update/${postId}`);
     console.log(`\n📊 Status: ${posts.filter(p => p.status === 'published').length} published, ${posts.filter(p => p.status === 'draft').length} drafts remaining`);
+    
+    // Send blog post report email (if this is a blog post)
+    sendBlogPostReport(nextPost, `https://www.linkedin.com/feed/update/${postId}`);
     
     // Output for n8n to capture
     console.log(`\n__N8N_OUTPUT__`);

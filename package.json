@@ -49,7 +49,10 @@
     "compliance:send-all": "node scripts/compliance/package-and-send.js --cert=all",
     "compliance:local": "node scripts/compliance/package-and-send.js --local",
     "blog:generate": "node scripts/blog-generate.js",
-    "blog:check-queue": "node scripts/blog-generate.js --check-queue"
+    "blog:check-queue": "node scripts/blog-generate.js --check-queue",
+    "logs:email": "node scripts/email-logs.js --daily",
+    "logs:email:all": "node scripts/email-logs.js --all",
+    "blog:report": "node scripts/email-blog-report.js"
   },
   "dependencies": {
     "next": "^14.0.4",

@@ -58,3 +58,5 @@ tools/email/.env
 tools/twitter/posted.json
 tools/linkedin/logs/
 tools/twitter/logs/
+# Email temp files
+.email-temp.json
