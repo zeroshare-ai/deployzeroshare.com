@@ -125,7 +125,7 @@ export default function DocsPage() {
   };
 
   useEffect(() => {
-    fetch('/docs/index.json')
+    fetch('/_docs/index.json')
       .then(res => res.json())
       .then(data => {
         setDocIndex(data);
@@ -143,7 +143,7 @@ export default function DocsPage() {
 
   const loadDoc = (filename: string) => {
     setLoading(true);
-    fetch(`/docs/${filename}`)
+    fetch(`/_docs/${filename}`)
       .then(res => {
         if (!res.ok) throw new Error('Document not found');
         return res.text();
