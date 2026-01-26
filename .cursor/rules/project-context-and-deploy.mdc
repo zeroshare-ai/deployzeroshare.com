@@ -1,0 +1,28 @@
+---
+description: Read project docs first; verify deployments and report status
+alwaysApply: true
+---
+
+# Project Context & Deploy Discipline
+
+## 1. Read First
+
+**Before substantive work on deployzeroshare.com**, read (in order):
+
+1. **PROJECT_CONTEXT.md** – Strategy, offer, problem, audience, implementation.
+2. **STATUS.md** – What’s live, what’s pending, URLs, analytics, testing status.
+3. **.cursor/rules/release-discipline.mdc** – Cascade (PRD → Code → Tests → Docs → Marketing → Deploy), agent instructions, pre-release checklist.
+
+Also respect **.cursorrules** (always applied): tech stack, compliance claims, cross-project context, content standards.
+
+## 2. Deploy Verify & Report
+
+**When changing anything that affects production** (e.g. `amplify.yml`, `app/`, `next.config.js`, `public/`, rewrites, env):
+
+1. **State that a redeploy is needed** – e.g. “Push to `main` triggers Amplify; redeploy required.”
+2. **Point to verification** – `deploy-amplify.yml` runs on push (waits ~90s, then smoke + links + deployment tests). Manual: run **Verify Deployment** workflow or `npm run test:smoke` / `npm run test:deployed` against `https://deployzeroshare.com`.
+3. **Report back** – After deploy is live, either:
+   - Run `npm run test:smoke` and `npm run test:deployed` (or `npm run test:links` as needed) and summarize results (pass/fail, any failures), or
+   - Summarize what to check and what “success” looks like, and offer to run verification once the user confirms deploy is complete.
+
+Do not skip verification or reporting when the change affects production.

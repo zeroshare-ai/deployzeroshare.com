@@ -224,6 +224,11 @@ rewrites:
   - source: '/docs/index.html'
     target: '/docs/index.html'
     status: '200'
+  # Pass-through for /docs/*.json and /docs/*.md - must come BEFORE catch-all
+  # Otherwise catch-all rewrites them to index.html (HTML) and fetch fails
+  - source: '/docs/<*>'
+    target: '/docs/<*>'
+    status: '200'
   # Catch-all for SPA routing (homepage and client-side routes)
   # This should come LAST and only match if no specific rule matched
   - source: '/<*>'
