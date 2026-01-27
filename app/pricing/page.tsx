@@ -26,14 +26,15 @@ export default function PricingPage() {
         '7-day audit log retention',
       ],
       cta: 'Get Started Free',
-      ctaLink: '/contact-us',
+      ctaLink: 'https://aws.amazon.com/marketplace/pp/prodview-p7etizzvknoge',
       highlighted: false,
+      isMarketplace: true,
     },
     {
       name: 'Team',
       description: 'For growing teams that need advanced protection',
       price: '$499',
-      priceDetail: 'per month',
+      priceDetail: 'per month (coming soon)',
       image: '/images/pricing/pricing-professional.png',
       features: [
         'Up to 25 users',
@@ -44,15 +45,15 @@ export default function PricingPage() {
         '2 AI backends',
         '99.5% SLA',
       ],
-      cta: 'Start Free Trial',
-      ctaLink: '/contact-us',
+      cta: 'Request Early Access',
+      ctaLink: '/contact-us?plan=team',
       highlighted: true,
     },
     {
       name: 'Business',
       description: 'For departments with compliance requirements',
       price: '$1,499',
-      priceDetail: 'per month',
+      priceDetail: 'per month (coming soon)',
       image: '/images/pricing/pricing-enterprise.png',
       features: [
         'Up to 100 users',
@@ -64,8 +65,8 @@ export default function PricingPage() {
         'SSO/SAML integration',
         '99.9% SLA',
       ],
-      cta: 'Start Free Trial',
-      ctaLink: '/contact-us',
+      cta: 'Request Early Access',
+      ctaLink: '/contact-us?plan=business',
       highlighted: false,
     },
     {
@@ -86,7 +87,7 @@ export default function PricingPage() {
         '99.99% SLA',
       ],
       cta: 'Contact Sales',
-      ctaLink: '/contact-us',
+      ctaLink: '/contact-us?plan=enterprise',
       highlighted: false,
     },
   ];
@@ -235,35 +236,67 @@ export default function PricingPage() {
                 </span>
               </div>
 
-              <Link
-                href={plan.ctaLink}
-                style={{
-                  display: 'block',
-                  width: '100%',
-                  padding: '16px',
-                  borderRadius: '12px',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  fontWeight: 700,
-                  fontSize: '1rem',
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  background: plan.highlighted 
-                    ? 'white' 
-                    : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                  color: plan.highlighted ? '#667eea' : 'white',
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-                }}
-              >
-                {plan.cta}
-              </Link>
+              {(plan as any).isMarketplace ? (
+                <a
+                  href={plan.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    padding: '16px',
+                    borderRadius: '12px',
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    background: 'linear-gradient(135deg, #FF9900 0%, #FF6600 100%)',
+                    color: 'white',
+                    boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 153, 0, 0.4)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 153, 0, 0.3)';
+                  }}
+                >
+                  {plan.cta} on AWS →
+                </a>
+              ) : (
+                <Link
+                  href={plan.ctaLink}
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    padding: '16px',
+                    borderRadius: '12px',
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    background: plan.highlighted 
+                      ? 'white' 
+                      : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    color: plan.highlighted ? '#667eea' : 'white',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                  }}
+                >
+                  {plan.cta}
+                </Link>
+              )}
 
               <ul style={{
                 listStyle: 'none',

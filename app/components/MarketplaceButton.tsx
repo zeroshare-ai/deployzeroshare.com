@@ -2,8 +2,10 @@
 
 import { trackMarketplaceClick } from './Analytics';
 
-// AWS Marketplace listing URL - Update when live
-const AWS_MARKETPLACE_URL = process.env.NEXT_PUBLIC_AWS_MARKETPLACE_URL || '';
+// AWS Marketplace listing URL
+// Product ID: prod-p7etizzvknoge
+// Product Code: 7mfp6ym5ta5i59mpluvobkyhm
+const AWS_MARKETPLACE_URL = process.env.NEXT_PUBLIC_AWS_MARKETPLACE_URL || 'https://aws.amazon.com/marketplace/pp/prodview-p7etizzvknoge';
 
 export function MarketplaceButton({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
