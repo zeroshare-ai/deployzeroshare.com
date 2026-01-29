@@ -2,26 +2,19 @@
 
 import { trackMarketplaceClick } from './Analytics';
 
-// AWS Marketplace listing URL
-// Product ID: prod-p7etizzvknoge
-// Product Code: 7mfp6ym5ta5i59mpluvobkyhm
-const AWS_MARKETPLACE_URL = process.env.NEXT_PUBLIC_AWS_MARKETPLACE_URL || 'https://aws.amazon.com/marketplace/pp/prodview-p7etizzvknoge';
+// AWS Marketplace listing - COMING SOON
+// Product ID: prod-p7etizzvknoge (ready but account restricted)
+const AWS_MARKETPLACE_ENABLED = false;
 
 export function MarketplaceButton({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Track the click for LinkedIn and Google Analytics conversion tracking
     trackMarketplaceClick();
     
-    // If AWS Marketplace URL is set, navigate there
-    if (AWS_MARKETPLACE_URL) {
-      // Let the link work normally
-      return;
-    }
-    
-    // Otherwise show coming soon message and redirect to contact
+    // Show coming soon modal and redirect to contact for early access
     e.preventDefault();
-    if (confirm('AWS Marketplace listing coming soon! Would you like to request early access?')) {
-      window.location.href = '/contact-us?source=marketplace_cta';
+    if (confirm('AWS Marketplace listing coming soon!\n\nClick OK to request a private early access trial.')) {
+      window.location.href = '/contact-us?source=marketplace_early_access';
     }
   };
 
@@ -30,12 +23,10 @@ export function MarketplaceButton({ children, style, className }: { children: Re
   
   return (
     <a
-      href={AWS_MARKETPLACE_URL || '/contact-us?source=marketplace_cta'}
+      href="/contact-us?source=marketplace_cta"
       onClick={handleClick}
       className={classes}
       style={style}
-      target={AWS_MARKETPLACE_URL ? '_blank' : undefined}
-      rel={AWS_MARKETPLACE_URL ? 'noopener noreferrer' : undefined}
     >
       {children}
     </a>

@@ -25,16 +25,15 @@ export default function PricingPage() {
         'Community support',
         '7-day audit log retention',
       ],
-      cta: 'Get Started Free',
-      ctaLink: 'https://aws.amazon.com/marketplace/pp/prodview-p7etizzvknoge',
+      cta: 'Request Early Access',
+      ctaLink: '/contact-us?plan=free',
       highlighted: false,
-      isMarketplace: true,
     },
     {
       name: 'Team',
       description: 'For growing teams that need advanced protection',
       price: '$499',
-      priceDetail: 'per month (coming soon)',
+      priceDetail: 'per month',
       image: '/images/pricing/pricing-professional.png',
       features: [
         'Up to 25 users',
@@ -53,7 +52,7 @@ export default function PricingPage() {
       name: 'Business',
       description: 'For departments with compliance requirements',
       price: '$1,499',
-      priceDetail: 'per month (coming soon)',
+      priceDetail: 'per month',
       image: '/images/pricing/pricing-enterprise.png',
       features: [
         'Up to 100 users',
@@ -236,67 +235,35 @@ export default function PricingPage() {
                 </span>
               </div>
 
-              {(plan as any).isMarketplace ? (
-                <a
-                  href={plan.ctaLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    padding: '16px',
-                    borderRadius: '12px',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    transition: 'transform 0.2s, box-shadow 0.2s',
-                    background: 'linear-gradient(135deg, #FF9900 0%, #FF6600 100%)',
-                    color: 'white',
-                    boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)'
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 153, 0, 0.4)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 153, 0, 0.3)';
-                  }}
-                >
-                  {plan.cta} on AWS →
-                </a>
-              ) : (
-                <Link
-                  href={plan.ctaLink}
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    padding: '16px',
-                    borderRadius: '12px',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    transition: 'transform 0.2s, box-shadow 0.2s',
-                    background: plan.highlighted 
-                      ? 'white' 
-                      : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    color: plan.highlighted ? '#667eea' : 'white',
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-                  }}
-                >
-                  {plan.cta}
-                </Link>
-              )}
+              <Link
+                href={plan.ctaLink}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  padding: '16px',
+                  borderRadius: '12px',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  background: plan.highlighted 
+                    ? 'white' 
+                    : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: plan.highlighted ? '#667eea' : 'white',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                }}
+              >
+                {plan.cta}
+              </Link>
 
               <ul style={{
                 listStyle: 'none',
